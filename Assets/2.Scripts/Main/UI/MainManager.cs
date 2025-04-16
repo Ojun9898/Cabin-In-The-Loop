@@ -1,85 +1,120 @@
 using System.Collections;
-using System.Collections.Generic;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
+using TMPro;
 
 public class MainManager : Singleton<MainManager>
 {
+    GameObject background, cavin, title, subTitle, buttons;
+    Coroutine playOpeningCoroutine;
+    bool isOpeningSkipped = false;
+
     void Start()
     {
-        OnSceneLoaded();
+        // 미리 오브젝트 캐싱
+        background = GameObject.Find("Background");
+        cavin = GameObject.Find("Cavin");
+        title = GameObject.Find("Title");
+        subTitle = GameObject.Find("SubTitle");
+        buttons = GameObject.Find("Buttons");
+
+        playOpeningCoroutine = StartCoroutine(PlayOpening());
     }
 
-    // 오프닝 연출
-    public void OnSceneLoaded()
+    void Update()
     {
-        GameObject background = GameObject.Find("Background");
-        GameObject cavin = GameObject.Find("Cavin");
-        GameObject title = GameObject.Find("Title");
-        GameObject subTitle = GameObject.Find("SubTitle");
-        GameObject buttons = GameObject.Find("Buttons");
+        if (Input.GetMouseButtonDown(0) && !isOpeningSkipped)
+        {
+            SkipOpening();
+        }
+    }
 
+    public IEnumerator PlayOpening()
+    {
         background.SetActive(true);
         cavin.SetActive(false);
         title.SetActive(false);
         subTitle.SetActive(false);
         buttons.SetActive(false);
 
-        // 클릭 시 연출 skip
-        if (Input.GetMouseButtonDown(0))
+        cavin.SetActive(true);
+        Image cavinImage = cavin.GetComponent<Image>();
+        cavinImage.DOFade(0, 0);
+        yield return cavinImage.DOFade(1, 1.5f).WaitForCompletion();
+
+        title.SetActive(true);
+        for (int i = 0; i < title.transform.childCount; i++)
         {
-            cavin.SetActive(true);
-            title.SetActive(true);
-            subTitle.SetActive(true);
-            buttons.SetActive(true);
-            return;
+            var letter = title.transform.GetChild(i);
+            letter.gameObject.SetActive(true);
+            TMP_Text letterText = letter.GetComponent<TMP_Text>();
+            Color c = letterText.color; c.a = 0f; letterText.color = c;
         }
 
-        // BGM (FadeIn)
-
-        // Cavin Image 등장 (FadeIn)
-        cavin.SetActive(true);
-        cavin.GetComponent<Image>().DOFade(0, 0);
-        cavin.GetComponent<Image>().DOFade(1, 1.5f);
-
-        // Title 등장 (FadeIn)
-        title.SetActive(true);
-        title.GetComponent<SpriteRenderer>().DOFade(0, 0);
-        title.GetComponent<SpriteRenderer>().DOFade(1, 1.5f).OnComplete(() =>
+        for (int i = 0; i < title.transform.childCount; i++)
         {
-            // Title 글자 하나씩 등장 (FadeIn)
-            for (int i = 0; i < title.transform.childCount; i++)
-            {
-                Transform letter = title.transform.GetChild(i);
-                letter.gameObject.SetActive(true);
-                letter.GetComponent<SpriteRenderer>().DOFade(0, 0);
-                letter.GetComponent<SpriteRenderer>().DOFade(1, 1.5f).SetDelay(i * 0.2f);
-            }
-        });
+            var letter = title.transform.GetChild(i);
+            TMP_Text letterText = letter.GetComponent<TMP_Text>();
+            yield return letterText.DOFade(1f, 0.5f).WaitForCompletion();
+            yield return new WaitForSeconds(0.4f);
+        }
 
-        // SubTitle 등장 (FadeIn)
         subTitle.SetActive(true);
-        subTitle.GetComponent<SpriteRenderer>().DOFade(0, 0);
-        subTitle.GetComponent<SpriteRenderer>().DOFade(1, 1.5f).OnComplete(() =>
+        for (int i = 0; i < subTitle.transform.childCount; i++)
         {
-            // SubTitle 글자 하나씩 등장 (FadeIn)
-            for (int i = 0; i < subTitle.transform.childCount; i++)
-            {
-                Transform letter = subTitle.transform.GetChild(i);
-                letter.gameObject.SetActive(true);
-                letter.GetComponent<SpriteRenderer>().DOFade(0, 0);
-                letter.GetComponent<SpriteRenderer>().DOFade(1, 1.5f).SetDelay(i * 0.2f);
-            }
-        });
+            var letter = subTitle.transform.GetChild(i);
+            letter.gameObject.SetActive(true);
+            TMP_Text letterText = letter.GetComponent<TMP_Text>();
+            Color c = letterText.color; c.a = 0f; letterText.color = c;
+        }
 
-        // Buttons 등장 (FadeIn)
-        buttons.SetActive(true);
-        buttons.GetComponent<CanvasGroup>().alpha = 0;
-        buttons.GetComponent<CanvasGroup>().DOFade(1, 1.5f).OnComplete(() =>
+        for (int i = 0; i < subTitle.transform.childCount; i++)
         {
-            // Buttons 클릭 가능
-            buttons.GetComponentInChildren<Button>().interactable = true;
-        });
+            var letter = subTitle.transform.GetChild(i);
+            TMP_Text letterText = letter.GetComponent<TMP_Text>();
+            yield return letterText.DOFade(1f, 0.5f).WaitForCompletion();
+            yield return new WaitForSeconds(0.4f);
+        }
+
+        buttons.SetActive(true);
+        CanvasGroup canvasGroup = buttons.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 0;
+        yield return canvasGroup.DOFade(1, 1.5f).WaitForCompletion();
+        buttons.GetComponentInChildren<Button>().interactable = true;
+    }
+
+    public void SkipOpening()
+    {
+        if (isOpeningSkipped) return;
+        isOpeningSkipped = true;
+
+        if (playOpeningCoroutine != null)
+            StopCoroutine(playOpeningCoroutine);
+
+        background.SetActive(true);
+        cavin.SetActive(true);
+        title.SetActive(true);
+        subTitle.SetActive(true);
+        buttons.SetActive(true);
+
+        Image cavinImage = cavin.GetComponent<Image>();
+        cavinImage.color = new Color(1, 1, 1, 1);
+
+        foreach (Transform letter in title.transform)
+        {
+            TMP_Text text = letter.GetComponent<TMP_Text>();
+            Color c = text.color; c.a = 1f; text.color = c;
+        }
+
+        foreach (Transform letter in subTitle.transform)
+        {
+            TMP_Text text = letter.GetComponent<TMP_Text>();
+            Color c = text.color; c.a = 1f; text.color = c;
+        }
+
+        CanvasGroup canvasGroup = buttons.GetComponent<CanvasGroup>();
+        canvasGroup.alpha = 1;
+        buttons.GetComponentInChildren<Button>().interactable = true;
     }
 }

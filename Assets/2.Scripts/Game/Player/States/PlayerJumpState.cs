@@ -18,9 +18,6 @@ public class PlayerJumpState : IPlayerState
 
     public void Execute(PlayerStateMachine player)
     {
-        // 중력 적용
-        player.velocity.y += Physics.gravity.y * Time.deltaTime;
-        
         // 공중 입력으로만 수평 속도 결정 (이전 상태 잔여 속도 없음)
         Vector3 inputDir = player.GetCameraRelativeMoveDirection().normalized;
         player.velocity.x = inputDir.x * player.moveSpeed;

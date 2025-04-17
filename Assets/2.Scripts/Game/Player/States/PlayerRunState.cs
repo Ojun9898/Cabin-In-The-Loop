@@ -5,7 +5,7 @@ public class PlayerRunState : IPlayerState
     public void Enter(PlayerStateMachine player)
     {
         player.animator.CrossFade("RUN", 0.1f, 0);
-        player.currentMoveSpeed = player.moveSpeed * 2;
+        player.currentMoveSpeed = player.moveSpeed * 1.5f;
     }
 
     public void Execute(PlayerStateMachine player)

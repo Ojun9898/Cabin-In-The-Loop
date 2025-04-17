@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(WeaponController))]
 public class PlayerStateMachine : MonoBehaviour
 {
     public IPlayerState CurrentState;
@@ -17,6 +18,8 @@ public class PlayerStateMachine : MonoBehaviour
     public Vector3 velocity;
     
     public float currentMoveSpeed;
+
+    private WeaponController _weaponController;
     
     [HideInInspector] public bool attackPressed;
     [HideInInspector] public bool jumpPressed;
@@ -25,6 +28,7 @@ public class PlayerStateMachine : MonoBehaviour
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        _weaponController = GetComponent<WeaponController>();
         animator = GetComponent<Animator>();
         currentMoveSpeed = moveSpeed;
 
@@ -42,6 +46,18 @@ public class PlayerStateMachine : MonoBehaviour
             velocity.y = -1f;
         }
 
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _weaponController.EquipWeapon(WeaponType.Axe);
+            WeaponSaveSystem.SaveWeapon(WeaponType.Axe);
+        }
+        
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            _weaponController.EquipWeapon(WeaponType.CrowBar);
+            WeaponSaveSystem.SaveWeapon(WeaponType.CrowBar);
+        }
+        
         controller.Move(velocity * Time.deltaTime);
 
         if (CurrentState != null)
@@ -64,8 +80,8 @@ public class PlayerStateMachine : MonoBehaviour
     {
         Vector3 inputDir = new Vector3(moveInput.x, 0f, moveInput.y);
 
-        Vector3 camForward = GameManager.Instance.CameraTransform.forward;
-        Vector3 camRight = GameManager.Instance.CameraTransform.right;
+        Vector3 camForward = GameManager.Instance.cameraTransform.forward;
+        Vector3 camRight = GameManager.Instance.cameraTransform.right;
 
         camForward.y = 0f;
         camRight.y = 0f;

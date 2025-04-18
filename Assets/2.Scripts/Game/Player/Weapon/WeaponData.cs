@@ -7,6 +7,6 @@ public class WeaponData : ScriptableObject
     public GameObject prefab;
     public string displayName;
     public float damage;
+    public float range;        
     public Sprite icon;
-    // 확장 가능
 }

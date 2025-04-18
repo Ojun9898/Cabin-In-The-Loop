@@ -9,6 +9,10 @@ public class GameManager : Singleton<GameManager>
 
     // 인스펙터에서 등록할 무기 데이터 리스트 (ScriptableObject)
     public List<WeaponData> weaponDataList;
+    
+    // 인스펙터에서 등록할 데미지 필드 리스트
+    [SerializeField] private GameObject damageFieldPrefab;
+    private Queue<GameObject> damageFieldPool = new();
 
     // 무기 풀 저장소 (무기 타입별 Queue)
     private Dictionary<WeaponType, Queue<GameObject>> _weaponPools = new();
@@ -97,5 +101,21 @@ public class GameManager : Singleton<GameManager>
     {
         _weaponDataMap.TryGetValue(type, out var data);
         return data;
+    }
+    
+    public GameObject GetDamageField()
+    {
+        if (damageFieldPool.Count > 0)
+        {
+            return damageFieldPool.Dequeue();
+        }
+
+        return Instantiate(damageFieldPrefab);
+    }
+    
+    public void ReturnDamageField(GameObject field)
+    {
+        field.SetActive(false);
+        damageFieldPool.Enqueue(field);
     }
 }

@@ -15,9 +15,11 @@ public class MonsterMovement
 
     public void MoveToTarget(Vector3 targetPosition)
     {
-        if(navMeshAgent != null)
+        if (navMeshAgent != null)
         {
+            navMeshAgent.isStopped = false; // 이동 활성화
             navMeshAgent.SetDestination(targetPosition);
+            Debug.Log($"Destination set to: {targetPosition}");
         }
     }
 

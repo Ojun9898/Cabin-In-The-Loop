@@ -1,14 +1,16 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class ZombieWanderState : ZombieBaseState
+public class ZombiePatorlState : ZombieBaseState
 {
     private const float WANDER_DURATION = 5f;
-    private const float WANDER_RADIUS = 10f;
-    private const float CHASE_RANGE = 8f;
+    private const float WANDER_RADIUS = 8f;
+    private const float CHASE_RANGE = 6f;
     
     private Vector3 wanderTarget;
     private NavMeshAgent navMeshAgent;
+    private float wanderCooldownTime = 3f; // 목표 변경 최소 간격
+    private float lastWanderTime = 0f;     // 마지막으로 목표 변경한 시간
     
     protected override void SetStateKey()
     {
@@ -29,10 +31,10 @@ public class ZombieWanderState : ZombieBaseState
             navMeshAgent = owner.gameObject.AddComponent<NavMeshAgent>();
             
             // 기본 설정
-            navMeshAgent.speed = 1.5f; // 기본 이동 속도
-            navMeshAgent.acceleration = 8f; // 기본 가속도
-            navMeshAgent.angularSpeed = 120f; // 기본 회전 속도
-            navMeshAgent.stoppingDistance = 0.1f; // 기본 정지 거리
+            navMeshAgent.speed = 1.5f;
+            navMeshAgent.acceleration = 8f;
+            navMeshAgent.angularSpeed = 120f;
+            navMeshAgent.stoppingDistance = 0.1f;
         }
     }
     
@@ -57,7 +59,11 @@ public class ZombieWanderState : ZombieBaseState
         // 목표 지점에 도달했거나 일정 시간이 지났으면 새로운 목표 지점 설정
         if (navMeshAgent != null && (navMeshAgent.remainingDistance < 0.5f || stateTimer >= WANDER_DURATION))
         {
+            // 쿨다운 타이머가 지나지 않았다면 새로운 목표 지점을 설정하지 않음
+            if (Time.time - lastWanderTime < wanderCooldownTime) return;
+
             SetNewWanderTarget();
+            lastWanderTime = Time.time; // 마지막 호출 시간 기록
             stateTimer = 0f;
         }
     }

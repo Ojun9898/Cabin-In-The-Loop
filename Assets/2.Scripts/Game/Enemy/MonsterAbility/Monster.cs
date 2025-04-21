@@ -96,8 +96,18 @@ public class Monster : MonoBehaviour
     
     public void MoveToPlayer()
     {
-        if (player != null)
-            movement.MoveToTarget(player.position);
+        if (player == null) return;
+
+      NavMeshHit navHit;
+      if (NavMesh.SamplePosition(player.position, out navHit, 1.0f, NavMesh.AllAreas))
+      {
+          movement.MoveToTarget(navHit.position);
+          Debug.Log($"Moving to sampled position near player: {navHit.position}");
+      }
+      else
+      {
+          Debug.LogWarning("Player position is not on NavMesh. Cannot move.");
+      }
     }
     
     public void StopMoving()

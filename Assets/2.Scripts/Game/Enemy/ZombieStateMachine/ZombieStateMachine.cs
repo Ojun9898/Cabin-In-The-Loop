@@ -5,11 +5,11 @@ using System.Collections.Generic;
 public class ZombieStateMachine : StateMachine<Monster>
 {
     [SerializeField] private List<ZombieBaseState> zombieStates;
-    [SerializeField] private Transform playerTransform; // 플레이어 참조
+    [SerializeField] private Transform playerTransform;
     
     protected override void Initialize()
     {
-        // Monster 컴포넌트 가져오기 또는 추가
+        // Monster 컴포넌트 가져오기
         Monster monster = GetComponent<Monster>();
         if (monster == null)
         {
@@ -34,7 +34,7 @@ public class ZombieStateMachine : StateMachine<Monster>
             {
                 new ZombieSpawnState(),
                 new ZombieIdleState(),
-                new ZombieWanderState(),
+                new ZombiePatorlState(),
                 new ZombieChaseState(),
                 new ZombieAttackState(),
                 new ZombieHitState(),
@@ -50,8 +50,7 @@ public class ZombieStateMachine : StateMachine<Monster>
         
         // 상태 목록을 상태 머신에 등록
         states = new List<State<Monster>>(zombieStates);
-        
-        // 부모 클래스의 Initialize 호출
+
         base.Initialize();
     }
     

@@ -44,14 +44,29 @@ public class PlayerAttackState : IPlayerState
 
     private void PlayCombo(PlayerStateMachine player)
     {
-        // 공격 애니메이션
         player.RotateTowardsCameraDirection();
-        player.animator.CrossFade($"ATTACK{_comboStep}", 0.1f, 2);
 
-        // 데미지 필드 생성
+        WeaponController weaponCtrl = player.GetComponent<WeaponController>();
+        WeaponType type = weaponCtrl.currentWeaponType;
+        WeaponData data = GameManager.Instance.GetWeaponData(type);
+
+        switch (data.category)
+        {
+            case WeaponCategory.Melee:
+                player.animator.CrossFade($"ATTACK{_comboStep}", 0.1f, 2);
+                break;
+
+            case WeaponCategory.Ranged:
+            case WeaponCategory.SciFi:
+                player.animator.CrossFade("RANGED_ATTACK", 0.1f, 2);
+                break;
+
+            case WeaponCategory.Throwable:
+                player.animator.CrossFade("THROW_ATTACK", 0.1f, 2);
+                break;
+        }
+
         SpawnDamageField(player);
-
-        // 입력 소비
         player.attackPressed = false;
     }
 

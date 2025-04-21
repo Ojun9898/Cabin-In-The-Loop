@@ -28,7 +28,7 @@ public class DamageField : MonoBehaviour
         Collider[] hits = Physics.OverlapSphere(transform.position, radius);
         foreach (var hit in hits)
         {
-            if (hit.gameObject == owner) 
+            if (hit.gameObject.layer == owner.layer) 
                 continue;
 
             if (hit.TryGetComponent<IDamageable>(out var target))

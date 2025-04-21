@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 [CreateAssetMenu(menuName = "Weapons/WeaponData")]
 public class WeaponData : ScriptableObject
@@ -9,5 +9,4 @@ public class WeaponData : ScriptableObject
     public float damage;
     public float range;        
     public Sprite icon;
-    public WeaponCategory category;
 }

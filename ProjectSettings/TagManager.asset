@@ -4,7 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Weapon
+  - FlythroughCam
   layers:
   - Default
   - TransparentFX
@@ -12,32 +12,32 @@ TagManager:
   - 
   - Water
   - UI
-  - Weapon
   - 
   - 
+  - Skybox
+  - Player
+  - PostProcessing
+  - SetDressing
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Vehicles
+  - Navmesh
+  - Environment
+  - Characters
+  - Vegetation
+  - Effects
+  - Ragdoll
+  - WaterGeometry
+  - Terrain
+  - Enemy
+  - Cameras
+  - Props
+  - Avoid
+  - CameraCollider
+  - Collider
+  - Checkpoint
+  - DoNotDraw
+  - Level
   m_SortingLayers:
   - name: Default
     uniqueID: 0

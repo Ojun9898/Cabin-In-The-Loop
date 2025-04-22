@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0c6b4851a10c8fa4d96350fa8923450e
+guid: eec03ac45975f154da06c9958d5554ff
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable:
@@ -203,9 +203,6 @@ ModelImporter:
     second: CATRigSpine2 1
   - first:
       1: 100132
-    second: Character001
-  - first:
-      1: 100134
     second: //RootNode
   - first:
       4: 400000
@@ -407,9 +404,6 @@ ModelImporter:
     second: CATRigSpine2 1
   - first:
       4: 400132
-    second: Character001
-  - first:
-      4: 400134
     second: //RootNode
   - first:
       23: 2300000
@@ -425,7 +419,7 @@ ModelImporter:
     second: blade
   - first:
       74: 7400000
-    second: Ripper Run
+    second: Ripper Idle
   - first:
       95: 9500000
     second: //RootNode
@@ -462,11 +456,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Ripper Run
+      name: Ripper Idle
       takeName: Take 001
       internalID: 0
-      firstFrame: 0
-      lastFrame: 30
+      firstFrame: 60
+      lastFrame: 180
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -625,8 +619,6 @@ ModelImporter:
       - path: CATRigLLegPlatform
         weight: 1
       - path: CATRigRLegPlatform
-        weight: 1
-      - path: Character001
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}

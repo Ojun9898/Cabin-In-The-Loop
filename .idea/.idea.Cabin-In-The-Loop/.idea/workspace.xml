@@ -7,65 +7,8 @@
     <list default="true" id="a3aa0a35-3329-4090-9829-b68e4ca5d9ae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽).unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽).unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/RipperBaseState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/RipperBaseState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/RipperState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/RipperState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/RipperStateMachine.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/RipperStateMachine.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperAttackState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperAttackState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperChaseState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperChaseState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperDeathState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperDeathState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperHitState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperHitState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperIdleState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperIdleState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperPatorlState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperPatorlState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperSpawnState.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/RipperStateMachine/States/RipperSpawnState.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Plane.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Plane.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Ripper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Ripper.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Vendigo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Vendigo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Aggro.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Aggro.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Attack1.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Attack1.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Attack2.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Attack2.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Attack3.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Attack3.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Attack4.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Attack4.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Damage.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Damage.FBX.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Death.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Death.FBX.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Idle1.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Idle1.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Idle2.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Idle2.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Jump.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Jump.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Run Left.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Run Left.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Run Right.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Run Right.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Run.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Run.FBX.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Shout.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Shout.FBX.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Walk Back.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Walk Back.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Walk Left.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Walk Left.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Walk Right.FBX" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Walk Right.FBX.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Walk.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Vendigo/Animation/Vendigo@Walk.FBX.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Ellen/Ellen.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Ellen/Ellen.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/Ranged attack/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/Ranged attack/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Monster Ranged Attack/Vendigo Attack/Models/Prefabs/SpikeBall.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Monster Ranged Attack/Vendigo Attack/Models/Prefabs/SpikeBall.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +127,11 @@
       <workItem from="1745452599311" duration="2536000" />
       <workItem from="1745455859596" duration="4404000" />
       <workItem from="1745460353679" duration="254000" />
-      <workItem from="1745460619143" duration="424000" />
+      <workItem from="1745460619143" duration="837000" />
+      <workItem from="1745470990094" duration="499000" />
+      <workItem from="1745471606207" duration="373000" />
+      <workItem from="1745542172108" duration="149000" />
+      <workItem from="1745542334778" duration="1974000" />
     </task>
     <servers />
   </component>

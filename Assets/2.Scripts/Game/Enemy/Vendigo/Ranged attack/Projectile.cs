@@ -47,8 +47,8 @@ public class Projectile : MonoBehaviour
         this.damage = damage;
         // 발사속도 :수평 속도 + 수직 속도 
         Vector3 launchVel = (direction * speed) + (Vector3.up * upwardSpeed);
-        rb.velocity = launchVel;
-
+        rb.velocity = Vector3.zero; // 기존 속도 초기화
+        rb.AddForce(launchVel * rb.mass, ForceMode.Impulse);
         Destroy(gameObject, LIFETIME);
     }
     

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 828c877410b6b4d439bc64ede99382d1
+guid: 1be0203d5506c4944863cc4a36dc9aec
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable:
@@ -272,7 +272,7 @@ ModelImporter:
     second: vendigo01
   - first:
       74: 7400000
-    second: Vendigo Damage
+    second: Vendigo Attack
   - first:
       95: 9500000
     second: //RootNode
@@ -309,11 +309,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Vendigo Damage
+      name: Vendigo Attack
       takeName: Take 001
       internalID: 7400000
-      firstFrame: 770
-      lastFrame: 800
+      firstFrame: 532
+      lastFrame: 570
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -332,7 +332,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.31438127
+        functionName: Throw
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

@@ -59,7 +59,7 @@ public class Projectile : MonoBehaviour
         // “Player” 태그를 가진 객체와 부딪히면
         if (collision.gameObject.CompareTag("Player"))
         {
-            var hp = collision.gameObject.GetComponent<PlayerHealth>();
+            var hp = collision.gameObject.GetComponent<PlayerStatus>();
             if (hp != null) hp.TakeDamage(damage);
             Destroy(gameObject);
         }

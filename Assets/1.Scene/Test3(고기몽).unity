@@ -286,11 +286,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1000013057997990, guid: 5bf1a3168aad1dd4f93b6185724d4f7b, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4000013375956118, guid: 5bf1a3168aad1dd4f93b6185724d4f7b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.11
+      value: 3.3
       objectReference: {fileID: 0}
     - target: {fileID: 4000013375956118, guid: 5bf1a3168aad1dd4f93b6185724d4f7b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -720,7 +720,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad7ea02c5baac744a16a4a100e74c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 1528564284}
   cameraTransform: {fileID: 1518970351}
   weaponDataList: []
   damageFieldPrefab: {fileID: 0}

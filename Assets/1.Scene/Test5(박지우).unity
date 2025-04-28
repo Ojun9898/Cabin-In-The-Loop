@@ -6073,7 +6073,6 @@ GameObject:
   - component: {fileID: 1210224475}
   - component: {fileID: 1210224478}
   - component: {fileID: 1210224477}
-  - component: {fileID: 1210224476}
   m_Layer: 0
   m_Name: Logs_01 (1)
   m_TagString: Untagged
@@ -6096,28 +6095,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1420819231}
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
---- !u!64 &1210224476
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1210224474}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300050, guid: 46038f8dba44f8a459f8a6a29d8eec1c, type: 3}
 --- !u!23 &1210224477
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11255,7 +11232,6 @@ GameObject:
   - component: {fileID: 4031723632280008639}
   - component: {fileID: 4031723632281302943}
   - component: {fileID: 4031723632282432863}
-  - component: {fileID: 4031723632286713151}
   m_Layer: 0
   m_Name: Beams
   m_TagString: Untagged
@@ -11556,7 +11532,6 @@ GameObject:
   - component: {fileID: 4031723632280008585}
   - component: {fileID: 4031723632281303023}
   - component: {fileID: 4031723632282432943}
-  - component: {fileID: 4031723632286713103}
   m_Layer: 0
   m_Name: RoofShingles
   m_TagString: Untagged
@@ -11594,7 +11569,6 @@ GameObject:
   - component: {fileID: 4031723632280008589}
   - component: {fileID: 4031723632281303027}
   - component: {fileID: 4031723632282432947}
-  - component: {fileID: 4031723632286713107}
   m_Layer: 0
   m_Name: Roof_Beams_02
   m_TagString: Untagged
@@ -11613,7 +11587,6 @@ GameObject:
   - component: {fileID: 4031723632280008591}
   - component: {fileID: 4031723632281303021}
   - component: {fileID: 4031723632282432941}
-  - component: {fileID: 4031723632286713101}
   m_Layer: 0
   m_Name: Roof_Porch
   m_TagString: Untagged
@@ -11707,7 +11680,6 @@ GameObject:
   - component: {fileID: 4031723632280008601}
   - component: {fileID: 4031723632281303039}
   - component: {fileID: 4031723632282432959}
-  - component: {fileID: 4031723632286713119}
   m_Layer: 0
   m_Name: Logs_01
   m_TagString: Untagged
@@ -13916,50 +13888,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 46038f8dba44f8a459f8a6a29d8eec1c, type: 3}
---- !u!64 &4031723632286713101
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4031723632280431599}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300036, guid: 46038f8dba44f8a459f8a6a29d8eec1c, type: 3}
---- !u!64 &4031723632286713103
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4031723632280431593}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300034, guid: 46038f8dba44f8a459f8a6a29d8eec1c, type: 3}
 --- !u!64 &4031723632286713105
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13982,28 +13910,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300040, guid: 46038f8dba44f8a459f8a6a29d8eec1c, type: 3}
---- !u!64 &4031723632286713107
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4031723632280431597}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300038, guid: 46038f8dba44f8a459f8a6a29d8eec1c, type: 3}
 --- !u!64 &4031723632286713111
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14070,28 +13976,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300052, guid: 46038f8dba44f8a459f8a6a29d8eec1c, type: 3}
---- !u!64 &4031723632286713119
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4031723632280431609}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300050, guid: 46038f8dba44f8a459f8a6a29d8eec1c, type: 3}
 --- !u!64 &4031723632286713121
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14224,28 +14108,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300066, guid: 46038f8dba44f8a459f8a6a29d8eec1c, type: 3}
---- !u!64 &4031723632286713151
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4031723632280431519}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300082, guid: 46038f8dba44f8a459f8a6a29d8eec1c, type: 3}
 --- !u!64 &4031723632286713201
 MeshCollider:
   m_ObjectHideFlags: 0

@@ -741,7 +741,7 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   cameraTransform: {fileID: 1599600698}
   weaponDataList:
-  - {fileID: 11400000, guid: c38f3be67e99a6d4ab199e62df602ae6, type: 2}
+  - {fileID: 11400000, guid: 5ffcfb90221a14f4c869067a4a564ace, type: 2}
   - {fileID: 11400000, guid: 21fa14f6ad5463944a5903d237b77a01, type: 2}
   damageFieldPrefab: {fileID: 862739428850598756, guid: eb0ae96fb5fd8aa4e8aa300bd9045dd7,
     type: 3}
@@ -1005,12 +1005,20 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 16743371}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: aefab8870d7f99d4e89d49d287159579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  characterType: 0
+  defaultMaleWeapon: 0
+  defaultFemaleWeapon: 2
+  startingLevel: 1
+  startingXpToLevel: 100
+  xpGrowthFactor: 1.2
+  onLevelUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1396442726
 GameObject:
   m_ObjectHideFlags: 0

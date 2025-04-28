@@ -9,12 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e760de737e8c8b4fab10057236f5bf4, type: 3}
+  m_Script: {fileID: 11500000, guid: 167ccef852c3428283680cfb292d1ff4, type: 3}
   m_Name: CrowBar
   m_EditorClassIdentifier: 
   weaponType: 1
   prefab: {fileID: 6640036407319009178, guid: f97974eccf67eb14a89c192cf7c4d5cf, type: 3}
   displayName: CrowBar
-  damage: 10
-  range: 10
+  damage: 0
+  range: 0
   icon: {fileID: 0}
+  category: 0

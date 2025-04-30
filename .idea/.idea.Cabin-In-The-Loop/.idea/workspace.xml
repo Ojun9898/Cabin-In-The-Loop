@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3aa0a35-3329-4090-9829-b68e4ca5d9ae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/Ranged attack/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/Ranged attack/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽).unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽).unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽)/NavMesh-Plane.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽)/NavMesh-Plane.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽)/NavMesh-Plane.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽)/NavMesh-Plane.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/RipperStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/RipperStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/VendigoStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/VendigoStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Ripper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Ripper.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Vendigo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Vendigo.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Player/Ellen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Player/Ellen.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,20 +51,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;kimong&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity 2022.3.60f1\Editor\Unity.exe" />
@@ -129,6 +140,11 @@
       <workItem from="1745471606207" duration="373000" />
       <workItem from="1745542172108" duration="149000" />
       <workItem from="1745542334778" duration="1974000" />
+      <workItem from="1745975766369" duration="350000" />
+      <workItem from="1745976814768" duration="14108000" />
+      <workItem from="1745997033615" duration="3139000" />
+      <workItem from="1746000210055" duration="1054000" />
+      <workItem from="1746001504621" duration="189000" />
     </task>
     <servers />
   </component>

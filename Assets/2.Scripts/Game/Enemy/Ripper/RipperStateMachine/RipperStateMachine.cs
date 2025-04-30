@@ -5,6 +5,13 @@ public class RipperStateMachine : StateMachine<Monster>
 {
     [SerializeField] private List<RipperBaseState> ripperStates;
     [SerializeField] private Transform playerTransform;
+    
+    public Transform PlayerTransform => playerTransform;
+    
+    public void SetPlayerTransform(Transform t)
+    {
+        playerTransform = t;
+    }
 
     protected override void Initialize()
     {

@@ -8,6 +8,11 @@ public class VendigoStateMachine : StateMachine<Monster>
     [SerializeField] private Transform playerTransform;
     
     public Transform PlayerTransform => playerTransform;
+    
+    public void SetPlayerTransform(Transform t)
+    {
+        playerTransform = t;
+    }
 
     protected override void Initialize()
     {

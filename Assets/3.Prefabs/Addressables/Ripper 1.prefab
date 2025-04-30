@@ -1701,7 +1701,7 @@ GameObject:
   - component: {fileID: -393296538341983701}
   - component: {fileID: 6011371702884503192}
   m_Layer: 0
-  m_Name: Ripper
+  m_Name: Ripper 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

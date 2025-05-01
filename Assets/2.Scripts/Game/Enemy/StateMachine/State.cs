@@ -9,7 +9,8 @@ public enum EState
     Death,
     Hit,
     Wander,
-    Chase
+    Chase,
+    Rattack
 }
 
 public abstract class State<T> where T : MonoBehaviour

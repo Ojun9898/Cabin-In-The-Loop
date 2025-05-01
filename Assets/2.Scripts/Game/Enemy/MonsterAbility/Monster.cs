@@ -9,17 +9,20 @@ public class Monster : MonoBehaviour
     [SerializeField] private float attackDamage = 10f;
     
     [Header("감지 범위")]
-    [SerializeField] private float chaseRange = 8f;
-    [SerializeField] private float attackRange = 1.5f;
+    public float chaseRange = 8f;
+    public float attackRange = 1.5f;
     
     [Header("참조")]
-    [SerializeField] private Transform player;
+    public Transform player;
     
     private MonsterHealth health;
     private MonsterMovement movement;
     private MonsterCombat combat;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
+    
+    private static readonly int AttackIndexParam = Animator.StringToHash("AttackIndex");
+    private static readonly int AttackTrigger = Animator.StringToHash("Attack");
     
     private void Awake()
     {
@@ -110,20 +113,24 @@ public class Monster : MonoBehaviour
       }
     }
     
+    public void SetAttackAnimation(int index)
+    {
+        if (animator != null)
+        {
+            animator.SetInteger(AttackIndexParam, index);
+            animator.SetTrigger(AttackTrigger);
+        }
+        else
+        {
+            Debug.LogWarning("Animator component not found on Monster.");
+        }
+    }
+    
     public void StopMoving()
     {
         movement.Stop();
     }
     
-    public void ResumeMoving()
-    {
-        movement.Resume();
-    }
-    
-    /// <summary>
-    /// 애니메이션 재생 함수(임시로 CorssFade로 작성, 추후 수정 필요)
-    /// </summary>
-    /// <param name="animationName"></param>
     public void PlayAnimation(string animationName)
     {
         animator?.CrossFade(animationName, 0.1f, 0);

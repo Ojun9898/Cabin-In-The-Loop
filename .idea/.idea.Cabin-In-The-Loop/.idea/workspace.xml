@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="16cea7f6-8f50-4ae8-b8de-88403465c252" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastAttackState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastAttackState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastChaseState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastChaseState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastDeathState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastDeathState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastHitState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastHitState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastIdleState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastIdleState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastPatorlState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastPatorlState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastRattackState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastRattackState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastSpawnState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastSpawnState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/InsectState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/InsectState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/InsectStateMachine.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/InsectStateMachine.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectAttackState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectAttackState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectChaseState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectChaseState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectDeathState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectDeathState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectHitState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectHitState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectIdleState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectIdleState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectPatorlState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectPatorlState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectSpawnState.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectSpawnState.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/Howling.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/Howling.cs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/PoisonThorn.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/PoisonThorn.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/1.Scene/Test4(차상훈).unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/Test4(차상훈).unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/1.Scene/Test4(차상훈)/NavMesh-Plane.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/Test4(차상훈)/NavMesh-Plane.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/Monster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/MonsterHealth.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/MonsterHealth.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/StateMachine/State.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/StateMachine/State.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Beast.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Beast.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Zombie Mutant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Zombie Mutant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Beast/Animation/Beast@Chase.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Beast/Animation/Beast@Chase.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Beast/Animation/Beast@Idle2.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Beast/Animation/Beast@Idle2.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Beast/Animation/Beast@Walk.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Beast/Animation/Beast@Walk.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Insectoid/Animation/Insectoid@Attack.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Insectoid/Animation/Insectoid@Attack.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Insectoid/Animation/Insectoid@Idle.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Insectoid/Animation/Insectoid@Idle.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Insectoid/Animation/Insectoid@Walk.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Insectoid/Animation/Insectoid@Walk.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Insectoid/Prefabs/Insectoid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Insectoid/Prefabs/Insectoid.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Zombie Mutant/Animation/Zombie-Mutant@Attack.FBX.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Zombie Mutant/Animation/Zombie-Mutant@Attack.FBX.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Zombie Mutant/Animation/Zombie.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy/Horror Creatures/Horror Creature - Zombie Mutant/Animation/Zombie.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ProjectSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///AIAssistantSnippet." root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/BeastStateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
+  <component name="ProjectId" id="2w4SIHfys3eNUkQu3cQEfh69hcn" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;ChaSangHun&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
+    <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.60f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\aiprogramming\Cabin-In-The-Loop -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\aiprogramming\Cabin-In-The-Loop" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.60f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\aiprogramming\Cabin-In-The-Loop -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\aiprogramming\Cabin-In-The-Loop" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Unreal 에디터에 연결 후 재생" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="디폴트 작업">
+      <changelist id="16cea7f6-8f50-4ae8-b8de-88403465c252" name="변경" comment="" />
+      <created>1745299281822</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745299281822</updated>
+      <workItem from="1745299288475" duration="2127000" />
+      <workItem from="1745813472074" duration="967000" />
+      <workItem from="1745909241298" duration="1484000" />
+      <workItem from="1745911131653" duration="2682000" />
+      <workItem from="1746017843759" duration="1507000" />
+      <workItem from="1746058112766" duration="9509000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

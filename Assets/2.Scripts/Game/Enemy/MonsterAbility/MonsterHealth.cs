@@ -28,12 +28,5 @@ public class MonsterHealth
             OnDeath?.Invoke();
         }
     }
-
-    public void Heal(int amount)
-    {
-        if (currentHealth <= 0) return; // 이미 죽은 상태면 회복 불가
-        
-        currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
-        OnHealthChanged?.Invoke(currentHealth);
-    }
+    
 }

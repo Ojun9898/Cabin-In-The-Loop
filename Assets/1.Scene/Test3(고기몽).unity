@@ -1526,6 +1526,63 @@ MonoBehaviour:
   vendigoLabel: Vendigo
   vendigoPoolSize: 5
   totalPoolSize: 90
+--- !u!1 &843065634
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843065636}
+  - component: {fileID: 843065637}
+  m_Layer: 0
+  m_Name: MonsterSFX Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &843065636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843065634}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &843065637
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843065634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b162d09799eac04e935bb1d0b4609e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profiles:
+  - monsterType: 0
+    chaseClip: {fileID: 8300000, guid: dee1015921045b247b46a7623dca991b, type: 3}
+    hitClip: {fileID: 8300000, guid: 4e5a9752a8630bb4e98b8b4192e9b9f3, type: 3}
+    deathClip: {fileID: 8300000, guid: 4d85d4eb592250d498fa18d790d64ebc, type: 3}
+    attackClip: {fileID: 8300000, guid: 8c65e73e7354b9942b00ac8a12ecb931, type: 3}
+  - monsterType: 1
+    chaseClip: {fileID: 8300000, guid: c5e0c53eb137846409cff1028264363f, type: 3}
+    hitClip: {fileID: 8300000, guid: 084b4cdbf34ae354a8e031cfd5d3ef3c, type: 3}
+    deathClip: {fileID: 8300000, guid: 4826aad211211e94e905b151e0564cd0, type: 3}
+    attackClip: {fileID: 8300000, guid: efe4c855e969ab248ad659fec7472417, type: 3}
+  maxAudioSources: 30
+  maxSimultaneousPlaysPerClip: 3
 --- !u!1 &863840646
 GameObject:
   m_ObjectHideFlags: 0
@@ -2542,8 +2599,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1518970348}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.005473525, y: -0.9610562, z: 0.27564383, w: 0.019014822}
-  m_LocalPosition: {x: -0.47592545, y: 8.79192, z: 14.405106}
+  m_LocalRotation: {x: 0.00032448192, y: 0.9690824, z: -0.24673627, w: 0.0006392356}
+  m_LocalPosition: {x: -4.9329715, y: 14.5747795, z: 35.864986}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3997,3 +4054,4 @@ SceneRoots:
   - {fileID: 908090081}
   - {fileID: 1175026482}
   - {fileID: 770057998}
+  - {fileID: 843065636}

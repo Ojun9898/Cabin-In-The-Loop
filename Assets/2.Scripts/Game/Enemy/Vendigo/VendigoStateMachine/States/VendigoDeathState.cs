@@ -11,11 +11,18 @@ public class VendigoDeathState : VendigoBaseState
     {
         stateKey = EState.Death;
     }
+    
+    
 
     public override void EnterState()
     {
         base.EnterState();
         StopMoving();
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Death,
+            EMonsterType.Vendigo,
+            vendigo.transform
+        );
         PlayAnimation("Vendigo Death");
         hasStartedDeathAnimation = false;
     }

@@ -23,6 +23,11 @@ public class VendigoAttackState : VendigoBaseState
         base.EnterState();
         StopMoving();
         PlayAnimation("Vendigo Attack");
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Attack,
+            EMonsterType.Vendigo,
+            vendigo.transform
+        );
         hasAttacked = false;
     }
     

@@ -18,6 +18,15 @@ public class VendigoChaseState : VendigoBaseState
         base.Initialize(owner);
     }
     
+    public override void ExitState()
+    {
+        base.ExitState();
+        // Chase 상태 벗어나면 즉시 해당 몬스터 모든 SFX 중단
+        MonsterSFXManager.Instance.StopAllAudio(
+            vendigo.transform.GetInstanceID()
+        );
+    }
+    
     public override void EnterState()
     {
         base.EnterState();
@@ -26,11 +35,21 @@ public class VendigoChaseState : VendigoBaseState
             navMeshAgent.speed = RUN_SPEED;
         
         PlayAnimation("Vendigo Run");
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Chase,
+            EMonsterType.Vendigo,
+            vendigo.transform
+        );
     }
     
     public override void UpdateState()
     {
         base.UpdateState();
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Chase,
+            EMonsterType.Vendigo,
+            vendigo.transform
+        );
     
         bool inRange = IsPlayerInRange(CHASE_RANGE);
         // 범위 안일 때만 직접 회전, 아닐 때는 NavMesh 회전

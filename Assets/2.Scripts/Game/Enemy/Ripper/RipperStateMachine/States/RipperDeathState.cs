@@ -11,11 +11,19 @@ public class RipperDeathState : RipperBaseState
     {
         stateKey = EState.Death;
     }
+    
+    
 
     public override void EnterState()
     {
         base.EnterState();
         StopMoving();
+        // Death(사망) 사운드 재생 요청
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Death,
+            EMonsterType.Ripper,
+            ripper.transform
+        );
         PlayAnimation("Ripper Death");
         hasStartedDeathAnimation = false;
     }

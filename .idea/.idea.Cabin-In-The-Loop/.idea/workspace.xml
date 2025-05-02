@@ -7,16 +7,200 @@
     <list default="true" id="a3aa0a35-3329-4090-9829-b68e4ca5d9ae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽).unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽).unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽)/NavMesh-Plane.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽)/NavMesh-Plane.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽)/NavMesh-Plane.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/Test3(고기몽)/NavMesh-Plane.asset.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/RipperStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/RipperStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperChaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperChaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperDeathState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperDeathState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperHitState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperHitState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperPatorlState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperPatorlState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/States/VendigoAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/States/VendigoAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/States/VendigoChaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/States/VendigoChaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/States/VendigoDeathState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/States/VendigoDeathState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/States/VendigoHitState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/States/VendigoHitState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/VendigoStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/VendigoStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Ripper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Ripper.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Vendigo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Enemy/Vendigo.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Player/Ellen.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Player/Ellen.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_03.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_03.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_04.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_04.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_05.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_05.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_06.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_06.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_07.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_07.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_08.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_08.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_09.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Attack_09.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Bite_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Bite_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Bite_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Bite_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Buildup_Attack_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Buildup_Attack_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Buildup_Attack_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Buildup_Attack_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Buildup_Attack_03.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Buildup_Attack_03.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Calling_Backup_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Calling_Backup_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Calling_Backup_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Calling_Backup_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Calling_Backup_03.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Calling_Backup_03.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Crawling_Dying_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Crawling_Dying_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_03.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_03.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_04.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_04.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_05.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_05.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_06.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_06.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_07.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Death_07.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Eating_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Eating_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Heavy_Breathing_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Heavy_Breathing_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_03.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_03.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_04.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_04.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_05.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_05.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_06.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_06.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_07.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_07.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_08.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_08.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_09.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_09.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_10.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_10.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_11.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_11.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_12.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_12.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_13.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_13.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_14.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Hit_14.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Idle_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Idle_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Idle_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Idle_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Idle_Guard_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Idle_Guard_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Long_Death_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Long_Death_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Misc_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Misc_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Misc_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Misc_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Misc_03.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Misc_03.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Roar_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Roar_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Roar_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Roar_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Running_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Running_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Running_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Running_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Sleeping_Guard_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Sleeping_Guard_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Surprised_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Surprised_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Surprised_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Surprised_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Talking_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Talking_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Talking_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Talking_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Tracking_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Tracking_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Tracking_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Tracking_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Trapped_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Trapped_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Vanishing.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Big_Creature/Big_Creature_Vanishing.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Attack_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Attack_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Attack_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Attack_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Attack_03.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Attack_03.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Attack_04.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Attack_04.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Attack_05.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Attack_05.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Attack_And_Bite_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Attack_And_Bite_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Bite_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Bite_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Bite_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Bite_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Chasing_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Chasing_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Death_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Death_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Death_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Death_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Death_03.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Death_03.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Death_04.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Death_04.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Death_05.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Death_05.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Death_06.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Death_06.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Grab_Attack_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Grab_Attack_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Hit_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Hit_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Hit_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Hit_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Hit_03.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Hit_03.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Hit_04.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Hit_04.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Hit_05.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Hit_05.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Idle_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Idle_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Idle_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Idle_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Misc_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Misc_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Misc_02.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Misc_02.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Misc_03.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Misc_03.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Running_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Running_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Tracking_01.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/7.Audios/Creatures_VSFX_LITE/Small_Creature/Small_Creature_Tracking_01.wav.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -145,6 +329,20 @@
       <workItem from="1745997033615" duration="3139000" />
       <workItem from="1746000210055" duration="1054000" />
       <workItem from="1746001504621" duration="189000" />
+      <workItem from="1746058793389" duration="602000" />
+      <workItem from="1746068938095" duration="2754000" />
+      <workItem from="1746071973084" duration="1394000" />
+      <workItem from="1746073391813" duration="264000" />
+      <workItem from="1746073666942" duration="3240000" />
+      <workItem from="1746077037047" duration="6331000" />
+      <workItem from="1746109220189" duration="99000" />
+      <workItem from="1746109333703" duration="388000" />
+      <workItem from="1746146286363" duration="5995000" />
+      <workItem from="1746158502973" duration="478000" />
+      <workItem from="1746159126904" duration="33000" />
+      <workItem from="1746159190701" duration="50000" />
+      <workItem from="1746159259916" duration="1000" />
+      <workItem from="1746159491148" duration="1550000" />
     </task>
     <servers />
   </component>

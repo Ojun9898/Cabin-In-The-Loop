@@ -15,12 +15,13 @@ public class RipperIdleState : RipperBaseState
         base.EnterState();
         StopMoving();
         PlayAnimation("Ripper Idle");
+       
     }
     
     public override void UpdateState()
     {
         base.UpdateState();
-    
+        
         // 플레이어가 감지 범위 안에 들어오면 추적 상태로 전환
         if (IsPlayerInRange(CHASE_RANGE))
         {

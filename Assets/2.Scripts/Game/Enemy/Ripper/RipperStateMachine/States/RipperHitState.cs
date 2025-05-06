@@ -16,6 +16,12 @@ public class RipperHitState : RipperBaseState
     {
         base.EnterState();
         StopMoving();
+        // Hit(피격) 사운드 재생 요청
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Hit,
+            EMonsterType.Ripper,
+            ripper.transform
+        );
         PlayAnimation("Ripper Damage");
         TakeDamage(damageAmount); // 데미지 처리
     }

@@ -8,7 +8,12 @@ public class VendigoStateMachine : StateMachine<Monster>
     [SerializeField] private Transform playerTransform;
     
     public Transform PlayerTransform => playerTransform;
-
+    
+    public void SetPlayerTransform(Transform t)
+    {
+        playerTransform = t;
+    }
+    
     protected override void Initialize()
     {
         // Monster 컴포넌트 가져오기
@@ -58,6 +63,15 @@ public class VendigoStateMachine : StateMachine<Monster>
         base.Initialize();
     }
     
+    private void OnEnable()
+    {
+        // states가 준비되지 않았다면 패스
+        if (states == null || states.Count == 0) 
+            return;
+        
+        ChangeState(EState.Idle);
+    }
+    
     public void OnHit(int damage)
     {
         Monster ripper = GetComponent<Monster>();
@@ -80,4 +94,6 @@ public class VendigoStateMachine : StateMachine<Monster>
         base.ChangeState(nextState);
         Debug.Log($"Zombie state changed: {previousState} -> {nextState}");
     }
+    
+    
 }

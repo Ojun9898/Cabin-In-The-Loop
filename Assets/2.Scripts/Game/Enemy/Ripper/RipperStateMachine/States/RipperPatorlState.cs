@@ -57,8 +57,8 @@ public class RipperPatorlState : RipperBaseState
         }
         
         PlayAnimation("Ripper Walk");
-        SetNewWanderTarget();
         
+        SetNewWanderTarget();
     }
     
     public override void UpdateState()

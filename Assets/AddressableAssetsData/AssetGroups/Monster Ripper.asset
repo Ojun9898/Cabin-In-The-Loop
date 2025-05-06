@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Monster Ripper
+  m_EditorClassIdentifier: 
+  m_GroupName: Monster Ripper
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 9c6ef345d4046b04dbd7bfef9745f444
+  m_SerializeEntries:
+  - m_GUID: 1c0eb83c87e7dc2479087b87632ae44b
+    m_Address: Ripper6
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ripper
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3dcfd7874ea14a64aa905b0911e682d2
+    m_Address: Ripper1
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ripper
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 60b6f2cd3e9307548bdf718cd3b31150
+    m_Address: Ripper2
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ripper
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 96d4dce35dd631248a22b9390d925e90
+    m_Address: Ripper3
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ripper
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c156a365e26e0ed47b38a62073126c05
+    m_Address: Ripper5
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ripper
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f19e12b04eca935479e747f3a0d3d04e
+    m_Address: Ripper4
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ripper
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3fb7d4f27ca401143b6ba8e01506160c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 7d3cf0c95a1a54e47b8eb98ca953f7d2, type: 2}
+    - {fileID: 11400000, guid: 8179570aa4f64d946b2edc86a38f5d22, type: 2}

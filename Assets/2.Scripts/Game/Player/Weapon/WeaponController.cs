@@ -55,19 +55,22 @@ public class WeaponController : MonoBehaviour
     /// <param name="duration">데미지 필드 지속 시간 (애니메이션 길이 등)</param>
     public void SpawnDamageField(float duration)
     {
-        // 1) 무기 데이터(데미지, 사거리) 가져오기
+        // 1) 무기 데이터 가져오기
         WeaponData data = GameManager.Instance.GetWeaponData(currentWeaponType);
 
-        // 2) 데미지 필드 오브젝트 꺼내기
+        // 2) PlayerStatus의 CalculateDamage()로 최종 데미지 계산 (크리티컬 포함)
+        float totalDamage = PlayerStatus.Instance.CalculateDamage(data);
+
+        // 3) 풀에서 데미지 필드 꺼내기
         GameObject field = GameManager.Instance.GetDamageField();
 
-        // 3) 생성 위치: 손 소켓 기준 전방으로 사거리의 절반 만큼 이동
+        // 4) 생성 위치 계산 (손 소켓 기준 전방 절반 거리)
         Vector3 spawnPos = handSocket.position + handSocket.forward * (data.range * 0.5f);
         field.transform.position = spawnPos;
 
-        // 4) 활성화 및 초기화 (owner=자신, 피해량, 반경, 지속시간)
+        // 5) 활성화 및 초기화 (owner, damage, radius, duration)
         field.SetActive(true);
         field.GetComponent<DamageField>()
-             .Initialize(gameObject, data.damage, data.range, duration);
+            .Initialize(gameObject, totalDamage, data.range, duration);
     }
 }

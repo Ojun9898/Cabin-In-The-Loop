@@ -27,6 +27,10 @@ public class SpawnManager : MonoBehaviour
     [Tooltip("생성 가능한 몬스터의 총합")]
     [SerializeField] private int totalPoolSize = 90;
     
+
+    [Header("몬스터 보관위치")]
+    [SerializeField] private Transform PrefabsContainer;
+    
     // 1. 라벨로 불러온 프리팹 목록
     private List<GameObject> ripperLabels = new List<GameObject>();
     private List<GameObject> vendigoLables = new List<GameObject>();
@@ -96,7 +100,9 @@ public class SpawnManager : MonoBehaviour
 
         // 2) 인스턴스 생성 및 세팅
         // Monster 와 각각의 StateMachine 스크립트에서 player응 참조할수 있도록 설정
-        var monster = Instantiate(prefab);
+
+        var monster = Instantiate(prefab, PrefabsContainer);
+
         monster.AssignTransform(playerTransform);
 
         // 3) 비활성화 후 풀에 보관
@@ -149,12 +155,12 @@ public class SpawnManager : MonoBehaviour
         foreach (var go in pool)
             if (!go.activeInHierarchy)
                 return go;
-
+    
         // 2) 여유가 있으면 새 인스턴스 생성
         if (pool.Count < maxCount && TotalPoolCount() < totalPoolSize)
         {
             var prefab = variantList[Random.Range(0, variantList.Count)];
-            var go = Instantiate(prefab);
+            var go = Instantiate(prefab, PrefabsContainer);
             go.SetActive(false);
             pool.Add(go);
             return go;
@@ -164,3 +170,4 @@ public class SpawnManager : MonoBehaviour
     }
     
 }
+

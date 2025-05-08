@@ -1297,6 +1297,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 908090081}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &568874307
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 568874308}
+  - component: {fileID: 568874309}
+  m_Layer: 0
+  m_Name: ProjectilePoolManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &568874308
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568874307}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &568874309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 568874307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f771484cd7923a6448f7a0c71e1da1af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools:
+  - prefab: {fileID: 1236363365630703446, guid: 8f72c838152d69c4a85aa822a1f094ce,
+      type: 3}
+    initialSize: 10
+  - prefab: {fileID: 5518104951989879666, guid: 3fa716ce04e66d94f98bdac3575adced,
+      type: 3}
+    initialSize: 10
 --- !u!4 &585817766 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4013288848347229970, guid: 44043a5e4871a504ab1b0d8982e4e538,
@@ -1553,11 +1604,17 @@ MonoBehaviour:
   - {fileID: 109112058}
   spawnCycle: 4
   playerTransform: {fileID: 1528564284}
+  zombieLabel: Zombie
+  zombiePoolSize: 10
+  insectoidLabel: Insectoid
+  insectoidPoolSize: 3
   ripperLabel: Ripper
   ripperPoolSize: 6
   vendigoLabel: Vendigo
-  vendigoPoolSize: 5
-  totalPoolSize: 90
+  vendigoPoolSize: 4
+  beastLabel: Beast
+  beastPoolSize: 1
+  totalPoolSize: 50
   PrefabsContainer: {fileID: 75059422}
 --- !u!1 &843065634
 GameObject:
@@ -1614,7 +1671,17 @@ MonoBehaviour:
     hitClip: {fileID: 8300000, guid: 084b4cdbf34ae354a8e031cfd5d3ef3c, type: 3}
     deathClip: {fileID: 8300000, guid: 4826aad211211e94e905b151e0564cd0, type: 3}
     attackClip: {fileID: 8300000, guid: efe4c855e969ab248ad659fec7472417, type: 3}
-  maxAudioSources: 30
+  - monsterType: 2
+    chaseClip: {fileID: 0}
+    hitClip: {fileID: 8300000, guid: 82b534226925ff84caf1727fa81d6c55, type: 3}
+    deathClip: {fileID: 8300000, guid: a71784caf07603f4fa8e3052d8686b53, type: 3}
+    attackClip: {fileID: 8300000, guid: 783199fa789398746a400cbd3cc23fb3, type: 3}
+  - monsterType: 3
+    chaseClip: {fileID: 0}
+    hitClip: {fileID: 8300000, guid: 5a9bc4aac55e8be46bbcd29b2377e7b7, type: 3}
+    deathClip: {fileID: 8300000, guid: a9ca3503d550e464fbe9cc07ec7a7ae5, type: 3}
+    attackClip: {fileID: 8300000, guid: 8d13a592513be4640a92b70a4bb6c4ba, type: 3}
+  maxAudioSources: 40
   maxSimultaneousPlaysPerClip: 3
 --- !u!1 &863840646
 GameObject:
@@ -2780,7 +2847,7 @@ PrefabInstance:
     - target: {fileID: 3023791142357651803, guid: 710a0b071cfd8814ba548d07bee28499,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -20.9
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 3023791142357651803, guid: 710a0b071cfd8814ba548d07bee28499,
         type: 3}
@@ -4094,3 +4161,4 @@ SceneRoots:
   - {fileID: 1175026482}
   - {fileID: 770057998}
   - {fileID: 843065636}
+  - {fileID: 568874308}

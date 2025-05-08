@@ -17,32 +17,32 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: e65b725b974e8b449b17493d39bd80a1
   m_SerializeEntries:
-  - m_GUID: 3de97ac04d77d69438f5e769cf4a7cd3
-    m_Address: Vendigo3
+  - m_GUID: 4ee0ba91aa0f8174d8b82b04b0a7ef83
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 59917b034e36c354982490897a2770b1
-    m_Address: Vendigo2
+  - m_GUID: 8192e726acb478c4697dda0845619b7f
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 4.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 5f237dda8da440c44beec146cb0959df
-    m_Address: Vendigo4
+  - m_GUID: 8793cbb3bea13a544ae0d4b93210e1b0
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 1.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 97de2502cc472a34caa3afccdd2aeffd
-    m_Address: Vendigo5
+  - m_GUID: c7154ee5e7ca19044b4813ea7dfc001a
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 3.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b04a42f2433b3934eb9cf0f6e98f5002
-    m_Address: Vendigo1
+  - m_GUID: d9ecc1279ce298b4b9b823bb77d8f4c7
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 2.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo

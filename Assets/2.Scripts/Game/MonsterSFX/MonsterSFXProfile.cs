@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 // EState, EMonsterType 정의
-public enum EMonsterType { Ripper, Vendigo /*, Type3, Type4, Type5 */ }
+public enum EMonsterType { Ripper, Vendigo, Zombie, Insect,  /*,type5 */ }
 
 // Inspector 창에서 편집가능
 [System.Serializable]

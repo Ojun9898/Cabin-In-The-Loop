@@ -15,7 +15,7 @@ MonoBehaviour:
   m_DefaultGroup: 9c6ef345d4046b04dbd7bfef9745f444
   m_currentHash:
     serializedVersion: 2
-    Hash: ecd9d79a10c4b3e42c7d5655e6b525be
+    Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
   m_BuildRemoteCatalog: 0
   m_BundleLocalCatalog: 0
@@ -44,8 +44,11 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: '[UnityEditor.PlayerSettings.bundleVersion]'
   m_GroupAssets:
+  - {fileID: 11400000, guid: 5da36d91bc75f874c8af48620c0d02e8, type: 2}
+  - {fileID: 11400000, guid: 9f4e3226fbdbdd5439f036fa5a497488, type: 2}
   - {fileID: 11400000, guid: 22ba77df4e8fe464d9a7ac22e146aeab, type: 2}
   - {fileID: 11400000, guid: 0a97c48aa8ee0f747b5afdc507241324, type: 2}
+  - {fileID: 11400000, guid: 641d6313b0e9f8e4bba0928984c592f5, type: 2}
   - {fileID: 11400000, guid: cc10fbb8297e8514ea6a74d11920e177, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
@@ -90,6 +93,9 @@ MonoBehaviour:
     - default
     - Ripper
     - Vendigo
+    - Zombie
+    - Insectoid
+    - Beast
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: cb5f54ef39005724a805d73d7f6e527c, type: 2}

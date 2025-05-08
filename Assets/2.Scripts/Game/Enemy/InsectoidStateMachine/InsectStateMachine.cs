@@ -9,6 +9,14 @@ public class InsectStateMachine : StateMachine<Monster>
     [SerializeField] private Transform firePoint; // 발사 위치
     [SerializeField] private float projectileSpeed = 10f; // 발사체 속도
     
+    public Transform PlayerTransform => playerTransform;
+    
+    public void SetPlayerTransform(Transform t)
+    {
+        playerTransform = t;
+    }
+
+    
     protected override void Initialize()
     {
         // Monster 컴포넌트 가져오기
@@ -47,10 +55,14 @@ public class InsectStateMachine : StateMachine<Monster>
         // 각 상태를 초기화
         foreach (var state in insectStates)
         {
+            // 1) 플레이어 Transform 전달
+            state.SetPlayerTransform(playerTransform);
+            
+            // 2) 공격 상태는 추가 초기화
             if (state is InsectAttackState attackState)
-            {
                 attackState.InitializeAttack(poisonThornPrefab, firePoint, projectileSpeed);
-            }
+            
+            // 3) 기존 Initialize 호출
             state.Initialize(monster);
         }
         

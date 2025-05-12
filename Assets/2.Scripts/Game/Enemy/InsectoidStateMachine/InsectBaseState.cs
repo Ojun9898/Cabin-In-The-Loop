@@ -87,6 +87,6 @@ public abstract class InsectBaseState : State<Monster>
     
     protected void TakeDamage(int damage)
     {
-        insect.OnHit(damage);
+        insect.TakeDamage(damage);
     }
 } 

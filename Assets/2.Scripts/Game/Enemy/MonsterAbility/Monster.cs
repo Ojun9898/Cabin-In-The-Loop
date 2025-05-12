@@ -71,14 +71,25 @@ public class Monster : MonoBehaviour
         health.OnDeath += HandleDeath;
     }
     
-    private void HandleHealthChanged(int newHealth)
+    private void HandleHealthChanged(float newHealth)
     {
         // 체력 변경 시 처리
+        Debug.Log($"[Monster] 체력 변경됨: {newHealth}");
     }
     
     private void HandleDeath()
     {
         // 사망 시 처리
+        // 경험치 지급
+        if (player != null && player.TryGetComponent<PlayerStatus>(out var playerStatus))
+        {
+            Debug.Log("경험치 지급 됨");
+            playerStatus.GainXp(20f);
+        }
+        else
+        {
+            Debug.LogWarning("Player reference is null or PlayerStatus not found.");
+        }
     }
     
     public bool IsPlayerInRange(float range)
@@ -141,7 +152,7 @@ public class Monster : MonoBehaviour
         return health.CurrentHealth <= 0;
     }
     
-    public void OnHit(int damage)
+    public void TakeDamage(float damage)
     {
         health.TakeDamage(damage);
     }

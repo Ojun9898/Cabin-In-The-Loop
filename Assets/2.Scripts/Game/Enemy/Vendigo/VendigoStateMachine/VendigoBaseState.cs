@@ -89,7 +89,7 @@ public abstract class VendigoBaseState : State<Monster>
 
     protected void TakeDamage(int damage)
     {
-        vendigo.OnHit(damage);
+        vendigo.TakeDamage(damage);
     }
     
 }

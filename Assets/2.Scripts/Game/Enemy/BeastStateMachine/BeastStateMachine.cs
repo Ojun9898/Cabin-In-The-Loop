@@ -89,7 +89,7 @@ public class BeastStateMachine : StateMachine<Monster>
     {
         currentHealth = Mathf.Max(0, currentHealth - damage);
         Monster monster = GetComponent<Monster>();
-        monster.OnHit(damage);
+        monster.TakeDamage(damage);
         
         if (!IsDead())
         {

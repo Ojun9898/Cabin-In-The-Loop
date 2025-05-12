@@ -75,7 +75,7 @@ public class RipperStateMachine : StateMachine<Monster>
     public void OnHit(int damage)
     {
         Monster ripper = GetComponent<Monster>();
-        ripper.OnHit(damage);
+        ripper.TakeDamage(damage);
     
         if (!ripper.IsDead())
         {

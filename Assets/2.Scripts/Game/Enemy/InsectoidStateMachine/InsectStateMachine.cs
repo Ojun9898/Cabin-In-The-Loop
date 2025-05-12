@@ -75,7 +75,7 @@ public class InsectStateMachine : StateMachine<Monster>
     public void OnHit(int damage)
     {
         Monster monster = GetComponent<Monster>();
-        monster.OnHit(damage);
+        monster.TakeDamage(damage);
         
         if (!monster.IsDead())
         {

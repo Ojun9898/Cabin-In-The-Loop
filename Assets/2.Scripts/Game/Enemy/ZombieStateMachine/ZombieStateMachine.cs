@@ -65,7 +65,7 @@ public class ZombieStateMachine : StateMachine<Monster>
     public void OnHit(int damage)
     {
         Monster zombie = GetComponent<Monster>();
-        zombie.OnHit(damage);
+        zombie.TakeDamage(damage);
         
         if (!zombie.IsDead())
         {

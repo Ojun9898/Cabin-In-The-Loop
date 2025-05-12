@@ -203,6 +203,10 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
 
         OnLevelUp?.Invoke(_currentLevel);
         onLevelUpEvent?.Invoke(_currentLevel);
+        
+        // 레벨업 시 무기 선택 UI 띄우기
+        GameManager.Instance.ShowWeaponSelection();
+        
         Debug.Log($"Level Up! New Level: {_currentLevel}");
     }
 

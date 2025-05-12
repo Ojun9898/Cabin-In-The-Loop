@@ -12,13 +12,16 @@ public class GameManager : Singleton<GameManager>
     
     // 인스펙터에서 등록할 데미지 필드 리스트
     [SerializeField] private GameObject damageFieldPrefab;
-    private Queue<GameObject> damageFieldPool = new();
+    private Queue<GameObject> _damageFieldPool = new();
 
     // 무기 풀 저장소 (무기 타입별 Queue)
     private Dictionary<WeaponType, Queue<GameObject>> _weaponPools = new();
 
     // 무기 타입과 무기 데이터 매핑 (빠른 접근용)
     private Dictionary<WeaponType, WeaponData> _weaponDataMap = new();
+    
+    // 무기 선택 UI 
+    public WeaponSelectionUI weaponSelectionUI;
 
     protected override void Awake()
     {
@@ -105,9 +108,9 @@ public class GameManager : Singleton<GameManager>
     
     public GameObject GetDamageField()
     {
-        if (damageFieldPool.Count > 0)
+        if (_damageFieldPool.Count > 0)
         {
-            return damageFieldPool.Dequeue();
+            return _damageFieldPool.Dequeue();
         }
 
         return Instantiate(damageFieldPrefab);
@@ -116,6 +119,23 @@ public class GameManager : Singleton<GameManager>
     public void ReturnDamageField(GameObject field)
     {
         field.SetActive(false);
-        damageFieldPool.Enqueue(field);
+        _damageFieldPool.Enqueue(field);
+    }
+    
+    // 레벨업 시 무기 선택 UI 띄우기
+    public void ShowWeaponSelection()
+    {
+        // 랜덤으로 3개 무기 선택
+        List<WeaponData> randomWeapons = new List<WeaponData>();
+        List<WeaponData> availableWeapons = new List<WeaponData>(weaponDataList);
+        int selectedCount = Mathf.Min(3, availableWeapons.Count); // 최소 3개 선택
+
+        for (int i = 0; i < selectedCount; i++)
+        {
+            int randomIndex = Random.Range(0, availableWeapons.Count);
+            randomWeapons.Add(availableWeapons[randomIndex]);
+        }
+
+        weaponSelectionUI.Initialize(randomWeapons);
     }
 }

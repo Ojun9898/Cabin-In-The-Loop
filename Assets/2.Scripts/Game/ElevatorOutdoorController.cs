@@ -1,73 +1,120 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.InteropServices;
-using TMPro;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
-public class ElevatorOutdoorController : MonoBehaviour
+public class ElevatorOutDoorController : MonoBehaviour
 {
-    [SerializeField] private int outDoorFloor; // outdoor의 층 입력
+    [SerializeField] private int currentFloor;
+    [SerializeField] private Animation thisFloorOutDoorAnim;
+    [SerializeField] private Animation nextFloorOutDoorAnim;
+    [SerializeField] private ElevatorController ec;
 
-    private ElevatorController ec;
-    private float outDoorFloorPos; // outdoor의 위치
-    private bool isPlayerInTrigger = false; // 플레이어가 트리거에 들어왔는지 확인하는 변수
-    private bool isDoorOpen = false; // 문이 열려있는지 확인하는 변수
+    [HideInInspector] public bool isDoorOpen = false;
 
-    void Update()
+    public void OpenDoor()
     {
-        GetOutDoorFloor();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.CompareTag("Player")) // 플레이어가 트리거에 들어왔을 때
+        if (!ec.isArrived)
         {
-            isPlayerInTrigger = true;
-            Debug.Log("Player is in outdoor.");
+            thisFloorOutDoorAnim.Play("OutDoorOpen");
         }
+
+        else
+        {
+            nextFloorOutDoorAnim.Play("OutDoorOpen");
+        }
+
+        ec.OpenDoor(); // OutDoor 문과 엘레베이터 문을 동시에 열기
+        isDoorOpen = true;
     }
 
-    public int GetOutDoorFloor()
+    public void CloseDoor()
     {
-        ec = FindObjectOfType<ElevatorController>();
-
-        if (ec.isElevatorMoving == false && isDoorOpen == false) // outdoor트리거에 플레이어가 들어왔고 E키를 눌렀을 때 / 엘레베이터가 움직이지 않고 문이 닫혀있을 때
+        if (!ec.isArrived)
         {
-            return outDoorFloor;
+            thisFloorOutDoorAnim.Play("OutDoorClose");
+        }
+
+        else
+        {
+            nextFloorOutDoorAnim.Play("OutDoorClose");
         }
         
-        return 0;
+        ec.CloseDoor(); // OutDoor 문과 엘레베이터 문을 동시에 닫기
+        isDoorOpen = false;
     }
 
-    public float GetOutDoorPos()
-    {    
-        outDoorFloorPos = transform.position.y; // 현재 오브젝트의 y좌표
-        return outDoorFloorPos;
-    }
-
-    public bool GetIsPlayerInTrigger()
+    private void OnTriggerStay(Collider other)
     {
-        return isPlayerInTrigger;
-    }
+        if (thisFloorOutDoorAnim.isPlaying) return; // 애니메이션 끊김 방지
 
-    public void OnOutDoorOpenEnd()
-    {
-        // 엘레베이터 내부 콜라이더에 플레이어가 인식되지 않으면 일정시간 이후 문을 닫음
-        isDoorOpen = false; // 문이 닫힘
+        // Message: "엘레베이터를 사용하겠습니까? [E]"
 
-        // 6층 제외 윗층으로 올라감
-        if (outDoorFloor == 6)
+        if (other.CompareTag("Player") && !ec.isElevatorMoving)
         {
-            Debug.Log("6층에서는 엘레베이터를 사용할 수 없습니다.");
-            return;
-        }
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                if (currentFloor == 6)
+                {
+                    // Message: "현재 층에서는 엘레베이터를 사용할 수 없습니다."
+                    return;
+                }
 
-        ec.MoveElevatorToNextFloor();
+                // if () // 스테이지 클리어 하지 않은 경우
+                // {
+                //     // Message: "몬스터를 모두 처치하세요." 
+                //     return;
+                // }
+
+                if (!isDoorOpen)
+                {
+                    OpenDoor();
+                }
+            }
+
+            if (ec.isPlayerInElevator && !ec.isArrived)
+            {
+                // Message: "다음 층으로 올라가겠습니까? [Y]"
+                if (Input.GetKeyDown(KeyCode.Y) && !ec.isElevatorMoving)
+                {
+                    CloseDoor();
+                    StartCoroutine(MoveElevator());
+                }
+            }
+        }
     }
 
-    public void OnOutDoorCloseEnd()
+    private IEnumerator MoveElevator()
     {
+        CloseDoor(); // 애니메이션 시작
+        yield return new WaitForSeconds(thisFloorOutDoorAnim["OutDoorClose"].length);
 
+        yield return StartCoroutine(ec.MoveElevator(currentFloor)); // 기다려야 함
+
+        yield return StartCoroutine(LeaveElevator()); // LeaveElevator도 코루틴이면
+    }
+
+    private IEnumerator LeaveElevator()
+    {
+        if (ec.isArrived)
+        {
+            // 메시지: 도착했습니다. 문이 열립니다.
+            if (!isDoorOpen) 
+                OpenDoor();
+
+            // 문이 완전히 열릴 때까지 대기
+            yield return new WaitUntil(() => isDoorOpen);
+
+            // 플레이어가 엘리베이터를 나갈 때까지 대기
+            yield return new WaitUntil(() => !ec.isPlayerInElevator);
+
+            // 문 닫기
+            CloseDoor();
+
+            // 문이 완전히 닫힐 때까지 대기
+            yield return new WaitUntil(() => !isDoorOpen);
+
+            // 도착 상태 초기화
+            ec.isArrived = false;
+        }
     }
 }

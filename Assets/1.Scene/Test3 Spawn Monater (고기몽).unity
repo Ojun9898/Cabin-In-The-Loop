@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ad7ea02c5baac744a16a4a100e74c0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 1011366148}
   cameraTransform: {fileID: 278203418}
   weaponDataList:
   - {fileID: 11400000, guid: 5ffcfb90221a14f4c869067a4a564ace, type: 2}
@@ -1958,7 +1958,7 @@ MonoBehaviour:
   - {fileID: 863840647}
   - {fileID: 109112058}
   spawnCycle: 4
-  playerTransform: {fileID: 0}
+  playerTransform: {fileID: 1011366148}
   zombieLabel: Zombie
   zombiePoolSize: 2
   insectoidLabel: Insectoid
@@ -2708,6 +2708,12 @@ MonoBehaviour:
   onLevelUpEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!4 &1011366148 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3023791142357651803, guid: 710a0b071cfd8814ba548d07bee28499,
+    type: 3}
+  m_PrefabInstance: {fileID: 1011366138}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1032642641
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class BeastChaseState : BeastBaseState
 {
-    private const float CHASE_RANGE = 6f;
+    private const float CHASE_RANGE = 18f;
     private const float ATTACK_RANGE = 1.5f;
     
     protected override void SetStateKey()

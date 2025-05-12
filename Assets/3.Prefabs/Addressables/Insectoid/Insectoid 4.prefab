@@ -1380,7 +1380,7 @@ GameObject:
   - component: {fileID: 1243305851507301560}
   - component: {fileID: 5923239539901537516}
   m_Layer: 0
-  m_Name: Insectoid
+  m_Name: Insectoid 4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

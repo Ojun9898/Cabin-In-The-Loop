@@ -3,22 +3,22 @@ using UnityEngine;
 
 public class MonsterHealth
 {
-    private int currentHealth;
-    private int maxHealth;
+    private float currentHealth;
+    private float maxHealth;
 
-    public int CurrentHealth => currentHealth;
-    public int MaxHealth => maxHealth;
+    public float CurrentHealth => currentHealth;
+    public float MaxHealth => maxHealth;
 
-    public event Action<int> OnHealthChanged;
+    public event Action<float> OnHealthChanged;
     public event Action OnDeath;
 
-    public MonsterHealth(int maxHealth)
+    public MonsterHealth(float maxHealth)
     {
         this.maxHealth = maxHealth;
         this.currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
         currentHealth = Mathf.Max(0, currentHealth - damage);
         OnHealthChanged?.Invoke(currentHealth);
@@ -28,12 +28,5 @@ public class MonsterHealth
             OnDeath?.Invoke();
         }
     }
-
-    public void Heal(int amount)
-    {
-        if (currentHealth <= 0) return; // 이미 죽은 상태면 회복 불가
-        
-        currentHealth = Mathf.Min(maxHealth, currentHealth + amount);
-        OnHealthChanged?.Invoke(currentHealth);
-    }
+    
 }

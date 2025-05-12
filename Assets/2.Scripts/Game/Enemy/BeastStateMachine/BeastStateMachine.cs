@@ -15,6 +15,13 @@ public class BeastStateMachine : StateMachine<Monster>
     private bool hasUsedEmergencyHowl = false;
     private bool isHowling = false;
     
+    public Transform PlayerTransform => playerTransform;
+    
+    public void SetPlayerTransform(Transform t)
+    {
+        playerTransform = t;
+    }
+    
     protected override void Initialize()
     {
         // Monster 컴포넌트 가져오기

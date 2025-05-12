@@ -41,6 +41,9 @@ public class ZombiePatorlState : ZombieBaseState
     public override void EnterState()
     {
         base.EnterState();
+        // 이동 재개
+        if (navMeshAgent != null)
+            navMeshAgent.isStopped = false;
         PlayAnimation("Walk");
         SetNewWanderTarget();
     }

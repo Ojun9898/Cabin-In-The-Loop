@@ -10,7 +10,7 @@ public class Projectile : MonoBehaviour
     private Rigidbody rb;
     private float damage;
     // 일정시간뒤에 파괴
-    private const float LIFETIME = 4.5f;
+    private const float LIFETIME = 2.5f;
 
     // 방향 계산부터 인스턴스 생성, 초기화까지 전부 처리
     public static void Throw
@@ -30,7 +30,10 @@ public class Projectile : MonoBehaviour
         dir.Normalize();
 
         // 2) 생성 & 초기화
-        var go = Object.Instantiate(prefab, start, Quaternion.LookRotation(dir));
+        var go = ProjectilePoolManager.Instance != null
+            ? ProjectilePoolManager.Instance.SpawnFromPool(prefab, start, Quaternion.LookRotation(dir))
+            : Object.Instantiate(prefab, start, Quaternion.LookRotation(dir));
+        
         var proj = go.GetComponent<Projectile>();
         proj.Initialize(dir, speed, damage, upwardSpeed);
     }
@@ -49,7 +52,6 @@ public class Projectile : MonoBehaviour
         Vector3 launchVel = (direction * speed) + (Vector3.up * upwardSpeed);
         rb.velocity = Vector3.zero; // 기존 속도 초기화
         rb.AddForce(launchVel * rb.mass, ForceMode.Impulse);
-        Destroy(gameObject, LIFETIME);
     }
     
     
@@ -61,7 +63,6 @@ public class Projectile : MonoBehaviour
         {
             var hp = collision.gameObject.GetComponent<PlayerStatus>();
             if (hp != null) hp.TakeDamage(damage);
-            Destroy(gameObject);
         }
        
     }

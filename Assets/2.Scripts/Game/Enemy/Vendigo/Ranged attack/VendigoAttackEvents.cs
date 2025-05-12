@@ -7,8 +7,8 @@ public class VendigoAttackEvents : MonoBehaviour
     [Header("투사물 세팅")]
     public GameObject projectilePrefab;
     public Transform  muzzlePoint;
-    public float      projectileSpeed = 10f;
-    public float      upwardSpeed     = 5f;
+    private float      projectileSpeed = 11.5f;
+    private float      upwardSpeed     = 2.75f;
     
     bool hasThrown = false;
     
@@ -31,5 +31,10 @@ public class VendigoAttackEvents : MonoBehaviour
             VendigoAttackState.DAMAGE_AMOUNT,
             upwardSpeed
         );
+    }
+    
+    public void ResetThrow()
+    {
+        hasThrown = false;
     }
 }

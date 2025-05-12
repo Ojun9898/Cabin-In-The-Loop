@@ -14,6 +14,12 @@ public class InsectDeathState : InsectBaseState
     {
         base.EnterState();
         StopMoving();
+        // Death(사망) 사운드 재생 요청
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Death,
+            EMonsterType.Insect,
+            insect.transform
+        );
         PlayAnimation("Death");
         hasStartedDeathAnimation = false;
     }

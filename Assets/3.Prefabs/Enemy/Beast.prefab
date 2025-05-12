@@ -429,9 +429,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  moveSpeed: 1.5
-  attackDamage: 10
+  maxHealth: 1000
+  moveSpeed: 2.5
+  attackDamage: 35
   chaseRange: 6
   attackRange: 2
   player: {fileID: 0}

@@ -21,12 +21,6 @@ public class RipperAttackState : RipperBaseState
         base.EnterState();
         StopMoving();
         PlayAnimation("Ripper Attack");
-        // Attack 사운드 재생 요청 
-        MonsterSFXManager.Instance.RequestPlay(
-            EState.Attack,
-            EMonsterType.Ripper,
-            ripper.transform
-        );
         hasAttacked = false;
     }
     

@@ -7,6 +7,14 @@ public class ZombieStateMachine : StateMachine<Monster>
     [SerializeField] private List<ZombieBaseState> zombieStates;
     [SerializeField] private Transform playerTransform;
     
+    public Transform PlayerTransform => playerTransform;
+    
+    public void SetPlayerTransform(Transform t)
+    {
+        playerTransform = t;
+    }
+
+    
     protected override void Initialize()
     {
         // Monster 컴포넌트 가져오기

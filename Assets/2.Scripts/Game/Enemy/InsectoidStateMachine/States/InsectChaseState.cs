@@ -20,6 +20,13 @@ public class InsectChaseState : InsectBaseState
     {
         base.UpdateState();
         
+        bool inRange = IsPlayerInRange(CHASE_RANGE);
+        // 범위 안일 때만 직접 회전, 아닐 때는 NavMesh 회전
+        if (navMeshAgent != null)
+            navMeshAgent.updateRotation = !inRange;
+        if (inRange)
+            RotateTowards(playerTransform.position, 6f);
+        
         MoveToPlayer();
 
         // 상태 전환 처리

@@ -10,6 +10,7 @@ public class VendigoAttackState : VendigoBaseState
     private const float DAMAGE_FIELD_RADIUS = 2f;
     public const float DAMAGE_AMOUNT = 25f;  
     private bool hasAttacked = false;
+    private VendigoAttackEvents attackEvents;
     
     
     
@@ -21,15 +22,14 @@ public class VendigoAttackState : VendigoBaseState
     public override void EnterState()
     {
         base.EnterState();
+        attackEvents = vendigo.GetComponentInChildren<VendigoAttackEvents>();
+        attackEvents?.ResetThrow();
         StopMoving();
         PlayAnimation("Vendigo Attack");
-        MonsterSFXManager.Instance.RequestPlay(
-            EState.Attack,
-            EMonsterType.Vendigo,
-            vendigo.transform
-        );
         hasAttacked = false;
+        
     }
+    
     
     public override void UpdateState()
     {
@@ -38,12 +38,6 @@ public class VendigoAttackState : VendigoBaseState
         // 공격 도중에는 상태를 그대로 유지
         if (stateTimer < ATTACK_DURATION)
         {
-            // 공격이 중간에 처리되지 않았다면 데미지 필드 생성 (모션 중간 시점)
-            if (!hasAttacked && stateTimer >= ATTACK_DURATION * 0.5f)
-            {
-                CreateDamageField();
-                hasAttacked = true;
-            }
             return;
         }
 

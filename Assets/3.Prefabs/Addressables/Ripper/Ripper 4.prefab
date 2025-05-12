@@ -1697,9 +1697,9 @@ GameObject:
   - component: {fileID: 4000013375956118}
   - component: {fileID: 95000010242461984}
   - component: {fileID: 4869628800481372975}
-  - component: {fileID: -3283621768528414699}
   - component: {fileID: -393296538341983701}
   - component: {fileID: 6011371702884503192}
+  - component: {fileID: -6892598500607248846}
   m_Layer: 0
   m_Name: Ripper 4
   m_TagString: Untagged
@@ -1770,29 +1770,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!136 &-3283621768528414699
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000013057997990}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &-393296538341983701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1824,6 +1801,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
+--- !u!114 &-6892598500607248846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013057997990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d523cfef0b4a1674f81e73eb92f43b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterType: 0
 --- !u!1 &1000013093023430
 GameObject:
   m_ObjectHideFlags: 0

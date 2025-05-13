@@ -77,7 +77,7 @@ public class Monster : MonoBehaviour
         Debug.Log($"[Monster] 체력 변경됨: {newHealth}");
     }
     
-    private void HandleDeath()
+    public void HandleDeath()
     {
         // 사망 시 처리
         // 경험치 지급

@@ -25,6 +25,8 @@ public class VendigoDeathState : VendigoBaseState
         );
         PlayAnimation("Vendigo Death");
         hasStartedDeathAnimation = false;
+        
+        vendigo.HandleDeath();
     }
     
     public override void UpdateState()

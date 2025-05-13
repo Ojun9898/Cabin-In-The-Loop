@@ -26,6 +26,7 @@ public class GameManager : Singleton<GameManager>
     protected override void Awake()
     {
         base.Awake();
+        DontDestroyOnLoad(gameObject);
 
         // 플레이어 상태 머신을 찾아서 Transform 저장
         PlayerStateMachine playerSM = FindObjectOfType<PlayerStateMachine>();

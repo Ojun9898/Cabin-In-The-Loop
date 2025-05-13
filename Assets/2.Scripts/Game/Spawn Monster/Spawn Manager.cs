@@ -3,14 +3,25 @@ using System.Collections.Generic;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 using SpawnManager_PlayerTransformCheck;
 
+
+// MonsterType enum을 이곳에 선언
+public enum MonsterType
+{
+    Zombie,
+    Insectoid,
+    Ripper,
+    Vendigo,
+    Beast
+}
+
 public class SpawnManager : MonoBehaviour
 {
-    [Header("스폰 세팅 및 소환 주기")]
+    [Header("스폰 장소")]
     [SerializeField] private Transform[] spawnPoints;
-    [SerializeField] private float spawnCycle = 4f;
     
     [Header("플레이어 Transform")]
     [SerializeField] private Transform playerTransform;
@@ -38,11 +49,13 @@ public class SpawnManager : MonoBehaviour
     
     
     [Tooltip("생성 가능한 몬스터의 총합")]
-    [SerializeField] private int totalPoolSize = 90;
+    [SerializeField] private int totalPoolSize = 68;
     
 
     [Header("몬스터 보관위치")]
     [SerializeField] private Transform PrefabsContainer;
+    
+    private static SpawnManager _instance;
     
     // 1. 라벨로 불러온 프리팹 목록
     private List<GameObject> zombieLabels = new List<GameObject>();
@@ -60,6 +73,21 @@ public class SpawnManager : MonoBehaviour
     
     private int TotalPoolCount() => zombiePool.Count + insectoidPool.Count + ripperPool.Count + vendigoPool.Count 
                                     + beastPool.Count;
+    
+    private void Awake()
+    {
+        if (_instance == null)
+        {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+            return;
+        }
+    }
+    
     private void Start()
     {
         // 라벨로 프리팹들을 한꺼번에 로드
@@ -83,8 +111,7 @@ public class SpawnManager : MonoBehaviour
                     var prefab = zombieLabels[i % zombieLabels.Count];
                     PreloadPool(prefab, zombiePool);
                 }
-
-                TryStartSpawning();
+                
             }
             else Debug.LogError($"[{nameof(SpawnManager)}] zombie assets 로드 실패");
         };
@@ -102,8 +129,7 @@ public class SpawnManager : MonoBehaviour
                     var prefab = insectoidLabels[i % insectoidLabels.Count];
                     PreloadPool(prefab, insectoidPool);
                 }
-
-                TryStartSpawning();
+                
             }
             else Debug.LogError($"[{nameof(SpawnManager)}] insectoid assets 로드 실패");
         };
@@ -122,8 +148,7 @@ public class SpawnManager : MonoBehaviour
                     var prefab = ripperLabels[i % ripperLabels.Count];
                     PreloadPool(prefab, ripperPool);
                 }
-
-                TryStartSpawning();
+                
             }
             else Debug.LogError($"[{nameof(SpawnManager)}] Ripper assets 로드 실패");
         };
@@ -142,8 +167,7 @@ public class SpawnManager : MonoBehaviour
                     var prefab = vendigoLabels[i % vendigoLabels.Count];
                     PreloadPool(prefab, vendigoPool);
                 }
-
-                TryStartSpawning();
+                
             }
             else Debug.LogError($"[{nameof(SpawnManager)}] Vendigo assets 로드 실패");
         };
@@ -162,13 +186,49 @@ public class SpawnManager : MonoBehaviour
                     var prefab = beastLabels[i % beastLabels.Count];
                     PreloadPool(prefab, beastPool);
                 }
-
-                TryStartSpawning();
+                
             }
             else Debug.LogError($"[{nameof(SpawnManager)}] Beast assets 로드 실패");
         };
     }
     #endregion
+    
+    private void OnEnable()
+    {
+        // 씬 로드 이벤트 구독
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        // 이벤트 해제
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ReturnAllToPool();
+    }
+
+    /// <summary>
+    /// 풀에 보관된 몬스터 리스트를 다 돌며, 활성화된 애들은 꺼서 풀로 되돌림
+    /// </summary>
+    private void ReturnAllToPool()
+    {
+        // 모든 풀 리스트를 하나씩 순회
+        var allPools = new List<List<GameObject>> {
+            zombiePool, insectoidPool, ripperPool, vendigoPool, beastPool
+        };
+
+        foreach (var pool in allPools)
+        {
+            foreach (var go in pool)
+            {
+                if (go.activeInHierarchy)
+                    go.SetActive(false);
+            }
+        }
+    }
     // 풀 미리 생성
     private void PreloadPool(GameObject prefab, List<GameObject> pool)
     {
@@ -188,51 +248,49 @@ public class SpawnManager : MonoBehaviour
         pool.Add(monster);
     }
     
-    private void TryStartSpawning()
+    /// <summary>
+    /// 지정한 MonsterType의 풀에서 꺼내어 스폰
+    /// </summary>
+    public void Spawn(MonsterType type)
     {
-        // 풀에 적어도 1개 이상 있는지 확인
-        if (ripperPool.Count > 0 && vendigoPool.Count > 0)
-            InvokeRepeating(nameof(SpawnMonster), spawnCycle, spawnCycle);
-    }
+        if (spawnPoints == null || spawnPoints.Length == 0) 
+            return;
 
-    private void SpawnMonster()
-    {
-        if (spawnPoints.Length == 0) return;
-
+        // 1) 스폰 위치 결정
         var spawnPos = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
-        // pool 에서 오브젝트를 하나 꺼냄
-        GameObject m = GetFromPool();
-        if (m == null) return;
 
-        m.transform.SetPositionAndRotation(spawnPos, Quaternion.identity);
-        m.SetActive(true);
-        // 누락 방지를 대비해서 한번 더 호출
-        m.AssignTransform(playerTransform);
-    }
-
-    // 풀에서 꺼내 쓰기
-    private GameObject GetFromPool()
-    {
-        int idx = Random.Range(0, 5);
-
-        switch (idx)
+        // 2) 타입별 풀에서 꺼내 쓰기
+        GameObject m = null;
+        switch (type)
         {
-            case 0:
-                return ActivateFromList(zombiePool, zombieLabels, zombiePoolSize);
-            case 1:
-                return ActivateFromList(insectoidPool, insectoidLabels, insectoidPoolSize);
-            case 2:
-                return ActivateFromList(ripperPool, ripperLabels, ripperPoolSize);
-            case 3:
-                return ActivateFromList(vendigoPool, vendigoLabels, vendigoPoolSize);
-            case 4:
-                return ActivateFromList(beastPool, beastLabels, beastPoolSize);
-                    
-            default:
-                return null; 
+            case MonsterType.Zombie:
+                m = ActivateFromList(zombiePool, zombieLabels, zombiePoolSize);
+                break;
+            case MonsterType.Insectoid:
+                m = ActivateFromList(insectoidPool, insectoidLabels, insectoidPoolSize);
+                break;
+            case MonsterType.Ripper:
+                m = ActivateFromList(ripperPool, ripperLabels, ripperPoolSize);
+                break;
+            case MonsterType.Vendigo:
+                m = ActivateFromList(vendigoPool, vendigoLabels, vendigoPoolSize);
+                break;
+            case MonsterType.Beast:
+                m = ActivateFromList(beastPool, beastLabels, beastPoolSize);
+                break;
+        }
+
+        // 3) 실제 스폰
+        if (m != null)
+        {
+            m.transform.SetPositionAndRotation(spawnPos, Quaternion.identity);
+            m.SetActive(true);
+            m.tag = "Monster";
+            m.AssignTransform(playerTransform);
+            
         }
     }
-
+    
     private GameObject ActivateFromList(List<GameObject> pool, List<GameObject> variantList,int maxCount)
     {
         // 비활성화된 오브젝트가 있으면 즉시 반환

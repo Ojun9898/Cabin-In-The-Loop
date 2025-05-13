@@ -11,7 +11,7 @@ public class RoundData : ScriptableObject
         public MonsterType type;    
         public int count;
     }
-
+    
     [Tooltip("이 라운드에서 스폰할 몬스터 목록 및 수량")]
     public List<MonsterCount> monsters;
 }

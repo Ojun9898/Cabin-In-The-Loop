@@ -8,6 +8,7 @@ TagManager:
   - ElevatorGoButton
   - Elevator
   - ElevatorNumericButton
+  - Monster
   layers:
   - Default
   - TransparentFX

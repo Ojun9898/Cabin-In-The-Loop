@@ -3,6 +3,9 @@ using UnityEngine.AI;
 
 public class Monster : MonoBehaviour
 {
+    [HideInInspector]
+    public bool isMonsterSpawned;
+    
     [Header("기본 정보")]
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private float moveSpeed = 1.5f;
@@ -28,6 +31,18 @@ public class Monster : MonoBehaviour
     {
         InitializeComponents();
         SubscribeToEvents();
+    }
+    
+    private void OnEnable()
+    {
+        // 풀에서 꺼내 활성화될 때 true
+        isMonsterSpawned = true;
+    }
+    
+    private void OnDisable()
+    {
+        // 풀로 돌아가거나 비활성화될 때 false
+        isMonsterSpawned = false;
     }
     
     private void InitializeComponents()

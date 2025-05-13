@@ -8,18 +8,24 @@ public class ElevatorOutDoorController : MonoBehaviour
     [SerializeField] private Animation thisFloorOutDoorAnim;
     [SerializeField] private Animation nextFloorOutDoorAnim;
     [SerializeField] private ElevatorController ec;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip[] audioClips;
 
     [HideInInspector] public bool isDoorOpen = false;
 
     public void OpenDoor()
     {
+        if (thisFloorOutDoorAnim.isPlaying) return; // 애니메이션 끊김 방지
+        
         if (!ec.isArrived)
         {
+            audioSource.PlayOneShot(audioClips[1]); // ElevatorDoorOpen 사운드 재생
             thisFloorOutDoorAnim.Play("OutDoorOpen");
         }
 
         else
         {
+            audioSource.PlayOneShot(audioClips[0]); // ElevatorBell 사운드 재생
             nextFloorOutDoorAnim.Play("OutDoorOpen");
         }
 
@@ -29,14 +35,18 @@ public class ElevatorOutDoorController : MonoBehaviour
 
     public void CloseDoor()
     {
+        if (thisFloorOutDoorAnim.isPlaying) return; // 애니메이션 끊김 방지
+        
         if (!ec.isArrived)
         {
             thisFloorOutDoorAnim.Play("OutDoorClose");
+            audioSource.PlayOneShot(audioClips[2]); // ElevatorClose 사운드 재생
         }
 
         else
         {
             nextFloorOutDoorAnim.Play("OutDoorClose");
+            audioSource.PlayOneShot(audioClips[2]); // ElevatorClose 사운드 재생
         }
         
         ec.CloseDoor(); // OutDoor 문과 엘레베이터 문을 동시에 닫기
@@ -49,13 +59,16 @@ public class ElevatorOutDoorController : MonoBehaviour
 
         // Message: "엘레베이터를 사용하겠습니까? [E]"
 
-        if (other.CompareTag("Player") && !ec.isElevatorMoving)
+        if (other.CompareTag("Player") && !ec.isElevatorMoving && !ec.isArrived)
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
                 if (currentFloor == 6)
                 {
+                    audioSource.PlayOneShot(audioClips[3]); // ElevatorError 사운드 재생
+                    
                     // Message: "현재 층에서는 엘레베이터를 사용할 수 없습니다."
+                    
                     return;
                 }
 
@@ -70,13 +83,13 @@ public class ElevatorOutDoorController : MonoBehaviour
                     OpenDoor();
                 }
             }
-
-            if (ec.isPlayerInElevator && !ec.isArrived)
+            
+            if (ec.isPlayerInElevator && !ec.isArrived && !ec.isElevatorMoving)
             {
                 // Message: "다음 층으로 올라가겠습니까? [Y]"
-                if (Input.GetKeyDown(KeyCode.Y) && !ec.isElevatorMoving)
+                if (Input.GetKeyDown(KeyCode.Y))
                 {
-                    CloseDoor();
+                    audioSource.PlayOneShot(audioClips[4]); // ElevatorBtn 사운드 재생
                     StartCoroutine(MoveElevator());
                 }
             }
@@ -85,20 +98,25 @@ public class ElevatorOutDoorController : MonoBehaviour
 
     private IEnumerator MoveElevator()
     {
-        CloseDoor(); // 애니메이션 시작
-        yield return new WaitForSeconds(thisFloorOutDoorAnim["OutDoorClose"].length);
+        CloseDoor();
+        
+        // Message: 이동 중...
+        yield return new WaitForSeconds(1);
 
         yield return StartCoroutine(ec.MoveElevator(currentFloor)); // 기다려야 함
 
-        yield return StartCoroutine(LeaveElevator()); // LeaveElevator도 코루틴이면
+        yield return StartCoroutine(ArriveElevator());
     }
 
-    private IEnumerator LeaveElevator()
+    private IEnumerator ArriveElevator()
     {
         if (ec.isArrived)
         {
+            audioSource.PlayOneShot(audioClips[1]); // ElevatorBell 사운드 재생
+            
             // 메시지: 도착했습니다. 문이 열립니다.
-            if (!isDoorOpen) 
+            
+            if (!isDoorOpen)
                 OpenDoor();
 
             // 문이 완전히 열릴 때까지 대기

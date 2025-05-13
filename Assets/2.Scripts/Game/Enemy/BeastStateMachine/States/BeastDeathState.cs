@@ -16,6 +16,9 @@ public class BeastDeathState : BeastBaseState
         StopMoving();
         PlayAnimation("Death");
         hasStartedDeathAnimation = false;
+        
+        // Monster의 HandleDeath 호출
+        beast.HandleDeath();
     }
     
     public override void UpdateState()

@@ -22,6 +22,9 @@ public class ZombieDeathState : ZombieBaseState
         );
         PlayAnimation("Death");
         hasStartedDeathAnimation = false;
+        
+        // Monster의 HandleDeath 호출
+        zombie.HandleDeath();
     }
     
     public override void UpdateState()

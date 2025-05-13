@@ -22,6 +22,9 @@ public class InsectDeathState : InsectBaseState
         );
         PlayAnimation("Death");
         hasStartedDeathAnimation = false;
+        
+        // Monster의 HandleDeath 호출
+        insect.HandleDeath();
     }
     
     public override void UpdateState()

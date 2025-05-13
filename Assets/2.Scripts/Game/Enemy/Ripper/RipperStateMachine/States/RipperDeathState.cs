@@ -26,6 +26,8 @@ public class RipperDeathState : RipperBaseState
         );
         PlayAnimation("Ripper Death");
         hasStartedDeathAnimation = false;
+        
+        ripper.HandleDeath();
     }
     
     public override void UpdateState()

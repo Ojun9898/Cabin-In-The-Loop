@@ -20,6 +20,8 @@ public class ElevatorController : MonoBehaviour
     private void Start()
     {
         lastElevatorPosition = rb.position;
+        playerTransform = GameManager.Instance.playerTransform;
+        playerController = GameManager.Instance.playerTransform.GetComponent<CharacterController>();
     }
 
     private void Update()

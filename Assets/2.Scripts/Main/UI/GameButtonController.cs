@@ -11,10 +11,6 @@ public class GameButtonController : MonoBehaviour
             fadeManagerObj.AddComponent<FadeManager>();
         }
 
-<<<<<<< HEAD
         FadeManager.Instance.LoadSceneWithFade("(Bake)Cavin");
-=======
-        FadeManager.Instance.LoadSceneWithFade("Cavin");
->>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     }
 }

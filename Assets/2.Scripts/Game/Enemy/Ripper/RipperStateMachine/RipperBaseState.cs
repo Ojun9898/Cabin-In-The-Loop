@@ -87,6 +87,6 @@ public abstract class RipperBaseState : State<Monster>
 
     protected void TakeDamage(int damage)
     {
-        ripper.OnHit(damage);
+        ripper.TakeDamage(damage);
     }
 }

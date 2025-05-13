@@ -54,4 +54,9 @@ public abstract class ZombieBaseState : State<Monster>
     {
         zombie.PlayAnimation(animationName);
     }
+    
+    protected void TakeDamage(int damage)
+    {
+        zombie.TakeDamage(damage);
+    }
 } 

@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/2.Scripts/Game/MonsterSFX.meta
+guid: d227034b5d68ec64ebb87e812c01489e
+========
+guid: ac0fb2e9f871b6e4c84f21502aaa0944
+>>>>>>>> main:Assets/2.Scripts/Game/Enemy/BeastStateMachine.meta
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

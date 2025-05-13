@@ -1,17 +1,41 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ElevatorController : MonoBehaviour
 {
-    [SerializeField] private Rigidbody playerRb;
     [SerializeField] private Rigidbody rb;
     [SerializeField] private Animation elevatorAnim;
     [SerializeField] private Transform[] floors;
+    [SerializeField] private AudioSource audioSource;
+
+    [SerializeField] private Transform playerTransform;
+    [SerializeField] private CharacterController playerController;
 
     [HideInInspector] public bool isElevatorMoving = false;
     [HideInInspector] public bool isPlayerInElevator = false;
     [HideInInspector] public bool isArrived = false;
+
+    private Vector3 lastElevatorPosition;
+
+    private void Start()
+    {
+        lastElevatorPosition = rb.position;
+    }
+
+    private void Update()
+    {
+        if (isPlayerInElevator)
+        {
+            Vector3 delta = rb.position - lastElevatorPosition;
+            if (delta != Vector3.zero)
+            {
+                playerController.Move(delta);
+            }
+        }
+
+        lastElevatorPosition = rb.position;
+    }
+
 
     public void OpenDoor()
     {
@@ -27,9 +51,7 @@ public class ElevatorController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.SetParent(transform);
             isPlayerInElevator = true;
-            playerRb.isKinematic = true;
         }
     }
 
@@ -37,23 +59,22 @@ public class ElevatorController : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            other.transform.SetParent(null);
             isPlayerInElevator = false;
-            playerRb.isKinematic = false;
         }
     }
 
     public IEnumerator MoveElevator(int currentFloor)
     {
-        if (isElevatorMoving) yield break;
-        if (currentFloor >= floors.Length) yield break;
-        
+        if (isElevatorMoving || currentFloor >= floors.Length) yield break;
+
         isElevatorMoving = true;
 
         Vector3 start = rb.position;
         Vector3 end = floors[currentFloor].position;
         float duration = 2.0f;
         float elapsed = 0f;
+
+        audioSource.Play();
 
         while (elapsed < duration)
         {
@@ -63,9 +84,10 @@ public class ElevatorController : MonoBehaviour
             yield return null;
         }
 
+        audioSource.Stop();
         rb.MovePosition(end);
+
         isElevatorMoving = false;
         isArrived = true;
     }
-
 }

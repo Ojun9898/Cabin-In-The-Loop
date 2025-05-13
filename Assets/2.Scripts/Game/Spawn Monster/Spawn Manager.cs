@@ -20,11 +20,21 @@ public enum MonsterType
 
 public class SpawnManager : MonoBehaviour
 {
-    [Header("스폰 장소")]
-    [SerializeField] private Transform[] spawnPoints;
+    // ① “라운드별 스폰 지점” 구조체 정의
+    [System.Serializable]
+    public struct RoundSpawnPoints
+    {
+        [Tooltip("0부터 시작하는 라운드(또는 층) 인덱스")]
+        public int roundIndex;
+        [Tooltip("이 라운드에서만 사용할 스폰 지점들")]
+        public Transform[] points;
+    }
+
+    [Header("라운드(층)별 스폰 지점 설정")]
+    [SerializeField]
+    private RoundSpawnPoints[] spawnPointsByRound;   
     
-    [Header("플레이어 Transform")]
-    [SerializeField] private Transform playerTransform;
+    private Transform playerTransform;
     
     [Header("몬스터 세팅")]
     [Tooltip("Monsters 에서 설정한 Zombie Label")]
@@ -76,16 +86,24 @@ public class SpawnManager : MonoBehaviour
     
     private void Awake()
     {
-        if (_instance == null)
+        // 1) 이미 _instance가 있고, 그게 나(this)가 아니라면
+        if (_instance != null && _instance != this)
         {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);
+            // 이전에 남아있던 SpawnManager를 파괴
+            Destroy(_instance.gameObject);
         }
+
+        // 2) 이 인스턴스를 새로운 대표로 지정
+        _instance = this;
+        // (여전히 풀 유지가 필요하다면) 이 오브젝트만 파괴되지 않게 설정
+        DontDestroyOnLoad(gameObject);
+
+        // 이후 playerTransform 자동 할당 등 기존 로직…
+        GameObject playerObj = GameObject.FindWithTag("Player");
+        if (playerObj != null)
+            playerTransform = playerObj.transform;
         else
-        {
-            Destroy(gameObject);
-            return;
-        }
+            Debug.LogError("[SpawnManager] Tag가 \"Player\"인 오브젝트를 찾을 수 없습니다.");
     }
     
     private void Start()
@@ -213,7 +231,7 @@ public class SpawnManager : MonoBehaviour
     /// <summary>
     /// 풀에 보관된 몬스터 리스트를 다 돌며, 활성화된 애들은 꺼서 풀로 되돌림
     /// </summary>
-    private void ReturnAllToPool()
+    public void ReturnAllToPool()
     {
         // 모든 풀 리스트를 하나씩 순회
         var allPools = new List<List<GameObject>> {
@@ -251,15 +269,26 @@ public class SpawnManager : MonoBehaviour
     /// <summary>
     /// 지정한 MonsterType의 풀에서 꺼내어 스폰
     /// </summary>
-    public void Spawn(MonsterType type)
+    public void Spawn(MonsterType type, int roundIndex)
     {
-        if (spawnPoints == null || spawnPoints.Length == 0) 
+        // 1) 해당 roundIndex 에 맞는 지점 배열을 찾기
+        Transform[] points = null;
+        foreach (var set in spawnPointsByRound)
+        {
+            if (set.roundIndex == roundIndex)
+            {
+                points = set.points;
+                break;
+            }
+        }
+
+        if (points == null || points.Length == 0)
+        {
+            Debug.LogWarning($"[SpawnManager] Round {roundIndex}용 스폰 지점이 없습니다!");
             return;
-
-        // 1) 스폰 위치 결정
-        var spawnPos = spawnPoints[Random.Range(0, spawnPoints.Length)].position;
-
-        // 2) 타입별 풀에서 꺼내 쓰기
+        }
+        
+        Vector3 spawnPos = points[Random.Range(0, points.Length)].position;
         GameObject m = null;
         switch (type)
         {
@@ -279,16 +308,16 @@ public class SpawnManager : MonoBehaviour
                 m = ActivateFromList(beastPool, beastLabels, beastPoolSize);
                 break;
         }
-
-        // 3) 실제 스폰
-        if (m != null)
-        {
-            m.transform.SetPositionAndRotation(spawnPos, Quaternion.identity);
-            m.SetActive(true);
-            m.tag = "Monster";
-            m.AssignTransform(playerTransform);
-            
-        }
+        if (m == null)
+            return;
+        
+        // 3) 활성화
+        m.transform.SetPositionAndRotation(spawnPos, Quaternion.identity);
+        m.SetActive(true);
+        m.tag = "Monster";
+        m.AssignTransform(playerTransform);
+        
+        
     }
     
     private GameObject ActivateFromList(List<GameObject> pool, List<GameObject> variantList,int maxCount)

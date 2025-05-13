@@ -20,16 +20,16 @@ public class RoundManager : MonoBehaviour
     
     private void Awake()
     {
-        if (_instance == null)
+        // 이미 인스턴스가 있고, 그게 나(this)가 아니라면
+        if (_instance != null && _instance != this)
         {
-            _instance = this;
-            DontDestroyOnLoad(gameObject);  
+            // 이전에 남아있던 RoundManager를 파괴
+            Destroy(_instance.gameObject);
         }
-        else
-        {
-            Destroy(gameObject);            
-            return;
-        }
+
+        // 이 인스턴스를 대표로 갱신
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     /// <summary>
@@ -37,10 +37,12 @@ public class RoundManager : MonoBehaviour
     /// </summary>
     public void StartRounds(int startIndex)
     {
+        spawnManager.ReturnAllToPool();
+        
         if (spawnRoutine != null)
             StopCoroutine(spawnRoutine);
         
-        currentRound = 0;
+        currentRound = startIndex;
         spawnRoutine = StartCoroutine(RunRounds());
     }
 
@@ -51,10 +53,7 @@ public class RoundManager : MonoBehaviour
     /// </summary>
     private IEnumerator RunRounds()
     {
-        // ① 전달받은 currentRound (예: 0) 의 데이터만 꺼내고
         RoundData data = roundDatas[currentRound];
-
-        // ② 첫 소환 전 3.5초 대기
         yield return new WaitForSeconds(spawnInterval);
 
         // ③ 설정된 타입·수량만큼 스폰
@@ -62,7 +61,7 @@ public class RoundManager : MonoBehaviour
         {
             for (int i = 0; i < info.count; i++)
             {
-                spawnManager.Spawn(info.type);
+                spawnManager.Spawn(info.type, currentRound);
                 yield return new WaitForSeconds(spawnInterval);
             }
         }

@@ -3,16 +3,15 @@ using System.Collections.Generic;
 
 public class BeastStateMachine : StateMachine<Monster>
 {
-    private List<BeastBaseState> beastStates;
+    [SerializeField] private List<BeastBaseState> beastStates;
     [SerializeField] private Transform playerTransform;
     
     // 하울링 관련 필드
     [SerializeField] private Howling howling;
     [SerializeField] private float howlRange = 8f;
     [SerializeField] private int maxHealth = 100;
+    [SerializeField] private ParticleSystem howlParticle; // 하울링 파티클 시스템
     private int currentHealth;
-    private float howlTimer = 0f;
-    private bool hasUsedEmergencyHowl = false;
     private bool isHowling = false;
     
     public Transform PlayerTransform => playerTransform;
@@ -42,6 +41,18 @@ public class BeastStateMachine : StateMachine<Monster>
             Debug.LogWarning("Player Transform not set in BeastStateMachine. Please assign it in the inspector.");
         }
         
+        // 파티클 시스템 가져오기
+        if (howlParticle == null)
+        {
+            howlParticle = GetComponentInChildren<ParticleSystem>();
+            if (howlParticle != null)
+            {
+                // 파티클이 루프하지 않도록 설정
+                var main = howlParticle.main;
+                main.loop = false;
+            }
+        }
+        
         // 상태 목록이 비어있으면 기본 상태들을 생성
         if (beastStates == null || beastStates.Count == 0)
         {
@@ -69,20 +80,9 @@ public class BeastStateMachine : StateMachine<Monster>
 
         // 초기화
         currentHealth = maxHealth;
-        howlTimer = 0f;
-        hasUsedEmergencyHowl = false;
         isHowling = false;
 
         base.Initialize();
-    }
-
-    private void Update()
-    {
-        // 하울링 중이 아닐 때만 쿨다운 타이머 증가
-        if (!isHowling)
-        {
-            howlTimer += Time.deltaTime;
-        }
     }
     
     public void OnHit(int damage)
@@ -112,40 +112,29 @@ public class BeastStateMachine : StateMachine<Monster>
         return (float)currentHealth / maxHealth;
     }
 
-    public bool HasUsedEmergencyHowl()
-    {
-        return hasUsedEmergencyHowl;
-    }
-
-    public void SetUsedEmergencyHowl(bool used)
-    {
-        hasUsedEmergencyHowl = used;
-    }
-
     public bool IsDead()
     {
         return currentHealth <= 0;
     }
 
-    public bool CanUseHowl()
-    {
-        const float HOWL_COOLDOWN = 15f;
-        return (!hasUsedEmergencyHowl && GetHealthPercentage() <= 0.5f) || howlTimer >= HOWL_COOLDOWN;
-    }
-
     public void StartHowling()
     {
         isHowling = true;
-        if (GetHealthPercentage() <= 0.5f)
+        if (howlParticle != null)
         {
-            hasUsedEmergencyHowl = true;
+            howlParticle.gameObject.SetActive(true);
+            howlParticle.Play();
         }
     }
 
     public void EndHowling()
     {
         isHowling = false;
-        howlTimer = 0f;
+        if (howlParticle != null)
+        {
+            howlParticle.Stop();
+            howlParticle.gameObject.SetActive(false);
+        }
     }
     
     // 디버깅을 위한 현재 상태 로그 출력

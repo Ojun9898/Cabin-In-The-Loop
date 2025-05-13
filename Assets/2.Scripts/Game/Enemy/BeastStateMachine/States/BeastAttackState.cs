@@ -2,14 +2,11 @@ using UnityEngine;
 
 public class BeastAttackState : BeastBaseState
 {
-    private GameObject poisonThronPrefab; // Poison Thron 프리팹
-    private Transform firePoint;          // 발사 위치
-    private float thronSpeed = 10f;       // 발사 속도
-
     private const float ATTACK_DURATION = 1.5f;
     private const float ATTACK_COOLDOWN = 2f; // 공격 쿨다운 시간
     private float lastAttackTime = 0f;       // 마지막 공격 시간
     private float ATTACK_RANGE => beast.attackRange;  // 공격 사거리
+    private const float DAMAGE_FIELD_RADIUS = 2f;
     private float CHASE_RANGE => beast.chaseRange;    // 추적 사거리
     private const float DAMAGE_AMOUNT = 20f;          // 공격 데미지
     private bool hasAttacked = false;
@@ -22,18 +19,11 @@ public class BeastAttackState : BeastBaseState
         stateKey = EState.Attack;
     }
 
-    // 공격 상태에 쓰일 필드 초기화
-    public void InitializeAttack(GameObject prefab, Transform point, float speed)
-    {
-        poisonThronPrefab = prefab;
-        firePoint = point;
-        thronSpeed = speed;
-    }
-
     public override void EnterState()
     {
         base.EnterState();
         StopMoving();
+        hasAttacked = false; // 공격 플래그 초기화
         
         // 랜덤한 공격 애니메이션 선택
         int randomAttackIndex = Random.Range(1, MAX_ATTACK_ANIMATIONS + 1);
@@ -59,11 +49,32 @@ public class BeastAttackState : BeastBaseState
         // 공격 도중에는 상태를 유지
         if (stateTimer < ATTACK_DURATION)
         {
+            // 공격이 중간에 처리되지 않았다면 데미지 필드 생성 (모션 중간 시점)
+            if (!hasAttacked && stateTimer >= ATTACK_DURATION * 0.5f)
+            {
+                CreateDamageField();
+                hasAttacked = true;
+            }
             return;
         }
         
         // 공격 종료 후 상태 전환 처리
         HandlePostAttack();
+    }
+    
+    private void CreateDamageField()
+    {
+        GameObject damageField = GameManager.Instance.GetDamageField();
+        if (damageField != null)
+        {
+            damageField.transform.position = beast.transform.position;
+            damageField.GetComponent<DamageField>().Initialize(
+                beast.gameObject, 
+                DAMAGE_AMOUNT, 
+                DAMAGE_FIELD_RADIUS, 
+                0.1f // 데미지 필드 지속 시간
+            );
+        }
     }
     
     private void HandlePostAttack()

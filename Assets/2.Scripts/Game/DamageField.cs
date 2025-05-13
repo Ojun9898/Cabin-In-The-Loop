@@ -39,6 +39,7 @@ public class DamageField : MonoBehaviour
             
             if (hit.gameObject.layer != _owner.layer && hit.TryGetComponent<PlayerStatus>(out var target1))
             {
+                Debug.Log("Player HIT!");
                 target1.TakeDamage(_damage);
             }
         }

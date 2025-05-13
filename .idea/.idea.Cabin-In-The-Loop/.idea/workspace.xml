@@ -5,7 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a3aa0a35-3329-4090-9829-b68e4ca5d9ae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/Ranged attack/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/Ranged attack/Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/BeastBaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/BeastBaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/BeastStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/BeastStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastChaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastChaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastRattackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastRattackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Beast Animator.controller.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Beast Animator.controller.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Zombie/Zombie.controller.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Zombie/Zombie.controller.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/6.Materials/Map/Terrain/Terrain Cavin.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/6.Materials/Map/Terrain/Terrain Cavin.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/6.Materials/Map/Terrain/Terrain.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/6.Materials/Map/Terrain/Terrain.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,7 +55,7 @@
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "ChaSangHun",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -54,7 +65,15 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+  <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
+    <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.60f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\aiprogramming\Cabin-In-The-Loop -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\aiprogramming\Cabin-In-The-Loop" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
     <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity 2022.3.60f1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;K:\유니티 프로젝트\Cabin-In-The-Loop&quot; -debugCodeOptimization" />
@@ -71,7 +90,15 @@
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.60f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\aiprogramming\Cabin-In-The-Loop -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="C:\aiprogramming\Cabin-In-The-Loop" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unity 에디터에 연결" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
@@ -84,7 +111,7 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="Unreal 에디터에 연결 후 재생" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
@@ -129,6 +156,7 @@
       <workItem from="1745471606207" duration="373000" />
       <workItem from="1745542172108" duration="149000" />
       <workItem from="1745542334778" duration="1974000" />
+      <workItem from="1747116856871" duration="2072000" />
     </task>
     <servers />
   </component>

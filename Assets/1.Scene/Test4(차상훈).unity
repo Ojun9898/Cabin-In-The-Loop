@@ -1338,8 +1338,9 @@ MonoBehaviour:
   playerTransform: {fileID: 2021248265}
   cameraTransform: {fileID: 1108874196}
   weaponDataList: []
-  damageFieldPrefab: {fileID: 862739428850598756, guid: eb0ae96fb5fd8aa4e8aa300bd9045dd7,
+  damageFieldPrefab: {fileID: 7650984574666247135, guid: d91089c4868aa4949a1e6cbafd1a345a,
     type: 3}
+  weaponSelectionUI: {fileID: 0}
 --- !u!4 &1959451622
 Transform:
   m_ObjectHideFlags: 0
@@ -1379,7 +1380,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefab8870d7f99d4e89d49d287159579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  characterType: 0
+  defaultMaleWeapon: 0
+  defaultFemaleWeapon: 0
+  startingLevel: 1
+  startingXpToLevel: 100
+  xpGrowthFactor: 1.2
+  onLevelUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &912467279949342980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1437,6 +1446,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2021248265}
+    - target: {fileID: 1985089553814550352, guid: 40013672f4b2997479fe032e81f12591,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2769348811187216697, guid: 40013672f4b2997479fe032e81f12591,
         type: 3}
       propertyPath: CollisionModule.type

@@ -85,28 +85,47 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 3818190075255518062}
+<<<<<<< HEAD
     m_Position: {x: 310, y: -40, z: 0}
+=======
+    m_Position: {x: 290, y: 20, z: 0}
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   - serializedVersion: 1
     m_State: {fileID: 5787843443038414675}
     m_Position: {x: 520, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -2774077986589606391}
+<<<<<<< HEAD
     m_Position: {x: 520, y: -40, z: 0}
+=======
+    m_Position: {x: 290, y: -40, z: 0}
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   - serializedVersion: 1
     m_State: {fileID: 4031320352001129299}
     m_Position: {x: 30, y: 200, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 9186112061487322455}
+<<<<<<< HEAD
     m_Position: {x: 310, y: 140, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 4904625992945820665}
     m_Position: {x: 310, y: 20, z: 0}
+=======
+    m_Position: {x: 520, y: -40, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 4904625992945820665}
+    m_Position: {x: 290, y: 80, z: 0}
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   - serializedVersion: 1
     m_State: {fileID: 3729603056340821258}
     m_Position: {x: 520, y: 80, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8620188648657263615}
+<<<<<<< HEAD
     m_Position: {x: 310, y: 80, z: 0}
+=======
+    m_Position: {x: 290, y: 140, z: 0}
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

@@ -296,11 +296,17 @@ GameObject:
   - component: {fileID: 4000012106399892}
   - component: {fileID: 95000011973916720}
   - component: {fileID: 4472068558439854641}
+<<<<<<< HEAD
   - component: {fileID: -1036220736052491378}
   - component: {fileID: 5200346778214335947}
   - component: {fileID: 1996688239319861559}
   - component: {fileID: 7392727348972157511}
   - component: {fileID: 6910047476460685368}
+=======
+  - component: {fileID: -9113542790160460481}
+  - component: {fileID: -1036220736052491378}
+  - component: {fileID: 5200346778214335947}
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_Layer: 0
   m_Name: Zombie Mutant
   m_TagString: Monster
@@ -371,6 +377,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+<<<<<<< HEAD
+=======
+--- !u!114 &-9113542790160460481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010676380376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  moveSpeed: 1.5
+  attackDamage: 10
+  chaseRange: 8
+  attackRange: 1.5
+  player: {fileID: 0}
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!114 &-1036220736052491378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -397,6 +424,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterType: 2
+<<<<<<< HEAD
 --- !u!54 &1996688239319861559
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -468,6 +496,8 @@ MonoBehaviour:
   chaseRange: 20
   attackRange: 1.5
   player: {fileID: 0}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!1 &1000010712654790
 GameObject:
   m_ObjectHideFlags: 0

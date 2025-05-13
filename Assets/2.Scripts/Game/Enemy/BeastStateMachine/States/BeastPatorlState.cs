@@ -4,7 +4,12 @@ using UnityEngine.AI;
 public class BeastPatorlState : BeastBaseState
 {
     private const float WANDER_DURATION = 5f;
+<<<<<<< HEAD
     private const float WANDER_RADIUS = 18f;
+=======
+    private const float WANDER_RADIUS = 8f;
+    private const float CHASE_RANGE = 6f;
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     
     private Vector3 wanderTarget;
     private NavMeshAgent navMeshAgent;
@@ -26,6 +31,10 @@ public class BeastPatorlState : BeastBaseState
         // NavMeshAgent가 없는 경우 추가
         if (navMeshAgent == null)
         {
+<<<<<<< HEAD
+=======
+            Debug.LogWarning("NavMeshAgent component not found on Monster. Adding it automatically.");
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
             navMeshAgent = owner.gameObject.AddComponent<NavMeshAgent>();
             
             // 기본 설정
@@ -84,11 +93,19 @@ public class BeastPatorlState : BeastBaseState
             wanderTarget = hit.position; // 유효한 위치를 타겟으로 설정
             navMeshAgent.isStopped = false; // 이동 활성화
             navMeshAgent.SetDestination(wanderTarget); // 타겟으로 이동 시작
+<<<<<<< HEAD
             
         }
         else
         {
             
+=======
+            Debug.Log($"New Wander Target Set: {wanderTarget}"); // 디버그 출력
+        }
+        else
+        {
+            Debug.LogWarning("Failed to find a valid position for wandering on the NavMesh.");
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
         }
     }
     

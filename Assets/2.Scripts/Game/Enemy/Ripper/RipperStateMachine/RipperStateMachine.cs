@@ -13,6 +13,7 @@ public class RipperStateMachine : StateMachine<Monster>
         playerTransform = t;
     }
     
+<<<<<<< HEAD
     private void Start()
     {
         // 플레이어 바인딩을 Start에서 처리
@@ -33,6 +34,8 @@ public class RipperStateMachine : StateMachine<Monster>
         // 초기화 호출
         Initialize();
     }
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     
     protected override void Initialize()
     {

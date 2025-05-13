@@ -25,6 +25,9 @@ public class GameManager : Singleton<GameManager>
 
     // 무기 타입과 무기 데이터 매핑 (빠른 접근용)
     private Dictionary<WeaponType, WeaponData> _weaponDataMap = new();
+    
+    // 무기 선택 UI 
+    public WeaponSelectionUI weaponSelectionUI;
 
     // 무기 선택 UI
     public WeaponSelectionUI weaponSelectionUI;
@@ -125,7 +128,13 @@ public class GameManager : Singleton<GameManager>
     public GameObject GetDamageField()
     {
         if (_damageFieldPool.Count > 0)
+<<<<<<< HEAD
             return _damageFieldPool.Dequeue();
+=======
+        {
+            return _damageFieldPool.Dequeue();
+        }
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 
         return Instantiate(damageFieldPrefab);
     }
@@ -136,6 +145,7 @@ public class GameManager : Singleton<GameManager>
         field.SetActive(false);
         _damageFieldPool.Enqueue(field);
     }
+<<<<<<< HEAD
 
     // 레벨업 시 무기 선택 UI 띄우기
     public void ShowWeaponSelection()
@@ -145,12 +155,24 @@ public class GameManager : Singleton<GameManager>
         int selectedCount = Mathf.Min(3, availableWeapons.Count); // 최소 3개 무기 선택
 
         // 랜덤으로 3개의 무기 선택
+=======
+    
+    // 레벨업 시 무기 선택 UI 띄우기
+    public void ShowWeaponSelection()
+    {
+        // 랜덤으로 3개 무기 선택
+        List<WeaponData> randomWeapons = new List<WeaponData>();
+        List<WeaponData> availableWeapons = new List<WeaponData>(weaponDataList);
+        int selectedCount = Mathf.Min(3, availableWeapons.Count); // 최소 3개 선택
+
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
         for (int i = 0; i < selectedCount; i++)
         {
             int randomIndex = Random.Range(0, availableWeapons.Count);
             randomWeapons.Add(availableWeapons[randomIndex]);
         }
 
+<<<<<<< HEAD
         // 무기 선택 UI 초기화
         weaponSelectionUI.Initialize(randomWeapons);
     }
@@ -204,6 +226,9 @@ private void HandlePlayerAndCamera(Scene scene)
             var cam = Instantiate(camerasPrefab);
             cameraTransform = cam.transform;
         }
+=======
+        weaponSelectionUI.Initialize(randomWeapons);
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     }
 }
 

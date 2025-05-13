@@ -16,7 +16,10 @@ public class BeastDeathState : BeastBaseState
         StopMoving();
         PlayAnimation("Death");
         hasStartedDeathAnimation = false;
+<<<<<<< HEAD
         
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     }
     
     public override void UpdateState()

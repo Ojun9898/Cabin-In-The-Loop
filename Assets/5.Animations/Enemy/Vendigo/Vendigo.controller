@@ -13,6 +13,15 @@ AnimatorStateMachine:
     m_State: {fileID: -7811889789853151483}
     m_Position: {x: 30, y: 160, z: 0}
   - serializedVersion: 1
+<<<<<<< HEAD
+=======
+    m_State: {fileID: -8307437180189231940}
+    m_Position: {x: 520, y: 20, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 5248454429132401913}
+    m_Position: {x: 750, y: 20, z: 0}
+  - serializedVersion: 1
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     m_State: {fileID: -5598888971310858061}
     m_Position: {x: 290, y: 80, z: 0}
   - serializedVersion: 1
@@ -24,12 +33,15 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -5934783127624771315}
     m_Position: {x: 290, y: 20, z: 0}
+<<<<<<< HEAD
   - serializedVersion: 1
     m_State: {fileID: 8179338607287522735}
     m_Position: {x: 750, y: 20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7731612242593581401}
     m_Position: {x: 520, y: 20, z: 0}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -40,6 +52,35 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 540, y: 200, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: -7811889789853151483}
+<<<<<<< HEAD
+=======
+--- !u!1102 &-8307437180189231940
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Vendigo Damage
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: fa0b736889f589a4d9f9bdac05dede3d, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!1102 &-7811889789853151483
 AnimatorState:
   serializedVersion: 6
@@ -66,6 +107,7 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+<<<<<<< HEAD
 --- !u!1102 &-7731612242593581401
 AnimatorState:
   serializedVersion: 6
@@ -92,6 +134,8 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!1102 &-6900744663234202074
 AnimatorState:
   serializedVersion: 6
@@ -192,7 +236,11 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+<<<<<<< HEAD
 --- !u!1102 &8179338607287522735
+=======
+--- !u!1102 &5248454429132401913
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -212,7 +260,11 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: 60eedb4c0ff09154a97773122bf04ed8, type: 2}
+=======
+  m_Motion: {fileID: 7400000, guid: 547405b81280af142ac3b5be5ba462db, type: 2}
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

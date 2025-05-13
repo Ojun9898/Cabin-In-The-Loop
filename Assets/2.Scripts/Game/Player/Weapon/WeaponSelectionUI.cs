@@ -43,7 +43,11 @@ public class WeaponSelectionUI : MonoBehaviour
         _timeoutCoroutine = StartCoroutine(SelectionTimeout());
     }
 
+<<<<<<< HEAD
     public void EquipWeapon(WeaponData weapon)
+=======
+    private void EquipWeapon(WeaponData weapon)
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     {
         if (_selectionMade) return;
         _selectionMade = true;

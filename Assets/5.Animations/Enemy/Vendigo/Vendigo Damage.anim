@@ -8576,6 +8576,7 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
+<<<<<<< HEAD
   m_Events:
   - time: 0.09239197
     functionName: OnHitStart
@@ -8591,3 +8592,6 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+=======
+  m_Events: []
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)

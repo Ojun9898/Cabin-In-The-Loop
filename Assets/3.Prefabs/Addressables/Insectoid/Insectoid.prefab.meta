@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 5b6d9c55983a99a4490b4c47569bd42b
+=======
+guid: 72ed8c56ac5196c4b99eba58941e6e13
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 timeCreated: 1507093417
 licenseType: Store
 NativeFormatImporter:

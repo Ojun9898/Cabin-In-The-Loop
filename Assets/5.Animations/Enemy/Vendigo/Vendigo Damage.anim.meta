@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: 9d1f49daf6a2c3748864abf6db6ec1d8
+=======
+guid: fa0b736889f589a4d9f9bdac05dede3d
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000

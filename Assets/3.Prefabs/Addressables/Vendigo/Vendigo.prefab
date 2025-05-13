@@ -104,6 +104,7 @@ GameObject:
   - component: {fileID: 4000012792501908}
   - component: {fileID: 95000010833912394}
   - component: {fileID: 991889381013374530}
+<<<<<<< HEAD
   - component: {fileID: 3168453643825789054}
   - component: {fileID: -6762042291328215585}
   - component: {fileID: -2971342781309382969}
@@ -113,6 +114,15 @@ GameObject:
   m_Layer: 7
   m_Name: Vendigo
   m_TagString: Monster
+=======
+  - component: {fileID: 4503837782515989654}
+  - component: {fileID: 3168453643825789054}
+  - component: {fileID: -6762042291328215585}
+  - component: {fileID: -2971342781309382969}
+  m_Layer: 0
+  m_Name: Vendigo
+  m_TagString: Untagged
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -135,7 +145,10 @@ Transform:
   - {fileID: 4000013304844508}
   - {fileID: 4000012384780430}
   - {fileID: 2073441454683902051}
+<<<<<<< HEAD
   - {fileID: 2288620168057115369}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95000010833912394
@@ -166,7 +179,11 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000010137699626}
+<<<<<<< HEAD
   m_Enabled: 0
+=======
+  m_Enabled: 1
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -181,6 +198,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+<<<<<<< HEAD
+=======
+--- !u!114 &4503837782515989654
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010137699626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 150
+  moveSpeed: 2
+  attackDamage: 25
+  chaseRange: 8
+  attackRange: 1.5
+  player: {fileID: 0}
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!114 &3168453643825789054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,6 +247,11 @@ MonoBehaviour:
   projectilePrefab: {fileID: 5518104951989879666, guid: 3fa716ce04e66d94f98bdac3575adced,
     type: 3}
   muzzlePoint: {fileID: 2073441454683902051}
+<<<<<<< HEAD
+=======
+  projectileSpeed: 10
+  upwardSpeed: 5
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!114 &-2971342781309382969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,6 +265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterType: 1
+<<<<<<< HEAD
 --- !u!136 &5615899018855639610
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -293,6 +337,8 @@ MonoBehaviour:
   chaseRange: 20
   attackRange: 1.5
   player: {fileID: 0}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!1 &1000010502916320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1699,6 +1745,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4000012792501908}
   m_LocalEulerAnglesHint: {x: 4.957, y: 17.026, z: 51.752}
+<<<<<<< HEAD
 --- !u!1001 &7384535447096144297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1823,3 +1870,5 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7384535447096144297}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)

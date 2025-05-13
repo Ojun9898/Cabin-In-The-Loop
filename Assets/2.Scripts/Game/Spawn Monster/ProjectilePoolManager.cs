@@ -87,6 +87,7 @@ public class ProjectilePoolManager : MonoBehaviour
 
         // Rigidbody 초기화 (velocity 0)
         if (obj.TryGetComponent<Rigidbody>(out var rb))
+<<<<<<< HEAD
         {
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero; // ★ 추가: 회전 잔여값 제거
@@ -97,6 +98,14 @@ public class ProjectilePoolManager : MonoBehaviour
 
         float lifetime = ProjectileLife.GetLifetime(obj);
         StartCoroutine(ReturnToPoolAfterTime(obj, lifetime));
+=======
+            rb.velocity = Vector3.zero;
+
+        // 자동으로 일정 시간 뒤 되돌려놓기
+        float lifetime = ProjectileLife.GetLifetime(obj);
+        StartCoroutine(ReturnToPoolAfterTime(obj, lifetime));
+
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
         return obj;
     }
     
@@ -115,6 +124,7 @@ public class ProjectilePoolManager : MonoBehaviour
     {
         if (obj == null) return;
 
+<<<<<<< HEAD
         var poolable = obj.GetComponent<PoolableProjectile>();
         // ★ 이미 풀에 들어간 상태라면 무시
         if (poolable != null && poolable.inPool) return;
@@ -130,6 +140,14 @@ public class ProjectilePoolManager : MonoBehaviour
         if (poolable != null && poolDictionary.TryGetValue(poolable.originPrefab, out var q))
         {
             poolable.inPool = true;  // ★ 이제 풀 상태
+=======
+        obj.SetActive(false);
+        var poolable = obj.GetComponent<PoolableProjectile>();
+        // 풀링 시스템이 관리하는 객체이며, poolDictionary에 originPrefab 키가 있다면 해당 풀(큐)을 q에 가져옴
+        if (poolable != null && poolDictionary.TryGetValue(poolable.originPrefab, out var q))
+        {
+            // 비활성화된 오브젝트를 큐에 넣기
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
             q.Enqueue(obj);
         }
         else
@@ -145,7 +163,10 @@ public class ProjectilePoolManager : MonoBehaviour
 public class PoolableProjectile : MonoBehaviour
 {
     [HideInInspector] public GameObject originPrefab;
+<<<<<<< HEAD
     [HideInInspector] public bool inPool;
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 }
 
 // 투사체들의 수명

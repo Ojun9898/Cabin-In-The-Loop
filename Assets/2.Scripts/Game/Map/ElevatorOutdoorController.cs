@@ -10,8 +10,11 @@ public class ElevatorOutDoorController : MonoBehaviour
     [SerializeField] private ElevatorController ec;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] audioClips;
+<<<<<<< HEAD:Assets/2.Scripts/Game/Map/ElevatorOutdoorController.cs
     // (기몽) 하이어라키에 있는 SpawnManager를 에디터에서 드래그해서 할당
      [SerializeField] private SpawnManager spawnManager;
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리):Assets/2.Scripts/Game/ElevatorOutdoorController.cs
 
     [HideInInspector] public bool isDoorOpen = false;
 

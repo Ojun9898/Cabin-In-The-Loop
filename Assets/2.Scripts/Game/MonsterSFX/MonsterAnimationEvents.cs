@@ -21,6 +21,7 @@ public class MonsterAnimationEvents : MonoBehaviour
         // 해당 몬스터의 모든 재생 중인 SFX를 중단
         MonsterSFXManager.Instance.StopAllAudio(transform.GetInstanceID());
     }
+<<<<<<< HEAD
     
     public void OnHitStart()
     {
@@ -64,4 +65,6 @@ public class MonsterAnimationEvents : MonoBehaviour
         // 해당 몬스터의 모든 재생 중인 SFX를 중단
         MonsterSFXManager.Instance.StopAllAudio(transform.GetInstanceID());
     }
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 }

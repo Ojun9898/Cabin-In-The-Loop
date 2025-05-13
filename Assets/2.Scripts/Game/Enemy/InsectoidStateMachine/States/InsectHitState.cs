@@ -14,7 +14,18 @@ public class InsectHitState : InsectBaseState
     {
         base.EnterState();
         StopMoving();
+<<<<<<< HEAD
         PlayAnimation("Damage");
+=======
+        // Hit(피격) 사운드 재생 요청
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Hit,
+            EMonsterType.Insect,
+            insect.transform
+        );
+        PlayAnimation("Walk Back");
+        TakeDamage(damageAmount); // 데미지 처리
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     }
     
     public override void UpdateState()

@@ -91,6 +91,7 @@ public class MonsterSFXManager : MonoBehaviour
                 entry.ms.Stop();
         }
     }
+<<<<<<< HEAD
     
     public void StopAllSounds()
     {
@@ -106,6 +107,8 @@ public class MonsterSFXManager : MonoBehaviour
         // 3) 상태 캐시도 클리어해서, 다음에 같은 몬스터가 소환돼도 
         lastState.Clear();
     }
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 
     
     // 상태 진입 시 호출

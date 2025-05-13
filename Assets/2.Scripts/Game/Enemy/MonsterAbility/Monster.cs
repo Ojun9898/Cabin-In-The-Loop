@@ -16,7 +16,11 @@ public class Monster : MonoBehaviour, IDamageable
     [SerializeField] private PlayerStatusProxy playerStatusProxy;
     
     [Header("감지 범위")]
+<<<<<<< HEAD
     public float chaseRange = 20f;
+=======
+    public float chaseRange = 8f;
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     public float attackRange = 1.5f;
     
     [Header("참조")]
@@ -52,6 +56,9 @@ public class Monster : MonoBehaviour, IDamageable
             return PlayerStatus.Ensure(); // 마지막 안전장치(없으면 자동 생성)
         }
     }
+    
+    private static readonly int AttackIndexParam = Animator.StringToHash("AttackIndex");
+    private static readonly int AttackTrigger = Animator.StringToHash("Attack");
     
     private void Awake()
     {
@@ -198,12 +205,18 @@ public class Monster : MonoBehaviour, IDamageable
     
     private void HandleHealthChanged(float newHealth)
     {
+<<<<<<< HEAD
         // 체력이 변경되면 HP UI에 갱신
         SetHPUI(newHealth);
+=======
+        // 체력 변경 시 처리
+        Debug.Log($"[Monster] 체력 변경됨: {newHealth}");
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     }
     
     public void HandleDeath()
     {
+<<<<<<< HEAD
         // 이미 사망 처리했으면 무시
         if (isDead) return;
         isDead = true;
@@ -259,6 +272,19 @@ public class Monster : MonoBehaviour, IDamageable
         ps.GainXp(20f);
         Debug.Log("[AwardXp] XP granted!");
         
+=======
+        // 사망 시 처리
+        // 경험치 지급
+        if (player != null && player.TryGetComponent<PlayerStatus>(out var playerStatus))
+        {
+            Debug.Log("경험치 지급 됨");
+            playerStatus.GainXp(20f);
+        }
+        else
+        {
+            Debug.LogWarning("Player reference is null or PlayerStatus not found.");
+        }
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     }
     
     public bool IsPlayerInRange(float range)
@@ -291,12 +317,22 @@ public class Monster : MonoBehaviour, IDamageable
     
     public void SetAttackAnimation(int index)
     {
+<<<<<<< HEAD
         if (isDead) return;
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
         if (animator != null)
         {
             animator.SetInteger(AttackIndexParam, index);
             animator.SetTrigger(AttackTrigger);
         }
+<<<<<<< HEAD
+=======
+        else
+        {
+            Debug.LogWarning("Animator component not found on Monster.");
+        }
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     }
     
     public void StopMoving()

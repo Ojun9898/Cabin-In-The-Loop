@@ -33,6 +33,10 @@ public class FadeManager : MonoBehaviour
         imgObj.transform.SetParent(canvasObj.transform, false);
         fadeImage = imgObj.AddComponent<Image>();
 
+<<<<<<< HEAD
+=======
+        // 클릭 막지 않도록 Raycast Target 끔
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
         fadeImage.raycastTarget = false;
         fadeImage.color = new Color(0f, 0f, 0f, 0f);
 
@@ -54,6 +58,10 @@ public class FadeManager : MonoBehaviour
         yield return SceneManager.LoadSceneAsync(sceneName);
         yield return StartCoroutine(Fade(1f, 0f)); // 페이드 인
 
+<<<<<<< HEAD
+=======
+        // 다 끝났으면 제거
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
         Destroy(canvasObj);
         Destroy(gameObject);
     }
@@ -73,6 +81,7 @@ public class FadeManager : MonoBehaviour
 
         fadeImage.color = new Color(c.r, c.g, c.b, to);
     }
+<<<<<<< HEAD
 
     // 추가한 함수 : 특정 GameObject를 페이드 인/아웃
     public IEnumerator FadeGameObject(GameObject target, float fromAlpha, float toAlpha)
@@ -101,4 +110,6 @@ public class FadeManager : MonoBehaviour
         cg.interactable = toAlpha > 0.5f;
         cg.blocksRaycasts = toAlpha > 0.5f;
     }
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 }

@@ -366,6 +366,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4000014274720376}
   - component: {fileID: 95000013647225768}
+<<<<<<< HEAD
   - component: {fileID: 6973888062466689483}
   - component: {fileID: 652783678529597985}
   - component: {fileID: 1581512944965833925}
@@ -375,6 +376,14 @@ GameObject:
   m_Layer: 0
   m_Name: Beast 1
   m_TagString: Monster
+=======
+  - component: {fileID: 329073164437715276}
+  - component: {fileID: 1581512944965833925}
+  - component: {fileID: 6973888062466689483}
+  m_Layer: 0
+  m_Name: Beast 1
+  m_TagString: Untagged
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -397,7 +406,10 @@ Transform:
   - {fileID: 4000012376078140}
   - {fileID: 4000012953072492}
   - {fileID: 6783805133141984540}
+<<<<<<< HEAD
   - {fileID: 442287331729987496}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95000013647225768
@@ -421,6 +433,49 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+<<<<<<< HEAD
+=======
+--- !u!114 &329073164437715276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011194474354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  moveSpeed: 1.5
+  attackDamage: 10
+  chaseRange: 6
+  attackRange: 2
+  player: {fileID: 0}
+--- !u!195 &1581512944965833925
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011194474354}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!114 &6973888062466689483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,6 +492,7 @@ MonoBehaviour:
   howling: {fileID: 0}
   howlRange: 5
   maxHealth: 100
+<<<<<<< HEAD
   howlParticle: {fileID: 0}
 --- !u!114 &652783678529597985
 MonoBehaviour:
@@ -544,6 +600,8 @@ MonoBehaviour:
   chaseRange: 20
   attackRange: 1.5
   player: {fileID: 0}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!1 &1000011219002044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1992,6 +2050,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7318163934416626488}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &9194870272393426152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2116,3 +2175,5 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 9194870272393426152}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)

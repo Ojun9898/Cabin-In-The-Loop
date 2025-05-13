@@ -1374,6 +1374,7 @@ GameObject:
   - component: {fileID: 4000013173443706}
   - component: {fileID: 95000010853981380}
   - component: {fileID: -4152679142854324739}
+<<<<<<< HEAD
   - component: {fileID: 3890501977250632370}
   - component: {fileID: 6749998877882044307}
   - component: {fileID: 1243305851507301560}
@@ -1382,6 +1383,14 @@ GameObject:
   m_Layer: 0
   m_Name: Insectoid 3
   m_TagString: Monster
+=======
+  - component: {fileID: 9007735470878874324}
+  - component: {fileID: 3890501977250632370}
+  - component: {fileID: 6749998877882044307}
+  m_Layer: 0
+  m_Name: Insectoid 3
+  m_TagString: Untagged
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1405,8 +1414,11 @@ Transform:
   - {fileID: 4000010910274602}
   - {fileID: 4000013168166458}
   - {fileID: 4000012737593628}
+<<<<<<< HEAD
   - {fileID: 7241634785484138645}
   - {fileID: 8647942657158171625}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95000010853981380
@@ -1445,8 +1457,31 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   poisonThornPrefab: {fileID: 1236363365630703446, guid: 8f72c838152d69c4a85aa822a1f094ce,
     type: 3}
+<<<<<<< HEAD
   firePoint: {fileID: 8647942657158171625}
   projectileSpeed: 10
+=======
+  firePoint: {fileID: 4000013186048294}
+  projectileSpeed: 10
+--- !u!114 &9007735470878874324
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000014015421864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 90
+  moveSpeed: 1.5
+  attackDamage: 15
+  chaseRange: 8
+  attackRange: 5
+  player: {fileID: 0}
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!195 &3890501977250632370
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1454,7 +1489,11 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000014015421864}
+<<<<<<< HEAD
   m_Enabled: 0
+=======
+  m_Enabled: 1
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -1482,6 +1521,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterType: 3
+<<<<<<< HEAD
 --- !u!136 &1243305851507301560
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1553,6 +1593,8 @@ MonoBehaviour:
   chaseRange: 20
   attackRange: 5
   player: {fileID: 0}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!1 &1000014061137296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,6 +1659,7 @@ Transform:
   - {fileID: 4000010743076616}
   m_Father: {fileID: 4000013030569948}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1 &1524056784394351162
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,3 +1815,5 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 2145569740783881173}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)

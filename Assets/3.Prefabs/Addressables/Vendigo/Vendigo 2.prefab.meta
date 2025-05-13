@@ -1,7 +1,14 @@
 fileFormatVersion: 2
+<<<<<<< HEAD
 guid: a9217e7734e582e45a0ea0cfcd005fe3
 PrefabImporter:
   externalObjects: {}
+=======
+guid: d9ecc1279ce298b4b9b823bb77d8f4c7
+timeCreated: 1507099852
+licenseType: Store
+NativeFormatImporter:
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   userData: 
   assetBundleName: 
   assetBundleVariant: 

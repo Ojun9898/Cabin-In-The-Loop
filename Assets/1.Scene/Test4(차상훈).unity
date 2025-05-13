@@ -1166,6 +1166,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: -9113542790160460481, guid: cc4d0b90d9c803b44b6fdafbe52a6070,
         type: 3}
       propertyPath: player
@@ -1181,6 +1182,8 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 2021248265}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     - target: {fileID: 1000010676380376, guid: cc4d0b90d9c803b44b6fdafbe52a6070, type: 3}
       propertyPath: m_Name
       value: Zombie Mutant
@@ -1331,7 +1334,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1959451622}
   - component: {fileID: 1959451621}
+<<<<<<< HEAD
   - component: {fileID: 1959451623}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -1354,9 +1360,14 @@ MonoBehaviour:
   playerTransform: {fileID: 2021248265}
   cameraTransform: {fileID: 1108874196}
   weaponDataList: []
+<<<<<<< HEAD
   damageFieldPrefab: {fileID: 7650984574666247135, guid: d91089c4868aa4949a1e6cbafd1a345a,
     type: 3}
   weaponSelectionUI: {fileID: 0}
+=======
+  damageFieldPrefab: {fileID: 862739428850598756, guid: eb0ae96fb5fd8aa4e8aa300bd9045dd7,
+    type: 3}
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!4 &1959451622
 Transform:
   m_ObjectHideFlags: 0
@@ -1372,6 +1383,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!114 &1959451623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1392,6 +1404,8 @@ MonoBehaviour:
     attackClip: {fileID: 8300000, guid: 783199fa789398746a400cbd3cc23fb3, type: 3}
   maxAudioSources: 30
   maxSimultaneousPlaysPerClip: 3
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!1 &1980916613 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6315576216664758806, guid: 710a0b071cfd8814ba548d07bee28499,
@@ -1416,6 +1430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefab8870d7f99d4e89d49d287159579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   characterType: 0
   defaultMaleWeapon: 0
   defaultFemaleWeapon: 0
@@ -1425,6 +1440,9 @@ MonoBehaviour:
   onLevelUpEvent:
     m_PersistentCalls:
       m_Calls: []
+=======
+  maxHealth: 100
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!1001 &912467279949342980
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1437,10 +1455,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Beast
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 1000011194474354, guid: 40013672f4b2997479fe032e81f12591, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     - target: {fileID: 4000014274720376, guid: 40013672f4b2997479fe032e81f12591, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.39
@@ -1486,11 +1507,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2021248265}
+<<<<<<< HEAD
     - target: {fileID: 1985089553814550352, guid: 40013672f4b2997479fe032e81f12591,
         type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     - target: {fileID: 2769348811187216697, guid: 40013672f4b2997479fe032e81f12591,
         type: 3}
       propertyPath: CollisionModule.type
@@ -1558,11 +1582,14 @@ PrefabInstance:
       objectReference: {fileID: 879559126}
     - target: {fileID: 6973888062466689483, guid: 40013672f4b2997479fe032e81f12591,
         type: 3}
+<<<<<<< HEAD
       propertyPath: howlParticle
       value: 
       objectReference: {fileID: 912467279949342981}
     - target: {fileID: 6973888062466689483, guid: 40013672f4b2997479fe032e81f12591,
         type: 3}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 2021248265}
@@ -1571,12 +1598,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40013672f4b2997479fe032e81f12591, type: 3}
+<<<<<<< HEAD
 --- !u!198 &912467279949342981 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 2769348811187216697, guid: 40013672f4b2997479fe032e81f12591,
     type: 3}
   m_PrefabInstance: {fileID: 912467279949342980}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

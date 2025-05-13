@@ -72,6 +72,7 @@ public class InsectAttackState : InsectBaseState
     // Poison Thron 발사 로직
     private void FirePoisonThron()
     {
+<<<<<<< HEAD
         if (poisonThronPrefab == null || firePoint == null) return;
 
         Vector3 pos = firePoint.position;
@@ -110,6 +111,37 @@ public class InsectAttackState : InsectBaseState
         if (thorn != null) thorn.Initialize(DAMAGE_AMOUNT);
     }
     
+=======
+        if (poisonThronPrefab == null || firePoint == null)
+        {
+            Debug.LogWarning("Poison Thron Prefab 또는 FirePoint가 설정되지 않았습니다!");
+            return;
+        }
+
+        // Poison Thron 생성
+        GameObject thron = ProjectilePoolManager.Instance.
+            SpawnFromPool(poisonThronPrefab, firePoint.position, Quaternion.identity);
+
+        // 플레이어를 향하도록 발사 방향 설정
+        Vector3 direction = (GetPlayerPosition() - firePoint.position).normalized;
+        thron.transform.rotation = Quaternion.LookRotation(direction);
+
+        // Rigidbody를 통한 속도 적용
+        Rigidbody rb = thron.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.velocity = direction * thronSpeed;
+        }
+
+        // 발사체의 데미지 설정
+        PoisonThorn thronDamage = thron.GetComponent<PoisonThorn>();
+        if (thronDamage != null)
+        {
+            thronDamage.Initialize(DAMAGE_AMOUNT);
+        }
+    }
+
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     // 플레이어의 위치 가져오기
     private Vector3 GetPlayerPosition()
     {

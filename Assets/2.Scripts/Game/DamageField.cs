@@ -3,11 +3,18 @@ using System.Collections;
 
 public class DamageField : MonoBehaviour
 {
+<<<<<<< HEAD
     [Header("Owner / Spec")]
     private GameObject _owner;              // 이 필드를 생성한 주체
     private float _damage;                  // 줄 데미지
     private float _radius;                  // 기본 반지름(판정 기준)
     private float _duration;                // 지속 시간
+=======
+    private GameObject _owner;
+    private float _damage;
+    private float _radius;
+    private float _duration;
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 
     [Header("Hit Tuning")]
     [Tooltip("판정 반지름에 추가로 더해줄 여유 범위(유닛 발 사이즈, 네비 메쉬 오차 보정 등)")]
@@ -41,6 +48,7 @@ public class DamageField : MonoBehaviour
     /// </summary>
     public void Initialize(GameObject owner, float damage, float radius, float duration = 1f)
     {
+<<<<<<< HEAD
         // 계층상 비활성 대비 (부모/자식 상태와 관계 없이 활성 계층 보장)
         if (!gameObject.activeInHierarchy)
         {
@@ -56,6 +64,12 @@ public class DamageField : MonoBehaviour
         _damage = damage;
         _radius = radius;
         _duration = Mathf.Max(0f, duration);
+=======
+        this._owner = owner;
+        this._damage = damage;
+        this._radius = radius;
+        this._duration = duration;
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 
         _endTime = Time.time + _duration;
 
@@ -85,11 +99,31 @@ public class DamageField : MonoBehaviour
     // --------- 판정 루프 ---------
     private IEnumerator TickRoutine()
     {
+<<<<<<< HEAD
         var wait = new WaitForSeconds(tickInterval);
         while (Time.time < _endTime)
         {
             DealDamageOnce();
             yield return wait;
+=======
+        // 플레이어 자신의 콜라이더는 제외하도록 필터링
+        Collider[] hits = Physics.OverlapSphere(transform.position, _radius);
+        foreach (var hit in hits)
+        {
+            if (hit.gameObject.layer == _owner.layer) 
+                continue;
+
+            if (hit.gameObject.layer != _owner.layer && hit.TryGetComponent<Monster>(out var target0))
+            {
+                Debug.Log("Monster HIT!");
+                target0.TakeDamage(_damage);
+            }
+            
+            if (hit.gameObject.layer != _owner.layer && hit.TryGetComponent<PlayerStatus>(out var target1))
+            {
+                target1.TakeDamage(_damage);
+            }
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
         }
     }
 

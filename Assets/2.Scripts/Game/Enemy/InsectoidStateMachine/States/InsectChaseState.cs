@@ -2,7 +2,11 @@ using UnityEngine;
 
 public class InsectChaseState : InsectBaseState
 {
+<<<<<<< HEAD
     private const float CHASE_RANGE = 20f;
+=======
+    private const float CHASE_RANGE = 6f;
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     private const float ATTACK_RANGE = 1.5f;
     
     protected override void SetStateKey()

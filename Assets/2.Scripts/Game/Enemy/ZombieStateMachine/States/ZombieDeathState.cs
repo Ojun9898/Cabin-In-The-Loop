@@ -14,6 +14,12 @@ public class ZombieDeathState : ZombieBaseState
     {
         base.EnterState();
         StopMoving();
+        // Death(사망) 사운드 재생 요청
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Death,
+            EMonsterType.Zombie,
+            zombie.transform
+        );
         PlayAnimation("Death");
         hasStartedDeathAnimation = false;
         

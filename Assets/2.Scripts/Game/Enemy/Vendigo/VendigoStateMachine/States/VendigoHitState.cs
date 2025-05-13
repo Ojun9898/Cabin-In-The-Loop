@@ -16,6 +16,11 @@ public class VendigoHitState : VendigoBaseState
     {
         base.EnterState();
         StopMoving();
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Hit,
+            EMonsterType.Vendigo,
+            vendigo.transform
+        );
         PlayAnimation("Vendigo Damage");
     }
     

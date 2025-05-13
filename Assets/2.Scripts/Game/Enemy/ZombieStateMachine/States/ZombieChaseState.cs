@@ -14,6 +14,19 @@ public class ZombieChaseState : ZombieBaseState
     {
         base.Initialize(owner);
     }
+<<<<<<< HEAD
+=======
+    
+    public override void ExitState()
+    {
+        base.ExitState();
+        // Chase 상태 벗어나면 즉시 해당 몬스터 모든 SFX 중단
+        MonsterSFXManager.Instance.StopAllAudio(
+            zombie.transform.GetInstanceID()
+        );
+    }
+    
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     public override void EnterState()
     {
         base.EnterState();
@@ -21,6 +34,8 @@ public class ZombieChaseState : ZombieBaseState
         if (navMeshAgent != null) 
             navMeshAgent.speed = RUN_SPEED;
         PlayAnimation("Walk");
+        
+       
     }
     public override void UpdateState()
     {

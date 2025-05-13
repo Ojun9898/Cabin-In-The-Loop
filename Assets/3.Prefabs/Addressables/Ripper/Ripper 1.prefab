@@ -1697,6 +1697,7 @@ GameObject:
   - component: {fileID: 4000013375956118}
   - component: {fileID: 95000010242461984}
   - component: {fileID: 4869628800481372975}
+<<<<<<< HEAD
   - component: {fileID: 6011371702884503192}
   - component: {fileID: -6892598500607248846}
   - component: {fileID: 683952275482672409}
@@ -1705,6 +1706,16 @@ GameObject:
   m_Layer: 0
   m_Name: Ripper 1
   m_TagString: Monster
+=======
+  - component: {fileID: -393296538341983701}
+  - component: {fileID: 6011371702884503192}
+  - component: {fileID: -6892598500607248846}
+  - component: {fileID: 6082954690088600638}
+  - component: {fileID: -4637562655042723526}
+  m_Layer: 0
+  m_Name: Ripper 1
+  m_TagString: Untagged
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1727,7 +1738,10 @@ Transform:
   - {fileID: 4000012889589080}
   - {fileID: 4000011997970610}
   - {fileID: 4000010251733000}
+<<<<<<< HEAD
   - {fileID: 5137182223545692217}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95000010242461984
@@ -1758,7 +1772,11 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000013057997990}
+<<<<<<< HEAD
   m_Enabled: 0
+=======
+  m_Enabled: 1
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -1773,6 +1791,27 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+<<<<<<< HEAD
+=======
+--- !u!114 &-393296538341983701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013057997990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 200
+  moveSpeed: 2.5
+  attackDamage: 20
+  chaseRange: 8
+  attackRange: 1.5
+  player: {fileID: 0}
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!114 &6011371702884503192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1799,7 +1838,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterType: 0
+<<<<<<< HEAD
 --- !u!54 &683952275482672409
+=======
+--- !u!136 &6082954690088600638
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013057997990}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Height: 1
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &-4637562655042723526
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1822,6 +1888,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
+<<<<<<< HEAD
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
@@ -1870,6 +1937,12 @@ MonoBehaviour:
   chaseRange: 20
   attackRange: 1.5
   player: {fileID: 0}
+=======
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 --- !u!1 &1000013093023430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2490,6 +2563,7 @@ Transform:
   - {fileID: 4000011693851802}
   m_Father: {fileID: 4000013806943140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &4536000260853502841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2614,3 +2688,5 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 4536000260853502841}
   m_PrefabAsset: {fileID: 0}
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)

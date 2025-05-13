@@ -242,7 +242,34 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
         return finalDamage;
     }
 
+<<<<<<< HEAD
     // IDamageable 구현
+=======
+    private void LevelUp()
+    {
+        _currentLevel++;
+        _xpToNextLevel = CalculateXpForLevel(_currentLevel);
+
+        OnLevelUp?.Invoke(_currentLevel);
+        onLevelUpEvent?.Invoke(_currentLevel);
+        
+        // 레벨업 시 무기 선택 UI 띄우기
+        GameManager.Instance.ShowWeaponSelection();
+        
+        Debug.Log($"Level Up! New Level: {_currentLevel}");
+    }
+
+    private void EquipDefaultWeapon()
+    {
+        var weaponCtrl = GetComponent<WeaponController>();
+        WeaponType defaultWeapon = characterType == CharacterType.Male
+            ? defaultMaleWeapon
+            : defaultFemaleWeapon;
+        weaponCtrl.EquipWeapon(defaultWeapon);
+    }
+
+    #region IDamageable 구현
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     public void TakeDamage(float amount)
     {
         _currentHealth -= amount;

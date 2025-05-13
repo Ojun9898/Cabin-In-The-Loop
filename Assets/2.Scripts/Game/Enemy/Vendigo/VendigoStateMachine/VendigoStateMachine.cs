@@ -14,6 +14,7 @@ public class VendigoStateMachine : StateMachine<Monster>
         playerTransform = t;
     }
     
+<<<<<<< HEAD
     private void Start()
     {
         // 플레이어 바인딩을 Start에서 처리
@@ -35,6 +36,8 @@ public class VendigoStateMachine : StateMachine<Monster>
         Initialize();
     }
     
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     protected override void Initialize()
     {
         // Monster 컴포넌트 가져오기
@@ -114,4 +117,6 @@ public class VendigoStateMachine : StateMachine<Monster>
         EState previousState = currentState?.StateKey ?? EState.Idle;
         base.ChangeState(nextState);
     }
+    
+    
 }

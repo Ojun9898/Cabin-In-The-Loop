@@ -1,13 +1,19 @@
 using UnityEngine;
+<<<<<<< HEAD
 using UnityEngine.AI;
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 
 public abstract class BeastBaseState : State<Monster>
 {
     protected Monster beast;
     protected BeastStateMachine stateMachine;
     protected float stateTimer;
+<<<<<<< HEAD
     protected NavMeshAgent navMeshAgent;
     protected float defaultSpeed;
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     
     // 하울링 관련 필드
     protected const float HOWL_COOLDOWN = 15f;
@@ -22,9 +28,12 @@ public abstract class BeastBaseState : State<Monster>
         howlTimer = 0f;
         isHowling = false;
         SetStateKey();
+<<<<<<< HEAD
         
         navMeshAgent = beast.GetComponent<NavMeshAgent>();
        
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     }
     
     // 하위 클래스에서 구현하여 stateKey를 설정
@@ -71,6 +80,14 @@ public abstract class BeastBaseState : State<Monster>
         return beast.IsPlayerInRange(stateMachine.GetHowlRange());
     }
     
+<<<<<<< HEAD
+=======
+    protected bool CanUseHowl()
+    {
+        return stateMachine.CanUseHowl();
+    }
+    
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     protected void StartHowling()
     {
         stateMachine.StartHowling();

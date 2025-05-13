@@ -3,15 +3,25 @@ using System.Collections.Generic;
 
 public class BeastStateMachine : StateMachine<Monster>
 {
+<<<<<<< HEAD
     [SerializeField] private List<BeastBaseState> beastStates;
+=======
+    private List<BeastBaseState> beastStates;
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     [SerializeField] private Transform playerTransform;
     
     // 하울링 관련 필드
     [SerializeField] private Howling howling;
     [SerializeField] private float howlRange = 8f;
     [SerializeField] private int maxHealth = 100;
+<<<<<<< HEAD
     [SerializeField] private ParticleSystem howlParticle; // 하울링 파티클 시스템
     private int currentHealth;
+=======
+    private int currentHealth;
+    private float howlTimer = 0f;
+    private bool hasUsedEmergencyHowl = false;
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     private bool isHowling = false;
     
     public Transform PlayerTransform => playerTransform;
@@ -21,6 +31,7 @@ public class BeastStateMachine : StateMachine<Monster>
         playerTransform = t;
     }
     
+<<<<<<< HEAD
     private void Start()
     {
         // 플레이어 바인딩을 Start에서 처리
@@ -41,13 +52,19 @@ public class BeastStateMachine : StateMachine<Monster>
         // 초기화 호출
         Initialize();
     }
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     protected override void Initialize()
     {
         // Monster 컴포넌트 가져오기
         Monster monster = GetComponent<Monster>();
         if (monster == null)
         {
+<<<<<<< HEAD
             
+=======
+            Debug.LogWarning("Monster component not found on BeastStateMachine. Adding it automatically.");
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
             monster = gameObject.AddComponent<Monster>();
         }
         
@@ -58,6 +75,7 @@ public class BeastStateMachine : StateMachine<Monster>
         }
         else
         {
+<<<<<<< HEAD
             
         }
         
@@ -71,6 +89,9 @@ public class BeastStateMachine : StateMachine<Monster>
                 var main = howlParticle.main;
                 main.loop = false;
             }
+=======
+            Debug.LogWarning("Player Transform not set in BeastStateMachine. Please assign it in the inspector.");
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
         }
         
         // 상태 목록이 비어있으면 기본 상태들을 생성
@@ -100,10 +121,27 @@ public class BeastStateMachine : StateMachine<Monster>
 
         // 초기화
         currentHealth = maxHealth;
+<<<<<<< HEAD
+=======
+        howlTimer = 0f;
+        hasUsedEmergencyHowl = false;
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
         isHowling = false;
 
         base.Initialize();
     }
+<<<<<<< HEAD
+=======
+
+    private void Update()
+    {
+        // 하울링 중이 아닐 때만 쿨다운 타이머 증가
+        if (!isHowling)
+        {
+            howlTimer += Time.deltaTime;
+        }
+    }
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     
     public void OnHit(int damage)
     {
@@ -132,11 +170,25 @@ public class BeastStateMachine : StateMachine<Monster>
         return (float)currentHealth / maxHealth;
     }
 
+<<<<<<< HEAD
+=======
+    public bool HasUsedEmergencyHowl()
+    {
+        return hasUsedEmergencyHowl;
+    }
+
+    public void SetUsedEmergencyHowl(bool used)
+    {
+        hasUsedEmergencyHowl = used;
+    }
+
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     public bool IsDead()
     {
         return currentHealth <= 0;
     }
 
+<<<<<<< HEAD
     public void StartHowling()
     {
         isHowling = true;
@@ -144,17 +196,35 @@ public class BeastStateMachine : StateMachine<Monster>
         {
             howlParticle.gameObject.SetActive(true);
             howlParticle.Play();
+=======
+    public bool CanUseHowl()
+    {
+        const float HOWL_COOLDOWN = 15f;
+        return (!hasUsedEmergencyHowl && GetHealthPercentage() <= 0.5f) || howlTimer >= HOWL_COOLDOWN;
+    }
+
+    public void StartHowling()
+    {
+        isHowling = true;
+        if (GetHealthPercentage() <= 0.5f)
+        {
+            hasUsedEmergencyHowl = true;
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
         }
     }
 
     public void EndHowling()
     {
         isHowling = false;
+<<<<<<< HEAD
         if (howlParticle != null)
         {
             howlParticle.Stop();
             howlParticle.gameObject.SetActive(false);
         }
+=======
+        howlTimer = 0f;
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     }
     
     // 디버깅을 위한 현재 상태 로그 출력
@@ -162,6 +232,10 @@ public class BeastStateMachine : StateMachine<Monster>
     {
         EState previousState = currentState?.StateKey ?? EState.Idle;
         base.ChangeState(nextState);
+<<<<<<< HEAD
         
+=======
+        Debug.Log($"Beast state changed: {previousState} -> {nextState}");
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     }
 } 

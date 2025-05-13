@@ -2,11 +2,21 @@ using UnityEngine;
 
 public class BeastAttackState : BeastBaseState
 {
+<<<<<<< HEAD
+=======
+    private GameObject poisonThronPrefab; // Poison Thron 프리팹
+    private Transform firePoint;          // 발사 위치
+    private float thronSpeed = 10f;       // 발사 속도
+
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     private const float ATTACK_DURATION = 1.5f;
     private const float ATTACK_COOLDOWN = 2f; // 공격 쿨다운 시간
     private float lastAttackTime = 0f;       // 마지막 공격 시간
     private float ATTACK_RANGE => beast.attackRange;  // 공격 사거리
+<<<<<<< HEAD
     private const float DAMAGE_FIELD_RADIUS = 2f;
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     private float CHASE_RANGE => beast.chaseRange;    // 추적 사거리
     private const float DAMAGE_AMOUNT = 20f;          // 공격 데미지
     private bool hasAttacked = false;
@@ -19,11 +29,25 @@ public class BeastAttackState : BeastBaseState
         stateKey = EState.Attack;
     }
 
+<<<<<<< HEAD
+=======
+    // 공격 상태에 쓰일 필드 초기화
+    public void InitializeAttack(GameObject prefab, Transform point, float speed)
+    {
+        poisonThronPrefab = prefab;
+        firePoint = point;
+        thronSpeed = speed;
+    }
+
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     public override void EnterState()
     {
         base.EnterState();
         StopMoving();
+<<<<<<< HEAD
         hasAttacked = false; // 공격 플래그 초기화
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
         
         // 랜덤한 공격 애니메이션 선택
         int randomAttackIndex = Random.Range(1, MAX_ATTACK_ANIMATIONS + 1);
@@ -49,12 +73,15 @@ public class BeastAttackState : BeastBaseState
         // 공격 도중에는 상태를 유지
         if (stateTimer < ATTACK_DURATION)
         {
+<<<<<<< HEAD
             // 공격이 중간에 처리되지 않았다면 데미지 필드 생성 (모션 중간 시점)
             if (!hasAttacked && stateTimer >= ATTACK_DURATION * 0.5f)
             {
                 CreateDamageField();
                 hasAttacked = true;
             }
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
             return;
         }
         
@@ -62,6 +89,7 @@ public class BeastAttackState : BeastBaseState
         HandlePostAttack();
     }
     
+<<<<<<< HEAD
     private void CreateDamageField()
     {
         GameObject damageField = GameManager.Instance.GetDamageField();
@@ -77,6 +105,8 @@ public class BeastAttackState : BeastBaseState
         }
     }
     
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     private void HandlePostAttack()
     {
         EState nextState;

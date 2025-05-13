@@ -17,6 +17,7 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: e65b725b974e8b449b17493d39bd80a1
   m_SerializeEntries:
+<<<<<<< HEAD
   - m_GUID: 0264227a49561104296d2bd1683cd546
     m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 1.prefab
     m_ReadOnly: 0
@@ -36,23 +37,37 @@ MonoBehaviour:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 229fbdc9347ea4b46a0b31530bf9fe27
+=======
+  - m_GUID: 4ee0ba91aa0f8174d8b82b04b0a7ef83
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
+<<<<<<< HEAD
   - m_GUID: 64f0e707abc453f4592f6f2da1fabfb8
     m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 8.prefab
+=======
+  - m_GUID: 8192e726acb478c4697dda0845619b7f
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 4.prefab
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
+<<<<<<< HEAD
   - m_GUID: 77ce17584ff0c73489ab82e081ca6a5d
     m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 7.prefab
+=======
+  - m_GUID: 8793cbb3bea13a544ae0d4b93210e1b0
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 1.prefab
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
+<<<<<<< HEAD
   - m_GUID: 7b6b65851ca252e44a3a35159271c353
     m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 12.prefab
     m_ReadOnly: 0
@@ -72,17 +87,25 @@ MonoBehaviour:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 99188ea5bb5f85742a6da8b092924ac2
+=======
+  - m_GUID: c7154ee5e7ca19044b4813ea7dfc001a
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 3.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
+<<<<<<< HEAD
   - m_GUID: a9217e7734e582e45a0ea0cfcd005fe3
+=======
+  - m_GUID: d9ecc1279ce298b4b9b823bb77d8f4c7
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
     m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 2.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
+<<<<<<< HEAD
   - m_GUID: ca240860904723c48bc5426990548a98
     m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 10.prefab
     m_ReadOnly: 0
@@ -95,6 +118,8 @@ MonoBehaviour:
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
+=======
+>>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3fb7d4f27ca401143b6ba8e01506160c, type: 2}
   m_SchemaSet:

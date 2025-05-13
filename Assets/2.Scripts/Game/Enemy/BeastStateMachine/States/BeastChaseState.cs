@@ -13,7 +13,7 @@ public class BeastChaseState : BeastBaseState
     public override void EnterState()
     {
         base.EnterState();
-        PlayAnimation("Walk");
+        PlayAnimation("Chase");
     }
 
     public override void UpdateState()
@@ -48,7 +48,8 @@ public class BeastChaseState : BeastBaseState
             return EState.Attack;
         }
 
-        if (IsPlayerInHowlRange())
+        // 하울링 사용 가능하고 플레이어가 하울링 범위 안에 있으면 Rattack 상태로 전환
+        if (BeastRattackState.CanUseHowl() && IsPlayerInHowlRange())
         {
             return EState.Rattack;
         }

@@ -11,6 +11,6 @@ public class GameButtonController : MonoBehaviour
             fadeManagerObj.AddComponent<FadeManager>();
         }
 
-        FadeManager.Instance.LoadSceneWithFade("Cavin");
+        FadeManager.Instance.LoadSceneWithFade("(Bake)Cavin");
     }
 }

@@ -17,7 +17,7 @@ public class PoisonThorn : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // 플레이어에게 데미지 적용
-            PlayerHealth playerHealth = other.GetComponent<PlayerHealth>();
+            PlayerStatus playerHealth = other.GetComponent<PlayerStatus>();
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(damageAmount);

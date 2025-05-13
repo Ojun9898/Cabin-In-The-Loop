@@ -14,6 +14,12 @@ public class InsectHitState : InsectBaseState
     {
         base.EnterState();
         StopMoving();
+        // Hit(피격) 사운드 재생 요청
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Hit,
+            EMonsterType.Insect,
+            insect.transform
+        );
         PlayAnimation("Walk Back");
         TakeDamage(damageAmount); // 데미지 처리
     }

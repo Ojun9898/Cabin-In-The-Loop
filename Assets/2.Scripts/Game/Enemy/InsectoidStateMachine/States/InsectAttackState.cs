@@ -79,7 +79,8 @@ public class InsectAttackState : InsectBaseState
         }
 
         // Poison Thron 생성
-        GameObject thron = GameObject.Instantiate(poisonThronPrefab, firePoint.position, Quaternion.identity);
+        GameObject thron = ProjectilePoolManager.Instance.
+            SpawnFromPool(poisonThronPrefab, firePoint.position, Quaternion.identity);
 
         // 플레이어를 향하도록 발사 방향 설정
         Vector3 direction = (GetPlayerPosition() - firePoint.position).normalized;

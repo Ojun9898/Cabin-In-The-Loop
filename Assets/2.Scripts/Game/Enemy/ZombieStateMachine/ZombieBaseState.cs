@@ -57,6 +57,6 @@ public abstract class ZombieBaseState : State<Monster>
     
     protected void TakeDamage(int damage)
     {
-        zombie.OnHit(damage);
+        zombie.TakeDamage(damage);
     }
 } 

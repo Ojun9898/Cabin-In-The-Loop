@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: 'Monster Vendigo '
+  m_EditorClassIdentifier: 
+  m_GroupName: 'Monster Vendigo '
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e65b725b974e8b449b17493d39bd80a1
+  m_SerializeEntries:
+  - m_GUID: 4ee0ba91aa0f8174d8b82b04b0a7ef83
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8192e726acb478c4697dda0845619b7f
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8793cbb3bea13a544ae0d4b93210e1b0
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7154ee5e7ca19044b4813ea7dfc001a
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d9ecc1279ce298b4b9b823bb77d8f4c7
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3fb7d4f27ca401143b6ba8e01506160c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 732172d2c35d94345be480bcef5e3c13, type: 2}
+    - {fileID: 11400000, guid: 05b538a0e1256f1409ee98bdbbc9e799, type: 2}

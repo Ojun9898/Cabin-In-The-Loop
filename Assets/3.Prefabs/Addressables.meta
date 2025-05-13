@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/3.Prefabs/Addressables.meta
+guid: c85e29e60876f2e49a0f186b196e5ee9
+========
+guid: fe473a0e0299f18439888d456adc9e05
+>>>>>>>> main:Assets/2.Scripts/Game/MonsterSFX.meta
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

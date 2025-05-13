@@ -14,6 +14,12 @@ public class ZombieHitState : ZombieBaseState
     {
         base.EnterState();
         StopMoving();
+        // Hit(피격) 사운드 재생 요청
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Hit,
+            EMonsterType.Zombie,
+            zombie.transform
+        );
         PlayAnimation("Walk Back");
         TakeDamage(damageAmount); // 데미지 처리
     }

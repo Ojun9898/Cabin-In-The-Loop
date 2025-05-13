@@ -43,7 +43,7 @@ public class Howling : MonoBehaviour
     private void DealHowlingDamageToPlayer()
     {
         // 플레이어에게 데미지 적용
-        PlayerHealth playerHealth = FindObjectOfType<PlayerHealth>();
+        PlayerStatus playerHealth = FindObjectOfType<PlayerStatus>();
         if (playerHealth != null)
         {
             Debug.Log($"Applying {howlDamage} damage to the player.");

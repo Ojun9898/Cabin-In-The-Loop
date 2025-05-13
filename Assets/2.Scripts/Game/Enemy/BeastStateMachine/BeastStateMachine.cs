@@ -15,6 +15,13 @@ public class BeastStateMachine : StateMachine<Monster>
     private bool hasUsedEmergencyHowl = false;
     private bool isHowling = false;
     
+    public Transform PlayerTransform => playerTransform;
+    
+    public void SetPlayerTransform(Transform t)
+    {
+        playerTransform = t;
+    }
+    
     protected override void Initialize()
     {
         // Monster 컴포넌트 가져오기
@@ -82,7 +89,7 @@ public class BeastStateMachine : StateMachine<Monster>
     {
         currentHealth = Mathf.Max(0, currentHealth - damage);
         Monster monster = GetComponent<Monster>();
-        monster.OnHit(damage);
+        monster.TakeDamage(damage);
         
         if (!IsDead())
         {

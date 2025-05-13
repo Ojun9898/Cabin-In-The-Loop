@@ -97,6 +97,6 @@ public abstract class BeastBaseState : State<Monster>
     
     protected void TakeDamage(int damage)
     {
-        beast.OnHit(damage);
+        beast.TakeDamage(damage);
     }
 } 

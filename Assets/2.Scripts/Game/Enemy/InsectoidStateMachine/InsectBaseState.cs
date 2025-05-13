@@ -5,11 +5,31 @@ public abstract class InsectBaseState : State<Monster>
     protected Monster insect;
     protected float stateTimer;
     
+    protected UnityEngine.AI.NavMeshAgent navMeshAgent;
+    
+    protected Transform playerTransform;
+    
+    public void SetPlayerTransform(Transform t)
+    {
+        playerTransform = t;
+    } 
+    
     public override void Initialize(Monster owner)
     {
         insect = owner;
         stateTimer = 0f;
         SetStateKey();
+    }
+    
+    // 플레이어의 위치를 바라보며 부드럽게 Y축 회전
+    protected void RotateTowards(Vector3 targetPosition, float rotationSpeed)
+    {
+        Vector3 dir = targetPosition - insect.transform.position;
+        dir.y = 0f;
+        if (dir.sqrMagnitude < 0.001f) return;
+    
+        Quaternion want = Quaternion.LookRotation(dir);
+        insect.transform.rotation = Quaternion.Slerp(insect.transform.rotation, want, rotationSpeed * Time.deltaTime);
     }
     
     // 하위 클래스에서 구현하여 stateKey를 설정
@@ -40,6 +60,11 @@ public abstract class InsectBaseState : State<Monster>
         return insect.IsPlayerInRange(insect.chaseRange);
     }
 
+    
+    protected bool IsPlayerInRange(float range)
+    {
+        return insect.IsPlayerInRange(range);
+    }
     protected bool IsPlayerInAttackRange()
     {
         return insect.IsPlayerInRange(insect.attackRange);
@@ -62,6 +87,6 @@ public abstract class InsectBaseState : State<Monster>
     
     protected void TakeDamage(int damage)
     {
-        insect.OnHit(damage);
+        insect.TakeDamage(damage);
     }
 } 

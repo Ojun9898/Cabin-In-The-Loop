@@ -5,7 +5,8 @@ public class Door : MonoBehaviour
     [SerializeField] private Animation anim;
     [SerializeField] private AudioSource audioSource;
 
-    private bool isDoorOpen = false;
+    [HideInInspector] public bool isDoorOpen = false;
+    
     private bool isPlayerInRange = false;
     
     private void Update()

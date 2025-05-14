@@ -23,6 +23,12 @@ MonoBehaviour:
     m_SerializedLabels:
     - Beast
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f5241e2d826aa8949990015d2b15347e
+    m_Address: Assets/3.Prefabs/Addressables/Beast/Beast 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Beast
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 3fb7d4f27ca401143b6ba8e01506160c, type: 2}
   m_SchemaSet:

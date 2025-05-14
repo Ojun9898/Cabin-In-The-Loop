@@ -29,6 +29,18 @@ MonoBehaviour:
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5c09165353d9ef142aaf0777c441f2ed
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 957f63df8ccac6d4fa6e8c95a53cbd2c
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c7431addd01fd0f4f9b39736f5cc5e3b
     m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 3.prefab
     m_ReadOnly: 0

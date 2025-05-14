@@ -23,14 +23,44 @@ MonoBehaviour:
     m_SerializedLabels:
     - Zombie
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2fa12671aacb65b4ea9b1791229cdb4e
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 16.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 431e6794b5f50e54bab51818bea19a6a
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 20.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 46458c6a75007ad4cb20bb377f11f65c
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 4.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Zombie
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 49b7561eacccb3e4da40a0cfa76f11bf
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 19.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 538182e8e5ba4504ca4ee9f8e396ee92
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 21.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 53ae1f38c28d69f43b28140bc6e77e01
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 61a5aa03b600f4d4fac15159abef07e6
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 12.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Zombie
@@ -47,8 +77,26 @@ MonoBehaviour:
     m_SerializedLabels:
     - Zombie
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7a1b12b2079303441ade05a75a7a0b1b
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 18.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 89615a0c1561f3b4ba9a2e7c1c07d6be
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 14.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 92e7988e1d39891419f8a0f657c17c44
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9cfeb494161e82d469d8c46b891d5ebc
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 15.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Zombie
@@ -67,6 +115,24 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: adf52e478b5ca4541bb8e70774b0d0d4
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b903758e02ee07f44b53b90290eeeb4e
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 17.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c21b69c219ef4dc42ab749cef212f9d3
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 13.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7253f58736bf0142af9455d72ddfa24
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 11.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Zombie

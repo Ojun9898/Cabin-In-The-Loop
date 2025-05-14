@@ -6,17 +6,29 @@
   <component name="ChangeListManager">
     <list default="true" id="a3aa0a35-3329-4090-9829-b68e4ca5d9ae" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/1.Scene/Test4(차상훈).unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/Test4(차상훈).unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/BeastBaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/BeastBaseState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/BeastStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/BeastStateMachine.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastAttackState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastChaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastChaseState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastDeathState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastDeathState.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastRattackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/BeastStateMachine/States/BeastRattackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Beast Animator.controller.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Beast Animator.controller.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Zombie/Zombie.controller.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Zombie/Zombie.controller.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/6.Materials/Map/Terrain/Terrain Cavin.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/6.Materials/Map/Terrain/Terrain Cavin.asset.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/6.Materials/Map/Terrain/Terrain.asset.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/6.Materials/Map/Terrain/Terrain.asset.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectDeathState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States/InsectDeathState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/Monster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperDeathState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperDeathState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/States/VendigoDeathState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/States/VendigoDeathState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/ZombieStateMachine/States/ZombieDeathState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/ZombieStateMachine/States/ZombieDeathState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/210 스위트홈R SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/210 스위트홈R SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Beast Animator.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Beast Animator.controller" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Chase.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Chase.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Run Left.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Run Left.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Run Right.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Run Right.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Run.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Run.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Walk Back.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Walk Back.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Walk Left.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Walk Left.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Walk Right.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Walk Right.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Walk.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/5.Animations/Enemy/Beast/Walk.anim" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Packages/com.unity.testtools.codecoverage/Settings.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/ShaderGraphSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,25 +63,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "ChaSangHun",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "project.propVCSSupport.CommitDialog",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.60f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath C:\aiprogramming\Cabin-In-The-Loop -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="C:\aiprogramming\Cabin-In-The-Loop" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\MSGit\Cabin-In-The-Loop -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\MSGit\Cabin-In-The-Loop" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
@@ -92,8 +104,8 @@
     </configuration>
     <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.60f1\Editor\Unity.exe" />
-      <option name="PROGRAM_PARAMETERS" value="-projectPath C:\aiprogramming\Cabin-In-The-Loop -debugCodeOptimization" />
-      <option name="WORKING_DIRECTORY" value="C:\aiprogramming\Cabin-In-The-Loop" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath D:\MSGit\Cabin-In-The-Loop -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\MSGit\Cabin-In-The-Loop" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
       <method v="2" />
@@ -156,7 +168,7 @@
       <workItem from="1745471606207" duration="373000" />
       <workItem from="1745542172108" duration="149000" />
       <workItem from="1745542334778" duration="1974000" />
-      <workItem from="1747116856871" duration="2072000" />
+      <workItem from="1747122201223" duration="213000" />
     </task>
     <servers />
   </component>

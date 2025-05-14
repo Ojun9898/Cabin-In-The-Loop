@@ -1489,7 +1489,7 @@ PrefabInstance:
     - target: {fileID: 1985089553814550352, guid: 40013672f4b2997479fe032e81f12591,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2769348811187216697, guid: 40013672f4b2997479fe032e81f12591,
         type: 3}
@@ -1558,6 +1558,11 @@ PrefabInstance:
       objectReference: {fileID: 879559126}
     - target: {fileID: 6973888062466689483, guid: 40013672f4b2997479fe032e81f12591,
         type: 3}
+      propertyPath: howlParticle
+      value: 
+      objectReference: {fileID: 912467279949342981}
+    - target: {fileID: 6973888062466689483, guid: 40013672f4b2997479fe032e81f12591,
+        type: 3}
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 2021248265}
@@ -1566,6 +1571,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 40013672f4b2997479fe032e81f12591, type: 3}
+--- !u!198 &912467279949342981 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2769348811187216697, guid: 40013672f4b2997479fe032e81f12591,
+    type: 3}
+  m_PrefabInstance: {fileID: 912467279949342980}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

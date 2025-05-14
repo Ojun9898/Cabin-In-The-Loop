@@ -13,7 +13,7 @@ public class BeastChaseState : BeastBaseState
     public override void EnterState()
     {
         base.EnterState();
-        PlayAnimation("Walk");
+        PlayAnimation("Chase");
     }
 
     public override void UpdateState()

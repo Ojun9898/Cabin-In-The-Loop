@@ -19,7 +19,7 @@ public class MonsterMovement
         {
             navMeshAgent.isStopped = false; // 이동 활성화
             navMeshAgent.SetDestination(targetPosition);
-            Debug.Log($"Destination set to: {targetPosition}");
+            
         }
     }
 

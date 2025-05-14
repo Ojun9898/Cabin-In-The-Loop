@@ -27,7 +27,7 @@ public class BeastStateMachine : StateMachine<Monster>
         Monster monster = GetComponent<Monster>();
         if (monster == null)
         {
-            Debug.LogWarning("Monster component not found on BeastStateMachine. Adding it automatically.");
+            
             monster = gameObject.AddComponent<Monster>();
         }
         
@@ -38,7 +38,7 @@ public class BeastStateMachine : StateMachine<Monster>
         }
         else
         {
-            Debug.LogWarning("Player Transform not set in BeastStateMachine. Please assign it in the inspector.");
+            
         }
         
         // 파티클 시스템 가져오기
@@ -142,6 +142,6 @@ public class BeastStateMachine : StateMachine<Monster>
     {
         EState previousState = currentState?.StateKey ?? EState.Idle;
         base.ChangeState(nextState);
-        Debug.Log($"Beast state changed: {previousState} -> {nextState}");
+        
     }
 } 

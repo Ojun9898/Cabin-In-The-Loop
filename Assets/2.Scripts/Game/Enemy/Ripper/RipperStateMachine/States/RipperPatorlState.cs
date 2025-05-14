@@ -31,7 +31,7 @@ public class RipperPatorlState : RipperBaseState
         // NavMeshAgent가 없는 경우 추가
         if (navMeshAgent == null)
         {
-            Debug.LogWarning("NavMeshAgent component not found on Monster. Adding it automatically.");
+            
             navMeshAgent = owner.gameObject.AddComponent<NavMeshAgent>();
         
             // 기본 설정

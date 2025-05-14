@@ -27,14 +27,14 @@ public class ZombiePatorlState : ZombieBaseState
         // NavMeshAgent가 없는 경우 추가
         if (navMeshAgent == null)
         {
-            Debug.LogWarning("NavMeshAgent component not found on Monster. Adding it automatically.");
             navMeshAgent = owner.gameObject.AddComponent<NavMeshAgent>();
             
             // 기본 설정
-            navMeshAgent.speed = 1.5f;
+            navMeshAgent.speed = 2.5f;
             navMeshAgent.acceleration = 8f;
             navMeshAgent.angularSpeed = 120f;
             navMeshAgent.stoppingDistance = 0.1f;
+            
         }
     }
     

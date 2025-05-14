@@ -27,7 +27,7 @@ public class InsectPatorlState : InsectBaseState
         // NavMeshAgent가 없는 경우 추가
         if (navMeshAgent == null)
         {
-            Debug.LogWarning("NavMeshAgent component not found on Monster. Adding it automatically.");
+           
             navMeshAgent = owner.gameObject.AddComponent<NavMeshAgent>();
             
             // 기본 설정
@@ -86,11 +86,11 @@ public class InsectPatorlState : InsectBaseState
             wanderTarget = hit.position; // 유효한 위치를 타겟으로 설정
             navMeshAgent.isStopped = false; // 이동 활성화
             navMeshAgent.SetDestination(wanderTarget); // 타겟으로 이동 시작
-            Debug.Log($"New Wander Target Set: {wanderTarget}"); // 디버그 출력
+            
         }
         else
         {
-            Debug.LogWarning("Failed to find a valid position for wandering on the NavMesh.");
+            
         }
     }
     

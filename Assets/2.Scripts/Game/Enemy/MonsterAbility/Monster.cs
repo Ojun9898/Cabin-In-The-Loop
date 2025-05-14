@@ -12,7 +12,7 @@ public class Monster : MonoBehaviour
     [SerializeField] private float attackDamage = 10f;
     
     [Header("감지 범위")]
-    public float chaseRange = 8f;
+    public float chaseRange = 20f;
     public float attackRange = 1.5f;
     
     [Header("참조")]
@@ -53,7 +53,6 @@ public class Monster : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         if (navMeshAgent == null)
         {
-            Debug.LogWarning("NavMeshAgent component not found on Monster. Adding it automatically.");
             navMeshAgent = gameObject.AddComponent<NavMeshAgent>();
             
             // 기본 설정
@@ -70,7 +69,7 @@ public class Monster : MonoBehaviour
         // 플레이어 참조 확인
         if (player == null)
         {
-            Debug.LogWarning("Player reference not set. Please assign a player in the inspector.");
+            
         }
     }
     
@@ -103,7 +102,7 @@ public class Monster : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Player reference is null or PlayerStatus not found.");
+            
         }
     }
     
@@ -131,11 +130,11 @@ public class Monster : MonoBehaviour
       if (NavMesh.SamplePosition(player.position, out navHit, 1.0f, NavMesh.AllAreas))
       {
           movement.MoveToTarget(navHit.position);
-          Debug.Log($"Moving to sampled position near player: {navHit.position}");
+          
       }
       else
       {
-          Debug.LogWarning("Player position is not on NavMesh. Cannot move.");
+          
       }
     }
     
@@ -148,7 +147,7 @@ public class Monster : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("Animator component not found on Monster.");
+            
         }
     }
     

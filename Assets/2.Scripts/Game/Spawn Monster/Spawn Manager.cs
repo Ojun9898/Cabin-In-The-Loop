@@ -6,6 +6,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 using SpawnManager_PlayerTransformCheck;
+using UnityEngine.AI;
 
 
 // MonsterType enum을 이곳에 선언
@@ -102,8 +103,8 @@ public class SpawnManager : MonoBehaviour
         GameObject playerObj = GameObject.FindWithTag("Player");
         if (playerObj != null)
             playerTransform = playerObj.transform;
-        else
-            Debug.LogError("[SpawnManager] Tag가 \"Player\"인 오브젝트를 찾을 수 없습니다.");
+        
+            
     }
     
     private void Start()
@@ -253,12 +254,27 @@ public class SpawnManager : MonoBehaviour
         // 1) 전체 풀 크기 한계 체크
         if (TotalPoolCount() >= totalPoolSize)
             return;
+        
+        var prefabAgent = prefab.GetComponent<NavMeshAgent>();
+        if (prefabAgent != null && prefabAgent.enabled)
+            prefabAgent.enabled = false;
+        
+        // NavMesh.SamplePosition으로 유효 위치 얻기
+        Vector3 basePos = PrefabsContainer.position;
+        NavMeshHit hit;
+        Vector3 spawnPos = basePos;
+        const float sampleDistance = 5f;
+        if (NavMesh.SamplePosition(basePos, out hit, sampleDistance, NavMesh.AllAreas))
+            spawnPos = hit.position;
+        
 
         // 2) 인스턴스 생성 및 세팅
         // Monster 와 각각의 StateMachine 스크립트에서 player응 참조할수 있도록 설정
-
         var monster = Instantiate(prefab, PrefabsContainer);
-
+        var agent = monster.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        if (agent != null)
+            agent.enabled = false;
+        
         monster.AssignTransform(playerTransform);
 
         // 3) 비활성화 후 풀에 보관
@@ -284,7 +300,7 @@ public class SpawnManager : MonoBehaviour
 
         if (points == null || points.Length == 0)
         {
-            Debug.LogWarning($"[SpawnManager] Round {roundIndex}용 스폰 지점이 없습니다!");
+            
             return;
         }
         
@@ -317,6 +333,13 @@ public class SpawnManager : MonoBehaviour
         m.tag = "Monster";
         m.AssignTransform(playerTransform);
         
+        // NavMeshAgent 를 켜고, Warp() 으로 NavMesh 위에 강제 배치
+        var agent = m.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        if (agent != null)
+        {
+            agent.enabled = true;
+            agent.Warp(spawnPos);
+        }
         
     }
     

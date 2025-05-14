@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class RipperChaseState : RipperBaseState
 {
-    private const float CHASE_RANGE = 6f;
+    private const float CHASE_RANGE = 18f;
     private const float ATTACK_RANGE = 1.5f;
     
     // 추격시에는 이동속도가 더 빨라짐

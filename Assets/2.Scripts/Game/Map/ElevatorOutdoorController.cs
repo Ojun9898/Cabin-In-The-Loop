@@ -74,12 +74,12 @@ public class ElevatorOutDoorController : MonoBehaviour
                     return;
                 }
                 // (기몽) 스테이지 클리어 하지 않은 경우
-                 if (spawnManager.GetAliveMonsterCount() > 0) 
+                 /*if (spawnManager.GetAliveMonsterCount() > 0) 
                  {
                      // Message: "몬스터를 모두 처치하세요." 
                      Debug.Log("몬스터를 모두 처치하세요.");
                      return;
-                 }
+                 }*/
 
                 if (!isDoorOpen)
                 {

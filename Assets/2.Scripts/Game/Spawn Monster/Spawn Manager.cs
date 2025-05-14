@@ -340,5 +340,23 @@ public class SpawnManager : MonoBehaviour
         return null;
     }
     
+    // (테스트때에는 비활성화)
+    public int GetAliveMonsterCount()
+    {
+        int count = 0;
+        // 라벨별로 관리 중인 풀 리스트
+        var allPools = new List<List<GameObject>> {
+            zombiePool, insectoidPool, ripperPool, vendigoPool, beastPool
+        };
+        foreach (var pool in allPools)
+        foreach (var go in pool)
+            if (go.activeInHierarchy)
+                count++;
+        return count;
+    }
+    
+    // (테스트때에는 비활성화) 살아 있는 몬스터가 한 마리라도 있는지 확인 
+     public bool HasAliveMonsters() => GetAliveMonsterCount() > 0;
+    
 }
 

@@ -435,7 +435,7 @@ MonoBehaviour:
   maxHealth: 1000
   moveSpeed: 2.5
   attackDamage: 35
-  chaseRange: 8
+  chaseRange: 22
   attackRange: 2
   player: {fileID: 0}
 --- !u!195 &1581512944965833925
@@ -445,7 +445,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000011194474354}
-  m_Enabled: 1
+  m_Enabled: 0
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5

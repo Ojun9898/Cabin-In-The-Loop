@@ -8,17 +8,38 @@ public class ManholeController : MonoBehaviour
     [SerializeField] private Animation anim;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private ManholeButtomController bc;
-    [SerializeField] private Monster monster;
+    private GameObject monster;
 
     private bool isPlayerInManhole = false;
     private bool isManholeOpen = false;
     private bool isPlayerInsideManhole = false;
     private bool isMonsterSpawned = false;
 
+    /*void Start()
+    {
+        monster = GameObject.FindWithTag("Monster");
+        if (monster == null)
+        {
+            Debug.Log("monster is null");
+        }
+    }*/
+    
     void Update()
     {
-        isMonsterSpawned = monster.isMonsterSpawned;
-        isPlayerInsideManhole = bc.isPlayerInsideManhole;
+        if (monster == null)
+        {
+            monster = GameObject.FindWithTag("Monster");
+        }
+        
+        if (monster != null)
+            isMonsterSpawned = monster.GetComponent<Monster>().isMonsterSpawned;
+        else
+            isMonsterSpawned = false;
+
+        isPlayerInsideManhole = bc != null && bc.isPlayerInsideManhole;
+        
+        /*isMonsterSpawned = monster.GetComponent<Monster>().isMonsterSpawned;
+        isPlayerInsideManhole = bc.isPlayerInsideManhole;*/
     }
     private void OnTriggerStay(Collider other)
     {

@@ -8,6 +8,8 @@ public class RoundStartTrigger : MonoBehaviour
     [SerializeField] private int roundIndex = 0;
     public RoundManager roundManager;
     
+    [SerializeField] private float delayBeforeStart = 2f; // 스폰 대기 시간
+    
     private bool triggered;
     private Collider _col;
 
@@ -26,8 +28,14 @@ public class RoundStartTrigger : MonoBehaviour
             triggered = true;
             _col.enabled = false;
             
-            roundManager.StartRounds(roundIndex);
+            StartCoroutine(DelayedStart());
         }
+    }
+
+    private IEnumerator DelayedStart()
+    {
+        yield return new WaitForSeconds(delayBeforeStart);
+        roundManager.StartRounds(roundIndex);
     }
     
 }

@@ -15,6 +15,7 @@ public class GameManager : Singleton<GameManager>
     private Queue<GameObject> _damageFieldPool = new();
 
     // 무기 풀 저장소 (무기 타입별 Queue)
+    [SerializeField] private Transform weaponsParent; 
     private Dictionary<WeaponType, Queue<GameObject>> _weaponPools = new();
 
     // 무기 타입과 무기 데이터 매핑 (빠른 접근용)
@@ -51,7 +52,7 @@ public class GameManager : Singleton<GameManager>
             // 초기 풀 사이즈만큼 무기 인스턴스를 생성
             for (int i = 0; i < 5; i++)
             {
-                var obj = Instantiate(data.prefab);
+                var obj = Instantiate(data.prefab, weaponsParent);
                 obj.SetActive(false); // 비활성화해서 대기 상태로
                 pool.Enqueue(obj);
             }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 
 
@@ -53,17 +54,29 @@ public class RoundManager : MonoBehaviour
     /// </summary>
     private IEnumerator RunRounds()
     {
+        // 1) 현재 라운드 데이터 가져오기
         RoundData data = roundDatas[currentRound];
-        yield return new WaitForSeconds(spawnInterval);
 
-        // ③ 설정된 타입·수량만큼 스폰
-        foreach (var info in data.monsters)
+        // 2) 타입별 수량만큼 MonsterType 리스트에 추가
+        List<MonsterType> spawnQueue = data.monsters
+            .SelectMany(info => Enumerable.Repeat(info.type, info.count))
+            .ToList();
+
+        // 3) Fisher–Yates 알고리즘으로 리스트 섞기 (혹은 LINQ .OrderBy(x => Random.value))
+        for (int i = spawnQueue.Count - 1; i > 0; i--)
         {
-            for (int i = 0; i < info.count; i++)
-            {
-                spawnManager.Spawn(info.type, currentRound);
-                yield return new WaitForSeconds(spawnInterval);
-            }
+            int j = Random.Range(0, i + 1);
+            var tmp = spawnQueue[i];
+            spawnQueue[i] = spawnQueue[j];
+            spawnQueue[j] = tmp;
+        }
+
+        // 4) 딜레이 후, 섞인 순서대로 스폰
+        yield return new WaitForSeconds(spawnInterval);
+        foreach (var type in spawnQueue)
+        {
+            spawnManager.Spawn(type, currentRound);
+            yield return new WaitForSeconds(spawnInterval);
         }
     }
 }

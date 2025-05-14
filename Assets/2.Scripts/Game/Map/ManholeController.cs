@@ -8,14 +8,16 @@ public class ManholeController : MonoBehaviour
     [SerializeField] private Animation anim;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private ManholeButtomController bc;
+    [SerializeField] private Monster monster;
 
     private bool isPlayerInManhole = false;
     private bool isManholeOpen = false;
     private bool isPlayerInsideManhole = false;
-    //private bool isMonsterSpawned = false;
+    private bool isMonsterSpawned = false;
 
     void Update()
     {
+        isMonsterSpawned = monster.isMonsterSpawned;
         isPlayerInsideManhole = bc.isPlayerInsideManhole;
     }
     private void OnTriggerStay(Collider other)
@@ -49,7 +51,7 @@ public class ManholeController : MonoBehaviour
     private void OpenManhole()
     {
         // 나중에 isMonsterSpawned 조건 추가
-        if (isPlayerInManhole &&
+        if (isPlayerInManhole && isMonsterSpawned &&
             Input.GetKeyDown(KeyCode.E) && !isManholeOpen)
         {
             isManholeOpen = true;

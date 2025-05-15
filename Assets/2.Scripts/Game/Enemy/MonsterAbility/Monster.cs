@@ -11,6 +11,7 @@ public class Monster : MonoBehaviour
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private float moveSpeed = 1.5f;
     [SerializeField] private float attackDamage = 10f;
+    [SerializeField] private PlayerStatus playerStatus;
     
     [Header("감지 범위")]
     public float chaseRange = 20f;
@@ -20,22 +21,44 @@ public class Monster : MonoBehaviour
     public Transform player;
     
     private MonsterHealth health;
+    private int defaultMaxHealth;  // 원본 maxHealth 보관용
     private MonsterMovement movement;
     private MonsterCombat combat;
     private Animator animator;
     private NavMeshAgent navMeshAgent;
+    private StateMachine<Monster> stateMachine;
+    
+    private bool isDead = false;    // 사망 여부 플래그
+    private bool xpGiven = false;   // 경험치 지급 여부 플래그
+    
     
     private static readonly int AttackIndexParam = Animator.StringToHash("AttackIndex");
     private static readonly int AttackTrigger = Animator.StringToHash("Attack");
     
     private void Awake()
     {
+        defaultMaxHealth = maxHealth;
+        InitializeHealth(maxHealth);
+
+        stateMachine = GetComponent<StateMachine<Monster>>();
         InitializeComponents();
         SubscribeToEvents();
+
+        if (playerStatus == null)
+        {
+            var playerObj = GameObject.FindWithTag("Player");
+            if (playerObj != null)
+                playerStatus = playerObj.GetComponent<PlayerStatus>();
+
+            if (playerStatus == null)
+                Debug.LogError("[Monster] Awake(): PlayerStatus를 찾을 수 없습니다.");
+        }
     }
     
     private void OnEnable()
     {
+        isDead   = false;
+        xpGiven  = false;
         // 풀에서 꺼내 활성화될 때 true
         isMonsterSpawned = true;
     }
@@ -44,6 +67,21 @@ public class Monster : MonoBehaviour
     {
         // 풀로 돌아가거나 비활성화될 때 false
         isMonsterSpawned = false;
+    }
+    
+    // health를 새로 생성하는 공통 메서드
+    private void InitializeHealth(int hp)
+    {
+        health = new MonsterHealth(hp);
+        health.OnHealthChanged += HandleHealthChanged;
+        health.OnDeath         += HandleDeath;
+    }
+    
+    public void ResetHealth(int? overrideMax = null)
+    {
+        int hp = overrideMax ?? defaultMaxHealth;
+        maxHealth = hp;              // Inspector 상에도 반영
+        InitializeHealth(hp);        // MonsterHealth 재생성
     }
     
     private void InitializeComponents()
@@ -94,23 +132,49 @@ public class Monster : MonoBehaviour
     
     public void HandleDeath()
     {
-        // 사망 시 처리
-        animator.Play("Death");
-        // 경험치 지급
-        if (player != null && player.TryGetComponent<PlayerStatus>(out var playerStatus))
+        // 이미 사망 처리했으면 무시
+        if (isDead) return;
+        isDead = true;
+        
+        // 한 번만 xp 지급
+        AwardXp();
+        
+        // 이동·충돌 완전 중지
+        if (navMeshAgent != null)
         {
-            Debug.Log("경험치 지급 됨");
-            playerStatus.GainXp(20f);
+            navMeshAgent.ResetPath();
+            navMeshAgent.isStopped = true;   // 이제 정상 대입 가능
         }
-        StartCoroutine(waitForDeath());
-        gameObject.SetActive(false);
-       
+
+        var col = GetComponent<Collider>();
+        if (col != null)
+        {
+            col.enabled = false;             // 정상 대입
+        }
+        
+        // 체력 0 시 바로 Death 상태로 전환
+        stateMachine?.ChangeState(EState.Death);
+    }
+    
+    
+    // 몬스터 사망지 경험치를 한번만 지급
+    public void AwardXp()
+    {
+        Debug.Log($"[AwardXp] playerStatus={playerStatus}, xpGiven(before)={xpGiven}");
+        if (playerStatus == null)
+        {
+            Debug.LogError("[AwardXp] playerStatus가 할당되지 않았습니다!");
+            return;
+        }
+        if (!xpGiven)
+        {
+            xpGiven = true;
+            playerStatus.GainXp(20f);
+            Debug.Log("[AwardXp] XP granted!");
+        }
     }
 
-    IEnumerator waitForDeath()
-    {
-        yield return new WaitForSeconds(2f);
-    }
+  
     
     public bool IsPlayerInRange(float range)
     {
@@ -130,30 +194,23 @@ public class Monster : MonoBehaviour
     
     public void MoveToPlayer()
     {
+        if (isDead) return;
         if (player == null) return;
 
       NavMeshHit navHit;
       if (NavMesh.SamplePosition(player.position, out navHit, 1.0f, NavMesh.AllAreas))
       {
           movement.MoveToTarget(navHit.position);
-          
-      }
-      else
-      {
-          
       }
     }
     
     public void SetAttackAnimation(int index)
     {
+        if (isDead) return;
         if (animator != null)
         {
             animator.SetInteger(AttackIndexParam, index);
             animator.SetTrigger(AttackTrigger);
-        }
-        else
-        {
-            
         }
     }
     
@@ -174,6 +231,7 @@ public class Monster : MonoBehaviour
     
     public void TakeDamage(float damage)
     {
+        if (isDead) return;
         health.TakeDamage(damage);
     }
 } 

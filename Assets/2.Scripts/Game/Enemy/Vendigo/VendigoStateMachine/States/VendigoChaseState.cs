@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VendigoChaseState : VendigoBaseState
 {
-    private const float CHASE_RANGE = 6f;
+    private const float CHASE_RANGE = 18f;
     // 원거리 공격구현때문에 공격범위를 높임
     private const float ATTACK_RANGE = 4.5f; 
     

@@ -20,7 +20,7 @@ public class RipperStateMachine : StateMachine<Monster>
         Monster monster = GetComponent<Monster>();
         if (monster == null)
         {
-            Debug.LogWarning("Monster component not found on ZombieStateMachine. Adding it automatically.");
+            
             monster = gameObject.AddComponent<Monster>();
         }
         
@@ -31,7 +31,7 @@ public class RipperStateMachine : StateMachine<Monster>
         }
         else
         {
-            Debug.LogWarning("Player Transform not set in ZombieStateMachine. Please assign it in the inspector.");
+            
         }
         
         // 상태 목록이 비어있으면 기본 상태들을 생성
@@ -92,7 +92,7 @@ public class RipperStateMachine : StateMachine<Monster>
     {
         EState previousState = currentState?.StateKey ?? EState.Idle;
         base.ChangeState(nextState);
-        Debug.Log($"Zombie state changed: {previousState} -> {nextState}");
+        
     }
     
 }

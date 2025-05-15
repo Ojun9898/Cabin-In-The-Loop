@@ -20,12 +20,12 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
         if (states == null)
         {
             states = new List<State<T>>();
-            Debug.LogWarning("States list is null. Initializing empty list.");
+            
         }
         
         if (states.Count == 0)
         {
-            Debug.LogWarning("States list is empty. No states will be initialized.");
+            
             return;
         }
         
@@ -36,7 +36,7 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
         {
             if (state == null)
             {
-                Debug.LogError("Null state found in states list. Skipping.");
+                
                 continue;
             }
             
@@ -45,7 +45,7 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
             // 중복 키 체크
             if (stateDictionary.ContainsKey(state.StateKey))
             {
-                Debug.LogError($"Duplicate state key found: {state.StateKey}. Skipping duplicate state.");
+                
                 continue;
             }
             
@@ -86,13 +86,13 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
         
         if (stateDictionary.TryGetValue(nextState, out State<T> newState))
         {
-            Debug.Log($"Changing state from {currentState?.StateKey} to {newState.StateKey}");
+            
             currentState = newState;
             currentState.EnterState();
         }
         else
         {
-            Debug.LogError($"State {nextState} does not exist in the state machine");
+            
         }
     }
 } 

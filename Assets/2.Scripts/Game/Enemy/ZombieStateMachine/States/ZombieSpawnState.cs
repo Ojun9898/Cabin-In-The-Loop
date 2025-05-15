@@ -24,11 +24,11 @@ public class ZombieSpawnState : ZombieBaseState
         // ① 에이전트 위치 강제 동기화 (Warp)
         if (navMeshAgent != null)
         {
-            navMeshAgent.Warp(zombie.transform.position);
-            // ② 남아있는 경로 정보 초기화
-            navMeshAgent.ResetPath();
-            // ③ 이동 잠금 해제 준비 (필요 시)
-            navMeshAgent.isStopped = true;
+            if (navMeshAgent.isOnNavMesh)
+            {
+                navMeshAgent.ResetPath();
+                navMeshAgent.isStopped = true;
+            }
         }
         StopMoving();
         // (선택) 스폰 중엔 애니메이션 재생 등

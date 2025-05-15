@@ -74,7 +74,6 @@ public class InsectAttackState : InsectBaseState
     {
         if (poisonThronPrefab == null || firePoint == null)
         {
-            Debug.LogWarning("Poison Thron Prefab 또는 FirePoint가 설정되지 않았습니다!");
             return;
         }
 

@@ -10,10 +10,11 @@ public class ManholeController : MonoBehaviour
     [SerializeField] private ManholeButtomController bc;
     [SerializeField] private GameObject monster;
 
-    private bool isPlayerInManhole = false;
+    [SerializeField]private bool isPlayerInManhole = false;
     public bool isManholeOpen = false;
     public bool isPlayerInsideManhole = false;
-    private bool isMonsterSpawned = false;
+    [SerializeField]private bool isMonsterSpawned = false;
+    [SerializeField]private bool isSpawn = false;
 
     void Start()
     {
@@ -33,7 +34,12 @@ public class ManholeController : MonoBehaviour
             isMonsterSpawned = monster.GetComponentInChildren<Monster>().isMonsterSpawned;
         }
 
-        if (isPlayerInManhole && isMonsterSpawned && !isManholeOpen && Input.GetKeyDown(KeyCode.E))
+        if (isMonsterSpawned)
+        {
+            isSpawn = true;
+        }
+
+        if (isPlayerInManhole && isSpawn && !isManholeOpen && Input.GetKeyDown(KeyCode.E))
         {
             OpenManhole();
         }

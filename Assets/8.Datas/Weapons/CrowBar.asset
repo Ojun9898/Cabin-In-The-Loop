@@ -16,6 +16,6 @@ MonoBehaviour:
   prefab: {fileID: 6640036407319009178, guid: f97974eccf67eb14a89c192cf7c4d5cf, type: 3}
   displayName: CrowBar
   damage: 20
-  range: 3
+  range: 1
   icon: {fileID: 0}
   category: 0

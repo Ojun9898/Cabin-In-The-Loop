@@ -14,8 +14,6 @@ public class PauseManager : Singleton<PauseManager>
     
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
-        
         if (settingPanel != null)
             settingPanel.SetActive(false);
     }

@@ -5,10 +5,10 @@ using UnityEngine;
 public class MessageManager : Singleton<MessageManager>
 {
     [SerializeField] private GameObject messagePrefab;
-    [SerializeField] private Canvas canvas;
 
     private GameObject currentMessage;
     private TMP_Text text;
+    private Canvas canvas;
 
     protected override void Awake()
     {
@@ -19,7 +19,7 @@ public class MessageManager : Singleton<MessageManager>
     public void Message(string message)
     {
         if (canvas == null)
-            canvas = GameObject.Find("Canvas").GetComponent<Canvas>();
+            canvas = CanvasManager.Instance.GetCanvas();
 
         if (currentMessage == null)
         {
@@ -28,7 +28,7 @@ public class MessageManager : Singleton<MessageManager>
         }
 
         text.text = message;
-        StopAllCoroutines(); // 기존 코루틴 중지
+        StopAllCoroutines();
         StartCoroutine(FadeMessage());
     }
 
@@ -41,7 +41,6 @@ public class MessageManager : Singleton<MessageManager>
         group.alpha = 0;
         currentMessage.SetActive(true);
 
-        // Fade In
         float fadeInTime = 0.2f;
         for (float t = 0; t < fadeInTime; t += Time.deltaTime)
         {
@@ -51,10 +50,8 @@ public class MessageManager : Singleton<MessageManager>
 
         group.alpha = 1;
 
-        // Wait
         yield return new WaitForSeconds(0.5f);
 
-        // Fade Out
         float fadeOutTime = 0.2f;
         for (float t = 0; t < fadeOutTime; t += Time.deltaTime)
         {
@@ -63,7 +60,6 @@ public class MessageManager : Singleton<MessageManager>
         }
 
         group.alpha = 0;
-
         currentMessage.SetActive(false);
     }
 }

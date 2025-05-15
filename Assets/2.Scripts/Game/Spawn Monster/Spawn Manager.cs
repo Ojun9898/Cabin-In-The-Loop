@@ -300,7 +300,6 @@ public class SpawnManager : MonoBehaviour
 
         if (points == null || points.Length == 0)
         {
-            
             return;
         }
         
@@ -327,20 +326,24 @@ public class SpawnManager : MonoBehaviour
         if (m == null)
             return;
         
-        // 3) 활성화
+        // 활성화
         m.transform.SetPositionAndRotation(spawnPos, Quaternion.identity);
         m.SetActive(true);
         m.tag = "Monster";
         m.AssignTransform(playerTransform);
         
-        // NavMeshAgent 를 켜고, Warp() 으로 NavMesh 위에 강제 배치
-        var agent = m.GetComponent<UnityEngine.AI.NavMeshAgent>();
+        // NavMeshAgent 활성화 
+        var agent = m.GetComponent<NavMeshAgent>();
         if (agent != null)
-        {
+        { 
             agent.enabled = true;
             agent.Warp(spawnPos);
         }
         
+        // StateMachine 초기화 
+        var resetSM = m.GetComponent<ZombieStateMachine>();
+        if (resetSM != null)
+            resetSM.ResetStateMachine();
     }
     
     private GameObject ActivateFromList(List<GameObject> pool, List<GameObject> variantList,int maxCount)

@@ -62,6 +62,11 @@ public class ZombieStateMachine : StateMachine<Monster>
         base.Initialize();
     }
     
+    public void ResetStateMachine()
+    {
+        Initialize();
+    }
+    
     public void OnHit(int damage)
     {
         Monster zombie = GetComponent<Monster>();

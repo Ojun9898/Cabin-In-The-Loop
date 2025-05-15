@@ -382,6 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMonsterSpawned: 0
   maxHealth: 100
   moveSpeed: 1.5
   attackDamage: 10
@@ -460,10 +461,10 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2.3600302
+  m_Radius: 0.4
+  m_Height: 1.078897
   m_Direction: 1
-  m_Center: {x: 0, y: 0.760015, z: 0}
+  m_Center: {x: 0, y: 1.438313, z: 0}
 --- !u!1 &1000010712654790
 GameObject:
   m_ObjectHideFlags: 0

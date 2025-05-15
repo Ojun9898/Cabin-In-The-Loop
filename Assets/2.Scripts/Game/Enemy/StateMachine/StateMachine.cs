@@ -79,6 +79,10 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
     
     public virtual void ChangeState(EState nextState)
     {
+        // 현재 상태가 Death라면(사망 상태) 다른 상태로 절대 전환하지 않음
+        if (currentState != null && currentState.StateKey == EState.Death)
+            return;
+        
         if (currentState != null)
         {
             currentState.ExitState();

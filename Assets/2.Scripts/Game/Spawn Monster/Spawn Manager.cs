@@ -227,6 +227,18 @@ public class SpawnManager : MonoBehaviour
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         ReturnAllToPool();
+        
+        // 모든 몬스터 체력 리셋
+        var allPools = new List<List<GameObject>> {zombiePool, insectoidPool, ripperPool, vendigoPool, beastPool};
+        foreach (var pool in allPools)
+        {
+            foreach (var go in pool)
+            {
+                var comp = go.GetComponent<Monster>();
+                if (comp != null)
+                    comp.ResetHealth();  // defaultMaxHealth로 복원
+            }
+        }
     }
 
     /// <summary>
@@ -331,6 +343,13 @@ public class SpawnManager : MonoBehaviour
         m.SetActive(true);
         m.tag = "Monster";
         m.AssignTransform(playerTransform);
+        
+        // 체력 리셋 조건
+        var monsterComp = m.GetComponent<Monster>();
+        if (roundIndex == 0)
+            monsterComp.ResetHealth(100_000);
+        else
+            monsterComp.ResetHealth();
         
         // NavMeshAgent 활성화 
         var agent = m.GetComponent<NavMeshAgent>();

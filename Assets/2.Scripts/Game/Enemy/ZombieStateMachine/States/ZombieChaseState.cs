@@ -6,7 +6,7 @@ public class ZombieChaseState : ZombieBaseState
     private const float CHASE_RANGE     = 18f;
     private const float ATTACK_RANGE    = 1.5f;
     // 추격시에는 이동속도가 더 빨라짐
-    private const float RUN_SPEED = 2f;
+    private const float RUN_SPEED = 2.1f;
     
     protected override void SetStateKey() => stateKey = EState.Chase;
 

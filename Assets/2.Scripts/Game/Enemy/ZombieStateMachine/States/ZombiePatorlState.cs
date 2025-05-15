@@ -34,7 +34,7 @@ public class ZombiePatorlState : ZombieBaseState
             navMeshAgent = owner.gameObject.AddComponent<NavMeshAgent>();
             
             // 기본 설정
-            navMeshAgent.speed = 2.5f;
+            navMeshAgent.speed = 1.8f;
             navMeshAgent.acceleration = 8f;
             navMeshAgent.angularSpeed = 120f;
             navMeshAgent.stoppingDistance = 0.1f;
@@ -81,7 +81,7 @@ public class ZombiePatorlState : ZombieBaseState
             isIdling = true;
             idleTimer = 0f;
             navMeshAgent.isStopped = true; // 멈추고
-            PlayAnimation("Vendigo Idle");  // Idle 애니 재생
+            PlayAnimation("Idle");  // Idle 애니 재생
             return;
         }
 
@@ -94,7 +94,7 @@ public class ZombiePatorlState : ZombieBaseState
                 // Idle 끝나면 다시 Walk & 새로운 목적지
                 isIdling = false;
                 navMeshAgent.isStopped = false;
-                PlayAnimation("Vendigo Walk");
+                PlayAnimation("Walk");
                 SetNewWanderTarget();
                 lastWanderTime = Time.time;
                 stateTimer = 0f;

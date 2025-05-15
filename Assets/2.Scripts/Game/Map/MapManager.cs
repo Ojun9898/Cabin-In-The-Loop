@@ -21,31 +21,36 @@ public class MapManager : Singleton<MapManager>
         DontDestroyOnLoad(gameObject);
 
         altarDoor = FindObjectOfType<AltarDoor>();
-
-        skyAndFogGlobalVolume = GameObject.Find("Sky And Fog Global Volume");
-
-        if (skyAndFogGlobalVolume == null)
-            Debug.LogError("SkyAndFogGlobalVolume 오브젝트를 찾을 수 없습니다.");
-
-        else
-        {
-            Debug.Log("SkyAndFogGlobalVolume 오브젝트가 정상적으로 존재합니다.");
-            volume = skyAndFogGlobalVolume.GetComponent<Volume>(); // Volume 컴포넌트 할당
-            if (volume == null)
-            {
-                Debug.LogError("SkyAndFogGlobalVolume 오브젝트에 Volume 컴포넌트가 없습니다.");
-            }
-        }
+        
+       
+        
+        // 초기에는 skyAndFogGlobalVolume을 찾지 않고, 씬이 로드될 때마다 찾아서 할당
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnEnable()
     {
         SceneManager.sceneLoaded += PlayerPositionSetting;
+        SceneManager.sceneLoaded += RemoveAudioListener;
     }
 
     void OnDisable()
     {
         SceneManager.sceneLoaded -= PlayerPositionSetting;
+        SceneManager.sceneLoaded -= RemoveAudioListener;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        
+    }
+
+    // 씬 로드될 때마다 skyAndFogGlobalVolume을 찾아서 할당
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        skyAndFogGlobalVolume = GameObject.Find("Sky And Fog Global Volume");
+
+        if (skyAndFogGlobalVolume != null)
+        {
+            volume = skyAndFogGlobalVolume.GetComponent<Volume>(); // Volume 컴포넌트 할당
+        }
     }
 
     // 씬 로드될 때마다 플레이어 포지션 잡기
@@ -55,7 +60,6 @@ public class MapManager : Singleton<MapManager>
         GameObject player = GameObject.FindWithTag("Player");
         if (player == null)
         {
-            Debug.LogError("Player를 찾을 수 없습니다.");
             return;
         }
         
@@ -67,10 +71,12 @@ public class MapManager : Singleton<MapManager>
 
         if (sceneName == "(Bake)Cavin")
         {
+            BGMManager.Instance.Play("Cavin BGM");
             targetLocation = new Vector3(71f, 0f, 42f);
         }
         else if (sceneName == "(Bake)Laboratory")
         {
+            BGMManager.Instance.Play("Lab BGM");
             targetLocation = new Vector3(46.7f, 0.5f, 14.8f);
         }
 
@@ -80,9 +86,7 @@ public class MapManager : Singleton<MapManager>
         characterController.enabled = true;
     }
 
-
     // Laboratory 제단 안개 서서히 제거
-
     public void StartFog()
     {
         if (!isFogRoutineRunning)
@@ -108,7 +112,18 @@ public class MapManager : Singleton<MapManager>
         volume.weight = targetWeight;
         isFogEliminated = true;
         isFogRoutineRunning = false;
+    }
 
-        Debug.Log("Fog eliminated");
+    void RemoveAudioListener(Scene scene, LoadSceneMode mode)
+    {
+        // AudioListener 중복 방지
+        AudioListener[] listeners = FindObjectsOfType<AudioListener>();
+        if (listeners.Length > 1)
+        {
+            for (int i = 1; i < listeners.Length; i++)
+            {
+                Destroy(listeners[i]);
+            }
+        }
     }
 }

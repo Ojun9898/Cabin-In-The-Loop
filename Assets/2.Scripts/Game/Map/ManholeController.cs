@@ -8,52 +8,46 @@ public class ManholeController : MonoBehaviour
     [SerializeField] private Animation anim;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private ManholeButtomController bc;
-    private GameObject monster;
+    [SerializeField] private GameObject monster;
 
     private bool isPlayerInManhole = false;
-    private bool isManholeOpen = false;
-    private bool isPlayerInsideManhole = false;
+    public bool isManholeOpen = false;
+    public bool isPlayerInsideManhole = false;
     private bool isMonsterSpawned = false;
 
-    /*void Start()
+    void Start()
     {
         monster = GameObject.FindWithTag("Monster");
-        if (monster == null)
-        {
-            Debug.Log("monster is null");
-        }
-    }*/
-    
+    }
+
     void Update()
     {
         if (monster == null)
         {
             monster = GameObject.FindWithTag("Monster");
+            return; // 아직 monster가 없으면 이하 생략
         }
-        
-        if (monster != null)
-            isMonsterSpawned = monster.GetComponent<Monster>().isMonsterSpawned;
-        else
-            isMonsterSpawned = false;
 
-        isPlayerInsideManhole = bc != null && bc.isPlayerInsideManhole;
-        
-        /*isMonsterSpawned = monster.GetComponent<Monster>().isMonsterSpawned;
-        isPlayerInsideManhole = bc.isPlayerInsideManhole;*/
+        if (monster.GetComponentInChildren<Monster>() != null)
+        {
+            isMonsterSpawned = monster.GetComponentInChildren<Monster>().isMonsterSpawned;
+        }
+
+        if (isPlayerInManhole && isMonsterSpawned && !isManholeOpen && Input.GetKeyDown(KeyCode.E))
+        {
+            OpenManhole();
+        }
+
+        isPlayerInsideManhole = bc.isPlayerInsideManhole;
     }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             isPlayerInManhole = true;
-            
-            if (!isManholeOpen)
-            {
-                OpenManhole();
-            }
 
-            // 실험실 이동
-            if (isPlayerInsideManhole)
+            if (isManholeOpen && isPlayerInsideManhole)
             {
                 SceneManager.LoadScene("(Bake)Laboratory");
             }
@@ -68,17 +62,11 @@ public class ManholeController : MonoBehaviour
         }
     }
 
-    // 몬스터 스폰 후 e키를 누르면 애니메이션 재생
     private void OpenManhole()
     {
-        // 나중에 isMonsterSpawned 조건 추가
-        if (isPlayerInManhole && isMonsterSpawned &&
-            Input.GetKeyDown(KeyCode.E) && !isManholeOpen)
-        {
-            isManholeOpen = true;
+        isManholeOpen = true;
 
-            anim.Play();
-            audioSource.Play();
-        }
+        anim.Play();
+        audioSource.Play();
     }
 }

@@ -249,7 +249,7 @@ public class SpawnManager : MonoBehaviour
         }
     }
     // 풀 미리 생성
-    private void PreloadPool(GameObject prefab, List<GameObject> pool)
+    public void PreloadPool(GameObject prefab, List<GameObject> pool)
     {
         // 1) 전체 풀 크기 한계 체크
         if (TotalPoolCount() >= totalPoolSize)
@@ -339,11 +339,6 @@ public class SpawnManager : MonoBehaviour
             agent.enabled = true;
             agent.Warp(spawnPos);
         }
-        
-        // StateMachine 초기화 
-        var resetSM = m.GetComponent<ZombieStateMachine>();
-        if (resetSM != null)
-            resetSM.ResetStateMachine();
     }
     
     private GameObject ActivateFromList(List<GameObject> pool, List<GameObject> variantList,int maxCount)

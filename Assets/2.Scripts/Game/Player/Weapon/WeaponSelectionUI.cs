@@ -43,7 +43,7 @@ public class WeaponSelectionUI : MonoBehaviour
         _timeoutCoroutine = StartCoroutine(SelectionTimeout());
     }
 
-    private void EquipWeapon(WeaponData weapon)
+    public void EquipWeapon(WeaponData weapon)
     {
         if (_selectionMade) return;
         _selectionMade = true;

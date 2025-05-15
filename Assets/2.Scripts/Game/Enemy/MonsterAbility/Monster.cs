@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -94,16 +95,21 @@ public class Monster : MonoBehaviour
     public void HandleDeath()
     {
         // 사망 시 처리
+        animator.Play("Death");
         // 경험치 지급
         if (player != null && player.TryGetComponent<PlayerStatus>(out var playerStatus))
         {
             Debug.Log("경험치 지급 됨");
             playerStatus.GainXp(20f);
         }
-        else
-        {
-            
-        }
+        StartCoroutine(waitForDeath());
+        gameObject.SetActive(false);
+       
+    }
+
+    IEnumerator waitForDeath()
+    {
+        yield return new WaitForSeconds(2f);
     }
     
     public bool IsPlayerInRange(float range)

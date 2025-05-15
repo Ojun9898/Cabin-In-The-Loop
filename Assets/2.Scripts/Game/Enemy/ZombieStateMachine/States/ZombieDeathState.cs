@@ -25,6 +25,12 @@ public class ZombieDeathState : ZombieBaseState
         
         // Monster의 HandleDeath 호출
         zombie.HandleDeath();
+        // 사망 애니메이션이 끝나면 오브젝트를 비활성화
+        if (!hasStartedDeathAnimation && stateTimer >= DEATH_DURATION)
+        {
+            hasStartedDeathAnimation = true;
+            
+        }
     }
     
     public override void UpdateState()

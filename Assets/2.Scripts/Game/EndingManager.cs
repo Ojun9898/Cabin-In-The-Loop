@@ -14,20 +14,7 @@ public class EndingManager : Singleton<EndingManager>
 
     void Start()
     {
-        if (canvas == null)
-        {
-            Canvas[] canvases = FindObjectsOfType<Canvas>();
-            foreach (Canvas c in canvases)
-            {
-                if (c.isRootCanvas)
-                {
-                    canvas = c;
-                    break;
-                }
-            }
-        }
-
-        if (altar == null)
+        if (SceneManager.GetActiveScene().name == "(Bake)Laboratory" && altar == null)
             altar = FindObjectOfType<Altar>();
     }
 

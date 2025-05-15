@@ -13,7 +13,6 @@ public class ZombieStateMachine : StateMachine<Monster>
     {
         playerTransform = t;
     }
-
     
     protected override void Initialize()
     {
@@ -21,7 +20,6 @@ public class ZombieStateMachine : StateMachine<Monster>
         Monster monster = GetComponent<Monster>();
         if (monster == null)
         {
-            
             monster = gameObject.AddComponent<Monster>();
         }
         
@@ -29,10 +27,6 @@ public class ZombieStateMachine : StateMachine<Monster>
         if (playerTransform != null)
         {
             monster.SetPlayer(playerTransform);
-        }
-        else
-        {
-            
         }
         
         // 상태 목록이 비어있으면 기본 상태들을 생성
@@ -54,6 +48,7 @@ public class ZombieStateMachine : StateMachine<Monster>
         foreach (var state in zombieStates)
         {
             state.Initialize(monster);
+            state.SetPlayerTransform(playerTransform);
         }
         
         // 상태 목록을 상태 머신에 등록
@@ -62,9 +57,13 @@ public class ZombieStateMachine : StateMachine<Monster>
         base.Initialize();
     }
     
-    public void ResetStateMachine()
+    private void OnEnable()
     {
-        Initialize();
+        // states가 준비되지 않았다면 패스
+        if (states == null || states.Count == 0) 
+            return;
+    
+        ChangeState(EState.Idle);
     }
     
     public void OnHit(int damage)

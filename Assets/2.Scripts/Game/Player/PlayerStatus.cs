@@ -71,11 +71,13 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
     private void Start()
     {
         // 씬 시작 시 체력 및 다음 레벨 XP 목표 계산
-        _currentHealth = GetTotalStat(StatusType.Health);
+        // _currentHealth = GetTotalStat(StatusType.Health);
         _xpToNextLevel = CalculateXpForLevel(_currentLevel);
         
         // HealthSystemForDummies 가져오기
         healthSystem = GetComponent<HealthSystemForDummies>();
+        
+        _currentHealth = healthSystem.CurrentHealth;
     }
 
     #region 스탯 초기화 & 저장

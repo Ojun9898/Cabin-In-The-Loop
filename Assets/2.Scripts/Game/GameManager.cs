@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
+using UnityEngine.Serialization;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -16,6 +17,7 @@ public class GameManager : Singleton<GameManager>
 
     // 무기 풀 저장소 (무기 타입별 Queue)
     private Dictionary<WeaponType, Queue<GameObject>> _weaponPools = new();
+    [SerializeField]private Transform weaponParent;
 
     // 무기 타입과 무기 데이터 매핑 (빠른 접근용)
     private Dictionary<WeaponType, WeaponData> _weaponDataMap = new();
@@ -53,7 +55,7 @@ public class GameManager : Singleton<GameManager>
             // 초기 풀 사이즈만큼 무기 인스턴스를 생성
             for (int i = 0; i < 5; i++)
             {
-                var obj = Instantiate(data.prefab);
+                var obj = Instantiate(data.prefab, weaponParent);
                 obj.SetActive(false); // 비활성화 상태로 풀에 저장
                 pool.Enqueue(obj);
             }

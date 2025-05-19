@@ -315,7 +315,13 @@ public class SpawnManager : MonoBehaviour
             return;
         }
         
-        Vector3 spawnPos = points[Random.Range(0, points.Length)].position;
+        // Vector3 spawnPos = points[Random.Range(0, points.Length)].position;
+        Vector3 rawPos = points[Random.Range(0, points.Length)].position;
+        NavMeshHit hit;
+        Vector3 spawnPos = NavMesh.SamplePosition(rawPos, out hit, 1f, NavMesh.AllAreas)
+            ? hit.position
+            : rawPos;
+            
         GameObject m = null;
         switch (type)
         {
@@ -338,26 +344,19 @@ public class SpawnManager : MonoBehaviour
         if (m == null)
             return;
         
-        // 활성화
+        // 1) 위치 복원
         m.transform.SetPositionAndRotation(spawnPos, Quaternion.identity);
-        m.SetActive(true);
-        m.tag = "Monster";
-        m.AssignTransform(playerTransform);
         
-        // 체력 리셋 조건
+        // 2) 내부 완전 초기화 및 체력 설정
         var monsterComp = m.GetComponent<Monster>();
         if (roundIndex == 0)
-            monsterComp.ResetHealth(100_000);
+            monsterComp.ResetState(spawnPos, playerTransform, overrideMaxHealth: 100_000);
         else
-            monsterComp.ResetHealth();
+            monsterComp.ResetState(spawnPos, playerTransform);
         
-        // NavMeshAgent 활성화 
-        var agent = m.GetComponent<NavMeshAgent>();
-        if (agent != null)
-        { 
-            agent.enabled = true;
-            agent.Warp(spawnPos);
-        }
+        // 3) 활성화
+        m.SetActive(true);
+        m.tag = "Monster";
     }
     
     private GameObject ActivateFromList(List<GameObject> pool, List<GameObject> variantList,int maxCount)
@@ -376,26 +375,7 @@ public class SpawnManager : MonoBehaviour
             pool.Add(go);
             return go;
         }
-        
         return null;
     }
-    
-    /*public int GetAliveMonsterCount()
-    {
-        int count = 0;
-        // 라벨별로 관리 중인 풀 리스트
-        var allPools = new List<List<GameObject>> {
-            zombiePool, insectoidPool, ripperPool, vendigoPool, beastPool
-        };
-        foreach (var pool in allPools)
-        foreach (var go in pool)
-            if (go.activeInHierarchy)
-                count++;
-        return count;
-    }
-    
-    // (테스트때에는 비활성화) 살아 있는 몬스터가 한 마리라도 있는지 확인 
-     public bool HasAliveMonsters() => GetAliveMonsterCount() > 0;*/
-    
 }
 

@@ -83,6 +83,50 @@ public class Monster : MonoBehaviour
         maxHealth = hp;              // Inspector 상에도 반영
         InitializeHealth(hp);        // MonsterHealth 재생성
     }
+
+    public void ResetState(Vector3 spawnPos, Transform playerTransform, int? overrideMaxHealth = null)
+    {
+        // 1) 기본 플래그
+        isMonsterSpawned = true;
+        isDead  = false;
+        xpGiven = false;
+        
+        // 2) 플레이어 참조
+        player = playerTransform;
+        
+        // 3) 체력 초기화
+        ResetHealth(overrideMaxHealth ?? defaultMaxHealth);
+        
+        // 4) NavMeshAgent
+        if (navMeshAgent != null)
+        {
+            navMeshAgent.enabled   = true;
+            navMeshAgent.Warp(spawnPos);
+            if (navMeshAgent.isOnNavMesh)
+            {
+                navMeshAgent.ResetPath();
+                navMeshAgent.isStopped = false;
+            }
+        }
+        
+        // 5) Collider
+        var col = GetComponent<Collider>();
+        if (col != null) col.enabled = true;
+        
+        // 6) Animator
+        if (animator != null)
+        {
+            animator.Rebind();  
+            animator.Update(0f);
+        }
+        
+        // 7) Movement·Combat (선택적 재생성)
+        movement = new MonsterMovement(navMeshAgent, moveSpeed);
+        combat   = new MonsterCombat(attackDamage, attackRange);
+        
+        // 8) StateMachine
+        stateMachine.ResetStateMachine();
+    }
     
     private void InitializeComponents()
     {
@@ -216,7 +260,8 @@ public class Monster : MonoBehaviour
     
     public void StopMoving()
     {
-        movement.Stop();
+        if (navMeshAgent != null && navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
+            movement.Stop();
     }
     
     public void PlayAnimation(string animationName)

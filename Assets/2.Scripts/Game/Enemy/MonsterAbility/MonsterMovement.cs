@@ -23,7 +23,12 @@ public class MonsterMovement
         }
     }
 
-    public void Stop() => navMeshAgent.isStopped = true;
+    public void Stop()
+    {
+        if (navMeshAgent != null && navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
+            navMeshAgent.isStopped = true;
+    }
+    
     public void Resume() => navMeshAgent.isStopped = false;
     
     public void SetSpeed(float speed)

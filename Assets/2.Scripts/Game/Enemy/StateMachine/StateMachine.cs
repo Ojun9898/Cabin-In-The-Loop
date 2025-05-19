@@ -7,59 +7,64 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
     protected Dictionary<EState, State<T>> stateDictionary = new Dictionary<EState, State<T>>();
     protected State<T> currentState;
     protected T owner;
-    
+
     protected virtual void Start()
     {
         Initialize();
     }
-    
+
     protected virtual void Initialize()
     {
         owner = GetComponent<T>();
-        
+
         if (states == null)
         {
             states = new List<State<T>>();
-            
+
         }
-        
+
         if (states.Count == 0)
         {
-            
+
             return;
         }
-        
+
         // 상태 사전 초기화
         stateDictionary.Clear();
-        
+
         foreach (var state in states)
         {
             if (state == null)
             {
-                
+
                 continue;
             }
-            
+
             state.Initialize(owner);
-            
+
             // 중복 키 체크
             if (stateDictionary.ContainsKey(state.StateKey))
             {
-                
+
                 continue;
             }
-            
+
             stateDictionary.Add(state.StateKey, state);
         }
-        
+
         if (states.Count > 0)
         {
             currentState = states[0];
             currentState.EnterState();
         }
     }
-    
-    protected virtual void Update()
+
+    public void ResetStateMachine()
+    {
+        Initialize();
+    }
+
+protected virtual void Update()
     {
         if (currentState == null) return;
         

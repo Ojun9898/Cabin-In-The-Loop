@@ -1,10 +1,13 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public abstract class BeastBaseState : State<Monster>
 {
     protected Monster beast;
     protected BeastStateMachine stateMachine;
     protected float stateTimer;
+    protected NavMeshAgent navMeshAgent;
+    protected float defaultSpeed;
     
     // 하울링 관련 필드
     protected const float HOWL_COOLDOWN = 15f;
@@ -19,6 +22,9 @@ public abstract class BeastBaseState : State<Monster>
         howlTimer = 0f;
         isHowling = false;
         SetStateKey();
+        
+        navMeshAgent = beast.GetComponent<NavMeshAgent>();
+       
     }
     
     // 하위 클래스에서 구현하여 stateKey를 설정

@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 6973888062466689483}
   - component: {fileID: 8784251052489168926}
   - component: {fileID: 387499677671764232}
+  - component: {fileID: 4996306182303774430}
   m_Layer: 0
   m_Name: Beast
   m_TagString: Untagged
@@ -431,9 +432,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isMonsterSpawned: 0
   maxHealth: 1000
   moveSpeed: 2.5
   attackDamage: 35
+  playerStatus: {fileID: 0}
   chaseRange: 8
   attackRange: 2
   player: {fileID: 0}
@@ -475,6 +478,7 @@ MonoBehaviour:
   howling: {fileID: 0}
   howlRange: 5
   maxHealth: 100
+  howlParticle: {fileID: 0}
 --- !u!136 &8784251052489168926
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -525,6 +529,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4996306182303774430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011194474354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d523cfef0b4a1674f81e73eb92f43b23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterType: 4
 --- !u!1 &1000011219002044
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,7 +8,9 @@ public class RoundStartTrigger : MonoBehaviour
     [SerializeField] private int roundIndex = 0;
     public RoundManager roundManager;
     
-    [SerializeField] private float delayBeforeStart = 2f; // 스폰 대기 시간
+    // 트리거 밟고 0.5초 대기
+    // 그 이후에 RoundManager에서 3,5초마다 스폰
+    [SerializeField] private float delayBeforeStart = 0.5f; 
     
     private bool triggered;
     private Collider _col;

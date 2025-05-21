@@ -11,6 +11,9 @@ public class MonsterMovement
         this.navMeshAgent = navMeshAgent;
         this.moveSpeed = moveSpeed;
         navMeshAgent.speed = moveSpeed;
+        
+        
+        navMeshAgent.autoTraverseOffMeshLink = true;
     }
 
     public void MoveToTarget(Vector3 targetPosition)

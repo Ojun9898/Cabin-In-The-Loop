@@ -40,6 +40,9 @@ public class RoundManager : MonoBehaviour
     {
         spawnManager.ReturnAllToPool();
         
+        // 현재 재생 중인 모든 몬스터 SFX 중단 & 풀로 리셋
+        MonsterSFXManager.Instance.StopAllSounds();
+        
         if (spawnRoutine != null)
             StopCoroutine(spawnRoutine);
         

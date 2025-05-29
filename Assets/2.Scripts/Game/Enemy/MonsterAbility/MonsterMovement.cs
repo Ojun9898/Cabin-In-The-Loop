@@ -11,6 +11,9 @@ public class MonsterMovement
         this.navMeshAgent = navMeshAgent;
         this.moveSpeed = moveSpeed;
         navMeshAgent.speed = moveSpeed;
+        
+        
+        navMeshAgent.autoTraverseOffMeshLink = true;
     }
 
     public void MoveToTarget(Vector3 targetPosition)
@@ -23,7 +26,12 @@ public class MonsterMovement
         }
     }
 
-    public void Stop() => navMeshAgent.isStopped = true;
+    public void Stop()
+    {
+        if (navMeshAgent != null && navMeshAgent.enabled && navMeshAgent.isOnNavMesh)
+            navMeshAgent.isStopped = true;
+    }
+    
     public void Resume() => navMeshAgent.isStopped = false;
     
     public void SetSpeed(float speed)

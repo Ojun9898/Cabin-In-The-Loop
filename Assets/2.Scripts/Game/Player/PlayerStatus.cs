@@ -50,6 +50,7 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
 
     private float _currentHealth;
     private PlayerStateMachine _psm;
+    private HealthSystemForDummies healthSystem;
 
     protected override void Awake()
     {
@@ -70,8 +71,13 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
     private void Start()
     {
         // 씬 시작 시 체력 및 다음 레벨 XP 목표 계산
-        _currentHealth = GetTotalStat(StatusType.Health);
+        // _currentHealth = GetTotalStat(StatusType.Health);
         _xpToNextLevel = CalculateXpForLevel(_currentLevel);
+        
+        // HealthSystemForDummies 가져오기
+        healthSystem = GetComponent<HealthSystemForDummies>();
+        
+        _currentHealth = healthSystem.CurrentHealth;
     }
 
     #region 스탯 초기화 & 저장
@@ -224,14 +230,16 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
     {
         _currentHealth -= amount;
         Debug.Log($"Player took {amount} dmg, remaining {_currentHealth}");
+
+        healthSystem.TakeDamage(amount);
+        
         _psm.ChangeState(new PlayerHitState());
         if (_currentHealth <= 0f) Die();
     }
 
     private void Die()
     {
-        Debug.Log("Player Died");
-        // 게임오버/리스폰 처리
+        EndingManager.Instance.ShowDeadEnding();
     }
     #endregion
 

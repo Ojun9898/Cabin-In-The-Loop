@@ -21,4 +21,19 @@ public class MonsterAnimationEvents : MonoBehaviour
         // 해당 몬스터의 모든 재생 중인 SFX를 중단
         MonsterSFXManager.Instance.StopAllAudio(transform.GetInstanceID());
     }
+
+    public void OnRAttackStart()
+    {
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Rattack,
+            monsterType,
+            transform
+        );
+    }
+    
+    public void OnRAttackEnd()
+    {
+        // 해당 몬스터의 모든 재생 중인 SFX를 중단
+        MonsterSFXManager.Instance.StopAllAudio(transform.GetInstanceID());
+    }
 }

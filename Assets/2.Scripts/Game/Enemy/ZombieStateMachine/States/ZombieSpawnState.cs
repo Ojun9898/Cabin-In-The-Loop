@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 public class ZombieSpawnState : ZombieBaseState
 {
@@ -29,7 +30,6 @@ public class ZombieSpawnState : ZombieBaseState
             nextState = EState.Idle;
             return true;
         }
-        
         return false;
     }
 } 

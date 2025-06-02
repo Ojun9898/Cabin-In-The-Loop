@@ -9,7 +9,7 @@ public class RipperPatorlState : RipperBaseState
     
     private const float WANDER_DURATION = 5f;
     private const float WANDER_RADIUS = 16f;
-    private const float CHASE_RANGE = 6f;
+    private const float CHASE_RANGE = 18f;
     
     private Vector3 wanderTarget;
     private NavMeshAgent navMeshAgent;
@@ -31,7 +31,7 @@ public class RipperPatorlState : RipperBaseState
         // NavMeshAgent가 없는 경우 추가
         if (navMeshAgent == null)
         {
-            Debug.LogWarning("NavMeshAgent component not found on Monster. Adding it automatically.");
+            
             navMeshAgent = owner.gameObject.AddComponent<NavMeshAgent>();
         
             // 기본 설정

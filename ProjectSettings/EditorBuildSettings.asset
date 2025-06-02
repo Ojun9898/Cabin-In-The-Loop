@@ -9,8 +9,11 @@ EditorBuildSettings:
     path: Assets/1.Scene/Main.unity
     guid: ed013372c35508449b5d31a9ee8d7435
   - enabled: 1
-    path: Assets/1.Scene/Game.unity
-    guid: 2e373381a135975489eba43f17d67865
+    path: Assets/1.Scene/(Bake)Laboratory.unity
+    guid: e92e96ce3c857fc49924da1c2925b720
+  - enabled: 1
+    path: Assets/1.Scene/(Bake)Cavin.unity
+    guid: 9a8db46f1fa9a7f4eb53f0a95e260fd2
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 53b211b4969ac474fb3a3fea60977682,
       type: 2}

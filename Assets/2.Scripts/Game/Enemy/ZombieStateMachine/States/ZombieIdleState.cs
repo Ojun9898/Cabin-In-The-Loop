@@ -45,7 +45,6 @@ public class ZombieIdleState : ZombieBaseState
                 return true;
             }
         }
-        
         return false;
     }
 } 

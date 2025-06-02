@@ -12,8 +12,6 @@ public class VendigoDeathState : VendigoBaseState
         stateKey = EState.Death;
     }
     
-    
-
     public override void EnterState()
     {
         base.EnterState();
@@ -26,7 +24,6 @@ public class VendigoDeathState : VendigoBaseState
         PlayAnimation("Vendigo Death");
         hasStartedDeathAnimation = false;
         
-        vendigo.HandleDeath();
     }
     
     public override void UpdateState()

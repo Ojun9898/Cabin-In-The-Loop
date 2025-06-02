@@ -3,9 +3,13 @@ using UnityEngine.AI;
 
 public class ZombiePatorlState : ZombieBaseState
 {
+    private const float idleDuration = 1.5f;  // 도착 후 멈춰 있을 시간
+    private float idleTimer = 0f;
+    private bool isIdling = false;
+    
     private const float WANDER_DURATION = 5f;
     private const float WANDER_RADIUS = 8f;
-    private const float CHASE_RANGE = 6f;
+    private const float CHASE_RANGE = 18f;
     
     private Vector3 wanderTarget;
     private NavMeshAgent navMeshAgent;
@@ -27,23 +31,31 @@ public class ZombiePatorlState : ZombieBaseState
         // NavMeshAgent가 없는 경우 추가
         if (navMeshAgent == null)
         {
-            Debug.LogWarning("NavMeshAgent component not found on Monster. Adding it automatically.");
             navMeshAgent = owner.gameObject.AddComponent<NavMeshAgent>();
             
             // 기본 설정
-            navMeshAgent.speed = 1.5f;
+            navMeshAgent.speed = 1.8f;
             navMeshAgent.acceleration = 8f;
             navMeshAgent.angularSpeed = 120f;
             navMeshAgent.stoppingDistance = 0.1f;
+            
         }
     }
     
     public override void EnterState()
     {
         base.EnterState();
-        // 이동 재개
         if (navMeshAgent != null)
+            navMeshAgent.speed = defaultSpeed;
+
+        if (navMeshAgent != null)
+        {
             navMeshAgent.isStopped = false;
+            stateTimer = 0f; // Wander 타이머 초기화
+            lastWanderTime = Time.time; // 쿨다운 초기화
+            isIdling = false; // 혹시 남아있던 플래그 초기화
+        }
+        
         PlayAnimation("Walk");
         SetNewWanderTarget();
     }
@@ -51,22 +63,50 @@ public class ZombiePatorlState : ZombieBaseState
     public override void UpdateState()
     {
         base.UpdateState();
-        
-        // 플레이어가 감지 범위 안에 들어오면 추적 상태로 전환
-        if (IsPlayerInRange(CHASE_RANGE))
+
+        bool inRange = IsPlayerInRange(CHASE_RANGE);
+        // 범위 안일 때만 직접 회전, 아닐 때는 NavMesh 회전
+        if (navMeshAgent != null)
+            navMeshAgent.updateRotation = !inRange;
+        if (inRange)
         {
-            stateTimer = WANDER_DURATION; // 즉시 상태 전환을 위해 타이머를 최대값으로 설정
+            RotateTowards(playerTransform.position, 6f);
+            stateTimer = WANDER_DURATION; // 즉시 Chase로 전환
             return;
         }
-        
-        // 목표 지점에 도달했거나 일정 시간이 지났으면 새로운 목표 지점 설정
-        if (navMeshAgent != null && (navMeshAgent.remainingDistance < 0.5f || stateTimer >= WANDER_DURATION))
-        {
-            // 쿨다운 타이머가 지나지 않았다면 새로운 목표 지점을 설정하지 않음
-            if (Time.time - lastWanderTime < wanderCooldownTime) return;
 
+        // 도착 즉시 Idle 상태로 진입
+        if (!isIdling && navMeshAgent != null && navMeshAgent.remainingDistance < 0.5f)
+        {
+            isIdling = true;
+            idleTimer = 0f;
+            navMeshAgent.isStopped = true; // 멈추고
+            PlayAnimation("Idle");  // Idle 애니 재생
+            return;
+        }
+
+        // Idle 중에는 타이머만 돌리기
+        if (isIdling)
+        {
+            idleTimer += Time.deltaTime;
+            if (idleTimer >= idleDuration)
+            {
+                // Idle 끝나면 다시 Walk & 새로운 목적지
+                isIdling = false;
+                navMeshAgent.isStopped = false;
+                PlayAnimation("Walk");
+                SetNewWanderTarget();
+                lastWanderTime = Time.time;
+                stateTimer = 0f;
+            }
+            return;
+        }
+
+        // 평소 Wander 지속 시간 초과 시에도 새로운 목적지
+        if (stateTimer >= WANDER_DURATION && Time.time - lastWanderTime >= wanderCooldownTime)
+        {
             SetNewWanderTarget();
-            lastWanderTime = Time.time; // 마지막 호출 시간 기록
+            lastWanderTime = Time.time;
             stateTimer = 0f;
         }
     }
@@ -75,15 +115,21 @@ public class ZombiePatorlState : ZombieBaseState
     {
         if (navMeshAgent == null) return;
         
-        // 현재 위치에서 랜덤한 방향으로 이동
-        Vector3 randomDirection = Random.insideUnitSphere * WANDER_RADIUS;
-        randomDirection += zombie.transform.position;
+        // XZ 평면에서만 랜덤 방향을 뽑도록 insideUnitCircle 사용
+        Vector2 rand = Random.insideUnitCircle * WANDER_RADIUS;
+        Vector3 candidate = zombie.transform.position + new Vector3(rand.x, 0f, rand.y);
         
         NavMeshHit hit;
-        if (NavMesh.SamplePosition(randomDirection, out hit, WANDER_RADIUS, NavMesh.AllAreas))
+        if (NavMesh.SamplePosition(candidate, out hit, WANDER_RADIUS, NavMesh.AllAreas))
         {
-            wanderTarget = hit.position;
-            navMeshAgent.SetDestination(wanderTarget);
+            // 현재 위치와 너무 가까우면 재시도
+            if (Vector3.Distance(zombie.transform.position, hit.position) < 1f)
+            {
+                // 1m 미만이면 버리고 재귀 또는 그냥 다음 프레임에 다시 호출
+                return;
+            }
+
+            navMeshAgent.SetDestination(hit.position);
         }
     }
     

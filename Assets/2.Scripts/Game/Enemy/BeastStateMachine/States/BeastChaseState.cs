@@ -1,27 +1,41 @@
 using UnityEngine;
 
+
 public class BeastChaseState : BeastBaseState
 {
-    private const float CHASE_RANGE = 6f;
+    private const float CHASE_RANGE = 18f;
     private const float ATTACK_RANGE = 1.5f;
+    
+    // 추격시에는 이동속도가 더 빨라짐
+    private const float RUN_SPEED = 3.1f;
     
     protected override void SetStateKey()
     {
         stateKey = EState.Chase;
     }
     
+    public override void ExitState()
+    {
+        base.ExitState();
+        if (navMeshAgent != null)
+            defaultSpeed = navMeshAgent.speed;
+    }
+
     public override void EnterState()
     {
         base.EnterState();
+        // Run 상태 진입 시 속도 변경
+        if (navMeshAgent != null)
+            navMeshAgent.speed = RUN_SPEED;
+
         PlayAnimation("Chase");
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
-        
         MoveToPlayer();
-
+        
         // 상태 전환 처리
         EState nextState = CheckStateTransitions();
         if (nextState != stateKey)

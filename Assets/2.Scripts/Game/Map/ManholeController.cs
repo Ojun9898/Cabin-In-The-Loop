@@ -8,29 +8,52 @@ public class ManholeController : MonoBehaviour
     [SerializeField] private Animation anim;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private ManholeButtomController bc;
+    [SerializeField] private GameObject monster;
 
-    private bool isPlayerInManhole = false;
-    private bool isManholeOpen = false;
-    private bool isPlayerInsideManhole = false;
-    //private bool isMonsterSpawned = false;
+    [SerializeField]private bool isPlayerInManhole = false;
+    public bool isManholeOpen = false;
+    public bool isPlayerInsideManhole = false;
+    [SerializeField]private bool isMonsterSpawned = false;
+    [SerializeField]private bool isSpawn = false;
+
+    void Start()
+    {
+        monster = GameObject.FindWithTag("Monster");
+    }
 
     void Update()
     {
+        if (monster == null)
+        {
+            monster = GameObject.FindWithTag("Monster");
+            return; // 아직 monster가 없으면 이하 생략
+        }
+
+        if (monster.GetComponentInChildren<Monster>() != null)
+        {
+            isMonsterSpawned = monster.GetComponentInChildren<Monster>().isMonsterSpawned;
+        }
+
+        if (isMonsterSpawned)
+        {
+            isSpawn = true;
+        }
+
+        if (isPlayerInManhole && isSpawn && !isManholeOpen && Input.GetKeyDown(KeyCode.E))
+        {
+            OpenManhole();
+        }
+
         isPlayerInsideManhole = bc.isPlayerInsideManhole;
     }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             isPlayerInManhole = true;
-            
-            if (!isManholeOpen)
-            {
-                OpenManhole();
-            }
 
-            // 실험실 이동
-            if (isPlayerInsideManhole)
+            if (isManholeOpen && isPlayerInsideManhole)
             {
                 SceneManager.LoadScene("(Bake)Laboratory");
             }
@@ -45,17 +68,11 @@ public class ManholeController : MonoBehaviour
         }
     }
 
-    // 몬스터 스폰 후 e키를 누르면 애니메이션 재생
     private void OpenManhole()
     {
-        // 나중에 isMonsterSpawned 조건 추가
-        if (isPlayerInManhole &&
-            Input.GetKeyDown(KeyCode.E) && !isManholeOpen)
-        {
-            isManholeOpen = true;
+        isManholeOpen = true;
 
-            anim.Play();
-            audioSource.Play();
-        }
+        anim.Play();
+        audioSource.Play();
     }
 }

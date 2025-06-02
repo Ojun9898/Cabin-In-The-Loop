@@ -7,59 +7,64 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
     protected Dictionary<EState, State<T>> stateDictionary = new Dictionary<EState, State<T>>();
     protected State<T> currentState;
     protected T owner;
-    
+
     protected virtual void Start()
     {
         Initialize();
     }
-    
+
     protected virtual void Initialize()
     {
         owner = GetComponent<T>();
-        
+
         if (states == null)
         {
             states = new List<State<T>>();
-            Debug.LogWarning("States list is null. Initializing empty list.");
+
         }
-        
+
         if (states.Count == 0)
         {
-            Debug.LogWarning("States list is empty. No states will be initialized.");
+
             return;
         }
-        
+
         // 상태 사전 초기화
         stateDictionary.Clear();
-        
+
         foreach (var state in states)
         {
             if (state == null)
             {
-                Debug.LogError("Null state found in states list. Skipping.");
+
                 continue;
             }
-            
+
             state.Initialize(owner);
-            
+
             // 중복 키 체크
             if (stateDictionary.ContainsKey(state.StateKey))
             {
-                Debug.LogError($"Duplicate state key found: {state.StateKey}. Skipping duplicate state.");
+
                 continue;
             }
-            
+
             stateDictionary.Add(state.StateKey, state);
         }
-        
+
         if (states.Count > 0)
         {
             currentState = states[0];
             currentState.EnterState();
         }
     }
-    
-    protected virtual void Update()
+
+    public void ResetStateMachine()
+    {
+        Initialize();
+    }
+
+protected virtual void Update()
     {
         if (currentState == null) return;
         
@@ -79,6 +84,10 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
     
     public virtual void ChangeState(EState nextState)
     {
+        // 현재 상태가 Death라면(사망 상태) 다른 상태로 절대 전환하지 않음
+        if (currentState != null && currentState.StateKey == EState.Death)
+            return;
+        
         if (currentState != null)
         {
             currentState.ExitState();
@@ -86,13 +95,13 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
         
         if (stateDictionary.TryGetValue(nextState, out State<T> newState))
         {
-            Debug.Log($"Changing state from {currentState?.StateKey} to {newState.StateKey}");
+            
             currentState = newState;
             currentState.EnterState();
         }
         else
         {
-            Debug.LogError($"State {nextState} does not exist in the state machine");
+            
         }
     }
 } 

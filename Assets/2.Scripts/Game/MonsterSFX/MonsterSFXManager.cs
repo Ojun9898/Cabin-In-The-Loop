@@ -91,6 +91,21 @@ public class MonsterSFXManager : MonoBehaviour
                 entry.ms.Stop();
         }
     }
+    
+    public void StopAllSounds()
+    {
+        // 1) 모든 AudioSource 중단
+        foreach (var entry in audioPool)
+        {
+            if (entry.ms.isPlaying)
+                entry.ms.Stop();
+            // 2) monsterID를 초기화해서 재사용 가능 상태로
+            entry.monsterID = -1;
+        }
+
+        // 3) 상태 캐시도 클리어해서, 다음에 같은 몬스터가 소환돼도 
+        lastState.Clear();
+    }
 
     
     // 상태 진입 시 호출

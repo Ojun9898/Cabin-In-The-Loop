@@ -23,7 +23,7 @@ public class InsectStateMachine : StateMachine<Monster>
         Monster monster = GetComponent<Monster>();
         if (monster == null)
         {
-            Debug.LogWarning("Monster component not found on InsectStateMachine. Adding it automatically.");
+            
             monster = gameObject.AddComponent<Monster>();
         }
         
@@ -34,7 +34,7 @@ public class InsectStateMachine : StateMachine<Monster>
         }
         else
         {
-            Debug.LogWarning("Player Transform not set in InsectStateMachine. Please assign it in the inspector.");
+            
         }
         
         // 상태 목록이 비어있으면 기본 상태들을 생성
@@ -92,6 +92,6 @@ public class InsectStateMachine : StateMachine<Monster>
     {
         EState previousState = currentState?.StateKey ?? EState.Idle;
         base.ChangeState(nextState);
-        Debug.Log($"Insect state changed: {previousState} -> {nextState}");
+        
     }
 } 

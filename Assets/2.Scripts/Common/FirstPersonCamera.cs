@@ -12,15 +12,17 @@ public class FirstPersonCamera : MonoBehaviour
 
     [Header("카메라 위치 설정")]
     public float cameraHeight = 1.8f;    // 카메라가 플레이어 바닥에서 떨어진 높이
+    public float cameraForwardOffset = 0.1f; // 카메라를 살짝 앞쪽으로 이동시켜 머리 관통 방지
 
     [Header("회전 제한")]
-    public float minPitch = -60f;       // 피치(상하) 최소 각도
+    public float minPitch = -45f;       // 피치(상하) 최소 각도 (기존 -60f → -45f)
     public float maxPitch = 60f;        // 피치(상하) 최대 각도
 
     private float yaw = 0f;             // 요(좌우) 회전값
     private float pitch = 0f;           // 피치(상하) 회전값
 
-    void Awake()
+  
+    void Start()
     {
         // GameManager 싱글톤에서 Transform을 할당
         playerBody = GameManager.Instance.playerTransform;       // GameManager의 playerTransform
@@ -28,12 +30,9 @@ public class FirstPersonCamera : MonoBehaviour
 
         // 카메라를 플레이어 몸체 자식으로 설정하면 자연스럽게 따라갑니다.
         cameraTransform.SetParent(playerBody);
-        // 로컬 위치를 머리 높이에 맞게 초기화
-        cameraTransform.localPosition = new Vector3(0f, cameraHeight, 0f);
-    }
-
-    void Start()
-    {
+        // 로컬 위치를 머리 높이에 맞게 초기화 (앞으로 살짝 이동)
+        cameraTransform.localPosition = new Vector3(0f, cameraHeight, cameraForwardOffset);
+        
         // 커서 고정 및 숨김
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -42,6 +41,8 @@ public class FirstPersonCamera : MonoBehaviour
         Vector3 camAngles = cameraTransform.localEulerAngles;
         pitch = camAngles.x;               // 카메라의 X축 회전값
         yaw = playerBody.eulerAngles.y;    // 플레이어 몸체의 Y축 회전값
+        
+        
     }
 
     void Update()

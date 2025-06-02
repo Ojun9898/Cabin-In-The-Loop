@@ -15,7 +15,7 @@ MonoBehaviour:
   weaponType: 0
   prefab: {fileID: 5408556079161778937, guid: 75fbec50d4b78b145be6789fc4fb9792, type: 3}
   displayName: Axe
-  damage: 10
-  range: 5
+  damage: 20
+  range: 1
   icon: {fileID: 0}
   category: 0

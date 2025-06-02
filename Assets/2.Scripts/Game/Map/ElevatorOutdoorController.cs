@@ -10,6 +10,8 @@ public class ElevatorOutDoorController : MonoBehaviour
     [SerializeField] private ElevatorController ec;
     [SerializeField] private AudioSource audioSource;
     [SerializeField] private AudioClip[] audioClips;
+    // (기몽) 하이어라키에 있는 SpawnManager를 에디터에서 드래그해서 할당
+     [SerializeField] private SpawnManager spawnManager;
 
     [HideInInspector] public bool isDoorOpen = false;
 
@@ -71,12 +73,13 @@ public class ElevatorOutDoorController : MonoBehaviour
                     
                     return;
                 }
-
-                // if () // 스테이지 클리어 하지 않은 경우
-                // {
-                //     // Message: "몬스터를 모두 처치하세요." 
-                //     return;
-                // }
+                // (기몽) 스테이지 클리어 하지 않은 경우
+                 /*if (spawnManager.GetAliveMonsterCount() > 0) 
+                 {
+                     // Message: "몬스터를 모두 처치하세요." 
+                     Debug.Log("몬스터를 모두 처치하세요.");
+                     return;
+                 }*/
 
                 if (!isDoorOpen)
                 {

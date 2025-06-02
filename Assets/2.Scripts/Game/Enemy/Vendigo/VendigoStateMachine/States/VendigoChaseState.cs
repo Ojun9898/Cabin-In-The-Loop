@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class VendigoChaseState : VendigoBaseState
 {
-    private const float CHASE_RANGE = 6f;
+    private const float CHASE_RANGE = 18f;
     // 원거리 공격구현때문에 공격범위를 높임
     private const float ATTACK_RANGE = 4.5f; 
     
     // 추격시에는 이동속도가 더 빨라짐
-    private const float RUN_SPEED = 3f;
+    private const float RUN_SPEED = 2.8f;
     
     protected override void SetStateKey() => stateKey = EState.Chase;
 
@@ -25,6 +25,8 @@ public class VendigoChaseState : VendigoBaseState
         MonsterSFXManager.Instance.StopAllAudio(
             vendigo.transform.GetInstanceID()
         );
+        if (navMeshAgent != null)
+            defaultSpeed = navMeshAgent.speed;
     }
     
     public override void EnterState()

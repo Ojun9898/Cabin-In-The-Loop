@@ -24,12 +24,12 @@ public class BeastAttackState : BeastBaseState
         base.EnterState();
         StopMoving();
         hasAttacked = false; // 공격 플래그 초기화
-        
+
         // 랜덤한 공격 애니메이션 선택
         int randomAttackIndex = Random.Range(1, MAX_ATTACK_ANIMATIONS + 1);
         PlayAnimation($"Attack{randomAttackIndex}");
     }
-    
+
     public override void UpdateState()
     {
         base.UpdateState();
@@ -57,11 +57,11 @@ public class BeastAttackState : BeastBaseState
             }
             return;
         }
-        
+
         // 공격 종료 후 상태 전환 처리
         HandlePostAttack();
     }
-    
+
     private void CreateDamageField()
     {
         GameObject damageField = GameManager.Instance.GetDamageField();
@@ -78,7 +78,7 @@ public class BeastAttackState : BeastBaseState
     }
     
     private void HandlePostAttack()
-    {
+        {
         EState nextState;
         HandlePostAttack(out nextState);
         if (nextState != stateKey)
@@ -90,7 +90,7 @@ public class BeastAttackState : BeastBaseState
     private void HandlePostAttack(out EState nextState)
     {
         nextState = EState.Idle;
-        
+
         if (IsPlayerInAttackRange())
         {
             // 공격 쿨다운이 지났는지 확인
@@ -109,14 +109,14 @@ public class BeastAttackState : BeastBaseState
             nextState = EState.Chase;
         }
     }
-    
+
     public override bool IsStateEnd(out EState nextState)
     {
         nextState = EState.Attack;
         
         if (stateTimer >= ATTACK_DURATION)
         {
-            HandlePostAttack(out nextState);
+        HandlePostAttack(out nextState);
             return true;
         }
         
@@ -125,7 +125,7 @@ public class BeastAttackState : BeastBaseState
 
     // 플레이어의 위치 가져오기
     private Vector3 GetPlayerPosition()
-    {
+        {
         if (beast.player == null) return beast.transform.position;
         return beast.player.transform.position;
     }

@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -19,6 +20,11 @@ public class Monster : MonoBehaviour
     
     [Header("참조")]
     public Transform player;
+
+    [Header("드롭 시스템")] 
+    [SerializeField] private MonsterDropTable dropTable;
+    [SerializeField] private GameObject goldPrefab;
+    
     
     private MonsterHealth health;
     private int defaultMaxHealth;  // 원본 maxHealth 보관용
@@ -183,6 +189,9 @@ public class Monster : MonoBehaviour
         // 한 번만 xp 지급
         AwardXp();
         
+        // 드롭 아이템 처리
+        ProcessDrops();
+        
         // 이동·충돌 완전 중지
         if (navMeshAgent != null)
         {
@@ -200,6 +209,80 @@ public class Monster : MonoBehaviour
         stateMachine?.ChangeState(EState.Death);
     }
     
+    // 드롭 시스템 관련 메서드
+    #region DropSystem
+    private void ProcessDrops()
+    {
+        if(dropTable == null) return;
+        
+        // 1. 의식 조각 100% 드롭
+        SpawnGold(dropTable.ritualFragmentAmount);
+        
+        // 2. 랜덤 아이템 드롭 (최대 maxDropCount개)
+        int dropCount = Random.Range(1, dropTable.maxDropCount + 1);
+        for(int i = 0; i < dropCount; i++)
+        {
+            // 아이템 타입 랜덤 선택 (무기, 방어구, 악세서리)
+            int typeRoll = Random.Range(0, 3); // 0: 무기, 1: 방어구, 2: 악세서리
+        
+            switch(typeRoll)
+            {
+                case 0:
+                    ProcessItemDrops(dropTable.weaponDrops);
+                    break;
+                case 1:
+                    ProcessItemDrops(dropTable.armorDrops);
+                    break;
+                case 2:
+                    ProcessItemDrops(dropTable.accessoryDrops);
+                    break;
+            }
+        }
+    }
+    
+    private void ProcessItemDrops(List<DropItem> drops)
+    {
+        if(drops == null) return;
+
+        foreach (var dropItem in drops)
+        {
+            if (Random.value <= dropItem.dropRate)
+            {
+                int count = Random.Range(dropItem.minCount, dropItem.maxCount + 1);
+                SpawnItem(dropItem.itemData, count);
+                break;
+            }
+        }
+    }
+
+    
+    private void SpawnGold(int amount)
+    {
+        if(goldPrefab == null) return;
+    
+        Vector3 dropPosition = transform.position + Random.insideUnitSphere * 1f;
+        GameObject goldObj = Instantiate(goldPrefab, dropPosition, Quaternion.identity);
+        DroppedGold droppedgold = goldObj.GetComponent<DroppedGold>();
+        if (droppedgold != null)
+        {
+            droppedgold.Initialize(amount);
+        }
+    }
+
+    private void SpawnItem(ItemData itemData, int count)
+    {
+        if (itemData == null || itemData.itemprefab == null) return;
+        
+        Vector3 dropPosition = transform.position + Random.insideUnitSphere * 1f;
+        GameObject itemObj = Instantiate(itemData.itemprefab, dropPosition, Quaternion.identity);
+        DroppedItem droppedItem = itemObj.GetComponent<DroppedItem>();
+        if (droppedItem != null)
+        {
+            droppedItem.Initialize(itemData, count);
+        }
+    }
+    
+    #endregion
     
     // 몬스터 사망지 경험치를 한번만 지급
     public void AwardXp()

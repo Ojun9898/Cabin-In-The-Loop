@@ -12,7 +12,7 @@ public class BeastRattackState : BeastBaseState
     {
         stateKey = EState.Rattack;
     }
-
+    
     public override void EnterState()
     {
         base.EnterState();
@@ -41,7 +41,7 @@ public class BeastRattackState : BeastBaseState
         base.ExitState();
         EndHowling();
     }
-
+    
     public override bool IsStateEnd(out EState nextState)
     {
         nextState = EState.Rattack;
@@ -50,8 +50,8 @@ public class BeastRattackState : BeastBaseState
         {
             // 다음 상태 결정
             if (IsPlayerInAttackRange())
-            {
-                nextState = EState.Attack;
+    {
+        nextState = EState.Attack;
             }
             else if (IsPlayerInChaseRange())
             {

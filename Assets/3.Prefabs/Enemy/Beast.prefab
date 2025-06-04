@@ -366,11 +366,11 @@ GameObject:
   m_Component:
   - component: {fileID: 4000014274720376}
   - component: {fileID: 95000013647225768}
-  - component: {fileID: 329073164437715276}
   - component: {fileID: 1581512944965833925}
   - component: {fileID: 6973888062466689483}
   - component: {fileID: 8784251052489168926}
   - component: {fileID: 387499677671764232}
+  - component: {fileID: 897238242908555742}
   m_Layer: 0
   m_Name: Beast
   m_TagString: Untagged
@@ -419,24 +419,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &329073164437715276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000011194474354}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxHealth: 1000
-  moveSpeed: 2.5
-  attackDamage: 35
-  chaseRange: 8
-  attackRange: 2
-  player: {fileID: 0}
 --- !u!195 &1581512944965833925
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -472,9 +454,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  howling: {fileID: 0}
+  howling: {fileID: 1090732837366667448}
   howlRange: 5
   maxHealth: 100
+  howlParticle: {fileID: 2769348811187216697}
 --- !u!136 &8784251052489168926
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -525,6 +508,34 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &897238242908555742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011194474354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMonsterSpawned: 0
+  maxHealth: 100
+  moveSpeed: 1.5
+  attackDamage: 10
+  playerStatus: {fileID: 0}
+  chaseRange: 20
+  attackRange: 1.5
+  player: {fileID: 0}
+  dropTable:
+    weaponDrops: []
+    armorDrops: []
+    accessoryDrops: []
+    ritualFragmentAmount: 0
+    maxDropCount: 2
+  goldPrefab: {fileID: 0}
+  itemPrefab: {fileID: 0}
 --- !u!1 &1000011219002044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1957,16 +1968,74 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4891440538664600065, guid: 82066d902ed0dd6488ddfd32eb994801,
+        type: 3}
+      propertyPath: TriggerModule.inside
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891440538664600065, guid: 82066d902ed0dd6488ddfd32eb994801,
+        type: 3}
+      propertyPath: TriggerModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891440538664600065, guid: 82066d902ed0dd6488ddfd32eb994801,
+        type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891440538664600065, guid: 82066d902ed0dd6488ddfd32eb994801,
+        type: 3}
+      propertyPath: CollisionModule.radiusScale
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891440538664600065, guid: 82066d902ed0dd6488ddfd32eb994801,
+        type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891440538664600065, guid: 82066d902ed0dd6488ddfd32eb994801,
+        type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4891440538664600065, guid: 82066d902ed0dd6488ddfd32eb994801,
+        type: 3}
+      propertyPath: TriggerModule.primitives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9080140021571130472, guid: 82066d902ed0dd6488ddfd32eb994801,
         type: 3}
       propertyPath: m_Name
       value: vfx_Shockwave_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9080140021571130472, guid: 82066d902ed0dd6488ddfd32eb994801,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82066d902ed0dd6488ddfd32eb994801, type: 3}
+--- !u!114 &1090732837366667448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7686616450267773824, guid: 82066d902ed0dd6488ddfd32eb994801,
+    type: 3}
+  m_PrefabInstance: {fileID: 7318163934416626488}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a92d029fd443659da7121d4be1371d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!198 &2769348811187216697 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4891440538664600065, guid: 82066d902ed0dd6488ddfd32eb994801,
+    type: 3}
+  m_PrefabInstance: {fileID: 7318163934416626488}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6783805133141984540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4299738629470430756, guid: 82066d902ed0dd6488ddfd32eb994801,

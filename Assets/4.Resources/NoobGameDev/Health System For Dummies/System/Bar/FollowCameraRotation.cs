@@ -3,7 +3,7 @@ using UnityEngine;
 public class FollowCameraRotation : MonoBehaviour
 {
     [SerializeField] Transform target;
-    
+
     void Start()
     {
         if (target == null)
@@ -12,9 +12,15 @@ public class FollowCameraRotation : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void LateUpdate()
     {
-        transform.LookAt(transform.position + target.forward);
+        // 카메라 회전값 가져오기
+        Vector3 camEuler = target.rotation.eulerAngles;
+
+        // Y축만 180도 뒤로 돌림
+        camEuler.y += 180f;
+
+        // 수정된 회전 적용
+        transform.rotation = Quaternion.Euler(camEuler);
     }
 }

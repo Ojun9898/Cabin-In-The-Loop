@@ -16,7 +16,7 @@ public class EndingManager : Singleton<EndingManager>
     {
         if (SceneManager.GetActiveScene().name == "(Bake)Laboratory" && altar == null)
             altar = FindObjectOfType<Altar>();
-    
+
         DontDestroyOnLoad(gameObject);
     }
 

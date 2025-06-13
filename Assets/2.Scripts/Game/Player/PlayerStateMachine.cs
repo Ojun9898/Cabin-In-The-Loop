@@ -5,152 +5,152 @@ using UnityEngine.InputSystem;
 public class PlayerStateMachine : MonoBehaviour
 {
     public IPlayerState CurrentState;
-public IPlayerState PreviousState;
+    public IPlayerState PreviousState;
 
-[HideInInspector] public Vector2 moveInput;
-[HideInInspector] public Animator animator;
-[HideInInspector] public CharacterController controller;
+    [HideInInspector] public Vector2 moveInput;
+    [HideInInspector] public Animator animator;
+    [HideInInspector] public CharacterController controller;
 
-public float moveSpeed = 2f;
-public float jumpSpeed = 7f;
-public float rotationSpeed = 10f;
-public float gravity = -9.8f;
-public Vector3 velocity;
+    public float moveSpeed = 2f;
+    public float jumpSpeed = 7f;
+    public float rotationSpeed = 10f;
+    public float gravity = -9.8f;
+    public Vector3 velocity;
+    
+    public float currentMoveSpeed;
 
-public float currentMoveSpeed;
+    private WeaponController _weaponController;
+    
+    [HideInInspector] public bool attackPressed;
+    [HideInInspector] public bool jumpPressed;
+    [HideInInspector] public bool runPressed;
+    
+    // 무적 관련 필드 추가
+    private bool _isInvincible = false;
+    private float _invincibleDuration = 1.0f;
+    private float _invincibleTimer = 0f;
 
-private WeaponController _weaponController;
-
-[HideInInspector] public bool attackPressed;
-[HideInInspector] public bool jumpPressed;
-[HideInInspector] public bool runPressed;
-
-// 무적 관련 필드 추가
-private bool _isInvincible = false;
-private float _invincibleDuration = 1.0f;
-private float _invincibleTimer = 0f;
-
-void Start()
-{
-    controller = GetComponent<CharacterController>();
-    _weaponController = GetComponent<WeaponController>();
-    animator = GetComponent<Animator>();
-    currentMoveSpeed = moveSpeed;
-
-    ChangeState(new PlayerIdleState());
-}
-
-void Update()
-{
-    if (!controller.isGrounded)
+    void Start()
     {
-        velocity.y += gravity * Time.deltaTime;
+        controller = GetComponent<CharacterController>();
+        _weaponController = GetComponent<WeaponController>();
+        animator = GetComponent<Animator>();
+        currentMoveSpeed = moveSpeed;
+
+        ChangeState(new PlayerIdleState());
     }
-    else if (velocity.y < 0)
+
+    void Update()
     {
-        velocity.y = -1f;
+        if (!controller.isGrounded)
+        {
+            velocity.y += gravity * Time.deltaTime;
+        }
+        else if (velocity.y < 0)
+        {
+            velocity.y = -1f;
+        }
+        
+        if (_isInvincible)
+        {
+            _invincibleTimer -= Time.deltaTime;
+            if (_invincibleTimer <= 0f)
+            {
+                _isInvincible = false;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            _weaponController.EquipWeapon(WeaponType.Axe);
+            WeaponSaveSystem.SaveWeapon(WeaponType.Axe);
+        }
+        
+        else if (Input.GetKeyDown(KeyCode.E))
+        {
+            _weaponController.EquipWeapon(WeaponType.CrowBar);
+            WeaponSaveSystem.SaveWeapon(WeaponType.CrowBar);
+        }
+        
+        controller.Move(velocity * Time.deltaTime);
+
+        if (CurrentState != null)
+            CurrentState.Execute(this);
+    }
+
+    public void ChangeState(IPlayerState newState)
+    {
+        if (CurrentState != null)
+            CurrentState.Exit(this);
+
+        PreviousState = CurrentState;
+        CurrentState = newState;
+
+        if (CurrentState != null)
+            CurrentState.Enter(this);
     }
     
-    if (_isInvincible)
+    public Vector3 GetCameraRelativeMoveDirection()
     {
-        _invincibleTimer -= Time.deltaTime;
-        if (_invincibleTimer <= 0f)
+        Vector3 inputDir = new Vector3(moveInput.x, 0f, moveInput.y);
+
+        Vector3 camForward = GameManager.Instance.cameraTransform.forward;
+        Vector3 camRight = GameManager.Instance.cameraTransform.right;
+
+        camForward.y = 0f;
+        camRight.y = 0f;
+        camForward.Normalize();
+        camRight.Normalize();
+
+        return camForward * inputDir.z + camRight * inputDir.x;
+    }
+    
+    public void RotateTowardsCameraDirection()
+    {
+        Vector3 targetDir = GetCameraRelativeMoveDirection();
+
+        if (targetDir.sqrMagnitude > 0.01f)
         {
-            _isInvincible = false;
+            Quaternion targetRotation = Quaternion.LookRotation(targetDir);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
+    
+    // 외부에서 호출하는 피격 시도 함수 (무적 상태 체크 포함)
+    public void TryTakeHit()
+    {
+        if (!_isInvincible)
+        {
+            ChangeState(new PlayerHitState());
         }
     }
 
-    if (Input.GetKeyDown(KeyCode.Q))
+    // 무적 상태 시작 함수
+    public void StartInvincibility(float duration)
     {
-        _weaponController.EquipWeapon(WeaponType.Axe);
-        WeaponSaveSystem.SaveWeapon(WeaponType.Axe);
+        _isInvincible = true;
+        _invincibleTimer = duration;
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        moveInput = context.ReadValue<Vector2>();
     }
     
-    else if (Input.GetKeyDown(KeyCode.E))
+    public void OnRun(InputAction.CallbackContext context)
     {
-        _weaponController.EquipWeapon(WeaponType.CrowBar);
-        WeaponSaveSystem.SaveWeapon(WeaponType.CrowBar);
+        runPressed = context.ReadValueAsButton();
     }
-    
-    controller.Move(velocity * Time.deltaTime);
 
-    if (CurrentState != null)
-        CurrentState.Execute(this);
-}
-
-public void ChangeState(IPlayerState newState)
-{
-    if (CurrentState != null)
-        CurrentState.Exit(this);
-
-    PreviousState = CurrentState;
-    CurrentState = newState;
-
-    if (CurrentState != null)
-        CurrentState.Enter(this);
-}
-
-public Vector3 GetCameraRelativeMoveDirection()
-{
-    Vector3 inputDir = new Vector3(moveInput.x, 0f, moveInput.y);
-
-    Vector3 camForward = GameManager.Instance.cameraTransform.forward;
-    Vector3 camRight = GameManager.Instance.cameraTransform.right;
-
-    camForward.y = 0f;
-    camRight.y = 0f;
-    camForward.Normalize();
-    camRight.Normalize();
-
-    return camForward * inputDir.z + camRight * inputDir.x;
-}
-
-public void RotateTowardsCameraDirection()
-{
-    Vector3 targetDir = GetCameraRelativeMoveDirection();
-
-    if (targetDir.sqrMagnitude > 0.01f)
+    public void OnJump(InputAction.CallbackContext context)
     {
-        Quaternion targetRotation = Quaternion.LookRotation(targetDir);
-        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        if (context.performed)
+            jumpPressed = true;
     }
-}
 
-// 외부에서 호출하는 피격 시도 함수 (무적 상태 체크 포함)
-public void TryTakeHit()
-{
-    if (!_isInvincible)
+    public void OnAttack(InputAction.CallbackContext context)
     {
-        ChangeState(new PlayerHitState());
+        if (context.performed)
+            attackPressed = true;
     }
-}
-
-// 무적 상태 시작 함수
-public void StartInvincibility(float duration)
-{
-    _isInvincible = true;
-    _invincibleTimer = duration;
-}
-
-public void OnMove(InputAction.CallbackContext context)
-{
-    moveInput = context.ReadValue<Vector2>();
-}
-
-public void OnRun(InputAction.CallbackContext context)
-{
-    runPressed = context.ReadValueAsButton();
-}
-
-public void OnJump(InputAction.CallbackContext context)
-{
-    if (context.performed)
-        jumpPressed = true;
-}
-
-public void OnAttack(InputAction.CallbackContext context)
-{
-    if (context.performed)
-        attackPressed = true;
-}
 }

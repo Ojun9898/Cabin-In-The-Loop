@@ -51,8 +51,20 @@ public class HealthSystemForDummies : MonoBehaviour
 
     private void SetHealthBarReference()
     {
-        if (HealthBarPrefabToSpawn == null)
-            HealthBarPrefabToSpawn = GameObject.Find("HealthBarCanvas");
+        if (this.CompareTag("Monster"))
+        {
+            // 현재 GameObject의 모든 자식(비활성 포함) 가져오기
+            Transform[] children = GetComponentsInChildren<Transform>(true);
+
+            foreach (Transform child in children)
+            {
+                if (child.name == "HealthBarCanvas")
+                {
+                    HealthBarPrefabToSpawn = child.gameObject;
+                    break;
+                }
+            }
+        }
     }
 
     public void AddToMaximumHealth(float value)
@@ -113,7 +125,7 @@ public class HealthSystemForDummies : MonoBehaviour
         if (!IsAlive) return;
 
         IsAlive = false;
-        Debug.Log("Character died");
+        Debug.Log(this.name + "died");
 
         OnIsAliveChanged.Invoke(IsAlive);
     }

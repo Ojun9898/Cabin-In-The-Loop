@@ -17,85 +17,85 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: e4607cc07e83f8342bdf1370787dfc12
   m_SerializeEntries:
-  - m_GUID: 061a9bc937399d44da2624aeae696eb3
-    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 3.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Insectoid
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 133f0a19da2eaa44fbe7fb0b5aa334d2
-    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Insectoid
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 2d39eae3e137032429fdcb53e04165e7
-    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 12.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Insectoid
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 322564d3217c69e418ecdf07c0c66e51
-    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 4.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Insectoid
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 59031894b9d8ac54e93752b18c57c5af
-    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 7.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Insectoid
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7a6502c787f7f244488109e2a66933d0
-    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 8.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Insectoid
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7c31770dd5c89324494ea00dbcd1cb73
-    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 2.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Insectoid
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a3e7e22d6ef2cfd4aa0a3540d84aaa16
-    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 1.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Insectoid
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a542570f74274aa49965dd75edecaa74
-    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 10.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Insectoid
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: bd594e632f0844d4fbca1d03cedbf71e
-    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 6.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Insectoid
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c2dfdade4bacdb24c989cc1849ba3bf9
+  - m_GUID: 017f6b41efa1fcd48b738d3528a338d2
     m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 11.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Insectoid
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c5d7c91160764bb43adc0e0a841ef3ac
+  - m_GUID: 10d921af873532f42b4d355a53c8a7ba
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13868dfeb3c708a47a54b2c17461c464
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3a3a232e11a67dc4ca6f9ca86a614137
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5aad1d54201207b439ce452096d6b3f4
     m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 13.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Insectoid
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: ca7b37729a3711a4b965fe0a9001a68b
+  - m_GUID: 5b0cba1896c12114b9715943d9b6f216
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5bb91bd24610ced40bb1a930116c88b9
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 12.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5fe7897ffbda65349a9dbd23f373e5c8
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8051809da905fc14986ed529e7aee107
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 88c81473c71602640b2b130b2be4c387
     m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 9.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Insectoid
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: dd6936797306b054cbf4ce7270b84fe9
+  - m_GUID: a7d69d2cb846c764cb4b461ec52a31d9
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ae4e8bf22a8b45d44af889a553d8d375
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: df992751552b8bb4d9a1c009fbd0d181
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 10.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f0ad61a8f4034d14289ab078dc10748b
     m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 5.prefab
     m_ReadOnly: 0
     m_SerializedLabels:

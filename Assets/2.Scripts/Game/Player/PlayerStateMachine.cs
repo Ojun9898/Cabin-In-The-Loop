@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 [RequireComponent(typeof(WeaponController))]
 public class PlayerStateMachine : MonoBehaviour
@@ -16,6 +17,7 @@ public class PlayerStateMachine : MonoBehaviour
     public float rotationSpeed = 10f;
     public float gravity = -9.8f;
     public Vector3 velocity;
+    public bool canHit = true;
     
     public float currentMoveSpeed;
 
@@ -24,11 +26,6 @@ public class PlayerStateMachine : MonoBehaviour
     [HideInInspector] public bool attackPressed;
     [HideInInspector] public bool jumpPressed;
     [HideInInspector] public bool runPressed;
-    
-    // 무적 관련 필드 추가
-    private bool _isInvincible = false;
-    private float _invincibleDuration = 1.0f;
-    private float _invincibleTimer = 0f;
 
     void Start()
     {
@@ -49,15 +46,6 @@ public class PlayerStateMachine : MonoBehaviour
         else if (velocity.y < 0)
         {
             velocity.y = -1f;
-        }
-        
-        if (_isInvincible)
-        {
-            _invincibleTimer -= Time.deltaTime;
-            if (_invincibleTimer <= 0f)
-            {
-                _isInvincible = false;
-            }
         }
 
         if (Input.GetKeyDown(KeyCode.Q))
@@ -114,22 +102,6 @@ public class PlayerStateMachine : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(targetDir);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
-    }
-    
-    // 외부에서 호출하는 피격 시도 함수 (무적 상태 체크 포함)
-    public void TryTakeHit()
-    {
-        if (!_isInvincible)
-        {
-            ChangeState(new PlayerHitState());
-        }
-    }
-
-    // 무적 상태 시작 함수
-    public void StartInvincibility(float duration)
-    {
-        _isInvincible = true;
-        _invincibleTimer = duration;
     }
 
     public void OnMove(InputAction.CallbackContext context)

@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 5615899018855639610}
   - component: {fileID: 3055865472826985311}
   - component: {fileID: 3340964304338153922}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Vendigo 4
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -199,7 +199,6 @@ MonoBehaviour:
   moveSpeed: 2
   attackDamage: 25
   playerStatus: {fileID: 0}
-  _currentHealth: 0
   chaseRange: 8
   attackRange: 1.5
   player: {fileID: 0}

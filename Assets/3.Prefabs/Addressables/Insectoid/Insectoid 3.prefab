@@ -1380,7 +1380,7 @@ GameObject:
   - component: {fileID: 1243305851507301560}
   - component: {fileID: 5923239539901537516}
   - component: {fileID: 1916716426925557703}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Insectoid 3
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1464,7 +1464,6 @@ MonoBehaviour:
   moveSpeed: 1.5
   attackDamage: 15
   playerStatus: {fileID: 0}
-  _currentHealth: 0
   chaseRange: 8
   attackRange: 5
   player: {fileID: 0}

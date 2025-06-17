@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 1996688239319861559}
   - component: {fileID: 7392727348972157511}
   - component: {fileID: -3547730845388188211}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Zombie Mutant 14
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -389,7 +389,6 @@ MonoBehaviour:
   moveSpeed: 1.5
   attackDamage: 10
   playerStatus: {fileID: 0}
-  _currentHealth: 0
   chaseRange: 8
   attackRange: 1.5
   player: {fileID: 0}

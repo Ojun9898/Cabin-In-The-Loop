@@ -2,31 +2,32 @@ using UnityEngine;
 
 public class PlayerHitState : IPlayerState
 {
-    private float hitDuration = 0.5f;        // 피격 애니메이션 지속
-    private float invincibleDuration = 1.0f; // 무적 지속 시간
-    private float timer;
+    private float _hitDuration = 0.5f;    // 피격 상태 지속 시간
+    private float _timer;
 
-    public void Enter(PlayerStateMachine player)
+    // 상태 진입 시: 히트 트리거 애니메이션 재생
+    public void Enter(PlayerStateMachine psm)
     {
-        timer = 0f;
-        player.animator.SetTrigger("HIT");
-
-        // 무적 상태 시작
-        player.StartInvincibility(invincibleDuration);
+        _timer = 0f;
+        psm.canHit = false;
+        psm.animator.SetTrigger("HIT");
+        // 이동/입력 억제용 변수도 설정할 수 있음
     }
 
-    public void Execute(PlayerStateMachine player)
+    // 매 프레임: 지정 시간 경과하면 Idle 상태로 복귀
+    public void Execute(PlayerStateMachine psm)
     {
-        timer += Time.deltaTime;
-        if (timer >= hitDuration)
+        _timer += Time.deltaTime;
+        if (_timer >= _hitDuration)
         {
-            player.ChangeState(new PlayerIdleState());
+            psm.ChangeState(new PlayerIdleState());
         }
     }
 
-    public void Exit(PlayerStateMachine player)
+    // 상태 종료 시: 필요하다면 트리거 리셋
+    public void Exit(PlayerStateMachine psm)
     {
-        // 필요 시 애니메이션 트리거 초기화 가능
-        // psm.animator.ResetTrigger("HIT");
+        // psm.animator.ResetTrigger("Hit");
+        psm.canHit = true;
     }
 }

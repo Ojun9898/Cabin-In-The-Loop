@@ -35,6 +35,9 @@ public class Monster : MonoBehaviour, IDamageable
     private static readonly int AttackIndexParam = Animator.StringToHash("AttackIndex");
     private static readonly int AttackTrigger = Animator.StringToHash("Attack");
     
+    private bool canTakeDamage = true;
+    private const float HIT_CoolDown = 1.25f;
+    
     private void Awake()
     {
         defaultMaxHealth = maxHealth;
@@ -61,12 +64,14 @@ public class Monster : MonoBehaviour, IDamageable
         xpGiven  = false;
         // 풀에서 꺼내 활성화될 때 true
         isMonsterSpawned = true;
+        canTakeDamage = true;
     }
     
     private void OnDisable()
     {
         // 풀로 돌아가거나 비활성화될 때 false
         isMonsterSpawned = false;
+        canTakeDamage = true;
     }
     
     // health를 새로 생성하는 공통 메서드
@@ -276,6 +281,24 @@ public class Monster : MonoBehaviour, IDamageable
     public void TakeDamage(float damage)
     {
         if (isDead) return;
+        // 무적 중이면 damage를 0으로 만들고 로그만 남김
+        if (!canTakeDamage)
+        {
+            Debug.Log("[Monster] 무적상태: 데미지 0 적용");
+            health.TakeDamage(0f);
+            return;
+        }
+        // 평상시 피격 처리
         health.TakeDamage(damage);
+        stateMachine.ChangeState(EState.Hit);
+        StartCoroutine(DamageCooldown());
+    }
+    
+    private IEnumerator DamageCooldown()
+    {
+        canTakeDamage = false;
+        // 무적시간 1초
+        yield return new WaitForSeconds(HIT_CoolDown);
+        canTakeDamage = true;
     }
 } 

@@ -92,8 +92,5 @@ public class VendigoStateMachine : StateMachine<Monster>
     {
         EState previousState = currentState?.StateKey ?? EState.Idle;
         base.ChangeState(nextState);
-        Debug.Log($"Zombie state changed: {previousState} -> {nextState}");
     }
-    
-    
 }

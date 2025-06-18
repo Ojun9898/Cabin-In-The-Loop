@@ -17,74 +17,68 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 9c6ef345d4046b04dbd7bfef9745f444
   m_SerializeEntries:
-  - m_GUID: 136740db4659a034484fd0843d80adff
-    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 3.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Ripper
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 13bd82924c565f940be058f1b2e44a6d
-    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 9.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Ripper
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 3e9823bf64830384e9b0d42bd1edc21c
+  - m_GUID: 07bac5772c9507944b22bb03af58d290
     m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 6.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Ripper
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 53144e95cc005ed459a6f0df457f77ce
-    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper.prefab
+  - m_GUID: 0bf191b9de0da0c4ab143ac51d2147b6
+    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 3.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Ripper
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7a6ed0bb0b061b94eab3471b5ade0e57
-    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 5.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Ripper
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 86e5eace9f7dbdc46a8432c87485fb76
-    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 4.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Ripper
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9ec2873de73d3b544b26b43f6f0a7176
-    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 2.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Ripper
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: a84921dc7f9b62d4d89b7e91b2187c43
-    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 10.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Ripper
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: abb8d2aa3d345094bb2acd466d49427d
+  - m_GUID: 414db47e8af6546498f658235e2ede9d
     m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 8.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Ripper
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: b55fe176756153b4580997d9cd64b008
-    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 1.prefab
+  - m_GUID: 6b6e3867c278acb479ba2143e1197746
+    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 9.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Ripper
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: c5f24bb156fb3914f9885171190c16ff
+  - m_GUID: 9c104efa805e8da4fbcf79fec765bedc
+    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ripper
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a3e7b8fe32b1ac74ea1e8fef635dda0f
+    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 10.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ripper
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c89862261f1ecd24abfcea1d711b07f2
     m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 7.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Ripper
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: eca808eab76631843ae5c820467694c8
-    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 11.prefab
+  - m_GUID: c9d86e67d6fb24e43a5f2428a5eacf8a
+    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ripper
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d00c4152ddc432545bcf33e2c7e4b3df
+    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ripper
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e686d0f56fee55c419611f2ef739ca49
+    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Ripper
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: eb50548ca91c3754bb405e278c4258bb
+    m_Address: Assets/3.Prefabs/Addressables/Ripper/Ripper 5.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Ripper

@@ -16,11 +16,6 @@ public class VendigoDeathState : VendigoBaseState
     {
         base.EnterState();
         StopMoving();
-        MonsterSFXManager.Instance.RequestPlay(
-            EState.Death,
-            EMonsterType.Vendigo,
-            vendigo.transform
-        );
         PlayAnimation("Vendigo Death");
         hasStartedDeathAnimation = false;
         

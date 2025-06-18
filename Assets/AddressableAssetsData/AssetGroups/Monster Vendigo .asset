@@ -17,50 +17,80 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: e65b725b974e8b449b17493d39bd80a1
   m_SerializeEntries:
-  - m_GUID: 782995f5bffbe1b45bc26185ff371dd0
-    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 5.prefab
+  - m_GUID: 12933ed4afe28604a94463e53d86b101
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 8.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 7874d4eb4dab6674ca9c591e5830dfd2
-    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 6.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Vendigo
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8032bb7ccddbd10439ce8c7a15f6513b
+  - m_GUID: 18338b1bce8ff524ea9cdc2267cf3400
     m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 3.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 8b38e98d558b5bf41bebd43d6f393d10
-    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 7.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Vendigo
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9c1ded2dcbf9bde4e94ce8c7ebcba4e8
-    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 2.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Vendigo
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 9d3fa1b48c4db644fa9a33e7be1c8444
-    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo.prefab
-    m_ReadOnly: 0
-    m_SerializedLabels:
-    - Vendigo
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: df84d80153975284999747d39818c530
+  - m_GUID: 1c1fa3ac5d212914fa29d959375387c0
     m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 4.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f4c89b34db39362469e0aadba755bf2e
+  - m_GUID: 23fe435c7c06e6f4594d0bc54305fc42
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 36bd3e5851bbb9140b343bc06d5da039
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 9.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 3c4e86826eea5cf41bcdf775c89dfc43
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 536ecdf0d94feee4197406b946af428d
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5927284318285a94d8b8fd05a714edf1
     m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 82abe613801435246b7a19e169b8045f
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e81a168408fff74f91b828695490eca
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 12.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c310f55794e62184cbd7cf10eba82c13
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 11.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: d967a1d341ff8884eb9cc5c3ce2c4cc7
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Vendigo
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f7d132a9f8efd9e4f9f05920256a5073
+    m_Address: Assets/3.Prefabs/Addressables/Vendigo/Vendigo 10.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Vendigo

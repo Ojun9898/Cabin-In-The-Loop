@@ -14,14 +14,7 @@ public class BeastHitState : BeastBaseState
     {
         base.EnterState();
         StopMoving();
-        // Hit(피격) 사운드 재생 요청
-        MonsterSFXManager.Instance.RequestPlay(
-            EState.Hit,
-            EMonsterType.Beast,
-            beast.transform
-        );
-        PlayAnimation("Walk Back");
-        TakeDamage(damageAmount); // 데미지 처리
+        PlayAnimation("Damage");
     }
     
     public override void UpdateState()

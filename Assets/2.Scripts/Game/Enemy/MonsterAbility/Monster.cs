@@ -31,7 +31,10 @@ public class Monster : MonoBehaviour, IDamageable
     private bool isDead = false;    // 사망 여부 플래그
     private bool xpGiven = false;   // 경험치 지급 여부 플래그
     
-    
+    private Transform hpCanvas; // HP Canvas
+    private RectTransform hpFillRect; // HP Fill
+    private TextMeshProUGUI hpText; // HP Text
+
     private static readonly int AttackIndexParam = Animator.StringToHash("AttackIndex");
     private static readonly int AttackTrigger = Animator.StringToHash("Attack");
     
@@ -72,6 +75,17 @@ public class Monster : MonoBehaviour, IDamageable
         // 풀로 돌아가거나 비활성화될 때 false
         isMonsterSpawned = false;
         canTakeDamage = true;
+    }
+    
+    private void Start()
+    {
+        hpCanvas = transform.Find("HPCanvas").GetComponent<Transform>();
+        hpFillRect = transform.Find("HPCanvas/HP/Fill").GetComponent<RectTransform>();
+        hpText = transform.Find("HPCanvas/HP/Text").GetComponent<TextMeshProUGUI>();
+            
+        hpCanvas.rotation = Quaternion.Euler(0, 180f, 0); // Monster Prefab에 맞춰 캔버스를 180도 회전
+            
+        SetHPUI(defaultMaxHealth);
     }
     
     // health를 새로 생성하는 공통 메서드
@@ -174,8 +188,8 @@ public class Monster : MonoBehaviour, IDamageable
     
     private void HandleHealthChanged(float newHealth)
     {
-        // 체력 변경 시 처리
-        Debug.Log($"[Monster] 체력 변경됨: {newHealth}");
+        // 체력이 변경되면 HP UI에 갱신
+        SetHPUI(newHealth);
     }
     
     public void HandleDeath()
@@ -300,5 +314,19 @@ public class Monster : MonoBehaviour, IDamageable
         // 무적시간 1초
         yield return new WaitForSeconds(HIT_CoolDown);
         canTakeDamage = true;
+    }
+    
+    private void SetHPUI(float hp)
+    {
+        // HP 음수 방지
+        if (hp <= 0) 
+        {
+            hp = 0;
+        }
+
+        float percent = Mathf.Clamp01(hp / 100f);
+        float rightValue = Mathf.Lerp(2f, 0f, percent);
+        hpFillRect.offsetMax = new Vector2(-rightValue, hpFillRect.offsetMax.y);
+        hpText.text = $"{Mathf.RoundToInt(hp)} / 100";
     }
 } 

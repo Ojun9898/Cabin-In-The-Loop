@@ -22,7 +22,6 @@ public class Door : MonoBehaviour
             isDoorOpen = true;
             // 기몽 추가 _문 열림 → 링크 활성화
             doorLink.enabled = true;
-            
         }
     }
 

@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/3.Prefabs/Addressables/Vendigo/Vendigo 10.prefab.meta
-guid: f7d132a9f8efd9e4f9f05920256a5073
-timeCreated: 1507099852
-========
-guid: eca808eab76631843ae5c820467694c8
-timeCreated: 1507112784
->>>>>>>> main:Assets/3.Prefabs/Addressables/Ripper/Ripper 11.prefab.meta
-licenseType: Store
-NativeFormatImporter:
+guid: 11d87ea5d296bc34882522845134b7b8
+PrefabImporter:
+  externalObjects: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 

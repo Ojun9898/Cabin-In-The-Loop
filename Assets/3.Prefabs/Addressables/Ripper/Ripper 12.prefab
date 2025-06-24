@@ -1703,7 +1703,7 @@ GameObject:
   - component: {fileID: 683952275482672409}
   - component: {fileID: 684622201670766950}
   m_Layer: 7
-  m_Name: Ripper
+  m_Name: Ripper 12
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

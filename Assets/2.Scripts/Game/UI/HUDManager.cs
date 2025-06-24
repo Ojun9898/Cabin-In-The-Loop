@@ -58,8 +58,8 @@ public class HUDManager : Singleton<HUDManager>
         stageText = transform.Find("Stage/Text").GetComponent<TextMeshProUGUI>();
 
         // 퀘스트 바인딩
-        quest = transform.Find("Quests/Quest").gameObject;
-        questText = transform.Find("Quests/Quest/Text").GetComponent<TextMeshProUGUI>();
+        /*quest = transform.Find("Quests/Quest").gameObject;
+        questText = transform.Find("Quests/Quest/Text").GetComponent<TextMeshProUGUI>();*/
     }
 
     void Update()
@@ -130,7 +130,7 @@ public class HUDManager : Singleton<HUDManager>
         stageText.text = stage;
     }
 
-    public void SetQuestUI(string questCode)
+    /*public void SetQuestUI(string questCode)
     {
         string takenQuest;
 
@@ -138,14 +138,14 @@ public class HUDManager : Singleton<HUDManager>
         takenQuest = TakeQuestText(questCode);
 
         questText.text = takenQuest;
-    }
+    }*/
 
-    public string TakeQuestText(string questCode)
+    /*public string TakeQuestText(string questCode)
     {
         string takenQuest;
 
         takenQuest = questCode;
 
         return takenQuest;
-    }
+    }*/
 }

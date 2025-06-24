@@ -121,7 +121,7 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
             case CharacterType.Female:
                 return type switch
                 {
-                    StatusType.Health       => 100f,
+                    StatusType.Health       => 1_000_000f,
                     StatusType.Attack       => 18f,
                     StatusType.Speed        => 3.5f,
                     StatusType.CritChance   => 0.15f,  // 15% 기본

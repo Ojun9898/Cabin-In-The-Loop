@@ -59,6 +59,7 @@ public class RoundManager : MonoBehaviour
     {
         // 1) 현재 라운드 데이터 가져오기
         RoundData data = roundDatas[currentRound];
+        HUDManager.Instance.SetStageUI(currentRound);
 
         // 2) 타입별 수량만큼 MonsterType 리스트에 추가
         List<MonsterType> spawnQueue = data.monsters

@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3e038f14-3161-4d31-a027-3575eddc9adc" name="변경" comment="" />
+    <list default="true" id="3e038f14-3161-4d31-a027-3575eddc9adc" name="변경" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.cavin-in-the-loop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.cavin-in-the-loop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/BGMManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/BGMManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/CanvasManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/CanvasManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/EndingManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/EndingManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/Monster.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/Monster.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/MessageManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/MessageManager.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/PauseManager.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/PauseManager.cs.meta" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -11,7 +24,10 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$USER_HOME$/Desktop/백업용/cabin-in-the-loop/Assets/2.Scripts/Game/Enemy/MonsterAbility/Monster.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/백업용/cabin-in-the-loop/Assets/2.Scripts/Game/Player/PlayerStatus.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/MonsterAbility/Monster.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/2.Scripts/Game/Player/PlayerStatus.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
@@ -21,16 +37,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Unity 에디터에 연결.Unity 에디터에 연결">
     <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.60f1\Editor\Unity.exe" />
@@ -93,6 +109,9 @@
       <workItem from="1747191248662" duration="30000" />
       <workItem from="1747191403559" duration="21000" />
       <workItem from="1747191456381" duration="5000" />
+      <workItem from="1750609242087" duration="151000" />
+      <workItem from="1750609407535" duration="2000" />
+      <workItem from="1750609437285" duration="64000" />
     </task>
     <servers />
   </component>

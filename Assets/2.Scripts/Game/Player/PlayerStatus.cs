@@ -50,6 +50,8 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
 
     // 체력
     private float _currentHealth;
+    
+    public float _maxHealth;
     public event Action<float> onHealthChanged;
     
     private PlayerStateMachine _psm;
@@ -57,7 +59,6 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
     protected override void Awake()
     {
         base.Awake();
-        DontDestroyOnLoad(gameObject);
 
         _psm = GetComponent<PlayerStateMachine>();
 
@@ -68,6 +69,9 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
 
         InitializeStats();
         EquipDefaultWeapon();
+        
+        // 체력 기본값 받아오기
+        _maxHealth = GetTotalStat(StatusType.Health);
     }
 
     private void Start()

@@ -38,13 +38,12 @@ public class CanvasManager : Singleton<CanvasManager>
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        if (scene.name == "Main") return; // 메인에서는 복제 X
+
         SpawnCanvasForScene();
-        
-        // 캔버스 복제 후 HUD 활성화
+
         if (!transform.Find("HUD").gameObject.activeSelf)
-        {
             transform.Find("HUD").gameObject.SetActive(true);
-        }
     }
 
     private void SpawnCanvasForScene()

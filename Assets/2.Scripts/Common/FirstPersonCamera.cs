@@ -21,18 +21,23 @@ public class FirstPersonCamera : MonoBehaviour
     private float yaw = 0f;             // 요(좌우) 회전값
     private float pitch = 0f;           // 피치(상하) 회전값
 
-  
     void Start()
     {
         // GameManager 싱글톤에서 Transform을 할당
-        playerBody = GameManager.Instance.playerTransform;       // GameManager의 playerTransform
-        cameraTransform = GameManager.Instance.cameraTransform;  // GameManager의 cameraTransform
+        playerBody = GameManager.Instance?.playerTransform;       // GameManager의 playerTransform
+        cameraTransform = GameManager.Instance?.cameraTransform;  // GameManager의 cameraTransform
+
+        if (playerBody == null || cameraTransform == null)
+        {
+            enabled = false;
+            return;
+        }
 
         // 카메라를 플레이어 몸체 자식으로 설정하면 자연스럽게 따라갑니다.
         cameraTransform.SetParent(playerBody);
         // 로컬 위치를 머리 높이에 맞게 초기화 (앞으로 살짝 이동)
         cameraTransform.localPosition = new Vector3(0f, cameraHeight, cameraForwardOffset);
-        
+
         // 커서 고정 및 숨김
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -41,12 +46,13 @@ public class FirstPersonCamera : MonoBehaviour
         Vector3 camAngles = cameraTransform.localEulerAngles;
         pitch = camAngles.x;               // 카메라의 X축 회전값
         yaw = playerBody.eulerAngles.y;    // 플레이어 몸체의 Y축 회전값
-        
-        
     }
 
     void Update()
     {
+        if (playerBody == null || cameraTransform == null)
+            return;
+
         // 마우스 입력으로 회전 처리
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity;
@@ -66,6 +72,8 @@ public class FirstPersonCamera : MonoBehaviour
     /// </summary>
     public Vector3 GetCameraForwardOnPlane()
     {
+        if (cameraTransform == null) return Vector3.forward;
+
         Vector3 forward = cameraTransform.forward;
         forward.y = 0f;
         return forward.normalized;

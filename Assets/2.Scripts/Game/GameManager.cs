@@ -8,6 +8,10 @@ public class GameManager : Singleton<GameManager>
     public Transform playerTransform;
     public Transform cameraTransform;
 
+    // Cameras, Player 프리팹
+    [SerializeField] private GameObject playerPrefab;
+    [SerializeField] private GameObject camerasPrefab;
+
     // 인스펙터에서 등록할 무기 데이터 리스트 (ScriptableObject)
     public List<WeaponData> weaponDataList;
 
@@ -17,7 +21,7 @@ public class GameManager : Singleton<GameManager>
 
     // 무기 풀 저장소 (무기 타입별 Queue)
     private Dictionary<WeaponType, Queue<GameObject>> _weaponPools = new();
-    [SerializeField]private Transform weaponParent;
+    [SerializeField] private Transform weaponParent;
 
     // 무기 타입과 무기 데이터 매핑 (빠른 접근용)
     private Dictionary<WeaponType, WeaponData> _weaponDataMap = new();
@@ -25,7 +29,7 @@ public class GameManager : Singleton<GameManager>
     // 무기 선택 UI
     public WeaponSelectionUI weaponSelectionUI;
 
-    
+
     protected override void Awake()
     {
         base.Awake();
@@ -38,9 +42,19 @@ public class GameManager : Singleton<GameManager>
 
         // 무기 풀 초기화
         InitializeWeaponPools();
-        
     }
-    
+
+    void OnEnable()
+    {
+        SceneManager.sceneLoaded += HandleSceneLoaded;
+    }
+
+    void OnDisable()
+    {
+        SceneManager.sceneLoaded -= HandleSceneLoaded;
+    }
+
+
     // 무기 풀 초기화: 각 무기별로 미리 인스턴스 생성해서 풀에 저장
     private void InitializeWeaponPools()
     {
@@ -83,7 +97,7 @@ public class GameManager : Singleton<GameManager>
         // 풀에 없을 경우 새로 인스턴스 생성
         if (_weaponDataMap.TryGetValue(type, out var data))
             return Instantiate(data.prefab);
-        
+
         return null;
     }
 
@@ -140,4 +154,93 @@ public class GameManager : Singleton<GameManager>
         // 무기 선택 UI 초기화
         weaponSelectionUI.Initialize(randomWeapons);
     }
+
+    #region OnSceneLoaded 이벤트
+
+    private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        HandlePlayerAndCamera(scene);
+        SetPlayerPosition(scene);
+        CleanupAudioListeners();
+    }
+
+    private void HandlePlayerAndCamera(Scene scene)
+    {
+        string sceneName = scene.name;
+
+        // Main 씬에서는 재생성X
+        if (sceneName == "Main")
+        {
+            var player = GameObject.FindGameObjectWithTag("Player");
+            var camera = GameObject.Find("Cameras") ?? GameObject.Find("Cameras(Clone)");
+
+            if (player != null)
+            {
+                Debug.Log("[GameManager] Main 씬 - Player 삭제");
+                Destroy(player);
+            }
+
+            if (camera != null)
+            {
+                Debug.Log("[GameManager] Main 씬 - Camera 삭제");
+                Destroy(camera);
+            }
+
+            return;
+        }
+
+        // Cavin, Laboratory 씬에서는 없을 때만 생성
+        if (sceneName == "(Bake)Cavin" || sceneName == "(Bake)Laboratory")
+        {
+            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
+            if (playerObj == null)
+            {
+                playerObj = Instantiate(playerPrefab);
+            }
+
+            playerTransform = playerObj.transform;
+
+            if (GameObject.Find("Cameras") == null && GameObject.Find("Cameras(Clone)") == null)
+            {
+                var cam = Instantiate(camerasPrefab);
+                cameraTransform = cam.transform;
+            }
+        }
+    }
+
+    private void SetPlayerPosition(Scene scene)
+    {
+        GameObject player = GameObject.FindWithTag("Player");
+        if (player == null) return;
+
+        CharacterController cc = player.GetComponent<CharacterController>();
+        if (cc == null) return;
+
+        Vector3 targetPos = Vector3.zero;
+        string sceneName = scene.name;
+
+        if (sceneName == "(Bake)Cavin")
+        {
+            BGMManager.Instance.Play("Cavin BGM");
+            targetPos = new Vector3(70f, 0f, 40f);
+        }
+        else if (sceneName == "(Bake)Laboratory")
+        {
+            BGMManager.Instance.Play("Lab BGM");
+            targetPos = new Vector3(46.7f, 0.5f, 14.8f);
+        }
+
+        cc.enabled = false;
+        cc.transform.position = targetPos;
+        cc.enabled = true;
+    }
+
+    private void CleanupAudioListeners()
+    {
+        AudioListener[] listeners = FindObjectsOfType<AudioListener>();
+        for (int i = 1; i < listeners.Length; i++)
+            Destroy(listeners[i]);
+    }
+
+    #endregion
 }

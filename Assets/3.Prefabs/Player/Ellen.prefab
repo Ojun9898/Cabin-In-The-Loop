@@ -2043,8 +2043,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 7643305023328990543}
   m_AABB:
-    m_Center: {x: 0.0068225563, y: 0, z: -0.009298004}
-    m_Extent: {x: 0.87855244, y: 0.7656409, z: 0.25213572}
+    m_Center: {x: 0.006822586, y: 0.023490407, z: -0.009297997}
+    m_Extent: {x: 0.87855244, y: 0.19485065, z: 0.25213572}
   m_DirtyAABB: 0
 --- !u!1 &4740189324102012473
 GameObject:
@@ -2632,6 +2632,7 @@ GameObject:
   - component: {fileID: 7290177096268144507}
   - component: {fileID: 828935097736164905}
   - component: {fileID: 7188431841444137031}
+  - component: {fileID: 7911378388429249323}
   m_Layer: 6
   m_Name: Ellen
   m_TagString: Player
@@ -2697,7 +2698,7 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 1.7
-  m_Radius: 0.5
+  m_Radius: 0.2
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
@@ -2745,11 +2746,12 @@ MonoBehaviour:
   moveInput: {x: 0, y: 0}
   animator: {fileID: 0}
   controller: {fileID: 0}
-  moveSpeed: 10
-  jumpSpeed: 7
+  moveSpeed: 2
+  jumpSpeed: 2
   rotationSpeed: 10
   gravity: -9.8
   velocity: {x: 0, y: 0, z: 0}
+  canHit: 1
   currentMoveSpeed: 0
   attackPressed: 0
   jumpPressed: 0
@@ -2861,8 +2863,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6db02f7e27bb4d46a8eef8fc8ed4ad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  handSocket: {fileID: 0}
+  handSocket: {fileID: 4256539637911117595}
   currentWeaponType: 0
+--- !u!114 &7911378388429249323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6315576216664758806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aefab8870d7f99d4e89d49d287159579, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterType: 1
+  defaultMaleWeapon: 0
+  defaultFemaleWeapon: 0
+  startingLevel: 1
+  startingXpToLevel: 100
+  xpGrowthFactor: 1.2
+  onLevelUpEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  _maxHealth: 0
 --- !u!1 &6348146503098800268
 GameObject:
   m_ObjectHideFlags: 0

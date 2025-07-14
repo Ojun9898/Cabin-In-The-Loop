@@ -56,6 +56,7 @@ public class PauseManager : Singleton<PauseManager>
     public void OnClickExitButton()
     {
         DestroyAllWithTag();
+        Destroy(CanvasManager.Instance.gameObject);
         SceneManager.LoadScene("Main");
     }
 

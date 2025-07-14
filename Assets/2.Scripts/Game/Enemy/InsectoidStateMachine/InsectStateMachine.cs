@@ -16,6 +16,26 @@ public class InsectStateMachine : StateMachine<Monster>
         playerTransform = t;
     }
 
+    private void Start()
+    {
+        // 플레이어 바인딩을 Start에서 처리
+        if (playerTransform == null)
+        {
+            GameObject playerObj = GameObject.FindWithTag("Player");
+            if (playerObj != null)
+            {
+                playerTransform = playerObj.transform;
+            }
+            else
+            {
+                Debug.LogError("[InsectStateMachine] Start(): Player를 찾을 수 없습니다.");
+                return;
+            }
+        }
+
+        // 초기화 호출
+        Initialize();
+    }
     
     protected override void Initialize()
     {

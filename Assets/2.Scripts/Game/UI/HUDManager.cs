@@ -8,6 +8,9 @@ public class HUDManager : Singleton<HUDManager>
 {
     // 스탯 (hp, xp, level)
 
+    [SerializeField] private float hpMax; // 최대 체력
+    [SerializeField] private float xpMax; // 최대 XP
+    
     private float xp;
     private int level;
 
@@ -23,9 +26,11 @@ public class HUDManager : Singleton<HUDManager>
     private PlayerStatus ps; // 이벤트 구독
 
     // 스테이지
+    
     private TextMeshProUGUI stageText;
 
     // 퀘스트
+    
     private GameObject quest;
     private TextMeshProUGUI questText;
 
@@ -35,33 +40,47 @@ public class HUDManager : Singleton<HUDManager>
         base.Awake();
         DontDestroyOnLoad(gameObject);
     }
-
     void OnEnable()
     {
-        // Player 오브젝트 찾기
-        Player = GameObject.FindGameObjectWithTag("Player");
-
-        // 스탯 바인딩
-        hpFillRect = transform.Find("Stats/HP/Fill").GetComponent<RectTransform>();
-        hpText = transform.Find("Stats/HP/Text").GetComponent<TextMeshProUGUI>();
-
-        xpFillRect = transform.Find("Stats/XP/Fill").GetComponent<RectTransform>();
-        xpText = transform.Find("Stats/XP/Text").GetComponent<TextMeshProUGUI>();
-
-        levelText = transform.Find("Stats/Level").GetComponent<TextMeshProUGUI>();
-
-        // HP 구독
-        ps = Player.GetComponent<PlayerStatus>();
-        ps.onHealthChanged += SetHPUI;
-
-        // 스테이지 바인딩
-        stageText = transform.Find("Stage/Text").GetComponent<TextMeshProUGUI>();
-
-        // 퀘스트 바인딩
-        /*quest = transform.Find("Quests/Quest").gameObject;
-        questText = transform.Find("Quests/Quest/Text").GetComponent<TextMeshProUGUI>();*/
+        StartCoroutine(InitHUD());
     }
 
+    IEnumerator InitHUD()
+    {
+        yield return null; // 씬 로드 직후 한 프레임 기다림
+
+        Player = GameObject.FindGameObjectWithTag("Player");
+
+        if (Player == null)
+        {
+            Debug.LogWarning("HUDManager: Player not found.");
+            yield break;
+        }
+
+        // 스탯 바인딩
+        hpFillRect = transform.Find("Stats/HP/Fill")?.GetComponent<RectTransform>();
+        hpText = transform.Find("Stats/HP/Text")?.GetComponent<TextMeshProUGUI>();
+
+        xpFillRect = transform.Find("Stats/XP/Fill")?.GetComponent<RectTransform>();
+        xpText = transform.Find("Stats/XP/Text")?.GetComponent<TextMeshProUGUI>();
+
+        levelText = transform.Find("Stats/Level")?.GetComponent<TextMeshProUGUI>();
+
+        stageText = transform.Find("Stage/Text")?.GetComponent<TextMeshProUGUI>();
+
+        ps = Player.GetComponent<PlayerStatus>();
+
+        if (ps != null)
+        {
+            ps.onHealthChanged += SetHPUI;
+
+            hpMax = ps._maxHealth;
+            xpMax = 100f;
+
+            SetHPUI(ps._maxHealth);
+        }
+    }
+    
     void Update()
     {
         // 스탯 (XP, Level) 갱신
@@ -81,11 +100,14 @@ public class HUDManager : Singleton<HUDManager>
         float percent = Mathf.Clamp01(hp / 100f);
         float rightValue = Mathf.Lerp(438f, 0f, percent);
         hpFillRect.offsetMax = new Vector2(-rightValue, hpFillRect.offsetMax.y);
-        hpText.text = $"{Mathf.RoundToInt(hp)} / 100";
+        hpText.text = $"{Mathf.RoundToInt(hp)} / {hpMax}";
     }
 
     private void SetXPUI(float xp)
     {
+        if (xpFillRect == null || xpText == null)
+            return;
+        
         // XP 음수 방지
         if (xp <= 0)
         {
@@ -95,11 +117,14 @@ public class HUDManager : Singleton<HUDManager>
         float percent = Mathf.Clamp01(xp / 100f);
         float rightValue = Mathf.Lerp(438f, 0f, percent);
         xpFillRect.offsetMax = new Vector2(-rightValue, xpFillRect.offsetMax.y);
-        xpText.text = $"{Mathf.RoundToInt(xp)} / 100";
+        xpText.text = $"{Mathf.RoundToInt(xp)} / {xpMax}";
     }
 
     private void SetLevelUI(int level)
     {
+        if (levelText == null)
+            return;
+        
         levelText.text = $"LV.{level}";
     }
 

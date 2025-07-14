@@ -50,16 +50,11 @@ public class Monster : MonoBehaviour, IDamageable
         stateMachine = GetComponent<StateMachine<Monster>>();
         InitializeComponents();
         SubscribeToEvents();
-
-        if (playerStatus == null)
-        {
-            var playerObj = GameObject.FindWithTag("Player");
-            if (playerObj != null)
-                playerStatus = playerObj.GetComponent<PlayerStatus>();
-
-            if (playerStatus == null)
-                Debug.LogError("[Monster] Awake(): PlayerStatus를 찾을 수 없습니다.");
-        }
+        
+        // HP UI 관련 컴포넌트 초기화
+        hpCanvas = transform.Find("HPCanvas")?.GetComponent<Transform>();
+        hpFillRect = transform.Find("HPCanvas/HP/Fill")?.GetComponent<RectTransform>();
+        hpText = transform.Find("HPCanvas/HP/Text")?.GetComponent<TextMeshProUGUI>();
     }
     
     private void OnEnable()
@@ -80,13 +75,18 @@ public class Monster : MonoBehaviour, IDamageable
     
     private void Start()
     {
-        hpCanvas = transform.Find("HPCanvas").GetComponent<Transform>();
-        hpFillRect = transform.Find("HPCanvas/HP/Fill").GetComponent<RectTransform>();
-        hpText = transform.Find("HPCanvas/HP/Text").GetComponent<TextMeshProUGUI>();
-            
         hpCanvas.rotation = Quaternion.Euler(0, 180f, 0); // Monster Prefab에 맞춰 캔버스를 180도 회전
-            
         SetHPUI(defaultMaxHealth);
+        
+        if (playerStatus == null)
+        {
+            var playerObj = GameObject.FindWithTag("Player");
+            if (playerObj != null)
+                playerStatus = playerObj.GetComponent<PlayerStatus>();
+
+            if (playerStatus == null)
+                Debug.LogError("[Monster] Awake(): PlayerStatus를 찾을 수 없습니다.");
+        }
     }
     
     // health를 새로 생성하는 공통 메서드
@@ -102,6 +102,7 @@ public class Monster : MonoBehaviour, IDamageable
         int hp = overrideMax ?? defaultMaxHealth;
         maxHealth = hp;              // Inspector 상에도 반영
         InitializeHealth(hp);        // MonsterHealth 재생성
+        SetHPUI(hp); // UI 리셋
     }
 
     public void ResetState(Vector3 spawnPos, Transform playerTransform, int? overrideMaxHealth = null)
@@ -167,12 +168,6 @@ public class Monster : MonoBehaviour, IDamageable
         movement = new MonsterMovement(navMeshAgent, moveSpeed);
         combat = new MonsterCombat(attackDamage, attackRange);
         animator = GetComponent<Animator>();
-        
-        // 플레이어 참조 확인
-        if (player == null)
-        {
-            
-        }
     }
     
     // 플레이어 참조 설정 메서드
@@ -328,6 +323,6 @@ public class Monster : MonoBehaviour, IDamageable
         float percent = Mathf.Clamp01(hp / 100f);
         float rightValue = Mathf.Lerp(2f, 0f, percent);
         hpFillRect.offsetMax = new Vector2(-rightValue, hpFillRect.offsetMax.y);
-        hpText.text = $"{Mathf.RoundToInt(hp)} / 100";
+        hpText.text = $"{Mathf.RoundToInt(hp)} / {defaultMaxHealth}";
     }
 } 

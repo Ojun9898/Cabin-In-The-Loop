@@ -55,6 +55,7 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
     public event Action<float> onHealthChanged;
     
     private PlayerStateMachine _psm;
+    private IDamageable damageableImplementation;
 
     protected override void Awake()
     {
@@ -240,6 +241,12 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
         _psm.ChangeState(new PlayerHitState());
         if (_currentHealth <= 0f) Die();
     }
+
+    public void TryTakeDamage(DamageField source, float damage, float cooldown)
+    {
+        throw new NotImplementedException();
+    }
+
 
     private void Die()
     {

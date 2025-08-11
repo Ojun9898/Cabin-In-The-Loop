@@ -33,7 +33,6 @@ public class FadeManager : MonoBehaviour
         imgObj.transform.SetParent(canvasObj.transform, false);
         fadeImage = imgObj.AddComponent<Image>();
 
-        // 클릭 막지 않도록 Raycast Target 끔
         fadeImage.raycastTarget = false;
         fadeImage.color = new Color(0f, 0f, 0f, 0f);
 
@@ -55,7 +54,6 @@ public class FadeManager : MonoBehaviour
         yield return SceneManager.LoadSceneAsync(sceneName);
         yield return StartCoroutine(Fade(1f, 0f)); // 페이드 인
 
-        // 다 끝났으면 제거
         Destroy(canvasObj);
         Destroy(gameObject);
     }
@@ -74,5 +72,33 @@ public class FadeManager : MonoBehaviour
         }
 
         fadeImage.color = new Color(c.r, c.g, c.b, to);
+    }
+
+    // 추가한 함수 : 특정 GameObject를 페이드 인/아웃
+    public IEnumerator FadeGameObject(GameObject target, float fromAlpha, float toAlpha)
+    {
+        if (target == null)
+            yield break;
+
+        // CanvasGroup 가져오기 또는 추가하기
+        CanvasGroup cg = target.GetComponent<CanvasGroup>();
+        if (cg == null)
+            cg = target.AddComponent<CanvasGroup>();
+
+        float elapsed = 0f;
+        cg.alpha = fromAlpha;
+        cg.interactable = toAlpha > 0.5f;
+        cg.blocksRaycasts = toAlpha > 0.5f;
+
+        while (elapsed < fadeDuration)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            cg.alpha = Mathf.Lerp(fromAlpha, toAlpha, elapsed / fadeDuration);
+            yield return null;
+        }
+
+        cg.alpha = toAlpha;
+        cg.interactable = toAlpha > 0.5f;
+        cg.blocksRaycasts = toAlpha > 0.5f;
     }
 }

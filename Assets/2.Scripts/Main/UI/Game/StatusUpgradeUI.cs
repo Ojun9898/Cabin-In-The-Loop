@@ -3,40 +3,59 @@ using UnityEngine.UI;
 
 public class StatusUpgradeUI : MonoBehaviour
 {
+    [Header("강화 대상 캐릭터")]
     public CharacterType selectedCharacter = CharacterType.Female;
+
+    [Header("강화 수치 설정")]
+    public float healthAmount = 10f;
+    public float attackAmount = 5f;
+    public float speedAmount  = 0.1f;
+
+    private PlayerStatus _playerStatus;
+
+    private void Start()
+    {
+        _playerStatus = PlayerStatus.Ensure(); // PlayerStatus가 없을 경우 이 한 줄로 해결
+
+        if (_playerStatus.characterType != selectedCharacter)
+            _playerStatus.SetCharacter(selectedCharacter);
+    }
+
+    // ========== 버튼에 직접 연결할 메서드 3개 ==========
 
     public void UpgradeHealth()
     {
-        UpgradeStat(StatusType.Health, 10f);
+        UpgradeStatInternal(StatusType.Health, healthAmount);
+
+        // 참고: PlayerStatus.IncreaseBaseStat에
+        // Health 강화 시 _maxHealth/_currentHealth 갱신 로직이 없다면,
+        // 반드시 PlayerStatus 쪽에 반영 권장!
+        // (UI에서 직접 만지는 건 비권장)
     }
 
     public void UpgradeAttack()
     {
-        UpgradeStat(StatusType.Attack, 2f);
+        UpgradeStatInternal(StatusType.Attack, attackAmount);
     }
 
     public void UpgradeSpeed()
     {
-        UpgradeStat(StatusType.Speed, 1f);
+        UpgradeStatInternal(StatusType.Speed, speedAmount);
     }
 
-    public void UpgradeCritChance()
-    {
-        UpgradeStat(StatusType.CritChance, 0.01f);
-    }
+    // ========== 내부 공통 처리 ==========
 
-    public void UpgradeCritMultiplier()
+    private void UpgradeStatInternal(StatusType statType, float amount)
     {
-        UpgradeStat(StatusType.CritMultiplier, 0.05f);
-    }
+        if (_playerStatus == null)
+        {
+            Debug.LogError("PlayerStatus 인스턴스를 찾을 수 없습니다!");
+            return;
+        }
 
-    private void UpgradeStat(StatusType statType, float amount)
-    {
-        string key = $"{selectedCharacter}_{statType}_Base";
-        float current = PlayerPrefs.GetFloat(key, 0f);
-        PlayerPrefs.SetFloat(key, current + amount);
-        PlayerPrefs.Save();
+        _playerStatus.IncreaseBaseStat(statType, amount);
 
-        Debug.Log($"{statType} 강화됨: {current} → {current + amount}");
+        float newValue = _playerStatus.GetTotalStat(statType);
+        Debug.Log($"{statType} 강화됨 → 현재 값: {newValue}");
     }
 }

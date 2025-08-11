@@ -21,11 +21,21 @@ public class WeaponController : MonoBehaviour
         if (_currentWeapon != null)
         {
             currentWeaponType = weaponType;
+
+            if (PlayerStatus.Instance != null)
+                PlayerStatus.Instance.SetCurrentWeaponType(weaponType);
             
             // 지정된 소켓(손)에 부착
             _currentWeapon.transform.SetParent(handSocket);
             _currentWeapon.transform.localPosition = Vector3.zero;
             _currentWeapon.transform.localRotation = Quaternion.identity;
+
+            // 불필요: PlayerStatus에 무기 저장을 안 하므로 SaveData 의미 없음
+            // PlayerStatus.Instance.SaveData();
+        }
+        else
+        {
+            Debug.LogWarning($"EquipWeapon: 풀에서 {weaponType} 무기를 가져오지 못했습니다.");
         }
     }
 
@@ -52,25 +62,48 @@ public class WeaponController : MonoBehaviour
     /// <summary>
     /// 오브젝트 풀링된 데미지 필드를 생성 및 초기화
     /// </summary>
-    /// <param name="duration">데미지 필드 지속 시간 (애니메이션 길이 등)</param>
     public void SpawnDamageField(float duration)
     {
+        // 무기 미장착 가드
+        if (_currentWeapon == null)
+        {
+            Debug.LogWarning("SpawnDamageField: 장착된 무기가 없습니다.");
+            return;
+        }
+
+        // PlayerStatus 존재 가드
+        if (PlayerStatus.Instance == null)
+        {
+            Debug.LogWarning("SpawnDamageField: PlayerStatus 인스턴스를 찾을 수 없습니다.");
+            return;
+        }
+
         // 1) 무기 데이터 가져오기
         WeaponData data = GameManager.Instance.GetWeaponData(currentWeaponType);
+        if (data == null)
+        {
+            Debug.LogWarning($"SpawnDamageField: {currentWeaponType}의 WeaponData를 가져오지 못했습니다.");
+            return;
+        }
 
-        // 2) PlayerStatus의 CalculateDamage()로 최종 데미지 계산 (크리티컬 포함)
+        // 2) 최종 데미지 계산
         float totalDamage = PlayerStatus.Instance.CalculateDamage(data);
 
         // 3) 풀에서 데미지 필드 꺼내기
         GameObject field = GameManager.Instance.GetDamageField();
+        if (field == null)
+        {
+            Debug.LogWarning("SpawnDamageField: DamageField를 풀에서 가져오지 못했습니다.");
+            return;
+        }
 
-        // 4) 생성 위치 계산 (손 소켓 기준 전방 절반 거리)
+        // 4) 생성 위치 계산
         Vector3 spawnPos = handSocket.position + handSocket.forward * (data.range * 0.5f);
         field.transform.position = spawnPos;
 
-        // 5) 활성화 및 초기화 (owner, damage, radius, duration)
+        // 5) 활성화 및 초기화
         field.SetActive(true);
         field.GetComponent<DamageField>()
-            .Initialize(gameObject, totalDamage, data.range, duration);
+             .Initialize(gameObject, totalDamage, data.range, duration);
     }
 }

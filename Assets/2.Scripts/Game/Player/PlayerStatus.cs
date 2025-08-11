@@ -1,266 +1,299 @@
 using UnityEngine;
 using System;
 using System.Collections.Generic;
-using UnityEngine.Events;
+using System.IO;
 
-// 캐릭터 종류 정의
+// 캐릭터 종류
 public enum CharacterType
 {
     Male,
     Female
 }
 
-// 스탯 타입 정의 
+// 스탯 타입
 public enum StatusType
 {
     Health,
     Attack,
     Speed,
-    CritChance,      // 치명타 확률
-    CritMultiplier   // 치명타 배율
+    CritChance,
+    CritMultiplier
 }
 
-[RequireComponent(typeof(PlayerStateMachine))]
+// 저장할 데이터 구조
+[Serializable]
+public class PlayerData
+{
+    public CharacterType characterType;
+    public int level;
+    public float xp;
+    public Dictionary<StatusType, float> baseStats = new Dictionary<StatusType, float>();
+    public WeaponType currentWeaponType;
+}
+
 public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
 {
     [Header("캐릭터 선택")]
-    [SerializeField] private CharacterType characterType;
-
-    [Header("기본 무기 설정")]
-    [SerializeField] private WeaponType defaultMaleWeapon;
-    [SerializeField] private WeaponType defaultFemaleWeapon;
+    public CharacterType characterType;
 
     [Header("레벨 업 설정")]
     [SerializeField] private int startingLevel = 1;
     [SerializeField] private float startingXpToLevel = 100f;
     [SerializeField] private float xpGrowthFactor = 1.2f;
 
-    // 레벨업 이벤트 (코드 구독용, 인스펙터용)
-    public event Action<int> OnLevelUp;
-    public UnityEvent<float> onLevelUpEvent;
-
-    // 기본 스탯 / 버프 스탯 저장소
-    private Dictionary<StatusType, float> _baseStats = new Dictionary<StatusType, float>();
+    private PlayerData _data;
     private Dictionary<StatusType, float> _buffStats = new Dictionary<StatusType, float>();
-
-    // 레벨 & 경험치
-    private int _currentLevel;
-    private float _currentXp;
+    private float _currentHealth;
     private float _xpToNextLevel;
 
-    // 체력
-    private float _currentHealth;
+    private string SavePath => Path.Combine(Application.persistentDataPath, $"{characterType}_data.json");
     
-    public float _maxHealth;
+    // 추가: 크리티컬 발생 시 호출하는 이벤트 (UI나 사운드용)
+    public event Action<float> onCriticalHit;
     public event Action<float> onHealthChanged;
     
-    private PlayerStateMachine _psm;
-    private IDamageable damageableImplementation;
+    public CharacterType CharacterType => _data.characterType;
+    public float _maxHealth;
+    public WeaponType CurrentWeaponType => _data.currentWeaponType;
 
+    // 추가: 메인 씬에 없을 때 런타임 생성 보장
+    public static PlayerStatus Ensure()
+    {
+        // 1) 씬에 이미 있나? (게터를 건드리지 않음)
+        var existing = UnityEngine.Object.FindObjectOfType<PlayerStatus>();
+        if (existing != null)
+            return existing;
+
+        // 2) 없으면 런타임 생성
+        var go = new GameObject("PlayerStatus(Auto)");
+        var ps = go.AddComponent<PlayerStatus>(); // AddComponent 시 Awake가 호출되어 Singleton 셋업됨
+        UnityEngine.Object.DontDestroyOnLoad(go);
+        return ps;
+    }
     protected override void Awake()
     {
         base.Awake();
 
-        _psm = GetComponent<PlayerStateMachine>();
+        LoadData();
+        InitializeBuffs();
 
-        // 항상 1레벨, 0XP로 시작
-        _currentLevel = startingLevel;
-        _currentXp = 0f;
-        SaveLevelData();
-
-        InitializeStats();
-        EquipDefaultWeapon();
-        
-        // 체력 기본값 받아오기
         _maxHealth = GetTotalStat(StatusType.Health);
+        _currentHealth = _maxHealth;
+        _xpToNextLevel = CalculateXpForLevel(_data.level);
+
+        // 추가: UI/리스너에 현재 체력 알림
+        onHealthChanged?.Invoke(_currentHealth);
     }
 
-    private void Start()
+    private void InitializeBuffs()
     {
-        // 씬 시작 시 체력 및 다음 레벨 XP 목표 계산
-        _currentHealth = GetTotalStat(StatusType.Health);
-        _xpToNextLevel = CalculateXpForLevel(_currentLevel);
-    }
-
-    #region 스탯 초기화 & 저장
-    private void InitializeStats()
-    {
-        // 버프 스탯 초기화
-        foreach (StatusType st in Enum.GetValues(typeof(StatusType)))
-            _buffStats[st] = 0f;
-
-        // 기본 스탯 로드 or 디폴트 값 설정
         foreach (StatusType st in Enum.GetValues(typeof(StatusType)))
         {
-            string key = $"{characterType}_{st}_Base";
-            float saved = PlayerPrefs.GetFloat(key, float.NaN);
-            _baseStats[st] = float.IsNaN(saved) ? GetDefaultValue(st) : saved;
+            if (!_buffStats.ContainsKey(st))
+                _buffStats[st] = 0f;
         }
     }
 
-    private void SaveLevelData()
+    private void LoadData()
     {
-        string keyLvl = $"{characterType}_Level";
-        string keyXp  = $"{characterType}_Xp";
-        PlayerPrefs.SetInt(keyLvl, _currentLevel);
-        PlayerPrefs.SetFloat(keyXp, _currentXp);
-        PlayerPrefs.Save();
+        if (File.Exists(SavePath))
+        {
+            string json = File.ReadAllText(SavePath);
+            _data = JsonUtility.FromJson<PlayerDataWrapper>(json).ToPlayerData();
+        }
+        else
+        {
+            _data = new PlayerData
+            {
+                characterType = characterType,
+                level = startingLevel,
+                xp = 0,
+                baseStats = GetDefaultStats(characterType),
+                currentWeaponType = WeaponType.Crowbar
+            };
+            SaveData();
+        }
     }
-    #endregion
 
-    #region 기본값 & 경험치 계산
-    private float GetDefaultValue(StatusType type)
+    public void SaveData()
     {
-        switch (characterType)
+        string json = JsonUtility.ToJson(new PlayerDataWrapper(_data), true);
+        File.WriteAllText(SavePath, json);
+    }
+    
+    public void SetCurrentWeaponType(WeaponType type)
+    {
+        _data.currentWeaponType = type;
+        SaveData();
+    }
+
+    private Dictionary<StatusType, float> GetDefaultStats(CharacterType type)
+    {
+        var dict = new Dictionary<StatusType, float>();
+        switch (type)
         {
             case CharacterType.Male:
-                return type switch
-                {
-                    StatusType.Health       => 120f,
-                    StatusType.Attack       => 15f,
-                    StatusType.Speed        => 3f,
-                    StatusType.CritChance   => 0.1f,   // 10% 기본
-                    StatusType.CritMultiplier => 1.5f, // 150% 배율
-                    _ => 0f
-                };
+                dict[StatusType.Health] = 120f;
+                dict[StatusType.Attack] = 15f;
+                dict[StatusType.Speed] = 3f;
+                dict[StatusType.CritChance] = 0.1f;
+                dict[StatusType.CritMultiplier] = 1.5f;
+                break;
             case CharacterType.Female:
-                return type switch
-                {
-                    StatusType.Health       => 1_000_000f,
-                    StatusType.Attack       => 18f,
-                    StatusType.Speed        => 3.5f,
-                    StatusType.CritChance   => 0.15f,  // 15% 기본
-                    StatusType.CritMultiplier => 1.75f,// 175% 배율
-                    _ => 0f
-                };
-            default:
-                return 0f;
+                dict[StatusType.Health] = 100f;
+                dict[StatusType.Attack] = 18f;
+                dict[StatusType.Speed] = 3.5f;
+                dict[StatusType.CritChance] = 0.15f;
+                dict[StatusType.CritMultiplier] = 1.75f;
+                break;
         }
+        return dict;
     }
 
     private float CalculateXpForLevel(int level)
     {
         return startingXpToLevel * Mathf.Pow(xpGrowthFactor, level - startingLevel);
     }
-    #endregion
 
-    #region 퍼블릭 API
     public void IncreaseBaseStat(StatusType type, float amount)
     {
-        _baseStats[type] += amount;
-        PlayerPrefs.SetFloat($"{characterType}_{type}_Base", _baseStats[type]);
-        PlayerPrefs.Save();
-    }
+        if (!_data.baseStats.ContainsKey(type))
+            _data.baseStats[type] = 0f;
 
-    public void AddBuff(StatusType type, float amount)
-    {
-        _buffStats[type] += amount;
+        _data.baseStats[type] += amount;
+
+        // Health를 올렸다면 최대/현재 체력도 함께 반영(선택)
         if (type == StatusType.Health)
         {
-            _currentHealth += amount;
+            _maxHealth = GetTotalStat(StatusType.Health);
+            _currentHealth = Mathf.Min(_currentHealth, _maxHealth);
             onHealthChanged?.Invoke(_currentHealth);
         }
+
+        SaveData();
     }
 
     public float GetTotalStat(StatusType type)
     {
-        return _baseStats[type] + _buffStats[type];
+        float baseV = 0f;
+        _data.baseStats.TryGetValue(type, out baseV);
+
+        float buffV = 0f;
+        _buffStats.TryGetValue(type, out buffV); // 안전 접근
+
+        return baseV + buffV;
     }
 
-    /// <summary>
-    /// 경험치 획득 메서드
-    /// </summary>
     public void GainXp(float amount)
     {
-        _currentXp += amount;
-        while (_currentXp >= _xpToNextLevel)
+        _data.xp += amount;
+        while (_data.xp >= _xpToNextLevel)
         {
-            _currentXp -= _xpToNextLevel;
-            LevelUp();
+            _data.xp -= _xpToNextLevel;
+            _data.level++;
+            _xpToNextLevel = CalculateXpForLevel(_data.level);
         }
-        SaveLevelData();
+        SaveData();
     }
-
+    
+    public void SetCharacter(CharacterType type)
+    {
+        if (_data.characterType != type)
+        {
+            characterType = type;
+            _data.characterType = type;
+            LoadData(); // 해당 캐릭터 데이터 로드
+            
+            _maxHealth = GetTotalStat(StatusType.Health);
+            _currentHealth = Mathf.Clamp(_currentHealth, 0f, _maxHealth);
+            _xpToNextLevel = CalculateXpForLevel(_data.level);
+            onHealthChanged?.Invoke(_currentHealth);
+        }
+    }
+    
     /// <summary>
     /// 데미지 계산 + 크리티컬 처리 헬퍼
     /// </summary>
-    public float CalculateDamage(WeaponData data)
+    public float CalculateDamage(WeaponData weapon)
     {
-        // 기본 데미지 = 무기 베이스 + 플레이어 공격력
-        float baseDamage = data.damage + GetTotalStat(StatusType.Attack);
+        // 기본 데미지 = 무기 공격력 + 플레이어 공격력
+        float baseDamage = weapon.damage + GetTotalStat(StatusType.Attack);
 
         // 크리티컬 확률과 배율 적용
-        float critChance    = GetTotalStat(StatusType.CritChance);
-        float critMultiplier= GetTotalStat(StatusType.CritMultiplier);
+        float critChance = GetTotalStat(StatusType.CritChance);
+        float critMultiplier = GetTotalStat(StatusType.CritMultiplier);
         bool isCrit = UnityEngine.Random.value < critChance;
 
-        // 최종 데미지
-        float finalDamage = isCrit
-            ? baseDamage * critMultiplier
-            : baseDamage;
+        // 최종 데미지 계산
+        float finalDamage = isCrit ? baseDamage * critMultiplier : baseDamage;
 
-        // 크리티컬 발생 이벤트 호출 (UI/사운드용)
+        // 크리티컬 발생 이벤트 호출
         if (isCrit)
-            onLevelUpEvent?.Invoke(finalDamage); // 필요 시 별도 이벤트로 분리하세요
+            onCriticalHit?.Invoke(finalDamage);
 
         return finalDamage;
     }
-    #endregion
 
-    private void LevelUp()
-    {
-        _currentLevel++;
-        _xpToNextLevel = CalculateXpForLevel(_currentLevel);
-
-        OnLevelUp?.Invoke(_currentLevel);
-        onLevelUpEvent?.Invoke(_currentLevel);
-        
-        // 레벨업 시 무기 선택 UI 띄우기
-        GameManager.Instance.ShowWeaponSelection();
-        
-        Debug.Log($"Level Up! New Level: {_currentLevel}");
-    }
-
-    private void EquipDefaultWeapon()
-    {
-        var weaponCtrl = GetComponent<WeaponController>();
-        WeaponType defaultWeapon = characterType == CharacterType.Male
-            ? defaultMaleWeapon
-            : defaultFemaleWeapon;
-        weaponCtrl.EquipWeapon(defaultWeapon);
-    }
-
-    #region IDamageable 구현
+    // IDamageable 구현
     public void TakeDamage(float amount)
     {
         _currentHealth -= amount;
+        if (_currentHealth < 0) _currentHealth = 0;
+
+        // 체력 변경 이벤트 호출
         onHealthChanged?.Invoke(_currentHealth);
+
+        if (_currentHealth <= 0)
+        {
+            Debug.Log("Player Dead");
+        }
+    }
+}
+
+// JsonUtility가 Dictionary를 지원하지 않으므로 변환용 Wrapper
+[Serializable]
+public class PlayerDataWrapper
+{
+    public CharacterType characterType;
+    public int level;
+    public float xp;
+    public List<StatusEntry> baseStats = new List<StatusEntry>();
+    public WeaponType currentWeaponType;
+
+    [Serializable]
+    public struct StatusEntry
+    {
+        public StatusType key;
+        public float value;
+    }
+
+    public PlayerDataWrapper(PlayerData data)
+    {
+        characterType = data.characterType;
+        level = data.level;
+        xp = data.xp;
+        currentWeaponType = data.currentWeaponType;
         
-        Debug.Log($"Player took {amount} dmg, remaining {_currentHealth}");
-        
-        _psm.ChangeState(new PlayerHitState());
-        if (_currentHealth <= 0f) Die();
+        foreach (var kv in data.baseStats)
+        {
+            baseStats.Add(new StatusEntry { key = kv.Key, value = kv.Value });
+        }
     }
 
-    public void TryTakeDamage(DamageField source, float damage, float cooldown)
+    public PlayerData ToPlayerData()
     {
-        throw new NotImplementedException();
+        var pd = new PlayerData
+        {
+            characterType = characterType,
+            level = level,
+            xp = xp,
+            baseStats = new Dictionary<StatusType, float>(),
+            currentWeaponType = currentWeaponType
+        };
+        foreach (var entry in baseStats)
+        {
+            pd.baseStats[entry.key] = entry.value;
+        }
+        return pd;
     }
-
-
-    private void Die()
-    {
-        EndingManager.Instance.ShowDeadEnding();
-    }
-    #endregion
-
-    #region 디버그용
-    [ContextMenu("Print Stats")]
-    private void PrintAllStats()
-    {
-        Debug.Log($"Level: {_currentLevel}, XP: {_currentXp}/{_xpToNextLevel}");
-        foreach (var st in _baseStats.Keys)
-            Debug.Log($"{st}: Base={_baseStats[st]}, Buff={_buffStats[st]}, Total={GetTotalStat(st)}");
-    }
-    #endregion
 }

@@ -26,13 +26,18 @@ public class PlayerStateMachine : MonoBehaviour
     [HideInInspector] public bool attackPressed;
     [HideInInspector] public bool jumpPressed;
     [HideInInspector] public bool runPressed;
+    
+    private PlayerStatus _status;
 
     void Start()
     {
         controller = GetComponent<CharacterController>();
         _weaponController = GetComponent<WeaponController>();
         animator = GetComponent<Animator>();
-        currentMoveSpeed = moveSpeed;
+        
+        // ★ ADD: PlayerStatus 보장 + 이동속도 동기화
+        _status = PlayerStatus.Ensure();              // 메인씬에 없어도 자동 생성/로드
+        RefreshMoveSpeedFromStatus();                 // JSON에서 Speed 읽어와 적용
 
         ChangeState(new PlayerIdleState());
     }
@@ -103,6 +108,22 @@ public class PlayerStateMachine : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
+    
+    // ★ ADD: JSON(PlayerStatus)에서 Speed 읽어와 currentMoveSpeed 갱신
+    public void RefreshMoveSpeedFromStatus()
+    {
+        if (_status != null)
+        {
+            currentMoveSpeed = _status.GetTotalStat(StatusType.Speed);
+        }
+        else
+        {
+            currentMoveSpeed = moveSpeed; // 백업값
+        }
+    }
+
+    // ★ ADD: 외부에서 현재 이동속도 읽을 때 쓰기 편한 프로퍼티(옵션)
+    public float MoveSpeed => currentMoveSpeed;
 
     public void OnMove(InputAction.CallbackContext context)
     {

@@ -26,7 +26,9 @@ public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
         }
         else if (_instance != this)
         {
-            Destroy(gameObject);
+            // ★ 프리팹에 붙은 중복 컴포넌트만 제거
+            Destroy(this);
+            return;
         }
     }
 }

@@ -158,89 +158,88 @@ public class GameManager : Singleton<GameManager>
     #region OnSceneLoaded 이벤트
 
     private void HandleSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        HandlePlayerAndCamera(scene);
-        SetPlayerPosition(scene);
-        CleanupAudioListeners();
-    }
+{
+    HandlePlayerAndCamera(scene);
+    SetPlayerPosition(scene);
+    CleanupAudioListeners();
+}
 
-    private void HandlePlayerAndCamera(Scene scene)
-    {
-        string sceneName = scene.name;
+private void HandlePlayerAndCamera(Scene scene)
+{
+    string sceneName = scene.name;
 
-        // Main 씬에서는 재생성X
-        if (sceneName == "Main")
+    // Main 씬에서는 재생성X
+    if (sceneName == "Main")
+    {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        var camera = GameObject.Find("Cameras") ?? GameObject.Find("Cameras(Clone)");
+
+        if (player != null)
         {
-            var player = GameObject.FindGameObjectWithTag("Player");
-            var camera = GameObject.Find("Cameras") ?? GameObject.Find("Cameras(Clone)");
-
-            if (player != null)
-            {
-                Debug.Log("[GameManager] Main 씬 - Player 삭제");
-                Destroy(player);
-            }
-
-            if (camera != null)
-            {
-                Debug.Log("[GameManager] Main 씬 - Camera 삭제");
-                Destroy(camera);
-            }
-
-            return;
+            Debug.Log("[GameManager] Main 씬 - Player 삭제");
+            Destroy(player);
         }
 
-        // Cavin, Laboratory 씬에서는 없을 때만 생성
-        if (sceneName == "(Bake)Cavin" || sceneName == "(Bake)Laboratory")
+        if (camera != null)
         {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if (playerObj == null)
-            {
-                playerObj = Instantiate(playerPrefab);
-            }
-
-            playerTransform = playerObj.transform;
-
-            if (GameObject.Find("Cameras") == null && GameObject.Find("Cameras(Clone)") == null)
-            {
-                var cam = Instantiate(camerasPrefab);
-                cameraTransform = cam.transform;
-            }
+            Debug.Log("[GameManager] Main 씬 - Camera 삭제");
+            Destroy(camera);
         }
+
+        return;
     }
 
-    private void SetPlayerPosition(Scene scene)
+    // Cavin, Laboratory 씬에서는 없을 때만 생성
+    if (sceneName == "(Bake)Cavin" || sceneName == "(Bake)Laboratory")
     {
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player == null) return;
-
-        CharacterController cc = player.GetComponent<CharacterController>();
-        if (cc == null) return;
-
-        Vector3 targetPos = Vector3.zero;
-        string sceneName = scene.name;
-
-        if (sceneName == "(Bake)Cavin")
+        var playerObj = GameObject.FindGameObjectWithTag("Player");
+        if (playerObj == null || playerObj.GetComponent<PlayerStateMachine>() == null)
         {
-            BGMManager.Instance.Play("Cavin BGM");
-            targetPos = new Vector3(70f, 0f, 40f);
+            playerObj = Instantiate(playerPrefab);
         }
-        else if (sceneName == "(Bake)Laboratory")
-        {
-            BGMManager.Instance.Play("Lab BGM");
-            targetPos = new Vector3(46.7f, 0.5f, 14.8f);
-        }
+        playerTransform = playerObj.transform;
 
-        cc.enabled = false;
-        cc.transform.position = targetPos;
-        cc.enabled = true;
+        if (GameObject.Find("Cameras") == null && GameObject.Find("Cameras(Clone)") == null)
+        {
+            var cam = Instantiate(camerasPrefab);
+            cameraTransform = cam.transform;
+        }
     }
+}
 
-    private void CleanupAudioListeners()
+private void SetPlayerPosition(Scene scene)
+{
+    GameObject player = GameObject.FindWithTag("Player");
+    if (player == null) return;
+
+    CharacterController cc = player.GetComponent<CharacterController>();
+    if (cc == null) return;
+
+    Vector3 targetPos = Vector3.zero;
+    string sceneName = scene.name;
+
+    if (sceneName == "(Bake)Cavin")
     {
-        AudioListener[] listeners = FindObjectsOfType<AudioListener>();
-        for (int i = 1; i < listeners.Length; i++)
-            Destroy(listeners[i]);
+        BGMManager.Instance.Play("Cavin BGM");
+        targetPos = new Vector3(70f, 0f, 40f);
     }
+    else if (sceneName == "(Bake)Laboratory")
+    {
+        BGMManager.Instance.Play("Lab BGM");
+        targetPos = new Vector3(46.7f, 0.5f, 14.8f);
+    }
+
+    cc.enabled = false;
+    cc.transform.position = targetPos;
+    cc.enabled = true;
+}
+
+private void CleanupAudioListeners()
+{
+    AudioListener[] listeners = FindObjectsOfType<AudioListener>();
+    for (int i = 1; i < listeners.Length; i++)
+        Destroy(listeners[i]);
+}
 
     #endregion
 }

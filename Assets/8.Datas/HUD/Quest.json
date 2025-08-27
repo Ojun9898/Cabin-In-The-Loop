@@ -1,0 +1,72 @@
+{
+  "M1": {
+    "Scene": "Cavin",
+    "QuestType": "Move",
+    "QuestText": "- 오두막에 들어가기"
+  },
+  "F1": {
+    "Scene": "Cavin",
+    "QuestType": "Find",
+    "QuestText": "- 책을 읽기"
+  },
+  "M2": {
+    "Scene": "Cavin",
+    "QuestType": "Move",
+    "QuestText": "- 오두막 밖으로 나가기"
+  },
+  "F2": {
+    "Scene": "Cavin",
+    "QuestType": "Find",
+    "QuestText": "- 맨홀 찾기"
+  },
+  "M3": {
+    "Scene": "Cavin",
+    "QuestType": "Move",
+    "QuestText": "- 맨홀 안으로 들어가기"
+  },
+  "H1": {
+    "Scene": "Laboratory",
+    "QuestType": "Hunt",
+    "QuestText": "- 1층 몬스터 전원 처치하기"
+  },
+  "H2": {
+    "Scene": "Laboratory",
+    "QuestType": "Hunt",
+    "QuestText": "- 2층 몬스터 전원 처치하기"
+  },
+  "H3": {
+    "Scene": "Laboratory",
+    "QuestType": "Hunt",
+    "QuestText": "- 2층 몬스터 전원 처치하기"
+  },
+  "H4": {
+    "Scene": "Laboratory",
+    "QuestType": "Hunt",
+    "QuestText": "- 2층 몬스터 전원 처치하기"
+  },
+  "H5": {
+    "Scene": "Laboratory",
+    "QuestType": "Hunt",
+    "QuestText": "- 2층 몬스터 전원 처치하기"
+  },
+  "H6": {
+    "Scene": "Laboratory",
+    "QuestType": "Hunt",
+    "QuestText": "- 2층 몬스터 전원 처치하기"
+  },
+  "M4": {
+    "Scene": "Laboratory",
+    "QuestType": "Move",
+    "QuestText": "- 복도로 나가기"
+  },
+  "H7": {
+    "Scene": "Laboratory",
+    "QuestType": "Hunt",
+    "QuestText": "- 복도 몬스터 전원 처치하기"
+  },
+  "M5": {
+    "Scene": "Laboratory",
+    "QuestType": "Move",
+    "QuestText": "- ???로 나가기"
+  }
+}

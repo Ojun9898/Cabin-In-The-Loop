@@ -30,21 +30,6 @@ public class EndingManager : Singleton<EndingManager>
         DontDestroyOnLoad(gameObject);
     }
 
-    void Update()
-    {
-        UpdateIsAlive(isAlive);
-        
-        if (isAlive && altar != null && altar.isPlayerInAltar)
-        {
-            ShowAliveEnding();
-        }
-    }
-
-    public void UpdateIsAlive(bool alive)
-    {
-        isAlive = alive;
-    }
-
     public void ShowDeadEnding()
     {
         deadEndingPrefab.SetActive(true);
@@ -52,8 +37,8 @@ public class EndingManager : Singleton<EndingManager>
         Cursor.visible = true;
         StartCoroutine(FadeIn());
     }
-
-    private void ShowAliveEnding()
+    
+    public void ShowAliveEnding()
     {
         aliveEndingPrefab.SetActive(true);
         Cursor.lockState = CursorLockMode.None;

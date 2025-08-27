@@ -47,6 +47,15 @@ public class ManholeController : MonoBehaviour
         isPlayerInsideManhole = bc.isPlayerInsideManhole;
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isPlayerInManhole = true;
+
+            MessageManager.Instance.Message("[E]키: 맨홀 열기");
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
@@ -74,5 +83,10 @@ public class ManholeController : MonoBehaviour
 
         anim.Play();
         audioSource.Play();
+    }
+    
+    public bool GetIsPlayerInManhole()
+    {
+        return isPlayerInManhole;
     }
 }

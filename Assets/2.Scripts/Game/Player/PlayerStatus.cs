@@ -245,7 +245,7 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
 
         if (_currentHealth <= 0)
         {
-            Debug.Log("Player Dead");
+            EndingManager.Instance.ShowDeadEnding();
         }
     }
 }

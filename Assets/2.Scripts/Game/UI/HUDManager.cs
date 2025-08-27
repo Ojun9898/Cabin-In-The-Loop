@@ -1,10 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using TMPro;
 using UnityEngine;
-using Debug = UnityEngine.Debug;
 
 public class HUDManager : Singleton<HUDManager>
 {
@@ -20,10 +18,12 @@ public class HUDManager : Singleton<HUDManager>
     [SerializeField] private GameObject questPrefab;
     [SerializeField] private Transform questParent;
 
-    [Header("스탯 최대치")] [SerializeField] private float hpMax;
+    [Header("스탯 최대치")] 
+    [SerializeField] private float hpMax;
     [SerializeField] private float xpMax;
 
     private Dictionary<string, QuestData> questDict = new Dictionary<string, QuestData>();
+    private Dictionary<string, GameObject> activeQuests = new Dictionary<string, GameObject>(); // 현재 화면에 있는 퀘스트 오브젝트 저장
 
     private RectTransform hpFillRect;
     private TextMeshProUGUI hpText;
@@ -40,12 +40,10 @@ public class HUDManager : Singleton<HUDManager>
     private float xp;
     private int level;
 
-
     protected override void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(gameObject);
-
         LoadQuestData();
     }
 
@@ -104,6 +102,12 @@ public class HUDManager : Singleton<HUDManager>
     {
         string path = Path.Combine(Application.streamingAssetsPath, "Quest.json");
 
+        if (!File.Exists(path))
+        {
+            Debug.LogWarning("Quest.json 파일을 찾을 수 없습니다.");
+            return;
+        }
+
         string json = File.ReadAllText(path);
 
         var dict = MiniJSON.Json.Deserialize(json) as Dictionary<string, object>;
@@ -126,8 +130,7 @@ public class HUDManager : Singleton<HUDManager>
 
     private void SetHPUI(float hp)
     {
-        if (hpFillRect == null || hpText == null)
-            return;
+        if (hpFillRect == null || hpText == null) return;
 
         hp = Mathf.Max(0, hp);
         float percent = Mathf.Clamp01(hp / hpMax);
@@ -138,8 +141,7 @@ public class HUDManager : Singleton<HUDManager>
 
     private void SetXPUI(float xp)
     {
-        if (xpFillRect == null || xpText == null)
-            return;
+        if (xpFillRect == null || xpText == null) return;
 
         xp = Mathf.Max(0, xp);
         float percent = Mathf.Clamp01(xp / xpMax);
@@ -150,16 +152,14 @@ public class HUDManager : Singleton<HUDManager>
 
     private void SetLevelUI(int level)
     {
-        if (levelText == null)
-            return;
+        if (levelText == null) return;
 
         levelText.text = $"LV.{level}";
     }
 
     public void SetStageUI(int round)
     {
-        if (stageText == null)
-            return;
+        if (stageText == null) return;
 
         string stage = round switch
         {
@@ -175,7 +175,7 @@ public class HUDManager : Singleton<HUDManager>
     #endregion
 
     #region 퀘스트 UI 업데이트
-    
+
     private void HandleQuestGotten(string questCode)
     {
         SetQuestUI(questCode);
@@ -185,66 +185,82 @@ public class HUDManager : Singleton<HUDManager>
     {
         SetQuestEndUI(questCode);
     }
-    
+
     public void SetQuestUI(string questCode)
     {
-        // 새 퀘스트 오브젝트 생성
-        GameObject newQuest = Instantiate(questPrefab, questParent);
-
-        // 생성한 오브젝트 내부 TextMeshProUGUI 컴포넌트 찾아서 텍스트 세팅
-        TextMeshProUGUI tmp = newQuest.GetComponentInChildren<TextMeshProUGUI>();
-
-        string questTxt = TakeQuestText(questCode,"QuestText");
-
-        if (string.IsNullOrEmpty(questTxt))
+        if (!questDict.TryGetValue(questCode, out QuestData qd))
         {
-            Debug.LogWarning($"퀘스트 텍스트를 찾을 수 없습니다. 코드: {questCode}");
+            Debug.LogWarning($"퀘스트 데이터를 찾을 수 없습니다: {questCode}");
             return;
         }
 
+        GameObject newQuest = Instantiate(questPrefab, questParent);
+        newQuest.tag = "Quest";
+
+        TextMeshProUGUI tmp = newQuest.GetComponentInChildren<TextMeshProUGUI>();
         if (tmp != null)
+            tmp.text = qd.QuestText;
+
+        activeQuests[questCode] = newQuest;
+
+        // Fade In 연출 시작
+        StartCoroutine(FadeInQuest(newQuest, 1f)); // 1초 동안 페이드 인
+    }
+
+    private IEnumerator FadeInQuest(GameObject obj, float duration)
+    {
+        if (obj == null) yield break;
+
+        CanvasGroup cg = obj.GetComponent<CanvasGroup>();
+        if (cg == null)
+            cg = obj.AddComponent<CanvasGroup>();
+
+        cg.alpha = 0f;
+
+        float timer = 0f;
+        while (timer < duration)
         {
-            tmp.text = questTxt;
+            timer += Time.deltaTime;
+            cg.alpha = Mathf.Lerp(0f, 1f, timer / duration);
+            yield return null;
         }
+
+        cg.alpha = 1f;
     }
 
     public void SetQuestEndUI(string questCode)
     {
-        // questCode로 퀘스트 텍스트 가져오기
-        string questTxt = TakeQuestText(questCode, "QuestText");
-        if (string.IsNullOrEmpty(questTxt))
+        if (activeQuests.TryGetValue(questCode, out GameObject questObj) && questObj != null)
         {
-            Debug.LogWarning($"퀘스트 텍스트를 찾을 수 없습니다. 코드: {questCode}");
-            return;
-        }
-
-        // 태그 "Quest" 가진 오브젝트 중에서 퀘스트 텍스트와 일치하는 것 찾기 (최적화 위해 텍스트 비교만)
-        GameObject targetQuest = null;
-        foreach (var questObj in GameObject.FindGameObjectsWithTag("Quest"))
-        {
-            var tmp = questObj.GetComponentInChildren<TextMeshProUGUI>();
-            if (tmp != null && tmp.text == questTxt)
-            {
-                targetQuest = questObj;
-                break;
-            }
-        }
-
-        if (targetQuest != null)
-        {
-            StartCoroutine(FadeAndDestroy(targetQuest));
+            StartCoroutine(FadeAndDestroy(questCode, questObj, 1f)); // 1초 동안 페이드 아웃
         }
         else
         {
-            Debug.LogWarning("완료된 퀘스트 오브젝트를 찾을 수 없습니다.");
+            Debug.LogWarning($"퀘스트 오브젝트를 찾을 수 없습니다: {questCode}");
         }
     }
 
-    private IEnumerator FadeAndDestroy(GameObject obj)
+    private IEnumerator FadeAndDestroy(string questCode, GameObject obj, float duration)
     {
-        yield return FadeManager.Instance.FadeGameObject(obj, 1f, 0f);
+        if (obj == null) yield break;
+
+        CanvasGroup cg = obj.GetComponent<CanvasGroup>();
+        if (cg == null)
+            cg = obj.AddComponent<CanvasGroup>();
+
+        float startAlpha = cg.alpha;
+        float timer = 0f;
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            cg.alpha = Mathf.Lerp(startAlpha, 0f, timer / duration);
+            yield return null;
+        }
+
         Destroy(obj);
+        activeQuests.Remove(questCode);
     }
+
 
 
     public string TakeQuestText(string questCode, string type)
@@ -261,27 +277,6 @@ public class HUDManager : Singleton<HUDManager>
             _ => null,
         };
     }
-    
+
     #endregion
-
 }
-
-#region JsonUtility
-
-// JsonUtility 배열 래퍼 클래스
-[System.Serializable]
-public class ListWrapper<T>
-{
-    public List<HUDManager.QuestData> items;
-}
-
-public static class JsonUtilityWrapper
-{
-    // JsonUtility로 배열을 List<T>로 변환해주는 헬퍼 함수
-    public static ListWrapper<T> FromJson<T>(string json)
-    {
-        return JsonUtility.FromJson<ListWrapper<T>>(json);
-    }
-}
-
-#endregion

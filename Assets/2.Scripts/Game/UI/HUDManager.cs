@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HUDManager : Singleton<HUDManager>
 {
@@ -18,8 +19,7 @@ public class HUDManager : Singleton<HUDManager>
     [SerializeField] private GameObject questPrefab;
     [SerializeField] private Transform questParent;
 
-    [Header("스탯 최대치")] 
-    [SerializeField] private float hpMax;
+    [Header("스탯 최대치")] [SerializeField] private float hpMax;
     [SerializeField] private float xpMax;
 
     private Dictionary<string, QuestData> questDict = new Dictionary<string, QuestData>();
@@ -45,6 +45,44 @@ public class HUDManager : Singleton<HUDManager>
         base.Awake();
         DontDestroyOnLoad(gameObject);
         LoadQuestData();
+
+        // 씬 로드 이벤트 등록
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // 씬 로드 시 호출되는 함수
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // UI 오브젝트 다시 잡기
+        if (questParent == null)
+            questParent = GameObject.Find("Quests")?.transform;
+
+        if (stageText == null)
+            stageText = GameObject.Find("Stage/Text")?.GetComponent<TextMeshProUGUI>();
+
+        // Player 참조 갱신
+        Player = GameObject.FindGameObjectWithTag("Player");
+        if (Player != null)
+            ps = Player.GetComponent<PlayerStatus>();
+
+        // HUD 요소 다시 세팅
+        StartCoroutine(InitHUD());
+
+        // 스테이지 이름 갱신
+        switch (scene.buildIndex)
+        {
+            case 1:
+                stageText.text = "오두막";
+                break;
+            case 2:
+                stageText.text = "실험실 1층";
+                break;
+        }
     }
 
     void OnEnable()
@@ -61,11 +99,9 @@ public class HUDManager : Singleton<HUDManager>
 
     void Update()
     {
-        xp = PlayerPrefs.GetFloat("_currentXp");
-        level = PlayerPrefs.GetInt("_currentLevel");
-
-        SetXPUI(xp);
-        SetLevelUI(level);
+        SetHPUI();
+        SetXPUI();
+        SetLevelUI();
     }
 
     IEnumerator InitHUD()
@@ -128,38 +164,68 @@ public class HUDManager : Singleton<HUDManager>
 
     #region 스탯 UI 업데이트
 
-    private void SetHPUI(float hp)
+    private PlayerData LoadPlayerData()
     {
-        if (hpFillRect == null || hpText == null) return;
+        if (ps == null)
+            return null;
 
-        hp = Mathf.Max(0, hp);
-        float percent = Mathf.Clamp01(hp / hpMax);
+        string path = Path.Combine(Application.persistentDataPath, $"{ps.CharacterType}_data.json");
+        if (!File.Exists(path))
+        {
+            Debug.LogWarning($"플레이어 데이터 파일을 찾을 수 없습니다: {path}");
+            return null;
+        }
+
+        string json = File.ReadAllText(path);
+        PlayerDataWrapper wrapper = JsonUtility.FromJson<PlayerDataWrapper>(json);
+        return wrapper.ToPlayerData();
+    }
+
+    private void SetHPUI(float hp = -1f)
+    {
+        var data = LoadPlayerData();
+        if (data == null || hpFillRect == null || hpText == null) return;
+
+        float maxHp = data.baseStats.ContainsKey(StatusType.Health) ? data.baseStats[StatusType.Health] : 100f;
+        float currentHp = (hp >= 0f) ? hp : (ps != null ? ps._currentHealth : maxHp);
+
+        currentHp = Mathf.Max(0, currentHp);
+        float percent = Mathf.Clamp01(currentHp / maxHp);
         float rightValue = Mathf.Lerp(438f, 0f, percent);
+
         hpFillRect.offsetMax = new Vector2(-rightValue, hpFillRect.offsetMax.y);
-        hpText.text = $"{Mathf.RoundToInt(hp)} / {hpMax}";
+        hpText.text = $"{Mathf.RoundToInt(currentHp)} / {maxHp}";
     }
 
-    private void SetXPUI(float xp)
+    private void SetXPUI(float xp = -1f)
     {
-        if (xpFillRect == null || xpText == null) return;
+        var data = LoadPlayerData();
+        if (data == null || xpFillRect == null || xpText == null) return;
 
-        xp = Mathf.Max(0, xp);
-        float percent = Mathf.Clamp01(xp / xpMax);
+        float xpToNext = ps != null ? ps._xpToNextLevel : 100f;
+        float currentXp = (xp >= 0f) ? xp : data.xp;
+
+        currentXp = Mathf.Max(0, currentXp);
+        float percent = Mathf.Clamp01(currentXp / xpToNext);
         float rightValue = Mathf.Lerp(438f, 0f, percent);
+
         xpFillRect.offsetMax = new Vector2(-rightValue, xpFillRect.offsetMax.y);
-        xpText.text = $"{Mathf.RoundToInt(xp)} / {xpMax}";
+        xpText.text = $"{Mathf.RoundToInt(currentXp)} / {Mathf.RoundToInt(xpToNext)}";
     }
 
-    private void SetLevelUI(int level)
+    private void SetLevelUI(int level = -1)
     {
-        if (levelText == null) return;
+        var data = LoadPlayerData();
+        if (data == null || levelText == null) return;
 
-        levelText.text = $"LV.{level}";
+        int currentLevel = (level >= 0) ? level : data.level;
+        levelText.text = $"LV.{currentLevel}";
     }
 
     public void SetStageUI(int round)
     {
-        if (stageText == null) return;
+        if (stageText == null)
+            stageText = transform.Find("Stage/Text")?.GetComponent<TextMeshProUGUI>();
 
         string stage = round switch
         {
@@ -169,7 +235,8 @@ public class HUDManager : Singleton<HUDManager>
             _ => $"실험실 {round}층"
         };
 
-        stageText.text = stage;
+        if (stageText != null)
+            stageText.text = stage;
     }
 
     #endregion
@@ -193,6 +260,9 @@ public class HUDManager : Singleton<HUDManager>
             Debug.LogWarning($"퀘스트 데이터를 찾을 수 없습니다: {questCode}");
             return;
         }
+        
+        if (questParent == null)
+            questParent = transform.Find("Canvas/HUD/Quests");
 
         GameObject newQuest = Instantiate(questPrefab, questParent);
         newQuest.tag = "Quest";
@@ -260,7 +330,6 @@ public class HUDManager : Singleton<HUDManager>
         Destroy(obj);
         activeQuests.Remove(questCode);
     }
-
 
 
     public string TakeQuestText(string questCode, string type)

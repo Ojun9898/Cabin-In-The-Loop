@@ -13,6 +13,7 @@ public class Monster : MonoBehaviour, IDamageable
     [SerializeField] private float moveSpeed = 1.5f;
     [SerializeField] private float attackDamage = 10f;
     [SerializeField] private PlayerStatus playerStatus;
+    [SerializeField] private PlayerStatusProxy playerStatusProxy;
     
     [Header("감지 범위")]
     public float chaseRange = 20f;
@@ -41,6 +42,16 @@ public class Monster : MonoBehaviour, IDamageable
     
     private bool canTakeDamage = true;
     private const float HIT_CoolDown = 1.25f;
+    
+    private PlayerStatus PS
+    {
+        get
+        {
+            if (playerStatus != null) return playerStatus;
+            if (playerStatusProxy != null) return playerStatusProxy.Status; // Proxy → 실제 Status
+            return PlayerStatus.Ensure(); // 마지막 안전장치(없으면 자동 생성)
+        }
+    }
     
     private void Awake()
     {
@@ -78,14 +89,17 @@ public class Monster : MonoBehaviour, IDamageable
         hpCanvas.rotation = Quaternion.Euler(0, 180f, 0); // Monster Prefab에 맞춰 캔버스를 180도 회전
         SetHPUI(defaultMaxHealth);
         
-        if (playerStatus == null)
+        if (playerStatus == null && playerStatusProxy == null)
         {
             var playerObj = GameObject.FindWithTag("Player");
             if (playerObj != null)
+            {
+                // 1순위: 직접 PlayerStatus
                 playerStatus = playerObj.GetComponent<PlayerStatus>();
-
-            if (playerStatus == null)
-                Debug.LogError("[Monster] Awake(): PlayerStatus를 찾을 수 없습니다.");
+                // 2순위: Proxy
+                if (playerStatus == null)
+                    playerStatusProxy = playerObj.GetComponent<PlayerStatusProxy>();
+            }
         }
     }
     
@@ -193,10 +207,10 @@ public class Monster : MonoBehaviour, IDamageable
         // 이미 사망 처리했으면 무시
         if (isDead) return;
         isDead = true;
-        
+    
         // 한 번만 xp 지급
         AwardXp();
-        
+    
         // 이동·충돌 완전 중지
         if (navMeshAgent != null)
         {
@@ -209,30 +223,43 @@ public class Monster : MonoBehaviour, IDamageable
         {
             col.enabled = false;             // 정상 대입
         }
-        
+    
+        // 🔹 SpawnManager에 "죽음 카운트" 보고
+        if (SpawnManagerInstance != null)
+            SpawnManagerInstance.CountDeadMonster();
+    
         // 체력 0 시 바로 Death 상태로 전환
         stateMachine?.ChangeState(EState.Death);
+    }
+
+    // 🔹 SpawnManager 싱글턴 접근자
+    private SpawnManager SpawnManagerInstance
+    {
+        get
+        {
+            return FindObjectOfType<SpawnManager>();
+        }
     }
     
     
     // 몬스터 사망지 경험치를 한번만 지급
     public void AwardXp()
     {
-        Debug.Log($"[AwardXp] playerStatus={playerStatus}, xpGiven(before)={xpGiven}");
-        if (playerStatus == null)
+        if (xpGiven) return;
+
+        // 통합 접근자 사용: PlayerStatus 직결 or Proxy.Status or Ensure()
+        var ps = PS;
+        if (ps == null)
         {
-            Debug.LogError("[AwardXp] playerStatus가 할당되지 않았습니다!");
+            Debug.LogError("[AwardXp] PlayerStatus를 해결할 수 없습니다!");
             return;
         }
-        if (!xpGiven)
-        {
-            xpGiven = true;
-            playerStatus.GainXp(20f);
-            Debug.Log("[AwardXp] XP granted!");
-        }
-    }
 
-  
+        xpGiven = true;
+        ps.GainXp(20f);
+        Debug.Log("[AwardXp] XP granted!");
+        
+    }
     
     public bool IsPlayerInRange(float range)
     {

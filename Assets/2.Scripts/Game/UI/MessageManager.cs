@@ -16,6 +16,8 @@ public class MessageManager : Singleton<MessageManager>
 
     public bool IsDone => !isShowing && messageQueue.Count == 0;
 
+    public System.Action OnMessagesEnded; // 메시지 완료 콜백
+
     protected override void Awake()
     {
         base.Awake();
@@ -50,27 +52,31 @@ public class MessageManager : Singleton<MessageManager>
             CanvasGroup group = msgObj.GetComponent<CanvasGroup>() ?? msgObj.AddComponent<CanvasGroup>();
             msgObj.SetActive(true);
 
-            yield return Fade(group, 0f, 1f, 0.2f); // Fade In
+            yield return Fade(group, 0f, 1f, 0.2f);
 
             if (waitForClick)
-                yield return new WaitUntil(() => Input.GetMouseButtonDown(0));
+                yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.F));
             else
-                yield return new WaitForSeconds(1f); // 공지 유지 시간
+                yield return new WaitForSecondsRealtime(1f); // Notice 메시지용
 
-            yield return Fade(group, 1f, 0f, 0.2f); // Fade Out
+            yield return Fade(group, 1f, 0f, 0.2f);
             Destroy(msgObj);
         }
 
         isShowing = false;
+
+        // 메시지 종료 시 콜백 호출
+        OnMessagesEnded?.Invoke();
     }
 
     private IEnumerator Fade(CanvasGroup group, float start, float end, float duration)
     {
         float time = 0f;
+
         while (time < duration)
         {
             group.alpha = Mathf.Lerp(start, end, time / duration);
-            time += Time.deltaTime;
+            time += Time.unscaledDeltaTime; // 일시정지와 상관없이 동작
             yield return null;
         }
         group.alpha = end;

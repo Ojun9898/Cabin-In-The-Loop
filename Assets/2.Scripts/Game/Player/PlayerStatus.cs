@@ -43,8 +43,8 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
 
     private PlayerData _data;
     private Dictionary<StatusType, float> _buffStats = new Dictionary<StatusType, float>();
-    private float _currentHealth;
-    private float _xpToNextLevel;
+    public float _currentHealth;
+    public float _xpToNextLevel;
 
     private string SavePath => Path.Combine(Application.persistentDataPath, $"{characterType}_data.json");
     
@@ -55,6 +55,8 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
     public CharacterType CharacterType => _data.characterType;
     public float _maxHealth;
     public WeaponType CurrentWeaponType => _data.currentWeaponType;
+    
+    bool isDead = false;
 
     // 추가: 메인 씬에 없을 때 런타임 생성 보장
     public static PlayerStatus Ensure()
@@ -243,8 +245,9 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
         // 체력 변경 이벤트 호출
         onHealthChanged?.Invoke(_currentHealth);
 
-        if (_currentHealth <= 0)
+        if (_currentHealth <= 0 && isDead == false)
         {
+            isDead = true;
             EndingManager.Instance.ShowDeadEnding();
         }
     }

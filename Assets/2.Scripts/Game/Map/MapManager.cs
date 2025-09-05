@@ -22,24 +22,18 @@ public class MapManager : Singleton<MapManager>
 
         altarDoor = FindObjectOfType<AltarDoor>();
         
-       
-        
         // 초기에는 skyAndFogGlobalVolume을 찾지 않고, 씬이 로드될 때마다 찾아서 할당
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnEnable()
     {
-        SceneManager.sceneLoaded += PlayerPositionSetting;
-        SceneManager.sceneLoaded += RemoveAudioListener;
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     void OnDisable()
     {
-        SceneManager.sceneLoaded -= PlayerPositionSetting;
-        SceneManager.sceneLoaded -= RemoveAudioListener;
         SceneManager.sceneLoaded -= OnSceneLoaded;
-        
     }
 
     // 씬 로드될 때마다 skyAndFogGlobalVolume을 찾아서 할당
@@ -51,39 +45,6 @@ public class MapManager : Singleton<MapManager>
         {
             volume = skyAndFogGlobalVolume.GetComponent<Volume>(); // Volume 컴포넌트 할당
         }
-    }
-
-    // 씬 로드될 때마다 플레이어 포지션 잡기
-    void PlayerPositionSetting(Scene scene, LoadSceneMode mode)
-    {
-        // 씬마다 Player를 다시 찾아야 할 수 있음
-        GameObject player = GameObject.FindWithTag("Player");
-        if (player == null)
-        {
-            return;
-        }
-        
-        CharacterController characterController = player.GetComponent<CharacterController>();
-        
-        Vector3 targetLocation = transform.position; // 기본값
-
-        string sceneName = SceneManager.GetActiveScene().name;
-
-        if (sceneName == "(Bake)Cavin")
-        {
-            BGMManager.Instance.Play("Cavin BGM");
-            targetLocation = new Vector3(71f, 0f, 42f);
-        }
-        else if (sceneName == "(Bake)Laboratory")
-        {
-            BGMManager.Instance.Play("Lab BGM");
-            targetLocation = new Vector3(46.7f, 0.5f, 14.8f);
-        }
-
-        // CharacterController 위치 수정
-        characterController.enabled = false;
-        characterController.transform.position = targetLocation; // 위치 수정
-        characterController.enabled = true;
     }
 
     // Laboratory 제단 안개 서서히 제거
@@ -114,16 +75,5 @@ public class MapManager : Singleton<MapManager>
         isFogRoutineRunning = false;
     }
 
-    void RemoveAudioListener(Scene scene, LoadSceneMode mode)
-    {
-        // AudioListener 중복 방지
-        AudioListener[] listeners = FindObjectsOfType<AudioListener>();
-        if (listeners.Length > 1)
-        {
-            for (int i = 1; i < listeners.Length; i++)
-            {
-                Destroy(listeners[i]);
-            }
-        }
-    }
+    
 }

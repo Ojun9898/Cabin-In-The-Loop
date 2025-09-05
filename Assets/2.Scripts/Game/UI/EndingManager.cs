@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using System.Collections;
 
 public class EndingManager : Singleton<EndingManager>
@@ -13,7 +12,7 @@ public class EndingManager : Singleton<EndingManager>
 
     private CanvasGroup DeadCanvasGroup;
     private CanvasGroup AliveCanvasGroup;
-    
+
     private bool isAlive = true;
 
     void Start()
@@ -23,23 +22,31 @@ public class EndingManager : Singleton<EndingManager>
         
         DeadCanvasGroup = deadEndingPrefab.GetComponent<CanvasGroup>();
         DeadCanvasGroup.alpha = 0f;
+        deadEndingPrefab.SetActive(false);
         
         AliveCanvasGroup = aliveEndingPrefab.GetComponent<CanvasGroup>();
         AliveCanvasGroup.alpha = 0f;
-        
+        aliveEndingPrefab.SetActive(false);
+
         DontDestroyOnLoad(gameObject);
     }
 
     public void ShowDeadEnding()
     {
+        // if (!deadEndingPrefab.activeSelf) return;
+        
+        isAlive = false;
         deadEndingPrefab.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
         StartCoroutine(FadeIn());
     }
-    
+
     public void ShowAliveEnding()
     {
+        if (!aliveEndingPrefab.activeSelf) return;
+        
+        isAlive = true;
         aliveEndingPrefab.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -56,18 +63,8 @@ public class EndingManager : Singleton<EndingManager>
         float duration = 1.5f;
         float elapsed = 0f;
 
-        CanvasGroup canvasGroup;
+        CanvasGroup canvasGroup = isAlive ? AliveCanvasGroup : DeadCanvasGroup;
 
-        if (isAlive)
-        {
-            canvasGroup = AliveCanvasGroup;
-        }
-
-        else
-        {
-            canvasGroup = DeadCanvasGroup;
-        }
-        
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;
@@ -82,19 +79,9 @@ public class EndingManager : Singleton<EndingManager>
     {
         float duration = 1.5f;
         float elapsed = 0f;
-        
-        CanvasGroup canvasGroup;
-        
-        if (isAlive)
-        {
-            canvasGroup = AliveCanvasGroup;
-        }
 
-        else
-        {
-            canvasGroup = DeadCanvasGroup;
-        }
-        
+        CanvasGroup canvasGroup = isAlive ? AliveCanvasGroup : DeadCanvasGroup;
+
         while (elapsed < duration)
         {
             elapsed += Time.deltaTime;

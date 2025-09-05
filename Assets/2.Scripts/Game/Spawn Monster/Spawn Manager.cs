@@ -66,6 +66,10 @@ public class SpawnManager : MonoBehaviour
     [Header("몬스터 보관위치")]
     [SerializeField] private Transform PrefabsContainer;
     
+    [Header("몬스터 데스 카운트")]
+    [SerializeField] private int deadMonsterCount = 0;
+    public int DeadMonsterCount => deadMonsterCount;
+    
     private static SpawnManager _instance;
     
     // 1. 라벨로 불러온 프리팹 목록
@@ -376,6 +380,19 @@ public class SpawnManager : MonoBehaviour
             return go;
         }
         return null;
+    }
+    
+    public void CountDeadMonster()
+    {
+        // RoundManager에 보고
+        RoundManager rm = FindObjectOfType<RoundManager>();
+        if (rm != null)
+            rm.ReportMonsterDead();
+    }
+
+    public void ResetDeadMonsterCount()
+    {
+        deadMonsterCount = 0;
     }
 }
 

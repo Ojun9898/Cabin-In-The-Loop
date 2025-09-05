@@ -207,10 +207,10 @@ public class Monster : MonoBehaviour, IDamageable
         // 이미 사망 처리했으면 무시
         if (isDead) return;
         isDead = true;
-        
+    
         // 한 번만 xp 지급
         AwardXp();
-        
+    
         // 이동·충돌 완전 중지
         if (navMeshAgent != null)
         {
@@ -223,9 +223,22 @@ public class Monster : MonoBehaviour, IDamageable
         {
             col.enabled = false;             // 정상 대입
         }
-        
+    
+        // 🔹 SpawnManager에 "죽음 카운트" 보고
+        if (SpawnManagerInstance != null)
+            SpawnManagerInstance.CountDeadMonster();
+    
         // 체력 0 시 바로 Death 상태로 전환
         stateMachine?.ChangeState(EState.Death);
+    }
+
+    // 🔹 SpawnManager 싱글턴 접근자
+    private SpawnManager SpawnManagerInstance
+    {
+        get
+        {
+            return FindObjectOfType<SpawnManager>();
+        }
     }
     
     

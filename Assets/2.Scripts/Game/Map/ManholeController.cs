@@ -53,7 +53,7 @@ public class ManholeController : MonoBehaviour
         {
             isPlayerInManhole = true;
 
-            MessageManager.Instance.Message("[E]키: 맨홀 열기");
+            MessageManager.Instance.MessageNotice("[E]키: 맨홀 열기");
         }
     }
     private void OnTriggerStay(Collider other)

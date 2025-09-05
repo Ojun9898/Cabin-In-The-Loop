@@ -2632,7 +2632,7 @@ GameObject:
   - component: {fileID: 7290177096268144507}
   - component: {fileID: 828935097736164905}
   - component: {fileID: 7188431841444137031}
-  - component: {fileID: 7911378388429249323}
+  - component: {fileID: -5983889530787857131}
   m_Layer: 6
   m_Name: Ellen
   m_TagString: Player
@@ -2865,7 +2865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   handSocket: {fileID: 4256539637911117595}
   currentWeaponType: 0
---- !u!114 &7911378388429249323
+--- !u!114 &-5983889530787857131
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2874,19 +2874,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6315576216664758806}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aefab8870d7f99d4e89d49d287159579, type: 3}
+  m_Script: {fileID: 11500000, guid: 75f7f676e099b6943a226c12982cad89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterType: 1
-  defaultMaleWeapon: 0
-  defaultFemaleWeapon: 0
-  startingLevel: 1
-  startingXpToLevel: 100
-  xpGrowthFactor: 1.2
-  onLevelUpEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  _maxHealth: 0
 --- !u!1 &6348146503098800268
 GameObject:
   m_ObjectHideFlags: 0

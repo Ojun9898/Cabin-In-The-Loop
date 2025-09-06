@@ -296,12 +296,12 @@ GameObject:
   - component: {fileID: 4000012106399892}
   - component: {fileID: 95000011973916720}
   - component: {fileID: 4472068558439854641}
-  - component: {fileID: -9113542790160460481}
   - component: {fileID: -1036220736052491378}
   - component: {fileID: 5200346778214335947}
   - component: {fileID: 1996688239319861559}
   - component: {fileID: 7392727348972157511}
-  m_Layer: 7
+  - component: {fileID: 6910047476460685368}
+  m_Layer: 0
   m_Name: Zombie Mutant 11
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -371,26 +371,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &-9113542790160460481
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010676380376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMonsterSpawned: 0
-  maxHealth: 100
-  moveSpeed: 1.5
-  attackDamage: 10
-  playerStatus: {fileID: 0}
-  chaseRange: 8
-  attackRange: 1.5
-  player: {fileID: 0}
 --- !u!114 &-1036220736052491378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,6 +447,27 @@ CapsuleCollider:
   m_Height: 1.078897
   m_Direction: 1
   m_Center: {x: 0, y: 1.438313, z: 0}
+--- !u!114 &6910047476460685368
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010676380376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e427975bcb8b3146b73d74ec0c6921b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMonsterSpawned: 0
+  maxHealth: 100
+  moveSpeed: 1.5
+  attackDamage: 10
+  playerStatus: {fileID: 0}
+  playerStatusProxy: {fileID: 0}
+  chaseRange: 20
+  attackRange: 1.5
+  player: {fileID: 0}
 --- !u!1 &1000010712654790
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -7,17 +6,14 @@ public class RoundStartTrigger : MonoBehaviour
 {
     [SerializeField] private int roundIndex = 0;
     public RoundManager roundManager;
-    
-    // 트리거 밟고 0.5초 대기
-    // 그 이후에 RoundManager에서 3,5초마다 스폰
-    [SerializeField] private float delayBeforeStart = 0.5f; 
-    
+
+    [SerializeField] private float delayBeforeStart = 0.5f;
+
     private bool triggered;
     private Collider _col;
 
     private void Awake()
     {
-        // 콜라이더 캐싱
         _col = GetComponent<Collider>();
     }
 
@@ -29,7 +25,7 @@ public class RoundStartTrigger : MonoBehaviour
         {
             triggered = true;
             _col.enabled = false;
-            
+
             StartCoroutine(DelayedStart());
         }
     }
@@ -37,7 +33,26 @@ public class RoundStartTrigger : MonoBehaviour
     private IEnumerator DelayedStart()
     {
         yield return new WaitForSeconds(delayBeforeStart);
-        roundManager.StartRounds(roundIndex);
+        
+        QuestManager.Instance.playerInFloor = roundIndex;
+
+        // 메시지 완료 후 라운드 시작
+        MessageManager msgMgr = MessageManager.Instance;
+        if (msgMgr != null && !msgMgr.IsDone)
+        {
+            bool started = false;
+            msgMgr.OnMessagesEnded += () =>
+            {
+                if (!started)
+                {
+                    started = true;
+                    roundManager.StartRounds(roundIndex);
+                }
+            };
+        }
+        else
+        {
+            roundManager.StartRounds(roundIndex);
+        }
     }
-    
 }

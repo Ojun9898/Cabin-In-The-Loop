@@ -104,12 +104,12 @@ GameObject:
   - component: {fileID: 4000012792501908}
   - component: {fileID: 95000010833912394}
   - component: {fileID: 991889381013374530}
-  - component: {fileID: 4503837782515989654}
   - component: {fileID: 3168453643825789054}
   - component: {fileID: -6762042291328215585}
   - component: {fileID: -2971342781309382969}
   - component: {fileID: 5615899018855639610}
   - component: {fileID: 3055865472826985311}
+  - component: {fileID: 37351680519732846}
   m_Layer: 7
   m_Name: Vendigo 10
   m_TagString: Monster
@@ -181,26 +181,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4503837782515989654
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010137699626}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMonsterSpawned: 0
-  maxHealth: 150
-  moveSpeed: 2
-  attackDamage: 25
-  playerStatus: {fileID: 0}
-  chaseRange: 8
-  attackRange: 1.5
-  player: {fileID: 0}
 --- !u!114 &3168453643825789054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -292,6 +272,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &37351680519732846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010137699626}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e427975bcb8b3146b73d74ec0c6921b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMonsterSpawned: 0
+  maxHealth: 120
+  moveSpeed: 1.5
+  attackDamage: 10
+  playerStatus: {fileID: 0}
+  playerStatusProxy: {fileID: 0}
+  chaseRange: 20
+  attackRange: 1.5
+  player: {fileID: 0}
 --- !u!1 &1000010502916320
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,10 @@ public class RoundManager : MonoBehaviour
     [Header("몬스터 스폰 간격 (초)")] public float spawnInterval = 3.5f;
 
     private Coroutine spawnRoutine;
-    private int currentRound = 0;
+    public int currentRound = 0;
+    
+    private int totalMonsterCount = 0;
+    private int deadMonsterCount = 0;
     
     private void Awake()
     {
@@ -39,17 +42,46 @@ public class RoundManager : MonoBehaviour
     public void StartRounds(int startIndex)
     {
         spawnManager.ReturnAllToPool();
-        
-        // 현재 재생 중인 모든 몬스터 SFX 중단 & 풀로 리셋
         MonsterSFXManager.Instance.StopAllSounds();
-        
+
         if (spawnRoutine != null)
             StopCoroutine(spawnRoutine);
-        
+
         currentRound = startIndex;
+        deadMonsterCount = 0;
+
+        // 라운드 데이터에서 총합 계산
+        totalMonsterCount = roundDatas[currentRound].monsters.Sum(info => info.count);
+
         spawnRoutine = StartCoroutine(RunRounds());
     }
 
+    public void ReportMonsterDead()
+    {
+        deadMonsterCount++;
+
+        if (deadMonsterCount >= totalMonsterCount)
+        {
+            RoundClear();
+        }
+    }
+    
+    private void RoundClear()
+    {
+        switch (currentRound)
+        {
+            case 1: QuestManager.Instance.isPlayerHunt1F = true; break;
+            case 2: QuestManager.Instance.isPlayerHunt2F = true; break;
+            case 3: QuestManager.Instance.isPlayerHunt3F = true; break;
+            case 4: QuestManager.Instance.isPlayerHunt4F = true; break;
+            case 5: QuestManager.Instance.isPlayerHunt5F = true; break;
+            case 6: QuestManager.Instance.isPlayerHunt6F = true; break;
+            case 7: QuestManager.Instance.isPlayerHuntHallway = true; break;
+        }
+
+        Debug.Log($"Round {currentRound} 클리어!");
+    }
+    
     /// <summary>
     /// 각 라운드를 순서대로 돌며,
     /// 첫 소환까지 spawnInterval 대기 → 소환 → spawnInterval 대기 → 소환 … 

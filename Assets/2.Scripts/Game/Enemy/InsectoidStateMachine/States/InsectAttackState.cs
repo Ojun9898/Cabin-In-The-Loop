@@ -72,34 +72,44 @@ public class InsectAttackState : InsectBaseState
     // Poison Thron 발사 로직
     private void FirePoisonThron()
     {
-        if (poisonThronPrefab == null || firePoint == null)
-        {
-            return;
-        }
+        if (poisonThronPrefab == null || firePoint == null) return;
 
-        // Poison Thron 생성
-        GameObject thron = ProjectilePoolManager.Instance.
-            SpawnFromPool(poisonThronPrefab, firePoint.position, Quaternion.identity);
+        Vector3 pos = firePoint.position;
 
-        // 플레이어를 향하도록 발사 방향 설정
-        Vector3 direction = (GetPlayerPosition() - firePoint.position).normalized;
-        thron.transform.rotation = Quaternion.LookRotation(direction);
+        // firePoint가 아니라 "본체"의 전방을 사용 (XZ 평면으로 납작)
+        Vector3 flatForward = Vector3.ProjectOnPlane(insect.transform.forward, Vector3.up).normalized;
+        if (flatForward.sqrMagnitude < 1e-6f) flatForward = Vector3.forward; // 안전장치
 
-        // Rigidbody를 통한 속도 적용
+        Quaternion rot = Quaternion.LookRotation(flatForward, Vector3.up);
+
+        // 풀에서 꺼낼 때부터 원하는 회전 전달 + 한 번 더 강제 세팅
+        GameObject thron = ProjectilePoolManager.Instance
+            .SpawnFromPool(poisonThronPrefab, pos, rot);
+        thron.transform.SetPositionAndRotation(pos, rot);
+
         Rigidbody rb = thron.GetComponent<Rigidbody>();
         if (rb != null)
         {
-            rb.velocity = direction * thronSpeed;
+            rb.isKinematic = false;
+            rb.useGravity  = false;
+            rb.drag = rb.angularDrag = 0f;
+            rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
+            rb.interpolation = RigidbodyInterpolation.Interpolate;
+
+            // 재사용 잔값 초기화
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+
+            // 누적 OR 대신 명시적으로 고정 (풀링 시 남는 플래그 방지)
+            rb.constraints = RigidbodyConstraints.FreezeRotation;
+
+            rb.velocity = flatForward * thronSpeed;
         }
 
-        // 발사체의 데미지 설정
-        PoisonThorn thronDamage = thron.GetComponent<PoisonThorn>();
-        if (thronDamage != null)
-        {
-            thronDamage.Initialize(DAMAGE_AMOUNT);
-        }
+        var thorn = thron.GetComponent<PoisonThorn>();
+        if (thorn != null) thorn.Initialize(DAMAGE_AMOUNT);
     }
-
+    
     // 플레이어의 위치 가져오기
     private Vector3 GetPlayerPosition()
     {

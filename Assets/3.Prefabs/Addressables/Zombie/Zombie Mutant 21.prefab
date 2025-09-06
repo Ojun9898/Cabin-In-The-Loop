@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 7392727348972157511}
   - component: {fileID: 6910047476460685368}
   m_Layer: 0
-  m_Name: Zombie Mutant 7
+  m_Name: Zombie Mutant 21
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

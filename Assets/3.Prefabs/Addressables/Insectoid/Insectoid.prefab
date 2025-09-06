@@ -1374,12 +1374,12 @@ GameObject:
   - component: {fileID: 4000013173443706}
   - component: {fileID: 95000010853981380}
   - component: {fileID: -4152679142854324739}
-  - component: {fileID: 9007735470878874324}
   - component: {fileID: 3890501977250632370}
   - component: {fileID: 6749998877882044307}
   - component: {fileID: 1243305851507301560}
   - component: {fileID: 5923239539901537516}
-  m_Layer: 7
+  - component: {fileID: 7865903747995909980}
+  m_Layer: 0
   m_Name: Insectoid
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -1406,6 +1406,7 @@ Transform:
   - {fileID: 4000013168166458}
   - {fileID: 4000012737593628}
   - {fileID: 7241634785484138645}
+  - {fileID: 8647942657158171625}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95000010853981380
@@ -1444,28 +1445,8 @@ MonoBehaviour:
   playerTransform: {fileID: 0}
   poisonThornPrefab: {fileID: 1236363365630703446, guid: 8f72c838152d69c4a85aa822a1f094ce,
     type: 3}
-  firePoint: {fileID: 4000013186048294}
+  firePoint: {fileID: 8647942657158171625}
   projectileSpeed: 10
---- !u!114 &9007735470878874324
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000014015421864}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isMonsterSpawned: 0
-  maxHealth: 90
-  moveSpeed: 1.5
-  attackDamage: 15
-  playerStatus: {fileID: 0}
-  chaseRange: 8
-  attackRange: 5
-  player: {fileID: 0}
 --- !u!195 &3890501977250632370
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -1551,6 +1532,27 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &7865903747995909980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000014015421864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e427975bcb8b3146b73d74ec0c6921b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMonsterSpawned: 0
+  maxHealth: 80
+  moveSpeed: 1.5
+  attackDamage: 10
+  playerStatus: {fileID: 0}
+  playerStatusProxy: {fileID: 0}
+  chaseRange: 20
+  attackRange: 5
+  player: {fileID: 0}
 --- !u!1 &1000014061137296
 GameObject:
   m_ObjectHideFlags: 0
@@ -1614,6 +1616,37 @@ Transform:
   m_Children:
   - {fileID: 4000010743076616}
   m_Father: {fileID: 4000013030569948}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1524056784394351162
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8647942657158171625}
+  m_Layer: 0
+  m_Name: AttackPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8647942657158171625
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524056784394351162}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.014, y: 1.18, z: 0.565}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4000013173443706}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2145569740783881173
 PrefabInstance:

@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 4000014274720376}
   - component: {fileID: 95000013647225768}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 6973888062466689483}
   - component: {fileID: 652783678529597985}
   - component: {fileID: 1581512944965833925}
@@ -377,13 +378,18 @@ GameObject:
   m_Name: Beast 1
   m_TagString: Monster
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   - component: {fileID: 329073164437715276}
   - component: {fileID: 1581512944965833925}
   - component: {fileID: 6973888062466689483}
   m_Layer: 0
   m_Name: Beast 1
   m_TagString: Untagged
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -407,9 +413,12 @@ Transform:
   - {fileID: 4000012953072492}
   - {fileID: 6783805133141984540}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 442287331729987496}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95000013647225768
@@ -434,7 +443,10 @@ Animator:
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!114 &329073164437715276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -475,7 +487,10 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!114 &6973888062466689483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,6 +507,7 @@ MonoBehaviour:
   howling: {fileID: 0}
   howlRange: 5
   maxHealth: 100
+<<<<<<< HEAD
 <<<<<<< HEAD
   howlParticle: {fileID: 0}
 --- !u!114 &652783678529597985
@@ -602,6 +618,8 @@ MonoBehaviour:
   player: {fileID: 0}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1 &1000011219002044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2051,6 +2069,7 @@ Transform:
   m_PrefabInstance: {fileID: 7318163934416626488}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &9194870272393426152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2177,3 +2196,5 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8

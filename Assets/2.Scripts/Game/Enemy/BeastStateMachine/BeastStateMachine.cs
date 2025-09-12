@@ -4,16 +4,21 @@ using System.Collections.Generic;
 public class BeastStateMachine : StateMachine<Monster>
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
     [SerializeField] private List<BeastBaseState> beastStates;
 =======
     private List<BeastBaseState> beastStates;
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+    [SerializeField] private List<BeastBaseState> beastStates;
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     [SerializeField] private Transform playerTransform;
     
     // 하울링 관련 필드
     [SerializeField] private Howling howling;
     [SerializeField] private float howlRange = 8f;
     [SerializeField] private int maxHealth = 100;
+<<<<<<< HEAD
 <<<<<<< HEAD
     [SerializeField] private ParticleSystem howlParticle; // 하울링 파티클 시스템
     private int currentHealth;
@@ -22,6 +27,10 @@ public class BeastStateMachine : StateMachine<Monster>
     private float howlTimer = 0f;
     private bool hasUsedEmergencyHowl = false;
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+    [SerializeField] private ParticleSystem howlParticle; // 하울링 파티클 시스템
+    private int currentHealth;
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     private bool isHowling = false;
     
     public Transform PlayerTransform => playerTransform;
@@ -31,6 +40,7 @@ public class BeastStateMachine : StateMachine<Monster>
         playerTransform = t;
     }
     
+<<<<<<< HEAD
 <<<<<<< HEAD
     private void Start()
     {
@@ -54,6 +64,8 @@ public class BeastStateMachine : StateMachine<Monster>
     }
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     protected override void Initialize()
     {
         // Monster 컴포넌트 가져오기
@@ -61,10 +73,14 @@ public class BeastStateMachine : StateMachine<Monster>
         if (monster == null)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             
 =======
             Debug.LogWarning("Monster component not found on BeastStateMachine. Adding it automatically.");
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+            Debug.LogWarning("Monster component not found on BeastStateMachine. Adding it automatically.");
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
             monster = gameObject.AddComponent<Monster>();
         }
         
@@ -76,7 +92,11 @@ public class BeastStateMachine : StateMachine<Monster>
         else
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             
+=======
+            Debug.LogWarning("Player Transform not set in BeastStateMachine. Please assign it in the inspector.");
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         }
         
         // 파티클 시스템 가져오기
@@ -89,9 +109,12 @@ public class BeastStateMachine : StateMachine<Monster>
                 var main = howlParticle.main;
                 main.loop = false;
             }
+<<<<<<< HEAD
 =======
             Debug.LogWarning("Player Transform not set in BeastStateMachine. Please assign it in the inspector.");
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         }
         
         // 상태 목록이 비어있으면 기본 상태들을 생성
@@ -122,14 +145,18 @@ public class BeastStateMachine : StateMachine<Monster>
         // 초기화
         currentHealth = maxHealth;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         howlTimer = 0f;
         hasUsedEmergencyHowl = false;
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         isHowling = false;
 
         base.Initialize();
     }
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 
@@ -142,6 +169,8 @@ public class BeastStateMachine : StateMachine<Monster>
         }
     }
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     
     public void OnHit(int damage)
     {
@@ -171,6 +200,7 @@ public class BeastStateMachine : StateMachine<Monster>
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     public bool HasUsedEmergencyHowl()
     {
@@ -183,12 +213,17 @@ public class BeastStateMachine : StateMachine<Monster>
     }
 
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     public bool IsDead()
     {
         return currentHealth <= 0;
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     public void StartHowling()
     {
         isHowling = true;
@@ -196,6 +231,7 @@ public class BeastStateMachine : StateMachine<Monster>
         {
             howlParticle.gameObject.SetActive(true);
             howlParticle.Play();
+<<<<<<< HEAD
 =======
     public bool CanUseHowl()
     {
@@ -210,6 +246,8 @@ public class BeastStateMachine : StateMachine<Monster>
         {
             hasUsedEmergencyHowl = true;
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         }
     }
 
@@ -217,14 +255,20 @@ public class BeastStateMachine : StateMachine<Monster>
     {
         isHowling = false;
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         if (howlParticle != null)
         {
             howlParticle.Stop();
             howlParticle.gameObject.SetActive(false);
         }
+<<<<<<< HEAD
 =======
         howlTimer = 0f;
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
     
     // 디버깅을 위한 현재 상태 로그 출력
@@ -233,9 +277,13 @@ public class BeastStateMachine : StateMachine<Monster>
         EState previousState = currentState?.StateKey ?? EState.Idle;
         base.ChangeState(nextState);
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
         Debug.Log($"Beast state changed: {previousState} -> {nextState}");
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+        Debug.Log($"Beast state changed: {previousState} -> {nextState}");
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
 } 

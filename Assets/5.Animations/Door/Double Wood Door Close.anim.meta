@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/5.Animations/Door/Double Wood Door Close.anim.meta
 guid: cd5d4135caacd5946869047199f93bc2
+========
+guid: 43afdb30af0893f4db865a61ed2ce9f1
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/5.Animations/Door/ElevatorClose.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000

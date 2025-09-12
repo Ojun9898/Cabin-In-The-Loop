@@ -17,6 +17,7 @@ public class InsectStateMachine : StateMachine<Monster>
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     private void Start()
     {
         // 플레이어 바인딩을 Start에서 처리
@@ -39,6 +40,8 @@ public class InsectStateMachine : StateMachine<Monster>
     }
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     
     protected override void Initialize()
     {
@@ -47,10 +50,14 @@ public class InsectStateMachine : StateMachine<Monster>
         if (monster == null)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             
 =======
             Debug.LogWarning("Monster component not found on InsectStateMachine. Adding it automatically.");
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+            Debug.LogWarning("Monster component not found on InsectStateMachine. Adding it automatically.");
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
             monster = gameObject.AddComponent<Monster>();
         }
         
@@ -62,10 +69,14 @@ public class InsectStateMachine : StateMachine<Monster>
         else
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
             
 =======
             Debug.LogWarning("Player Transform not set in InsectStateMachine. Please assign it in the inspector.");
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+            Debug.LogWarning("Player Transform not set in InsectStateMachine. Please assign it in the inspector.");
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         }
         
         // 상태 목록이 비어있으면 기본 상태들을 생성
@@ -124,9 +135,13 @@ public class InsectStateMachine : StateMachine<Monster>
         EState previousState = currentState?.StateKey ?? EState.Idle;
         base.ChangeState(nextState);
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
         Debug.Log($"Insect state changed: {previousState} -> {nextState}");
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+        Debug.Log($"Insect state changed: {previousState} -> {nextState}");
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
 } 

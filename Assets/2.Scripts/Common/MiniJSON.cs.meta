@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/2.Scripts/Common/MiniJSON.cs.meta
 guid: c4d1cc09ae12d0d4392ccc1745aeb958
+========
+guid: 9c70468012f44ed4799b0369f2cff9af
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/2.Scripts/Game/Enemy/BeastStateMachine/BeastBaseState.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

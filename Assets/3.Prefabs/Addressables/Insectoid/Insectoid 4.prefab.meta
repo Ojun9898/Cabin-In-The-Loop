@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/3.Prefabs/Addressables/Insectoid/Insectoid 4.prefab.meta
 guid: 2d62c11c465ffb045a47180134f62701
+========
+guid: 614db6524f49dbe49b2dc09293459529
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/3.Prefabs/Addressables/Insectoid/Insectoid 1.prefab.meta
 timeCreated: 1507093417
 licenseType: Store
 NativeFormatImporter:

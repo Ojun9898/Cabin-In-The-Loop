@@ -28,10 +28,14 @@ public class InsectPatorlState : InsectBaseState
         if (navMeshAgent == null)
         {
 <<<<<<< HEAD
+<<<<<<< HEAD
            
 =======
             Debug.LogWarning("NavMeshAgent component not found on Monster. Adding it automatically.");
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+            Debug.LogWarning("NavMeshAgent component not found on Monster. Adding it automatically.");
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
             navMeshAgent = owner.gameObject.AddComponent<NavMeshAgent>();
             
             // 기본 설정
@@ -91,18 +95,24 @@ public class InsectPatorlState : InsectBaseState
             navMeshAgent.isStopped = false; // 이동 활성화
             navMeshAgent.SetDestination(wanderTarget); // 타겟으로 이동 시작
 <<<<<<< HEAD
+<<<<<<< HEAD
             
         }
         else
         {
             
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
             Debug.Log($"New Wander Target Set: {wanderTarget}"); // 디버그 출력
         }
         else
         {
             Debug.LogWarning("Failed to find a valid position for wandering on the NavMesh.");
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         }
     }
     

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/3.Prefabs/Addressables/Beast/Beast 2.prefab.meta
 guid: 225052d949a6313498b5fc7311fe17c4
+========
+guid: 0d578ad380feb8f45b7b5ad85f4ecf31
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/3.Prefabs/Addressables/Beast/Beast 1.prefab.meta
 timeCreated: 1507098549
 licenseType: Store
 NativeFormatImporter:

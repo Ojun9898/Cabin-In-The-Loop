@@ -26,10 +26,13 @@ public class VendigoChaseState : VendigoBaseState
             vendigo.transform.GetInstanceID()
         );
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (navMeshAgent != null)
             defaultSpeed = navMeshAgent.speed;
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
     
     public override void EnterState()

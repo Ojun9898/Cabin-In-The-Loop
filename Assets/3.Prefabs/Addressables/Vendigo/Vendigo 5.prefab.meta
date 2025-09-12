@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/3.Prefabs/Addressables/Vendigo/Vendigo 5.prefab.meta
 guid: 7d51b2725e30a484ca13ff01d520a79c
+========
+guid: d0cd83892cf28424eb231c71cc22ad73
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/4.Resources/Nature/Trees Collection Asset PBR/Prefabs/Tree_1.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

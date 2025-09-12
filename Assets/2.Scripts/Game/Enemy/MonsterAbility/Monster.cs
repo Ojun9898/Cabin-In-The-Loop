@@ -17,10 +17,14 @@ public class Monster : MonoBehaviour, IDamageable
     
     [Header("감지 범위")]
 <<<<<<< HEAD
+<<<<<<< HEAD
     public float chaseRange = 20f;
 =======
     public float chaseRange = 8f;
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+    public float chaseRange = 8f;
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     public float attackRange = 1.5f;
     
     [Header("참조")]
@@ -56,6 +60,9 @@ public class Monster : MonoBehaviour, IDamageable
             return PlayerStatus.Ensure(); // 마지막 안전장치(없으면 자동 생성)
         }
     }
+    
+    private static readonly int AttackIndexParam = Animator.StringToHash("AttackIndex");
+    private static readonly int AttackTrigger = Animator.StringToHash("Attack");
     
     private static readonly int AttackIndexParam = Animator.StringToHash("AttackIndex");
     private static readonly int AttackTrigger = Animator.StringToHash("Attack");
@@ -211,7 +218,10 @@ public class Monster : MonoBehaviour, IDamageable
 =======
         // 체력 변경 시 처리
         Debug.Log($"[Monster] 체력 변경됨: {newHealth}");
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
     
     public void HandleDeath()
@@ -284,7 +294,10 @@ public class Monster : MonoBehaviour, IDamageable
         {
             Debug.LogWarning("Player reference is null or PlayerStatus not found.");
         }
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
     
     public bool IsPlayerInRange(float range)
@@ -318,21 +331,30 @@ public class Monster : MonoBehaviour, IDamageable
     public void SetAttackAnimation(int index)
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (isDead) return;
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         if (animator != null)
         {
             animator.SetInteger(AttackIndexParam, index);
             animator.SetTrigger(AttackTrigger);
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         else
         {
             Debug.LogWarning("Animator component not found on Monster.");
         }
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
     
     public void StopMoving()

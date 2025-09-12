@@ -15,10 +15,13 @@ public class InsectDeathState : InsectBaseState
         base.EnterState();
         StopMoving();
 <<<<<<< HEAD
+<<<<<<< HEAD
         PlayAnimation("Death");
         hasStartedDeathAnimation = false;
         
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         // Death(사망) 사운드 재생 요청
         MonsterSFXManager.Instance.RequestPlay(
             EState.Death,
@@ -27,7 +30,13 @@ public class InsectDeathState : InsectBaseState
         );
         PlayAnimation("Death");
         hasStartedDeathAnimation = false;
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+        
+        // Monster의 HandleDeath 호출
+        insect.HandleDeath();
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
     
     public override void UpdateState()

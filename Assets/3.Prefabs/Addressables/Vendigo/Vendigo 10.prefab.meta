@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/3.Prefabs/Addressables/Vendigo/Vendigo 10.prefab.meta
 guid: ca240860904723c48bc5426990548a98
+========
+guid: d91089c4868aa4949a1e6cbafd1a345a
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/3.Prefabs/DamageField.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

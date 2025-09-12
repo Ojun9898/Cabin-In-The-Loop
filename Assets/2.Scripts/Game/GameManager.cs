@@ -28,15 +28,22 @@ public class GameManager : Singleton<GameManager>
     
     // 무기 선택 UI 
     public WeaponSelectionUI weaponSelectionUI;
+<<<<<<< HEAD
 
     // 무기 선택 UI
     public WeaponSelectionUI weaponSelectionUI;
 
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 
     protected override void Awake()
     {
         base.Awake();
+<<<<<<< HEAD
         DontDestroyOnLoad(gameObject); // 씬 전환 시에도 GameManager 객체 유지
+=======
+        DontDestroyOnLoad(gameObject);
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 
         // 플레이어 상태 머신을 찾아서 Transform 저장
         PlayerStateMachine playerSM = FindObjectOfType<PlayerStateMachine>();
@@ -129,8 +136,11 @@ public class GameManager : Singleton<GameManager>
     {
         if (_damageFieldPool.Count > 0)
 <<<<<<< HEAD
+<<<<<<< HEAD
             return _damageFieldPool.Dequeue();
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         {
             return _damageFieldPool.Dequeue();
         }
@@ -146,6 +156,7 @@ public class GameManager : Singleton<GameManager>
         _damageFieldPool.Enqueue(field);
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 
     // 레벨업 시 무기 선택 UI 띄우기
     public void ShowWeaponSelection()
@@ -156,6 +167,8 @@ public class GameManager : Singleton<GameManager>
 
         // 랜덤으로 3개의 무기 선택
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     
     // 레벨업 시 무기 선택 UI 띄우기
     public void ShowWeaponSelection()
@@ -165,13 +178,17 @@ public class GameManager : Singleton<GameManager>
         List<WeaponData> availableWeapons = new List<WeaponData>(weaponDataList);
         int selectedCount = Mathf.Min(3, availableWeapons.Count); // 최소 3개 선택
 
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         for (int i = 0; i < selectedCount; i++)
         {
             int randomIndex = Random.Range(0, availableWeapons.Count);
             randomWeapons.Add(availableWeapons[randomIndex]);
         }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
         // 무기 선택 UI 초기화
         weaponSelectionUI.Initialize(randomWeapons);
@@ -229,6 +246,9 @@ private void HandlePlayerAndCamera(Scene scene)
 =======
         weaponSelectionUI.Initialize(randomWeapons);
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+        weaponSelectionUI.Initialize(randomWeapons);
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
 }
 

@@ -13,7 +13,10 @@ public class VendigoDeathState : VendigoBaseState
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     
 
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
@@ -29,6 +32,10 @@ public class VendigoDeathState : VendigoBaseState
         PlayAnimation("Vendigo Death");
         hasStartedDeathAnimation = false;
         
+<<<<<<< HEAD
+=======
+        vendigo.HandleDeath();
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
     
     public override void UpdateState()

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/3.Prefabs/Addressables/Vendigo/Vendigo 12.prefab.meta
 guid: 7b6b65851ca252e44a3a35159271c353
+========
+guid: 419b8935015c4e74bb1b0d14b1f9362d
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/3.Prefabs/WeaponButton.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

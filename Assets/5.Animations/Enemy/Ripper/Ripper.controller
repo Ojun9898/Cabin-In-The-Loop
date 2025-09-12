@@ -1,6 +1,7 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1102 &-7142948917419680533
 AnimatorState:
   serializedVersion: 6
@@ -29,6 +30,8 @@ AnimatorState:
   m_TimeParameter: 
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1102 &-4542153920361261180
 AnimatorState:
   serializedVersion: 6
@@ -82,10 +85,14 @@ AnimatorState:
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1102 &-1161550391013003954
 =======
 --- !u!1102 &-301079464847167359
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+--- !u!1102 &-301079464847167359
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -93,10 +100,14 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: Ripper Death
 =======
   m_Name: Ripper Damage
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Name: Ripper Damage
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -110,10 +121,14 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: 6654f03bc3129cc4ea81a0a96ac4f2f6, type: 2}
 =======
   m_Motion: {fileID: 7400000, guid: 8701130ca835af641a1033ea0e6218ca, type: 2}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Motion: {fileID: 7400000, guid: 8701130ca835af641a1033ea0e6218ca, type: 2}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -142,7 +157,10 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1102 &847108663514571061
 AnimatorState:
   serializedVersion: 6
@@ -169,7 +187,10 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1102 &1185964062383496526
 AnimatorState:
   serializedVersion: 6
@@ -236,14 +257,20 @@ AnimatorStateMachine:
     m_Position: {x: 60, y: 130, z: 0}
   - serializedVersion: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_State: {fileID: -301079464847167359}
     m_Position: {x: 540, y: -30, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 847108663514571061}
     m_Position: {x: 760, y: -30, z: 0}
   - serializedVersion: 1
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_State: {fileID: 5410441099329654590}
     m_Position: {x: 320, y: 30, z: 0}
   - serializedVersion: 1
@@ -256,6 +283,7 @@ AnimatorStateMachine:
     m_State: {fileID: 1185964062383496526}
     m_Position: {x: 320, y: -30, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - serializedVersion: 1
     m_State: {fileID: -7142948917419680533}
     m_Position: {x: 540, y: -30, z: 0}
@@ -264,6 +292,8 @@ AnimatorStateMachine:
     m_Position: {x: 760, y: -30, z: 0}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []

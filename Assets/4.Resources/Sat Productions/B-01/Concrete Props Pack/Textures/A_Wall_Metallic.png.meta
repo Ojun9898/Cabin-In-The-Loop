@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/4.Resources/Sat Productions/B-01/Concrete Props Pack/Textures/A_Wall_Metallic.png.meta
 guid: f75898a1209f1ba48995f022b5be5efc
+========
+guid: 826ba93ad66331340973f774f612c996
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/4.Resources/Sat Productions/B-01/Concrete Props Pack/Textures/A_Wall_Roughness.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

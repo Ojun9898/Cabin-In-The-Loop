@@ -1698,6 +1698,7 @@ GameObject:
   - component: {fileID: 95000010242461984}
   - component: {fileID: 4869628800481372975}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 6011371702884503192}
   - component: {fileID: -6892598500607248846}
   - component: {fileID: 683952275482672409}
@@ -1707,6 +1708,8 @@ GameObject:
   m_Name: Ripper 2
   m_TagString: Monster
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   - component: {fileID: -393296538341983701}
   - component: {fileID: 6011371702884503192}
   - component: {fileID: -6892598500607248846}
@@ -1715,7 +1718,10 @@ GameObject:
   m_Layer: 0
   m_Name: Ripper 2
   m_TagString: Untagged
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1739,9 +1745,12 @@ Transform:
   - {fileID: 4000011997970610}
   - {fileID: 4000010251733000}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 5137182223545692217}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95000010242461984
@@ -1773,10 +1782,14 @@ NavMeshAgent:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000013057997990}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Enabled: 0
 =======
   m_Enabled: 1
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Enabled: 1
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -1792,7 +1805,10 @@ NavMeshAgent:
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!114 &-393296538341983701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1811,7 +1827,10 @@ MonoBehaviour:
   chaseRange: 8
   attackRange: 1.5
   player: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!114 &6011371702884503192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1839,8 +1858,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterType: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!54 &683952275482672409
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!136 &-4631013948685272753
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1865,7 +1887,10 @@ CapsuleCollider:
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &5414867164852829915
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1888,6 +1913,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_IsKinematic: 1
   m_Interpolate: 0
@@ -1938,11 +1964,16 @@ MonoBehaviour:
   attackRange: 1.5
   player: {fileID: 0}
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1 &1000013093023430
 GameObject:
   m_ObjectHideFlags: 0
@@ -2564,6 +2595,7 @@ Transform:
   m_Father: {fileID: 4000013806943140}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &4536000260853502841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2690,3 +2722,5 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8

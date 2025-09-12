@@ -1,6 +1,7 @@
 using UnityEngine;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 public class BeastChaseState : BeastBaseState
 {
@@ -11,17 +12,23 @@ public class BeastChaseState : BeastBaseState
     private const float RUN_SPEED = 3.1f;
     
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 public class BeastChaseState : BeastBaseState
 {
     private const float CHASE_RANGE = 6f;
     private const float ATTACK_RANGE = 1.5f;
     
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     protected override void SetStateKey()
     {
         stateKey = EState.Chase;
     }
     
+<<<<<<< HEAD
 <<<<<<< HEAD
     public override void ExitState()
     {
@@ -44,11 +51,18 @@ public class BeastChaseState : BeastBaseState
         base.EnterState();
         PlayAnimation("Walk");
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+    public override void EnterState()
+    {
+        base.EnterState();
+        PlayAnimation("Chase");
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
+<<<<<<< HEAD
 <<<<<<< HEAD
         MoveToPlayer();
         
@@ -57,6 +71,11 @@ public class BeastChaseState : BeastBaseState
         MoveToPlayer();
 
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+        
+        MoveToPlayer();
+
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         // 상태 전환 처리
         EState nextState = CheckStateTransitions();
         if (nextState != stateKey)
@@ -84,11 +103,16 @@ public class BeastChaseState : BeastBaseState
         }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         // 하울링 사용 가능하고 플레이어가 하울링 범위 안에 있으면 Rattack 상태로 전환
         if (BeastRattackState.CanUseHowl() && IsPlayerInHowlRange())
 =======
         if (IsPlayerInHowlRange())
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+        // 하울링 사용 가능하고 플레이어가 하울링 범위 안에 있으면 Rattack 상태로 전환
+        if (BeastRattackState.CanUseHowl() && IsPlayerInHowlRange())
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         {
             return EState.Rattack;
         }

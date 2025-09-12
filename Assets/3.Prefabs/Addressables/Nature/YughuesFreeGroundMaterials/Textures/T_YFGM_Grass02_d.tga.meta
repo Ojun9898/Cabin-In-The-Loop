@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/3.Prefabs/Addressables/Nature/YughuesFreeGroundMaterials/Textures/T_YFGM_Grass02_d.tga.meta
 guid: 502f952cfa766ce4385ec69b3c1a51c0
+========
+guid: 99b5636251ba75b409bdeec86cf5a887
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/4.Resources/Nature/YughuesFreeGroundMaterials/Textures/T_YFGM_Grass02_n.tga.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -7,7 +11,11 @@ TextureImporter:
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
+<<<<<<<< HEAD:Assets/3.Prefabs/Addressables/Nature/YughuesFreeGroundMaterials/Textures/T_YFGM_Grass02_d.tga.meta
     sRGBTexture: 1
+========
+    sRGBTexture: 0
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/4.Resources/Nature/YughuesFreeGroundMaterials/Textures/T_YFGM_Grass02_n.tga.meta
     linearTexture: 0
     fadeOut: 0
     borderMipMap: 0
@@ -51,10 +59,17 @@ TextureImporter:
   spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
+<<<<<<<< HEAD:Assets/3.Prefabs/Addressables/Nature/YughuesFreeGroundMaterials/Textures/T_YFGM_Grass02_d.tga.meta
   alphaUsage: 0
   alphaIsTransparency: 0
   spriteTessellationDetail: -1
   textureType: 0
+========
+  alphaUsage: 1
+  alphaIsTransparency: 0
+  spriteTessellationDetail: -1
+  textureType: 1
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/4.Resources/Nature/YughuesFreeGroundMaterials/Textures/T_YFGM_Grass02_n.tga.meta
   textureShape: 1
   singleChannelComponent: 0
   flipbookRows: 1

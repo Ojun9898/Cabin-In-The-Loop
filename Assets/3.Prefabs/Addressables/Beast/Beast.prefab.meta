@@ -1,10 +1,20 @@
 fileFormatVersion: 2
 <<<<<<< HEAD
+<<<<<<< HEAD
 guid: 2c674d77223e9cd4e9d04b5fbb7e5d79
 =======
 guid: c2676001adbe45e48ac3c5215ba05edb
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
 timeCreated: 1507098549
+=======
+<<<<<<<< HEAD:Assets/3.Prefabs/Addressables/Insectoid/Insectoid 11.prefab.meta
+guid: 0675e744b19b25b4e933b56071fa9ef2
+timeCreated: 1507093417
+========
+guid: c2676001adbe45e48ac3c5215ba05edb
+timeCreated: 1507098549
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/3.Prefabs/Addressables/Beast/Beast.prefab.meta
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 licenseType: Store
 NativeFormatImporter:
   userData: 

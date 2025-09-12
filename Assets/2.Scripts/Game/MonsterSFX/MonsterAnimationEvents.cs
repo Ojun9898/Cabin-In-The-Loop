@@ -22,6 +22,7 @@ public class MonsterAnimationEvents : MonoBehaviour
         MonsterSFXManager.Instance.StopAllAudio(transform.GetInstanceID());
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     public void OnHitStart()
     {
@@ -67,4 +68,6 @@ public class MonsterAnimationEvents : MonoBehaviour
     }
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 }

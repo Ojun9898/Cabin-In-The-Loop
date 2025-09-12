@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 4000014274720376}
   - component: {fileID: 95000013647225768}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 6973888062466689483}
   - component: {fileID: 652783678529597985}
   - component: {fileID: 1581512944965833925}
@@ -378,6 +379,11 @@ GameObject:
   - component: {fileID: 1581512944965833925}
   - component: {fileID: 6973888062466689483}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  - component: {fileID: 329073164437715276}
+  - component: {fileID: 1581512944965833925}
+  - component: {fileID: 6973888062466689483}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Layer: 0
   m_Name: Beast
   m_TagString: Monster
@@ -404,9 +410,12 @@ Transform:
   - {fileID: 4000012953072492}
   - {fileID: 6783805133141984540}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - {fileID: 442287331729987496}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95000013647225768
@@ -431,10 +440,14 @@ Animator:
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!114 &6973888062466689483
 =======
 --- !u!114 &329073164437715276
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+--- !u!114 &329073164437715276
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -443,6 +456,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011194474354}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: d78e438e33e9a12498a838e5dbd3ad3b, type: 3}
   m_Name: 
@@ -466,6 +480,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsterType: 4
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Script: {fileID: 11500000, guid: ea7193e7c68a54144a52b9cec715fefb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -475,7 +491,10 @@ MonoBehaviour:
   chaseRange: 6
   attackRange: 2
   player: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!195 &1581512944965833925
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -498,6 +517,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!136 &8784251052489168926
 CapsuleCollider:
@@ -553,6 +573,9 @@ Rigidbody:
 =======
 --- !u!114 &6973888062466689483
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+--- !u!114 &6973888062466689483
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -561,6 +584,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1000011194474354}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 8e427975bcb8b3146b73d74ec0c6921b, type: 3}
   m_Name: 
@@ -575,6 +599,8 @@ MonoBehaviour:
   attackRange: 1.5
   player: {fileID: 0}
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Script: {fileID: 11500000, guid: d78e438e33e9a12498a838e5dbd3ad3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -582,7 +608,10 @@ MonoBehaviour:
   howling: {fileID: 0}
   howlRange: 5
   maxHealth: 100
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1 &1000011219002044
 GameObject:
   m_ObjectHideFlags: 0
@@ -2032,6 +2061,7 @@ Transform:
   m_PrefabInstance: {fileID: 7318163934416626488}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1001 &9194870272393426152
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2158,3 +2188,5 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8

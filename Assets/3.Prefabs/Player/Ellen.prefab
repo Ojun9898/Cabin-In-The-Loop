@@ -2633,9 +2633,12 @@ GameObject:
   - component: {fileID: 828935097736164905}
   - component: {fileID: 7188431841444137031}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: -1437907958743371223}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Layer: 6
   m_Name: Ellen
   m_TagString: Player
@@ -2755,7 +2758,10 @@ MonoBehaviour:
 =======
   moveSpeed: 10
   jumpSpeed: 7
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   rotationSpeed: 10
   gravity: -9.8
   velocity: {x: 0, y: 0, z: 0}
@@ -2872,6 +2878,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   handSocket: {fileID: 4256539637911117595}
   currentWeaponType: 0
 --- !u!114 &-1437907958743371223
@@ -2897,6 +2904,10 @@ MonoBehaviour:
   handSocket: {fileID: 0}
   currentWeaponType: 0
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  handSocket: {fileID: 0}
+  currentWeaponType: 0
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1 &6348146503098800268
 GameObject:
   m_ObjectHideFlags: 0

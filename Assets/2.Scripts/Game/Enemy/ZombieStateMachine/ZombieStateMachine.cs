@@ -14,6 +14,7 @@ public class ZombieStateMachine : StateMachine<Monster>
         playerTransform = t;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     private void Start()
     {
@@ -38,6 +39,9 @@ public class ZombieStateMachine : StateMachine<Monster>
 =======
 
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     
     protected override void Initialize()
     {

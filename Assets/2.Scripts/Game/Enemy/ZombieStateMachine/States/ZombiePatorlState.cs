@@ -46,6 +46,7 @@ public class ZombiePatorlState : ZombieBaseState
     {
         base.EnterState();
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (navMeshAgent != null)
             navMeshAgent.speed = defaultSpeed;
 
@@ -62,6 +63,11 @@ public class ZombiePatorlState : ZombieBaseState
         if (navMeshAgent != null)
             navMeshAgent.isStopped = false;
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+        // 이동 재개
+        if (navMeshAgent != null)
+            navMeshAgent.isStopped = false;
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         PlayAnimation("Walk");
         SetNewWanderTarget();
     }

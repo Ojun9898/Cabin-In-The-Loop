@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/4.Resources/Sat Productions/B-01/Concrete Props Pack/Textures/A_Wall_Roughness.png.meta
 guid: 826ba93ad66331340973f774f612c996
+========
+guid: 0fe148a2bf2d7d445a3ba15dfad3017e
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/4.Resources/Sat Productions/B-01/Concrete Props Pack/Textures/A_Wall_Height.png.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

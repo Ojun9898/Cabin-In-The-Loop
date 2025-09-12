@@ -18,6 +18,7 @@ MonoBehaviour:
   m_GUID: 3de96cdbb86cabb40a10fd3e329dbd4a
   m_SerializeEntries:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_GUID: 12227c8cbe5e6384da485152d9803070
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 21.prefab
     m_ReadOnly: 0
@@ -76,11 +77,15 @@ MonoBehaviour:
 =======
   - m_GUID: 25caada2531b7d34ea7df33764aae69d
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  - m_GUID: 25caada2531b7d34ea7df33764aae69d
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 9.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Zombie
     FlaggedDuringContentUpdateRestriction: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   - m_GUID: 9223784ac53aeff49bc9b45b037d7e5e
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 13.prefab
@@ -128,11 +133,15 @@ MonoBehaviour:
 =======
   - m_GUID: 2afa9d3a44dc81e479bd690141f2e5fe
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  - m_GUID: 2afa9d3a44dc81e479bd690141f2e5fe
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 7.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Zombie
     FlaggedDuringContentUpdateRestriction: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   - m_GUID: e52b0a62039dbf34997829272cc78aa8
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 16.prefab
@@ -144,11 +153,15 @@ MonoBehaviour:
 =======
   - m_GUID: 4e16d2b195a2ed74d8b3f8041b188891
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  - m_GUID: 4e16d2b195a2ed74d8b3f8041b188891
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 8.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Zombie
     FlaggedDuringContentUpdateRestriction: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   - m_GUID: f7159a99950dffd438e7281dd9597ad3
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 11.prefab
@@ -156,14 +169,21 @@ MonoBehaviour:
   - m_GUID: 5a2ce3c95e14e394d8c296a1e86e28a3
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 4.prefab
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  - m_GUID: 5a2ce3c95e14e394d8c296a1e86e28a3
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 4.prefab
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_ReadOnly: 0
     m_SerializedLabels:
     - Zombie
     FlaggedDuringContentUpdateRestriction: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_GUID: fd7ecb38a0693494ab97d425c66b6829
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 19.prefab
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   - m_GUID: 5acf332fa2e279440b0bfc6c827747c0
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 10.prefab
     m_ReadOnly: 0
@@ -202,7 +222,10 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c9c2baf730211d846883d23bb45be9b1
     m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 3.prefab
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_ReadOnly: 0
     m_SerializedLabels:
     - Zombie

@@ -44,10 +44,14 @@ public class WeaponSelectionUI : MonoBehaviour
     }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     public void EquipWeapon(WeaponData weapon)
 =======
     private void EquipWeapon(WeaponData weapon)
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+    private void EquipWeapon(WeaponData weapon)
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     {
         if (_selectionMade) return;
         _selectionMade = true;

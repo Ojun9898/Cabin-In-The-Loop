@@ -68,6 +68,7 @@ MonoBehaviour:
   m_text: Button
   m_isRightToLeft: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_fontAsset: {fileID: 11400000, guid: 846e7039bc6a10946a27b5705e4a2ee4, type: 2}
   m_sharedMaterial: {fileID: -8649481772173006504, guid: 846e7039bc6a10946a27b5705e4a2ee4,
     type: 2}
@@ -75,6 +76,10 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -208,10 +213,14 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Sprite: {fileID: 21300000, guid: b90153f929b9b3a4784a361bbcdbe519, type: 3}
 =======
   m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -266,6 +275,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
 <<<<<<< HEAD
+<<<<<<< HEAD
       - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: WeaponSelectionUI, Assembly-CSharp
         m_MethodName: 
@@ -274,6 +284,8 @@ MonoBehaviour:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: WeaponData, Assembly-CSharp
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
       - m_Target: {fileID: 6204308248102364984}
         m_TargetAssemblyTypeName: 
         m_MethodName: 
@@ -281,7 +293,10 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: 
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

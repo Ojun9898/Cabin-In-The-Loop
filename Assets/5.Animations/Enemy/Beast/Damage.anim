@@ -10002,10 +10002,14 @@ AnimationClip:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
     m_AdditiveReferencePoseTime: 26
 =======
     m_AdditiveReferencePoseTime: 0
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+    m_AdditiveReferencePoseTime: 0
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_StartTime: 0
     m_StopTime: 1.0000019
     m_OrientationOffsetY: 0
@@ -10027,6 +10031,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Events:
   - time: 0.03448276
     functionName: OnHitStart
@@ -10045,3 +10050,6 @@ AnimationClip:
 =======
   m_Events: []
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Events: []
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8

@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/1.Scene/Laboratory.meta
 guid: d73e7a179d5365b4ea8aa7166500a866
+========
+guid: b1e7fc4ff91215b499e8320826437f49
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/2.Scripts/Game/Enemy/InsectoidStateMachine/States.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

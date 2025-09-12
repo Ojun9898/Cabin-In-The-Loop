@@ -26,7 +26,19 @@ public class ZombieChaseState : ZombieBaseState
         );
     }
     
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+    public override void ExitState()
+    {
+        base.ExitState();
+        // Chase 상태 벗어나면 즉시 해당 몬스터 모든 SFX 중단
+        MonsterSFXManager.Instance.StopAllAudio(
+            zombie.transform.GetInstanceID()
+        );
+    }
+    
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     public override void EnterState()
     {
         base.EnterState();

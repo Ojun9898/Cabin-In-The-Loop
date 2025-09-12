@@ -92,6 +92,7 @@ public class MonsterSFXManager : MonoBehaviour
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     
     public void StopAllSounds()
     {
@@ -109,6 +110,8 @@ public class MonsterSFXManager : MonoBehaviour
     }
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 
     
     // 상태 진입 시 호출

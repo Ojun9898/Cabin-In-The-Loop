@@ -15,11 +15,16 @@ public class BeastHitState : BeastBaseState
         base.EnterState();
         StopMoving();
 <<<<<<< HEAD
+<<<<<<< HEAD
         PlayAnimation("Damage");
 =======
         PlayAnimation("Walk Back");
         TakeDamage(damageAmount); // 데미지 처리
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+        PlayAnimation("Walk Back");
+        TakeDamage(damageAmount); // 데미지 처리
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
     
     public override void UpdateState()

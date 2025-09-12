@@ -20,11 +20,16 @@ public class ElevatorController : MonoBehaviour
     private void Start()
     {
         lastElevatorPosition = rb.position;
+<<<<<<< HEAD
 <<<<<<< HEAD:Assets/2.Scripts/Game/Map/ElevatorController.cs
         playerTransform = GameManager.Instance.playerTransform;
         playerController = GameManager.Instance.playerTransform.GetComponent<CharacterController>();
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리):Assets/2.Scripts/Game/ElevatorController.cs
+=======
+        playerTransform = GameManager.Instance.playerTransform;
+        playerController = GameManager.Instance.playerTransform.GetComponent<CharacterController>();
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
 
     private void Update()

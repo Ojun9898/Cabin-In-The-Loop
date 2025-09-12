@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/5.Animations/Door/ElevatorClose.anim.meta
 guid: 43afdb30af0893f4db865a61ed2ce9f1
+========
+guid: 88bfa5c2a5f63364c8c143159ae35d59
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/5.Animations/Door/OutDoorClose.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000

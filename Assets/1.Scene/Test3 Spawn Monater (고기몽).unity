@@ -1155,10 +1155,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 <<<<<<< HEAD
+<<<<<<< HEAD
   playerTransform: {fileID: 1011366148}
 =======
   playerTransform: {fileID: 0}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  playerTransform: {fileID: 0}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   cameraTransform: {fileID: 278203418}
   weaponDataList:
   - {fileID: 11400000, guid: 5ffcfb90221a14f4c869067a4a564ace, type: 2}
@@ -1963,10 +1967,14 @@ MonoBehaviour:
   - {fileID: 109112058}
   spawnCycle: 4
 <<<<<<< HEAD
+<<<<<<< HEAD
   playerTransform: {fileID: 1011366148}
 =======
   playerTransform: {fileID: 0}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  playerTransform: {fileID: 0}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   zombieLabel: Zombie
   zombiePoolSize: 2
   insectoidLabel: Insectoid
@@ -2717,6 +2725,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!4 &1011366148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3023791142357651803, guid: 710a0b071cfd8814ba548d07bee28499,
@@ -2725,6 +2734,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1001 &1032642641
 PrefabInstance:
   m_ObjectHideFlags: 0

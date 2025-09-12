@@ -4,14 +4,18 @@ public class PoisonThorn : MonoBehaviour
 {
     private float damageAmount;
 <<<<<<< HEAD
+<<<<<<< HEAD
     private bool _returned;  // 중복 반환 방지
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     private float lifeTime = 5f; // 발사체 수명
 
     public void Initialize(float damage)
     {
         damageAmount = damage;
+<<<<<<< HEAD
 <<<<<<< HEAD
         _returned = false;   // 풀에서 다시 꺼내면 리셋
     }
@@ -51,6 +55,8 @@ public class PoisonThorn : MonoBehaviour
         ProjectilePoolManager.Instance.ReturnToPool(gameObject);
     }
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         Destroy(gameObject, lifeTime); // 일정 시간 후 자동으로 파괴
     }
 
@@ -70,5 +76,8 @@ public class PoisonThorn : MonoBehaviour
             Destroy(gameObject);
         }
     }
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 }

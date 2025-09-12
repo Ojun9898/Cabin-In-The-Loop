@@ -15,8 +15,11 @@ public class ZombieHitState : ZombieBaseState
         base.EnterState();
         StopMoving();
 <<<<<<< HEAD
+<<<<<<< HEAD
         PlayAnimation("Damage");
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         // Hit(피격) 사운드 재생 요청
         MonsterSFXManager.Instance.RequestPlay(
             EState.Hit,
@@ -25,7 +28,10 @@ public class ZombieHitState : ZombieBaseState
         );
         PlayAnimation("Walk Back");
         TakeDamage(damageAmount); // 데미지 처리
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
     
     public override void UpdateState()

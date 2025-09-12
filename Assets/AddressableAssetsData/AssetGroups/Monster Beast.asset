@@ -18,20 +18,28 @@ MonoBehaviour:
   m_GUID: 3a9b0f65a5a207848be4666b456002fa
   m_SerializeEntries:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_GUID: 2c674d77223e9cd4e9d04b5fbb7e5d79
     m_Address: Assets/3.Prefabs/Addressables/Beast/Beast.prefab
 =======
   - m_GUID: 0d578ad380feb8f45b7b5ad85f4ecf31
     m_Address: Assets/3.Prefabs/Addressables/Beast/Beast 1.prefab
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  - m_GUID: 0d578ad380feb8f45b7b5ad85f4ecf31
+    m_Address: Assets/3.Prefabs/Addressables/Beast/Beast 1.prefab
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_ReadOnly: 0
     m_SerializedLabels:
     - Beast
     FlaggedDuringContentUpdateRestriction: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_GUID: 885b44919802d3e448c65802e77740e2
     m_Address: Assets/3.Prefabs/Addressables/Beast/Beast 1.prefab
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   - m_GUID: 225052d949a6313498b5fc7311fe17c4
     m_Address: Assets/3.Prefabs/Addressables/Beast/Beast 2.prefab
     m_ReadOnly: 0
@@ -40,7 +48,10 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c2676001adbe45e48ac3c5215ba05edb
     m_Address: Assets/3.Prefabs/Addressables/Beast/Beast.prefab
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_ReadOnly: 0
     m_SerializedLabels:
     - Beast

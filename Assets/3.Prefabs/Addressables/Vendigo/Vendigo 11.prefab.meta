@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/3.Prefabs/Addressables/Vendigo/Vendigo 11.prefab.meta
 guid: 14529a02c261d974f9f80023ea9aeb61
+========
+guid: c267caf195a8047499717885c190d4ba
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/3.Prefabs/UI/Settings Panel.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

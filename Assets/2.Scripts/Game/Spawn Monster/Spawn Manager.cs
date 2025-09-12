@@ -4,6 +4,7 @@ using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using UnityEngine.SceneManagement;
 
 using SpawnManager_PlayerTransformCheck;
@@ -38,6 +39,8 @@ public class SpawnManager : MonoBehaviour
     
     private Transform playerTransform;
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 
 using SpawnManager_PlayerTransformCheck;
 
@@ -49,7 +52,10 @@ public class SpawnManager : MonoBehaviour
     
     [Header("플레이어 Transform")]
     [SerializeField] private Transform playerTransform;
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     
     [Header("몬스터 세팅")]
     [Tooltip("Monsters 에서 설정한 Zombie Label")]
@@ -75,15 +81,20 @@ public class SpawnManager : MonoBehaviour
     
     [Tooltip("생성 가능한 몬스터의 총합")]
 <<<<<<< HEAD
+<<<<<<< HEAD
     [SerializeField] private int totalPoolSize = 68;
 =======
     [SerializeField] private int totalPoolSize = 90;
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+    [SerializeField] private int totalPoolSize = 90;
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     
 
     [Header("몬스터 보관위치")]
     [SerializeField] private Transform PrefabsContainer;
     
+<<<<<<< HEAD
 <<<<<<< HEAD
     [Header("몬스터 데스 카운트")]
     [SerializeField] private int deadMonsterCount = 0;
@@ -93,6 +104,8 @@ public class SpawnManager : MonoBehaviour
     
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     // 1. 라벨로 불러온 프리팹 목록
     private List<GameObject> zombieLabels = new List<GameObject>();
     private List<GameObject> insectoidLabels = new List<GameObject>();
@@ -109,6 +122,7 @@ public class SpawnManager : MonoBehaviour
     
     private int TotalPoolCount() => zombiePool.Count + insectoidPool.Count + ripperPool.Count + vendigoPool.Count 
                                     + beastPool.Count;
+<<<<<<< HEAD
 <<<<<<< HEAD
     
     private void Awake()
@@ -135,6 +149,8 @@ public class SpawnManager : MonoBehaviour
     
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     private void Start()
     {
         // 라벨로 프리팹들을 한꺼번에 로드
@@ -159,11 +175,16 @@ public class SpawnManager : MonoBehaviour
                     PreloadPool(prefab, zombiePool);
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
                 
 =======
 
                 TryStartSpawning();
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+
+                TryStartSpawning();
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
             }
             else Debug.LogError($"[{nameof(SpawnManager)}] zombie assets 로드 실패");
         };
@@ -182,11 +203,16 @@ public class SpawnManager : MonoBehaviour
                     PreloadPool(prefab, insectoidPool);
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
                 
 =======
 
                 TryStartSpawning();
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+
+                TryStartSpawning();
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
             }
             else Debug.LogError($"[{nameof(SpawnManager)}] insectoid assets 로드 실패");
         };
@@ -206,11 +232,16 @@ public class SpawnManager : MonoBehaviour
                     PreloadPool(prefab, ripperPool);
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
                 
 =======
 
                 TryStartSpawning();
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+
+                TryStartSpawning();
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
             }
             else Debug.LogError($"[{nameof(SpawnManager)}] Ripper assets 로드 실패");
         };
@@ -230,11 +261,16 @@ public class SpawnManager : MonoBehaviour
                     PreloadPool(prefab, vendigoPool);
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
                 
 =======
 
                 TryStartSpawning();
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+
+                TryStartSpawning();
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
             }
             else Debug.LogError($"[{nameof(SpawnManager)}] Vendigo assets 로드 실패");
         };
@@ -254,16 +290,22 @@ public class SpawnManager : MonoBehaviour
                     PreloadPool(prefab, beastPool);
                 }
 <<<<<<< HEAD
+<<<<<<< HEAD
                 
 =======
 
                 TryStartSpawning();
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+
+                TryStartSpawning();
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
             }
             else Debug.LogError($"[{nameof(SpawnManager)}] Beast assets 로드 실패");
         };
     }
     #endregion
+<<<<<<< HEAD
 <<<<<<< HEAD
     
     private void OnEnable()
@@ -320,10 +362,15 @@ public class SpawnManager : MonoBehaviour
     // 풀 미리 생성
     private void PreloadPool(GameObject prefab, List<GameObject> pool)
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+    // 풀 미리 생성
+    private void PreloadPool(GameObject prefab, List<GameObject> pool)
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     {
         // 1) 전체 풀 크기 한계 체크
         if (TotalPoolCount() >= totalPoolSize)
             return;
+<<<<<<< HEAD
 <<<<<<< HEAD
         
         var prefabAgent = prefab.GetComponent<NavMeshAgent>();
@@ -347,13 +394,18 @@ public class SpawnManager : MonoBehaviour
             agent.enabled = false;
         
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 
         // 2) 인스턴스 생성 및 세팅
         // Monster 와 각각의 StateMachine 스크립트에서 player응 참조할수 있도록 설정
 
         var monster = Instantiate(prefab, PrefabsContainer);
 
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         monster.AssignTransform(playerTransform);
 
         // 3) 비활성화 후 풀에 보관
@@ -361,6 +413,7 @@ public class SpawnManager : MonoBehaviour
         pool.Add(monster);
     }
     
+<<<<<<< HEAD
 <<<<<<< HEAD
     /// <summary>
     /// 지정한 MonsterType의 풀에서 꺼내어 스폰
@@ -428,6 +481,8 @@ public class SpawnManager : MonoBehaviour
     }
     
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     private void TryStartSpawning()
     {
         // 풀에 적어도 1개 이상 있는지 확인
@@ -473,7 +528,10 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     private GameObject ActivateFromList(List<GameObject> pool, List<GameObject> variantList,int maxCount)
     {
         // 비활성화된 오브젝트가 있으면 즉시 반환
@@ -491,6 +549,7 @@ public class SpawnManager : MonoBehaviour
             return go;
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
         return null;
     }
     
@@ -507,10 +566,15 @@ public class SpawnManager : MonoBehaviour
         deadMonsterCount = 0;
     }
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         
         return null;
     }
     
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 }
 

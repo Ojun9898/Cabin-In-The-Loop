@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/1.Scene/Test5(박지우).meta
 guid: ce7de2f2604707b498e51b6e2079eb47
+========
+guid: 167c125902fac044aa342408f170e5fc
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/3.Prefabs/Addressables/Beast.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

@@ -5,10 +5,15 @@ public class BeastRattackState : BeastBaseState
     private const float HOWL_DURATION = 2f;
     private const float PARTICLE_START_TIME = 0.5f; // 애니메이션 시작 후 파티클이 나오는 시간
 <<<<<<< HEAD
+<<<<<<< HEAD
     private const float HOWL_COOLDOWN = 15f; // 하울링 쿨다운 시간
     private static float lastHowlTime = 0f; // 마지막 하울링 시간 (static으로 모든 인스턴스가 공유)
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+    private const float HOWL_COOLDOWN = 15f; // 하울링 쿨다운 시간
+    private static float lastHowlTime = 0f; // 마지막 하울링 시간 (static으로 모든 인스턴스가 공유)
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     private bool hasStartedParticle = false;
 
     protected override void SetStateKey()
@@ -23,11 +28,17 @@ public class BeastRattackState : BeastBaseState
         PlayAnimation("Shout");
         hasStartedParticle = false;
 <<<<<<< HEAD
+<<<<<<< HEAD
         
         // 하울링 시작 시간 기록
         lastHowlTime = Time.time;
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+        
+        // 하울링 시작 시간 기록
+        lastHowlTime = Time.time;
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
 
     public override void UpdateState()
@@ -73,12 +84,18 @@ public class BeastRattackState : BeastBaseState
         return false;
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     
     // 하울링 사용 가능 여부 확인
     public static bool CanUseHowl()
     {
         return Time.time - lastHowlTime >= HOWL_COOLDOWN;
     }
+<<<<<<< HEAD
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 }

@@ -11,7 +11,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_State: {fileID: 2114720926240680420}
     m_Position: {x: 580, y: -140, z: 0}
   - serializedVersion: 1
@@ -24,7 +27,10 @@ AnimatorStateMachine:
     m_State: {fileID: -7144465526043591519}
     m_Position: {x: 580, y: 40, z: 0}
   - serializedVersion: 1
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_State: {fileID: 6185919226938060948}
     m_Position: {x: 350, y: -150, z: 0}
   - serializedVersion: 1
@@ -47,11 +53,17 @@ AnimatorStateMachine:
     m_Position: {x: 580, y: 350, z: 0}
   - serializedVersion: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     m_State: {fileID: 24977994365565367}
     m_Position: {x: 350, y: -80, z: 0}
   - serializedVersion: 1
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+    m_State: {fileID: 24977994365565367}
+    m_Position: {x: 350, y: -80, z: 0}
+  - serializedVersion: 1
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_State: {fileID: -3539974711256765384}
     m_Position: {x: 350, y: 170, z: 0}
   - serializedVersion: 1
@@ -63,6 +75,7 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: -2461501947062423007}
     m_Position: {x: 580, y: 220, z: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   - serializedVersion: 1
     m_State: {fileID: -3105466137704029337}
@@ -81,6 +94,8 @@ AnimatorStateMachine:
     m_Position: {x: 350, y: -80, z: 0}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -138,20 +153,28 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: c47bd8687a43bbb48918e9f529396a40, type: 2}
 =======
   m_Motion: {fileID: 7400000, guid: 453737c3c16a4b94c9453905bd87467d, type: 3}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Motion: {fileID: 7400000, guid: c47bd8687a43bbb48918e9f529396a40, type: 2}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1102 &-6960107377047792737
 =======
 --- !u!1102 &-7144465526043591519
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+--- !u!1102 &-7144465526043591519
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -159,10 +182,14 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: Shout
 =======
   m_Name: Attack4
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Name: Attack4
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -176,8 +203,11 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: 8b3fdd580ba75464a85089c7f29d5719, type: 2}
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Motion: {fileID: 7400000, guid: 424e42c8a87204b47a1112a8a32cacff, type: 3}
   m_Tag: 
   m_SpeedParameter: 
@@ -205,7 +235,10 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 81666e3e7b19f6047b0039cf81f042fa, type: 3}
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -232,10 +265,14 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: 1edccf73fe3a40d44880491aea72e575, type: 2}
 =======
   m_Motion: {fileID: 7400000, guid: 77c54b6292b98eb418239bc330395d63, type: 3}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Motion: {fileID: 7400000, guid: 1edccf73fe3a40d44880491aea72e575, type: 2}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -262,10 +299,14 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: 5177dae081e769a439da5e20b7177bc5, type: 2}
 =======
   m_Motion: {fileID: 7400000, guid: 1a5ae9b7e95035b49a5bdfb239ad1fb6, type: 3}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Motion: {fileID: 7400000, guid: 5177dae081e769a439da5e20b7177bc5, type: 2}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -318,12 +359,16 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Motion: {fileID: 7400000, guid: be852885405b0f5439339fe3352fcef1, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+<<<<<<< HEAD
 --- !u!1102 &-3697968050292349232
 AnimatorState:
   serializedVersion: 6
@@ -353,6 +398,8 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1102 &-3619842945325856421
 AnimatorState:
   serializedVersion: 6
@@ -400,12 +447,16 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Motion: {fileID: 7400000, guid: 04b568b0ce6a9b440a06bf1cf00dd15b, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+<<<<<<< HEAD
 --- !u!1102 &-3105466137704029337
 AnimatorState:
   serializedVersion: 6
@@ -435,6 +486,8 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1102 &-2461501947062423007
 AnimatorState:
   serializedVersion: 6
@@ -456,10 +509,14 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: d354dfaba7034354e873f25b55d45d2c, type: 2}
 =======
   m_Motion: {fileID: 7400000, guid: 6b80ce47690c2a14d817890b40385ce4, type: 3}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Motion: {fileID: 7400000, guid: d354dfaba7034354e873f25b55d45d2c, type: 2}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -486,10 +543,14 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: 8973dfff2887e2d43a838efec5d6e6ce, type: 2}
 =======
   m_Motion: {fileID: 7400000, guid: 4caa69873e85d404d9f786256f1f55b3, type: 3}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Motion: {fileID: 7400000, guid: 8973dfff2887e2d43a838efec5d6e6ce, type: 2}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -518,10 +579,14 @@ AnimatorController:
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1102 &1635351501944605837
 =======
 --- !u!1102 &24977994365565367
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+--- !u!1102 &24977994365565367
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -529,10 +594,14 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Name: Attack4
 =======
   m_Name: Shout
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Name: Shout
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -546,18 +615,25 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: 97d273901a74c9a42a59221fd73722f8, type: 2}
 =======
   m_Motion: {fileID: 7400000, guid: c469559708c2f224f8b611b39f82c93a, type: 3}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Motion: {fileID: 7400000, guid: c469559708c2f224f8b611b39f82c93a, type: 3}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1102 &1659805117989752039
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1102 &2114720926240680420
 AnimatorState:
   serializedVersion: 6
@@ -585,7 +661,10 @@ AnimatorState:
   m_CycleOffsetParameter: 
   m_TimeParameter: 
 --- !u!1102 &3070489903341681311
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -606,10 +685,14 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: 59ea9c28f90e7ab4aa95c2913fc09285, type: 2}
 =======
   m_Motion: {fileID: 7400000, guid: 60ef1a7a39c8599419347d46c873e0e9, type: 3}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Motion: {fileID: 7400000, guid: 60ef1a7a39c8599419347d46c873e0e9, type: 3}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -636,10 +719,14 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Motion: {fileID: 7400000, guid: a972446a63dc2c247aef97408833c3b5, type: 2}
 =======
   m_Motion: {fileID: 7400000, guid: 1500e9e034e40d8499e4637ffd205906, type: 3}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Motion: {fileID: 7400000, guid: a972446a63dc2c247aef97408833c3b5, type: 2}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

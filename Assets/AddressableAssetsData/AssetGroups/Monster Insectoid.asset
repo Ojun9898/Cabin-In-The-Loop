@@ -18,16 +18,22 @@ MonoBehaviour:
   m_GUID: e4607cc07e83f8342bdf1370787dfc12
   m_SerializeEntries:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_GUID: 0675e744b19b25b4e933b56071fa9ef2
     m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 11.prefab
 =======
   - m_GUID: 3d42401d2f3ff6947a0c4f4541184216
     m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 2.prefab
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  - m_GUID: 3d42401d2f3ff6947a0c4f4541184216
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 2.prefab
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_ReadOnly: 0
     m_SerializedLabels:
     - Insectoid
     FlaggedDuringContentUpdateRestriction: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
   - m_GUID: 2d62c11c465ffb045a47180134f62701
     m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 4.prefab
@@ -87,15 +93,21 @@ MonoBehaviour:
 =======
   - m_GUID: 614db6524f49dbe49b2dc09293459529
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  - m_GUID: 614db6524f49dbe49b2dc09293459529
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 1.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Insectoid
     FlaggedDuringContentUpdateRestriction: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   - m_GUID: e4381ca89df25e146af3c0fd5ec0aa5d
     m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 2.prefab
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   - m_GUID: 72ed8c56ac5196c4b99eba58941e6e13
     m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid.prefab
     m_ReadOnly: 0
@@ -104,7 +116,10 @@ MonoBehaviour:
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: c89f519902846f4479037dfdf9c80f10
     m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 3.prefab
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     m_ReadOnly: 0
     m_SerializedLabels:
     - Insectoid

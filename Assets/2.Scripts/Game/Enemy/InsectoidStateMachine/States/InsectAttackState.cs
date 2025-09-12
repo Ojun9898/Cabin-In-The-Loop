@@ -73,6 +73,7 @@ public class InsectAttackState : InsectBaseState
     private void FirePoisonThron()
     {
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (poisonThronPrefab == null || firePoint == null) return;
 
         Vector3 pos = firePoint.position;
@@ -112,6 +113,8 @@ public class InsectAttackState : InsectBaseState
     }
     
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
         if (poisonThronPrefab == null || firePoint == null)
         {
             Debug.LogWarning("Poison Thron Prefab 또는 FirePoint가 설정되지 않았습니다!");
@@ -141,7 +144,10 @@ public class InsectAttackState : InsectBaseState
         }
     }
 
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     // 플레이어의 위치 가져오기
     private Vector3 GetPlayerPosition()
     {

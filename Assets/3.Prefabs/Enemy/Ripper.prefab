@@ -1698,6 +1698,7 @@ GameObject:
   - component: {fileID: 95000010242461984}
   - component: {fileID: 4869628800481372975}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 6011371702884503192}
   - component: {fileID: -6892598500607248846}
   - component: {fileID: 683952275482672409}
@@ -1708,6 +1709,11 @@ GameObject:
   - component: {fileID: 6011371702884503192}
   - component: {fileID: -6892598500607248846}
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  - component: {fileID: -393296538341983701}
+  - component: {fileID: 6011371702884503192}
+  - component: {fileID: -6892598500607248846}
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Layer: 0
   m_Name: Ripper
   m_TagString: Monster
@@ -1780,7 +1786,10 @@ NavMeshAgent:
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!114 &-393296538341983701
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1799,7 +1808,10 @@ MonoBehaviour:
   chaseRange: 8
   attackRange: 1.5
   player: {fileID: 0}
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!114 &6011371702884503192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1826,6 +1838,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterType: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!54 &683952275482672409
 Rigidbody:
@@ -1900,6 +1913,8 @@ MonoBehaviour:
   player: {fileID: 0}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1 &1000013093023430
 GameObject:
   m_ObjectHideFlags: 0

@@ -12773,6 +12773,7 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Events:
   - time: 0.0323213
     functionName: OnDeathStart
@@ -12791,3 +12792,6 @@ AnimationClip:
 =======
   m_Events: []
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+  m_Events: []
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8

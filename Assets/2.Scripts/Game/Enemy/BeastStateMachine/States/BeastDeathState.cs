@@ -17,9 +17,15 @@ public class BeastDeathState : BeastBaseState
         PlayAnimation("Death");
         hasStartedDeathAnimation = false;
 <<<<<<< HEAD
+<<<<<<< HEAD
         
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+        
+        // Monster의 HandleDeath 호출
+        beast.HandleDeath();
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
     }
     
     public override void UpdateState()

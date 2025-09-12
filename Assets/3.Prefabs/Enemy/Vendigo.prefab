@@ -108,11 +108,14 @@ GameObject:
   - component: {fileID: -6762042291328215585}
   - component: {fileID: -2971342781309382969}
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 5615899018855639610}
   - component: {fileID: 3055865472826985311}
   - component: {fileID: 37351680519732846}
   m_Layer: 7
 =======
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
   m_Layer: 0
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
   m_Name: Vendigo
@@ -217,7 +220,10 @@ MonoBehaviour:
 =======
   projectileSpeed: 10
   upwardSpeed: 5
+<<<<<<< HEAD
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!114 &-2971342781309382969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +237,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterType: 1
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!136 &5615899018855639610
 CapsuleCollider:
@@ -305,6 +312,8 @@ MonoBehaviour:
   player: {fileID: 0}
 =======
 >>>>>>> 1f949ed ([추가] 병합 및 씬 분리)
+=======
+>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8
 --- !u!1 &1000010502916320
 GameObject:
   m_ObjectHideFlags: 0

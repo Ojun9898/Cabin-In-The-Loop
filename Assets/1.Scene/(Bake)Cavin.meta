@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/1.Scene/(Bake)Cavin.meta
 guid: a67c761580b5cc94ab4a8b2db0bac973
+========
+guid: 1c9749e598287b54d81fe167ab86fe9b
+>>>>>>>> 4301af75291249a954534f393c172d24ac73c9c8:Assets/2.Scripts/Game/Enemy/BeastStateMachine/States.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

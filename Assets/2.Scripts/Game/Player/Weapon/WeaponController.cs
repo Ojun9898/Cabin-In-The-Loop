@@ -64,21 +64,17 @@ public class WeaponController : MonoBehaviour
     /// </summary>
     public void SpawnDamageField(float duration)
     {
-        // 무기 미장착 가드
         if (_currentWeapon == null)
         {
             Debug.LogWarning("SpawnDamageField: 장착된 무기가 없습니다.");
             return;
         }
-
-        // PlayerStatus 존재 가드
         if (PlayerStatus.Instance == null)
         {
             Debug.LogWarning("SpawnDamageField: PlayerStatus 인스턴스를 찾을 수 없습니다.");
             return;
         }
 
-        // 1) 무기 데이터 가져오기
         WeaponData data = GameManager.Instance.GetWeaponData(currentWeaponType);
         if (data == null)
         {
@@ -86,24 +82,39 @@ public class WeaponController : MonoBehaviour
             return;
         }
 
-        // 2) 최종 데미지 계산
         float totalDamage = PlayerStatus.Instance.CalculateDamage(data);
 
-        // 3) 풀에서 데미지 필드 꺼내기
-        GameObject field = GameManager.Instance.GetDamageField();
-        if (field == null)
+        // 1) 풀에서 루트 오브젝트 꺼내기 (보통 비활성 상태)
+        GameObject root = GameManager.Instance.GetDamageField();
+        if (root == null)
         {
             Debug.LogWarning("SpawnDamageField: DamageField를 풀에서 가져오지 못했습니다.");
             return;
         }
 
-        // 4) 생성 위치 계산
-        Vector3 spawnPos = handSocket.position + handSocket.forward * (data.range * 0.5f);
-        field.transform.position = spawnPos;
+        // 2) DamageField 컴포넌트를 '자식 포함'해서 가져오기 (비활성 자식도 찾기 위해 true)
+        DamageField df = root.GetComponentInChildren<DamageField>(true);
+        if (df == null)
+        {
+            Debug.LogError("SpawnDamageField: DamageField 컴포넌트를 찾을 수 없습니다. 프리팹 구조를 확인하세요.");
+            return;
+        }
 
-        // 5) 활성화 및 초기화
-        field.SetActive(true);
-        field.GetComponent<DamageField>()
-             .Initialize(gameObject, totalDamage, data.range, duration);
+        // 3) 스폰 위치 지정 (원래 로직 유지)
+        Vector3 spawnPos = handSocket.position + handSocket.forward * (data.range * 0.5f);
+        root.transform.position = spawnPos;
+
+        // 4) '컴포넌트가 붙은 바로 그 GameObject'를 먼저 활성화
+        //    (자식이 꺼져 있던 케이스를 확실히 커버)
+        if (!df.gameObject.activeSelf)
+            df.gameObject.SetActive(true);
+
+        // 5) 루트도 활성화 (둘 다 켜서 활성 계층 보장)
+        if (!root.activeSelf)
+            root.SetActive(true);
+
+        // 6) Initialize는 '활성화 후' 호출 (StartCoroutine 보장)
+        df.Initialize(gameObject, totalDamage, data.range, duration);
     }
+
 }

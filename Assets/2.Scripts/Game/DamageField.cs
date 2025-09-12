@@ -1,64 +1,155 @@
 using UnityEngine;
+using System.Collections;
 
 public class DamageField : MonoBehaviour
 {
+    [Header("Owner / Spec")]
     private GameObject _owner;              // 이 필드를 생성한 주체
-    private float _damage;                  // 줄 데미지 양
-    private float _radius;                  // 공격 범위 반지름
-    private float _duration;                // 필드 지속 시간
+    private float _damage;                  // 줄 데미지
+    private float _radius;                  // 기본 반지름(판정 기준)
+    private float _duration;                // 지속 시간
 
-    private float _elapsedTime;             // 누적 시간 (지속시간 초과 시 비활성화)
+    [Header("Hit Tuning")]
+    [Tooltip("판정 반지름에 추가로 더해줄 여유 범위(유닛 발 사이즈, 네비 메쉬 오차 보정 등)")]
+    [SerializeField] private float radiusInflation = 0.25f;
 
+    [Tooltip("이펙트 스케일을 판정 반지름(지름)과 자동 동기화")]
+    [SerializeField] private bool matchVisualToRadius = true;
+
+    [Tooltip("주기적으로 데미지를 주는 간격(초)")]
+    [SerializeField] private float tickInterval = 0.2f;
+
+    [Tooltip("이 필드가 존재하는 동안 지속적으로 판정 수행")]
+    [SerializeField] private bool continuousTick = true;
+
+    [Header("Target Filter")]
+    [Tooltip("피해를 줄 레이어만 판정 (Player, Monster 등 선택)")]
+    [SerializeField] private LayerMask targetLayers = ~0; // 기본: 전부
+
+    [Header("Vertical Tuning")]
+    [Tooltip("지면에 납작한 원형 판정보다는 약간의 높이를 허용하고 싶을 때 사용 (캡슐 높이/2)")]
+    [SerializeField] private float verticalHalfHeight = 0.4f;
+
+    // 내부 상태
+    private float _endTime;
+    private Collider[] _buffer;             // NonAlloc용 버퍼
+    private const int MaxHits = 64;         // 한 틱에서 최대 감지 수(상황에 맞게 조정)
+
+    // --------- 외부에서 호출 ---------
     /// <summary>
-    /// 데미지 필드 초기화 함수
+    /// 데미지 필드 초기화
     /// </summary>
     public void Initialize(GameObject owner, float damage, float radius, float duration = 1f)
     {
+        // 계층상 비활성 대비 (부모/자식 상태와 관계 없이 활성 계층 보장)
+        if (!gameObject.activeInHierarchy)
+        {
+            // 가능한 한 루트/부모부터 켜야 하는 경우가 있으니,
+            // 루트를 찾아서 SetActive(true) -> 자신도 SetActive(true)
+            Transform t = transform;
+            while (t.parent != null) t = t.parent;
+            if (!t.gameObject.activeSelf) t.gameObject.SetActive(true);
+            if (!gameObject.activeSelf) gameObject.SetActive(true);
+        }
+        
         _owner = owner;
         _damage = damage;
         _radius = radius;
-        _duration = duration;
+        _duration = Mathf.Max(0f, duration);
 
+        _endTime = Time.time + _duration;
 
-        _elapsedTime = 0f;
+        // 버퍼 준비
+        if (_buffer == null || _buffer.Length != MaxHits)
+            _buffer = new Collider[MaxHits];
 
-        Invoke(nameof(Deactivate), duration);    // 지정된 시간이 지나면 자동으로 비활성화
-        DealDamage();       // 일정 간격마다 데미지를 주는 코루틴 시작
+        // 비주얼 크기를 판정 반지름과 동기화(선택)
+        if (matchVisualToRadius)
+        {
+            // 지름 = 반지름 * 2
+            float diameter = Mathf.Max(0.01f, (_radius + radiusInflation) * 2f);
+            Vector3 s = transform.localScale;
+            transform.localScale = new Vector3(diameter, s.y, diameter); // Y 스케일은 파티클/메시 특성에 맞게 유지
+        }
+
+        // 즉시 1틱 가하고, 필요하면 코루틴으로 주기적 판정
+        DealDamageOnce();
+
+        if (continuousTick && tickInterval > 0f)
+            StartCoroutine(TickRoutine());
+
+        // 수명 종료 예약
+        Invoke(nameof(Deactivate), _duration);
+    }
+
+    // --------- 판정 루프 ---------
+    private IEnumerator TickRoutine()
+    {
+        var wait = new WaitForSeconds(tickInterval);
+        while (Time.time < _endTime)
+        {
+            DealDamageOnce();
+            yield return wait;
+        }
     }
 
     /// <summary>
-    /// 범위 내 타겟에게 데미지를 가함 (중복 방지 포함)
+    /// 한 번의 틱에서 범위 내 타겟에게 데미지를 가함
     /// </summary>
-    private void DealDamage()
+    private void DealDamageOnce()
     {
-        // 반지름 내의 모든 콜라이더 감지
-        Collider[] hits = Physics.OverlapSphere(transform.position, _radius);
+        // 수직 높이를 허용하는 캡슐 판정 (발 밑 오차 보정에 유리)
+        Vector3 center = transform.position;
+        float r = _radius + radiusInflation;
 
-        foreach (var hit in hits)
+        Vector3 p1 = center + Vector3.up * verticalHalfHeight;
+        Vector3 p2 = center - Vector3.up * verticalHalfHeight;
+
+        // 레이어 필터 적용 + NonAlloc 사용
+        int hitCount = Physics.OverlapCapsuleNonAlloc(p1, p2, r, _buffer, targetLayers, QueryTriggerInteraction.Collide);
+
+        for (int i = 0; i < hitCount; i++)
         {
-            // 자기 자신 혹은 같은 팀은 무시 (ex. 플레이어가 생성한 경우 플레이어는 무시)
-            if (hit.gameObject.layer == _owner.layer)
-                continue;
+            var col = _buffer[i];
+            if (col == null) continue;
 
-            GameObject target = hit.gameObject;
+            GameObject target = col.gameObject;
 
-            // 각 타겟이 쿨다운 검사 및 데미지 적용을 직접 처리
+            // 자기 자신 및 같은 팀/레이어 필터(원하는 규칙으로 추가 필터링)
+            if (_owner != null)
+            {
+                // 같은 루트(소유자 자신) 무시
+                if (target.transform.root == _owner.transform.root) 
+                    continue;
+            }
+
+            // IDamageable이면 데미지 처리
             if (target.TryGetComponent<IDamageable>(out var damageable))
             {
-                if (target.layer == LayerMask.NameToLayer("Player"))
-                {
-                    target.TryGetComponent<PlayerStateMachine>(out var playerStateMachine);
-                    if (playerStateMachine.canHit)
-                    {
-                        damageable.TakeDamage(_damage);
-                    }
-                }
+                int playerLayer = LayerMask.NameToLayer("Player");
+                int monsterLayer = LayerMask.NameToLayer("Monster");
 
-                else if(target.layer == LayerMask.NameToLayer("Monster"))
+                if (target.layer == playerLayer)
+                {
+                    if (target.TryGetComponent<PlayerStateMachine>(out var psm))
+                    {
+                        if (psm.canHit)
+                            damageable.TakeDamage(_damage);
+                    }
+                    // else: 플레이어가지만 PSM 없으면 스킵 (게임 규칙에 맞춰 조정 가능)
+                }
+                else if (target.layer == monsterLayer)
                 {
                     damageable.TakeDamage(_damage);
                 }
+                else
+                {
+                    // 필요 시 기타 레이어에도 적용 가능
+                    // damageable.TakeDamage(_damage);
+                }
             }
+
+            _buffer[i] = null; // 다음 틱을 위해 비움
         }
     }
 
@@ -67,6 +158,28 @@ public class DamageField : MonoBehaviour
     /// </summary>
     private void Deactivate()
     {
+        // 코루틴/예약 정리
+        StopAllCoroutines();
+        CancelInvoke();
+
+        // 오브젝트 풀로 반환
         GameManager.Instance.ReturnDamageField(gameObject);
+    }
+
+    // ---- 디버깅용 기즈모 ----
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Vector3 center = transform.position;
+        float r = (_radius > 0f ? _radius : 0.5f) + radiusInflation;
+        Vector3 p1 = center + Vector3.up * verticalHalfHeight;
+        Vector3 p2 = center - Vector3.up * verticalHalfHeight;
+        // 캡슐 대략 표현: 상/하 구체 + 선
+        Gizmos.DrawWireSphere(p1, r);
+        Gizmos.DrawWireSphere(p2, r);
+        Gizmos.DrawLine(p1 + Vector3.right * r, p2 + Vector3.right * r);
+        Gizmos.DrawLine(p1 - Vector3.right * r, p2 - Vector3.right * r);
+        Gizmos.DrawLine(p1 + Vector3.forward * r, p2 + Vector3.forward * r);
+        Gizmos.DrawLine(p1 - Vector3.forward * r, p2 - Vector3.forward * r);
     }
 }

@@ -124,13 +124,17 @@ public class HUDManager : Singleton<HUDManager>
         levelText = transform.Find("Stats/Level")?.GetComponent<TextMeshProUGUI>();
         stageText = transform.Find("Stage/Text")?.GetComponent<TextMeshProUGUI>();
 
-        ps = Player.GetComponent<PlayerStatus>();
+        ps = PlayerStatus.Ensure(); 
         if (ps != null)
         {
             ps.onHealthChanged += SetHPUI;
-            hpMax = ps._maxHealth;
-            xpMax = 100f;
-            SetHPUI(ps._maxHealth);
+
+            // 초기값 즉시 반영 (이벤트 타이밍 놓침 방지)
+            hpMax = ps.GetTotalStat(StatusType.Health); // 또는 ps._maxHealth
+            SetHPUI(ps.CurrentHealth);                  // CurrentHealth: 읽기 전용 getter 필요(아래 참고)
+            
+            // XP/레벨도 가능하면 PlayerStatus에서 직접 읽도록 권장
+            xpMax =  ps is not null ? ps.XpToNextLevel : 100f;  // XpToNextLevel getter 필요
         }
     }
 
@@ -161,6 +165,11 @@ public class HUDManager : Singleton<HUDManager>
             questDict[key] = qd;
         }
     }
+    
+    private void OnDisable()
+    {
+        if (ps != null) ps.onHealthChanged -= SetHPUI;
+    }
 
     #region 스탯 UI 업데이트
 
@@ -183,35 +192,56 @@ public class HUDManager : Singleton<HUDManager>
 
     private void SetHPUI(float hp = -1f)
     {
-        var data = LoadPlayerData();
-        if (data == null || hpFillRect == null || hpText == null) return;
+        if (hpFillRect == null || hpText == null) return;
 
-        float maxHp = data.baseStats.ContainsKey(StatusType.Health) ? data.baseStats[StatusType.Health] : 100f;
-        float currentHp = (hp >= 0f) ? hp : (ps != null ? ps._currentHealth : maxHp);
+        float maxHp, currentHp;
+        if (ps != null)
+        {
+            maxHp = ps.GetTotalStat(StatusType.Health);   // 또는 ps._maxHealth
+            currentHp = (hp >= 0f) ? hp : ps.CurrentHealth;
+        }
+        else
+        {
+            // fallback: 디스크(비권장)
+            var data = LoadPlayerData();
+            if (data == null) return;
+            maxHp = data.baseStats.ContainsKey(StatusType.Health) ? data.baseStats[StatusType.Health] : 100f;
+            currentHp = (hp >= 0f) ? hp : maxHp;
+        }
 
         currentHp = Mathf.Max(0, currentHp);
         float percent = Mathf.Clamp01(currentHp / maxHp);
         float rightValue = Mathf.Lerp(438f, 0f, percent);
 
         hpFillRect.offsetMax = new Vector2(-rightValue, hpFillRect.offsetMax.y);
-        hpText.text = $"{Mathf.RoundToInt(currentHp)} / {maxHp}";
+        hpText.text = $"{Mathf.RoundToInt(currentHp)} / {Mathf.RoundToInt(maxHp)}";
     }
 
     private void SetXPUI(float xp = -1f)
     {
-        var data = LoadPlayerData();
-        if (data == null || xpFillRect == null || xpText == null) return;
+        if (xpFillRect == null || xpText == null) return;
 
-        float xpToNext = ps != null ? ps._xpToNextLevel : 100f;
-        float currentXp = (xp >= 0f) ? xp : data.xp;
+        float xpToNext, currentXp;
+        if (ps != null)
+        {
+            xpToNext = ps.XpToNextLevel;  // getter 필요
+            currentXp = (xp >= 0f) ? xp : /* ps에서 현재 XP 읽기용 getter 추가 권장 */ 0f;
+        }
+        else
+        {
+            var data = LoadPlayerData(); if (data == null) return;
+            xpToNext = 100f; // 파일에 없다면 보수적으로
+            currentXp = (xp >= 0f) ? xp : data.xp;
+        }
 
         currentXp = Mathf.Max(0, currentXp);
-        float percent = Mathf.Clamp01(currentXp / xpToNext);
+        float percent = Mathf.Clamp01(xpToNext > 0f ? currentXp / xpToNext : 0f);
         float rightValue = Mathf.Lerp(438f, 0f, percent);
 
         xpFillRect.offsetMax = new Vector2(-rightValue, xpFillRect.offsetMax.y);
         xpText.text = $"{Mathf.RoundToInt(currentXp)} / {Mathf.RoundToInt(xpToNext)}";
     }
+
 
     private void SetLevelUI(int level = -1)
     {

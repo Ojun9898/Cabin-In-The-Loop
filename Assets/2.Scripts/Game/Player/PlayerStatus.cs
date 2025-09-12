@@ -45,6 +45,12 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
     private Dictionary<StatusType, float> _buffStats = new Dictionary<StatusType, float>();
     public float _currentHealth;
     public float _xpToNextLevel;
+    
+    public float CurrentHealth => _currentHealth;
+    public float XpToNextLevel => _xpToNextLevel;
+    
+    public int Level => _data.level;
+    public float CurrentXp => _data.xp;
 
     private string SavePath => Path.Combine(Application.persistentDataPath, $"{characterType}_data.json");
     

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class QuestManager : Singleton<QuestManager>
 {
+    [SerializeField] private GameObject QuestManagerPrefab;
+    
     private HashSet<string> currentQuests = new HashSet<string>();
     private HashSet<string> allQuests = new HashSet<string>();
     private HashSet<string> endQuests = new HashSet<string>();
@@ -40,7 +42,7 @@ public class QuestManager : Singleton<QuestManager>
     protected override void Awake()
     {
         base.Awake();
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this.gameObject);
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -55,9 +57,15 @@ public class QuestManager : Singleton<QuestManager>
         isSceneCavin = scene.buildIndex == 1;
         isSceneLab = scene.buildIndex == 2;
 
+        if ((isSceneCavin || isSceneLab) && QuestManager.Instance == null)
+        {
+            Instantiate(QuestManagerPrefab);
+        }
+        
         if (isSceneMain)
         {
             ClearAllQuests();
+            Destroy(this.gameObject);
             return;
         }
         

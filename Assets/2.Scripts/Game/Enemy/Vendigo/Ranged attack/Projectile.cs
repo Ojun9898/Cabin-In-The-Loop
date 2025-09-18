@@ -61,9 +61,14 @@ public class Projectile : MonoBehaviour
         // “Player” 태그를 가진 객체와 부딪히면
         if (collision.gameObject.CompareTag("Player"))
         {
-            var hp = collision.gameObject.GetComponent<PlayerStatus>();
+            var hp = collision.gameObject.GetComponentInParent<PlayerStatus>();
             if (hp != null) hp.TakeDamage(damage);
         }
-       
+        
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            var hp = collision.gameObject.GetComponentInParent<PlayerStatusProxy>();
+            if (hp != null) hp.TakeDamage(damage);
+        }
     }
 }

@@ -11,6 +11,9 @@ TagManager:
   - Monster
   - DontDestroy
   - Zmobie
+  - PlayerSpawn
+  - Canvas
+  - Quest
   layers:
   - Default
   - TransparentFX

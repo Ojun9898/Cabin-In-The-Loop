@@ -1702,7 +1702,7 @@ GameObject:
   - component: {fileID: 683952275482672409}
   - component: {fileID: 684622201670766950}
   - component: {fileID: 6267725050460777783}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ripper 7
   m_TagString: Monster
   m_Icon: {fileID: 0}

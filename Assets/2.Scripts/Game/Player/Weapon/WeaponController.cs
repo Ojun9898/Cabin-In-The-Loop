@@ -7,7 +7,7 @@ public class WeaponController : MonoBehaviour
 
     private GameObject _currentWeapon;
     public WeaponType currentWeaponType;
-
+    
     /// <summary>
     /// 주어진 무기 타입으로 무기 장착
     /// </summary>
@@ -21,9 +21,11 @@ public class WeaponController : MonoBehaviour
         if (_currentWeapon != null)
         {
             currentWeaponType = weaponType;
-
-            if (PlayerStatus.Instance != null)
-                PlayerStatus.Instance.SetCurrentWeaponType(weaponType);
+    
+            
+            var ps = PlayerStatus.Ensure();
+            if (ps != null)
+                ps?.SetCurrentWeaponType(weaponType);
             
             // 지정된 소켓(손)에 부착
             _currentWeapon.transform.SetParent(handSocket);
@@ -69,9 +71,11 @@ public class WeaponController : MonoBehaviour
             Debug.LogWarning("SpawnDamageField: 장착된 무기가 없습니다.");
             return;
         }
-        if (PlayerStatus.Instance == null)
+
+        var ps = PlayerStatus.Ensure();
+        if (ps == null)
         {
-            Debug.LogWarning("SpawnDamageField: PlayerStatus 인스턴스를 찾을 수 없습니다.");
+            Debug.LogWarning("SpawnDamageField: PlayerStatus 인스턴스를 확보하지 못했습니다.");
             return;
         }
 
@@ -82,9 +86,10 @@ public class WeaponController : MonoBehaviour
             return;
         }
 
-        float totalDamage = PlayerStatus.Instance.CalculateDamage(data);
+        float atk = ps.GetTotalStat(StatusType.Attack);
+        float totalDamage = ps.CalculateDamage(data);
+        // Debug.Log($"[SpawnDamageField] char={ps.CharacterType} base={data.damage} atk={atk} total={totalDamage}");
 
-        // 1) 풀에서 루트 오브젝트 꺼내기 (보통 비활성 상태)
         GameObject root = GameManager.Instance.GetDamageField();
         if (root == null)
         {
@@ -92,7 +97,6 @@ public class WeaponController : MonoBehaviour
             return;
         }
 
-        // 2) DamageField 컴포넌트를 '자식 포함'해서 가져오기 (비활성 자식도 찾기 위해 true)
         DamageField df = root.GetComponentInChildren<DamageField>(true);
         if (df == null)
         {
@@ -100,21 +104,12 @@ public class WeaponController : MonoBehaviour
             return;
         }
 
-        // 3) 스폰 위치 지정 (원래 로직 유지)
         Vector3 spawnPos = handSocket.position + handSocket.forward * (data.range * 0.5f);
         root.transform.position = spawnPos;
 
-        // 4) '컴포넌트가 붙은 바로 그 GameObject'를 먼저 활성화
-        //    (자식이 꺼져 있던 케이스를 확실히 커버)
-        if (!df.gameObject.activeSelf)
-            df.gameObject.SetActive(true);
+        if (!df.gameObject.activeSelf) df.gameObject.SetActive(true);
+        if (!root.activeSelf) root.SetActive(true);
 
-        // 5) 루트도 활성화 (둘 다 켜서 활성 계층 보장)
-        if (!root.activeSelf)
-            root.SetActive(true);
-
-        // 6) Initialize는 '활성화 후' 호출 (StartCoroutine 보장)
         df.Initialize(gameObject, totalDamage, data.range, duration);
     }
-
 }

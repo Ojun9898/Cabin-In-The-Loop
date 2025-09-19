@@ -204,6 +204,19 @@ private void HandlePlayerAndCamera(Scene scene)
             var cam = Instantiate(camerasPrefab);
             cameraTransform = cam.transform;
         }
+        
+        var wc = playerObj.GetComponent<WeaponController>();
+        if (wc != null)
+        {
+            var ps = PlayerStatus.Ensure();
+            // 저장된 무기 타입이 있으면 그걸, 없으면 디폴트(Axe) 장착
+            var equipType = ps.CurrentWeaponType != 0 ? ps.CurrentWeaponType : WeaponType.Axe;
+            wc.EquipWeapon(equipType);
+        }
+        else
+        {
+            Debug.LogWarning("[GameManager] WeaponController를 Player에서 찾지 못했습니다.");
+        }
     }
 }
 

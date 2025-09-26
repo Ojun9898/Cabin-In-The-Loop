@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 167ccef852c3428283680cfb292d1ff4, type: 3}
+  m_Name: BaseballBat
+  m_EditorClassIdentifier: 
+  weaponType: 3
+  prefab: {fileID: 3631209480993781246, guid: b37a71a92ed99964bb73beca16a29474, type: 3}
+  displayName: 
+  damage: 30
+  range: 0
+  icon: {fileID: 0}
+  category: 0

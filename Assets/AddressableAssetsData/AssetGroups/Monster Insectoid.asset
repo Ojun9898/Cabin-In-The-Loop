@@ -1,0 +1,103 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Monster Insectoid
+  m_EditorClassIdentifier: 
+  m_GroupName: Monster Insectoid
+  m_Data:
+    m_SerializedData: []
+  m_GUID: e4607cc07e83f8342bdf1370787dfc12
+  m_SerializeEntries:
+  - m_GUID: 12ca9fa8291822740b8917c8394155d7
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 13d6dc6db0f1a1a4780221240fc2808e
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 12.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 1929df466f0100d41aa8f988cd327202
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 10.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 217f2a5ce5a94b94387d170c0e2b94a6
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 9.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22829aa1aa7eb48449db2c62f88a7201
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 496de6a160a7d584282219655d29992e
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86efaef25c974454485c35d652865b67
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 8bcf3fb89f40d734caa45f7745b91ba1
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9e4952ee80fe63f4285498594f9e3970
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: afb2652bfafe1c04ca44b8499191064e
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b9fa641cb303fd5428ca34906090daac
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c1b161e8e851d4943bdba155aeb9f118
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 11.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e68f3075e07cbbd4b95ebe6d01ff2d76
+    m_Address: Assets/3.Prefabs/Addressables/Insectoid/Insectoid 5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Insectoid
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3fb7d4f27ca401143b6ba8e01506160c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: e8ff3aa48700afc42a9340a6100277fe, type: 2}
+    - {fileID: 11400000, guid: cc24f9092da268a43a495ebcc4ce499e, type: 2}

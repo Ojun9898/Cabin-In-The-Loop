@@ -1,0 +1,151 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: Monster Zombie
+  m_EditorClassIdentifier: 
+  m_GroupName: Monster Zombie
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 3de96cdbb86cabb40a10fd3e329dbd4a
+  m_SerializeEntries:
+  - m_GUID: 043223f7f94fccf4c9569b8f7790b4b1
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 10.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0472ca1e83fdb404fb00a7bc0f8fdf80
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 5.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 22efc27f23ef9504c97cd25e65606010
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 14.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 24d4044cbe26e9e4a873970740372223
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 274c84418b2443e4d9639f2b15bbf934
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 17.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28c0e5a124a7d5b48a8caac6253773bf
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 4.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 28d6c158a634a2e4e88f431d4ae5c832
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 16.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 52efbf597a590a749953cfd41791e989
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 15.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5583476d8e1d9444bbe29332d804e2ab
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 6.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 5f366316be0e5e34288b9a516ecb43e9
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 12.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 7ed8af422a8399f4791e368249fc93d5
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 7.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 85524c303ff43ef41a912590a9503cbb
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 8.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 86aa0ac35f5d80141a821c456218c258
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 20.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 9a051ae0649e3c040843617606b700e8
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 19.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: a59e889ae7b6fde4ea283f45e4240a87
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 3.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: c7b9623a68aa9c048ad2576c94c1ee97
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 2.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cb14a85ce092dd84480dac878695d455
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 9.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: cf38ff315d0db1d48932e237d1e17989
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 18.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dc8c856625d3e2d4d913e13abb2cce3b
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f3bc2b690208caf49932baa103dbf160
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 11.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f52c47c44afe2bc4a9ed36be50db4755
+    m_Address: Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 13.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels:
+    - Zombie
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3fb7d4f27ca401143b6ba8e01506160c, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a3cf2c1b6181e784da206d4e7ff6e0b1, type: 2}
+    - {fileID: 11400000, guid: b61bf4bf29eafd648a6fa34cf2e0c2cd, type: 2}

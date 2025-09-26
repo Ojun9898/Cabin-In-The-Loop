@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a3aa0a35-3329-4090-9829-b68e4ca5d9ae" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/1.Scene/(Bake)Cavin.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/1.Scene/(Bake)Cavin.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/1.Scene/(Bake)Laboratory.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/1.Scene/(Bake)Laboratory.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/1.Scene/Test (Bake)Laboratory.unity" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/1.Scene/Test (Bake)Laboratory.unity.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Cavin.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Cavin/MonsterSFX Manager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Cavin/MonsterSFX Manager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Cavin/ProjectilePoolManager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Cavin/ProjectilePoolManager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Cavin/Round Manager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Cavin/Round Manager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Cavin/Round0 Start.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Cavin/Round0 Start.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Cavin/Spawn Manager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Cavin/Spawn Manager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider/1F_C.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider/1F_C.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider/2F_C.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider/2F_C.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider/3F_C.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider/3F_C.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider/5F_C.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider/5F_C.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider/6F_C.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider/6F_C.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider/Final Floor_C.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Collider/Final Floor_C.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Round Manager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Round Manager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Spawn Manager.prefab" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/10.Gimong_Prefabs/Laboratory/Spawn Manager.prefab.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Main/UI/PauseManager.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/2.Scripts/Main/UI/PauseManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/1.Scene/Test (Bake)Cavin.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/Test (Bake)Cavin.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/DamageField.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/DamageField.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/GameManager.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/GameManager.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Map/ElevatorOutdoorController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Map/ElevatorOutdoorController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Map/ManholeController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Map/ManholeController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Spawn Monster/Spawn Manager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Spawn Monster/Spawn Manager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Round/RoundStartTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Round/RoundStartTrigger.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Beast/Beast 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Beast/Beast 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Beast/Beast.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Beast/Beast.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 10.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 11.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 11.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 12.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 12.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 13.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 13.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 6.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 7.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 7.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 8.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 8.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 9.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid 9.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Insectoid/Insectoid.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 10.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 11.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 11.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 6.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 7.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 7.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 8.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 8.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 9.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper 9.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Ripper/Ripper.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo 3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo 3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo 5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo 5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo 6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo 6.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo 7.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo 7.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Vendigo/Vendigo.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 10.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 10.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 11.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 11.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 12.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 12.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 13.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 13.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 15.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 15.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 16.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 16.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 17.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 17.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 18.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 18.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 19.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 19.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 2.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 2.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 20.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 20.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 21.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 21.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 3.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 3.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 5.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 5.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 6.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 6.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 7.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 7.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 8.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 8.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 9.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant 9.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/Addressables/Zombie/Zombie Mutant.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/DamageField.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/DamageField.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/UI/Settings Panel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/UI/Settings Panel.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/3.Prefabs/UI/Settings Panel.prefab.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/3.Prefabs/UI/Settings Panel.prefab.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Enemy.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Enemy.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Map.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Map.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Map/Nature/Realistic Volume Profiles/HDRP/Volumes/Night Fog Volume.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Map/Nature/Realistic Volume Profiles/HDRP/Volumes/Night Fog Volume.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Player.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Player.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/Sat Productions.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/Sat Productions.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/UI.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/Dark - Complete Horror UI v2.1.8.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/Dark - Complete Horror UI v2.1.8/Dark - Complete Horror UI v2.1.8.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/210 BasilicaB SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/210 BasilicaB SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/210 스위트홈R SDF.asset" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/210 스위트홈R SDF.asset.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/210 스위트홈R.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/210 스위트홈R.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/LiberationSans - OFL.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/LiberationSans - OFL.txt.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/LiberationSans.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/LiberationSans.ttf.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/STM Nightmare R SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/STM Nightmare R SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/blackcraft/Blackcraft SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/blackcraft/Blackcraft SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/help_me/HelpMe SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/help_me/HelpMe SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/needleteeth/Needleteeth Psycho SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/needleteeth/Needleteeth Psycho SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/unutterable/Unutterable-Italic SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/unutterable/Unutterable-Italic SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/unutterable/Unutterable-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/4.Resources/UI/TextMesh Pro/Fonts/unutterable/Unutterable-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/8.Datas/Weapons/Axe 1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/8.Datas/Weapons/Axe 1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/8.Datas/Weapons/CrowBar.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/8.Datas/Weapons/CrowBar.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GIMONG-KO&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Ojun9898/Cabin-In-The-Loop.git&quot;,
+    &quot;accountId&quot;: &quot;6fb27c18-4b61-4849-bdf5-7b8fc219befe&quot;
+  }
+}</component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/TestPlayerController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.high-definition@14.0.12/Runtime/Material/Lit/Lit.shader" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="2w3pps7YS064zW3wrLzFso3w0v9" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;kimong&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.CommitDialog&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="유닛 테스트(배치 모드)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.60f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath D:\MSGit\Cabin-In-The-Loop -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\MSGit\Cabin-In-The-Loop" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Start Unity" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity 2022.3.60f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;K:\유니티 프로젝트\Cabin-In-The-Loop&quot; -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="K:\유니티 프로젝트\Cabin-In-The-Loop" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unit Tests (batch mode)" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity 2022.3.60f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;K:\유니티 프로젝트\Cabin-In-The-Loop&quot; -testResults Logs/results.xml -logFile Logs/Editor.log -testPlatform EditMode -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="K:\유니티 프로젝트\Cabin-In-The-Loop" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Unity 시작" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.60f1\Editor\Unity.exe" />
+      <option name="PROGRAM_PARAMETERS" value="-projectPath D:\MSGit\Cabin-In-The-Loop -debugCodeOptimization" />
+      <option name="WORKING_DIRECTORY" value="D:\MSGit\Cabin-In-The-Loop" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="projectPathOnTarget" />
+      <option name="runtimes">
+        <list />
+      </option>
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a3aa0a35-3329-4090-9829-b68e4ca5d9ae" name="Changes" comment="" />
+      <created>1745280300562</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1745280300562</updated>
+      <workItem from="1745280316427" duration="1037000" />
+      <workItem from="1745284789789" duration="2474000" />
+      <workItem from="1745299375941" duration="295000" />
+      <workItem from="1745299956744" duration="1109000" />
+      <workItem from="1745301826424" duration="4119000" />
+      <workItem from="1745308058557" duration="3042000" />
+      <workItem from="1745311219036" duration="9000" />
+      <workItem from="1745311241165" duration="1220000" />
+      <workItem from="1745323056093" duration="4301000" />
+      <workItem from="1745371281710" duration="1803000" />
+      <workItem from="1745373113248" duration="7000" />
+      <workItem from="1745373180478" duration="1680000" />
+      <workItem from="1745381220490" duration="1793000" />
+      <workItem from="1745394103105" duration="691000" />
+      <workItem from="1745395710274" duration="51000" />
+      <workItem from="1745452599311" duration="2536000" />
+      <workItem from="1745455859596" duration="4404000" />
+      <workItem from="1745460353679" duration="254000" />
+      <workItem from="1745460619143" duration="837000" />
+      <workItem from="1745470990094" duration="499000" />
+      <workItem from="1745471606207" duration="373000" />
+      <workItem from="1745542172108" duration="149000" />
+      <workItem from="1745542334778" duration="1974000" />
+      <workItem from="1747122201223" duration="213000" />
+      <workItem from="1747143066686" duration="212000" />
+      <workItem from="1747143495791" duration="150000" />
+      <workItem from="1747144626695" duration="720000" />
+      <workItem from="1747145853975" duration="9136000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="Both" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+</project>

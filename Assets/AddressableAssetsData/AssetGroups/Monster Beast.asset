@@ -17,14 +17,14 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: 3a9b0f65a5a207848be4666b456002fa
   m_SerializeEntries:
-  - m_GUID: 2c674d77223e9cd4e9d04b5fbb7e5d79
-    m_Address: Assets/3.Prefabs/Addressables/Beast/Beast.prefab
+  - m_GUID: 4e19ea79f9364fb44ab43261a8f7c87c
+    m_Address: Assets/3.Prefabs/Addressables/Beast/Beast 1.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Beast
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 885b44919802d3e448c65802e77740e2
-    m_Address: Assets/3.Prefabs/Addressables/Beast/Beast 1.prefab
+  - m_GUID: ca6190ff09192484e84c0c79a44bbbe1
+    m_Address: Assets/3.Prefabs/Addressables/Beast/Beast.prefab
     m_ReadOnly: 0
     m_SerializedLabels:
     - Beast

@@ -11,10 +11,16 @@ public class BeastStateMachine : StateMachine<Monster>
     [SerializeField] private float howlRange = 8f;
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private ParticleSystem howlParticle; // 하울링 파티클 시스템
+    [SerializeField] private BeastHowlEffect howlEffect; // 하울링시 사용할 특수효과
+  
     private int currentHealth;
     private bool isHowling = false;
     
     public Transform PlayerTransform => playerTransform;
+    
+    // 하울링시 적용할 데미지 증가코드
+    public float CurrentDamageMultiplier =>
+        (howlEffect != null) ? howlEffect.CurrentDamageMultiplier : 1f;
     
     public void SetPlayerTransform(Transform t)
     {
@@ -145,6 +151,9 @@ public class BeastStateMachine : StateMachine<Monster>
             howlParticle.gameObject.SetActive(true);
             howlParticle.Play();
         }
+        
+        // ★ 버스트 트리거 (이후 5초 유지 + 페이드아웃까지 독립 동작)
+        howlEffect?.TriggerHowlBurst();
     }
 
     public void EndHowling()
@@ -155,6 +164,7 @@ public class BeastStateMachine : StateMachine<Monster>
             howlParticle.Stop();
             howlParticle.gameObject.SetActive(false);
         }
+        
     }
     
     // 디버깅을 위한 현재 상태 로그 출력

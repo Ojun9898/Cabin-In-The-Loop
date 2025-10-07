@@ -367,12 +367,13 @@ GameObject:
   - component: {fileID: 4000014274720376}
   - component: {fileID: 95000013647225768}
   - component: {fileID: 6973888062466689483}
+  - component: {fileID: -6245805661275185643}
   - component: {fileID: 652783678529597985}
   - component: {fileID: 1581512944965833925}
   - component: {fileID: 8784251052489168926}
   - component: {fileID: 387499677671764232}
   - component: {fileID: 624290811377133431}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: Beast 1
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -437,7 +438,28 @@ MonoBehaviour:
   howling: {fileID: 0}
   howlRange: 5
   maxHealth: 100
-  howlParticle: {fileID: 0}
+  howlParticle: {fileID: 2769348811187216697}
+  howlEffect: {fileID: -6245805661275185643}
+--- !u!114 &-6245805661275185643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011194474354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c821561a8d00069429d72da311c119d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRenderer: {fileID: 137000011634366198}
+  baseColorProperty: _BaseColor
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  howlColor: {r: 1, g: 0, b: 0, a: 1}
+  fadeInSeconds: 1
+  holdSeconds: 5
+  fadeOutSeconds: 1
+  buffMultiplier: 1.5
 --- !u!114 &652783678529597985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1986,6 +2008,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82066d902ed0dd6488ddfd32eb994801, type: 3}
+--- !u!198 &2769348811187216697 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4891440538664600065, guid: 82066d902ed0dd6488ddfd32eb994801,
+    type: 3}
+  m_PrefabInstance: {fileID: 7318163934416626488}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6783805133141984540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4299738629470430756, guid: 82066d902ed0dd6488ddfd32eb994801,

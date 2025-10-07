@@ -29,11 +29,23 @@ public class BeastChaseState : BeastBaseState
             navMeshAgent.speed = RUN_SPEED;
 
         PlayAnimation("Chase");
+        // Chase 사운드 재생 요청
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Chase,
+            EMonsterType.Beast,
+            beast.transform
+        );
     }
 
     public override void UpdateState()
     {
         base.UpdateState();
+        // Chase 사운드 반복 재생
+        MonsterSFXManager.Instance.RequestPlay(
+            EState.Chase,
+            EMonsterType.Beast,
+            beast.transform
+        );
         MoveToPlayer();
         
         // 상태 전환 처리

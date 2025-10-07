@@ -367,6 +367,7 @@ GameObject:
   - component: {fileID: 4000014274720376}
   - component: {fileID: 95000013647225768}
   - component: {fileID: 6973888062466689483}
+  - component: {fileID: -6245805661275185643}
   - component: {fileID: 652783678529597985}
   - component: {fileID: 1581512944965833925}
   - component: {fileID: 8784251052489168926}
@@ -438,6 +439,26 @@ MonoBehaviour:
   howlRange: 5
   maxHealth: 100
   howlParticle: {fileID: 0}
+  howlEffect: {fileID: -6245805661275185643}
+--- !u!114 &-6245805661275185643
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011194474354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c821561a8d00069429d72da311c119d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetRenderer: {fileID: 137000011634366198}
+  baseColorProperty: _BaseColor
+  normalColor: {r: 1, g: 1, b: 1, a: 1}
+  howlColor: {r: 1, g: 0, b: 0, a: 1}
+  duration: 5
+  colorFadeSpeed: 6
+  damageMultiplierWhileHowling: 1.5
 --- !u!114 &652783678529597985
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,6 +9,8 @@ public class BeastAttackState : BeastBaseState
     private const float DAMAGE_FIELD_RADIUS = 2f;
     private float CHASE_RANGE => beast.chaseRange;    // 추적 사거리
     private const float DAMAGE_AMOUNT = 20f;          // 공격 데미지
+    private BeastHowlEffect _howl;                 // 캐시
+
     private bool hasAttacked = false;
     
     private const int MAX_ATTACK_ANIMATIONS = 4; // Attack1~4까지 있음
@@ -22,6 +24,8 @@ public class BeastAttackState : BeastBaseState
     public override void EnterState()
     {
         base.EnterState();
+        if (_howl == null) _howl = beast.GetComponent<BeastHowlEffect>(); // 1회 캐시
+        
         StopMoving();
         hasAttacked = false; // 공격 플래그 초기화
         
@@ -67,11 +71,13 @@ public class BeastAttackState : BeastBaseState
         GameObject damageField = GameManager.Instance.GetDamageField();
         if (damageField != null)
         {
+            float amount = DAMAGE_AMOUNT * (stateMachine ? stateMachine.CurrentDamageMultiplier : 1f);
+            
             damageField.transform.position = beast.transform.position;
             damageField.GetComponent<DamageField>().Initialize(
-                beast.gameObject, 
-                DAMAGE_AMOUNT, 
-                DAMAGE_FIELD_RADIUS, 
+                beast.gameObject,
+                amount,
+                DAMAGE_FIELD_RADIUS,
                 0.1f // 데미지 필드 지속 시간
             );
         }

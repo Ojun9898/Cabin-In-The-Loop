@@ -1379,7 +1379,7 @@ GameObject:
   - component: {fileID: 1243305851507301560}
   - component: {fileID: 5923239539901537516}
   - component: {fileID: 7865903747995909980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Insectoid 8
   m_TagString: Monster
   m_Icon: {fileID: 0}

@@ -4,7 +4,7 @@ public class BeastRattackState : BeastBaseState
 {
     private const float HOWL_DURATION = 2f;
     private const float PARTICLE_START_TIME = 0.5f; // 애니메이션 시작 후 파티클이 나오는 시간
-    private const float HOWL_COOLDOWN = 15f; // 하울링 쿨다운 시간
+    private const float HOWL_COOLDOWN = 20f; // 하울링 쿨다운 시간
     private static float lastHowlTime = 0f; // 마지막 하울링 시간 (static으로 모든 인스턴스가 공유)
     private bool hasStartedParticle = false;
 

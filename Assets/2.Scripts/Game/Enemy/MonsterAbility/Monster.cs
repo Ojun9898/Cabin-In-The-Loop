@@ -16,7 +16,7 @@ public class Monster : MonoBehaviour, IDamageable
     [SerializeField] private PlayerStatusProxy playerStatusProxy;
     
     [Header("감지 범위")]
-    public float chaseRange = 20f;
+    public float chaseRange = 48f;
     public float attackRange = 1.5f;
     
     [Header("참조")]

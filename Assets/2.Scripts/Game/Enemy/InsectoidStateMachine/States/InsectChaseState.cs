@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class InsectChaseState : InsectBaseState
 {
-    private const float CHASE_RANGE = 20f;
+    private const float CHASE_RANGE = 48f;
     private const float ATTACK_RANGE = 1.5f;
     
     protected override void SetStateKey()

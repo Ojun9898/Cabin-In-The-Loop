@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class BeastChaseState : BeastBaseState
 {
-    private const float CHASE_RANGE = 18f;
     private const float ATTACK_RANGE = 1.5f;
     
     // 추격시에는 이동속도가 더 빨라짐

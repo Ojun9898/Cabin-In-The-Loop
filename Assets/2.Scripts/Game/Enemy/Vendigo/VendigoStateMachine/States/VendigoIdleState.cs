@@ -5,7 +5,7 @@ using UnityEngine;
 public class VendigoIdleState : VendigoBaseState
 {
     private const float IDLE_DURATION = 3f;
-    private const float CHASE_RANGE = 8f;
+    private const float CHASE_RANGE = 48f;
     
     protected override void SetStateKey()
     {

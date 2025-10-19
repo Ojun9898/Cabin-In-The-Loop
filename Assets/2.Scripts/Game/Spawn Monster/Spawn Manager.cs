@@ -355,7 +355,7 @@ public class SpawnManager : MonoBehaviour
         var monsterComp = m.GetComponent<Monster>();
         // 0 라운드을떄는 체력 10만
         if (roundIndex == 0)
-            monsterComp.ResetState(spawnPos, playerTransform, overrideMaxHealth: 1_000);
+            monsterComp.ResetState(spawnPos, playerTransform, overrideMaxHealth: 100_000);
         else
             monsterComp.ResetState(spawnPos, playerTransform);
         

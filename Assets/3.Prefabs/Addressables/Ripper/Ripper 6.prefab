@@ -1867,7 +1867,7 @@ MonoBehaviour:
   attackDamage: 10
   playerStatus: {fileID: 0}
   playerStatusProxy: {fileID: 0}
-  chaseRange: 20
+  chaseRange: 48
   attackRange: 1.5
   player: {fileID: 0}
 --- !u!1 &1000013093023430

@@ -9,7 +9,7 @@ public class RipperPatorlState : RipperBaseState
     
     private const float WANDER_DURATION = 5f;
     private const float WANDER_RADIUS = 16f;
-    private const float CHASE_RANGE = 18f;
+    private const float CHASE_RANGE = 8f;
     
     private Vector3 wanderTarget;
     private NavMeshAgent navMeshAgent;

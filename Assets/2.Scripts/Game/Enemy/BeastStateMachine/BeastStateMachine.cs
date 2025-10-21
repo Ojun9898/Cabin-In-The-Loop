@@ -12,6 +12,11 @@ public class BeastStateMachine : StateMachine<Monster>
     [SerializeField] private int maxHealth = 100;
     [SerializeField] private ParticleSystem howlParticle; // 하울링 파티클 시스템
     [SerializeField] private BeastHowlEffect howlEffect; // 하울링시 사용할 특수효과
+    
+    // 하울링 효과받을 범위설정
+    [SerializeField] private float howlAoeRadius = 8f;  // 둥근 원(구) 반경
+    [SerializeField] private LayerMask enemyMask;       // 적이 속한 레이어
+    [SerializeField] private bool use2D = false;        // 2D 게임이면 체크(원/원판), 3D면 해제(구)
   
     private int currentHealth;
     private bool isHowling = false;
@@ -154,6 +159,51 @@ public class BeastStateMachine : StateMachine<Monster>
         
         // ★ 버스트 트리거 (이후 5초 유지 + 페이드아웃까지 독립 동작)
         howlEffect?.TriggerHowlBurst();
+        
+        // 하울링 효과 10초
+        ApplyHowlAoe(10f);
+    }
+    
+    void ApplyHowlAoe(float durationSeconds)
+    {
+        if (durationSeconds <= 0f) return;
+
+        if (use2D)
+        {
+            // 2D: 원(OverlapCircle)
+            var hits = Physics2D.OverlapCircleAll(transform.position, howlAoeRadius, enemyMask);
+            foreach (var h in hits)
+            {
+                if (!h || h.attachedRigidbody && h.attachedRigidbody.gameObject == gameObject) continue;
+
+                var eff = h.GetComponent<B_ApplyEffet>() ?? h.GetComponentInParent<B_ApplyEffet>();
+                if (eff != null)
+                    eff.ActivateFor(durationSeconds);
+            }
+        }
+        else
+        {
+            // 3D: 구(OverlapSphere)
+            var hits = Physics.OverlapSphere(transform.position, howlAoeRadius, enemyMask, QueryTriggerInteraction.Collide);
+            foreach (var h in hits)
+            {
+                if (!h || h.gameObject == gameObject) continue;
+
+                var eff = h.GetComponent<B_ApplyEffet>() ?? h.GetComponentInParent<B_ApplyEffet>();
+                if (eff != null)
+                    eff.ActivateFor(durationSeconds);
+            }
+        }
+    }
+
+    // (선택) 에디터에서 반경을 보이게
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.cyan;
+        if (use2D)
+            Gizmos.DrawWireSphere(transform.position, howlAoeRadius); // 2D도 씬 뷰에서는 구처럼 보임
+        else
+            Gizmos.DrawWireSphere(transform.position, howlAoeRadius);
     }
 
     public void EndHowling()

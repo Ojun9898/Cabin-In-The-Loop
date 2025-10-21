@@ -9,7 +9,8 @@ public class RipperChaseState : RipperBaseState
     private const float ATTACK_RANGE = 1.5f;
     
     // 추격시에는 이동속도가 더 빨라짐
-    private const float RUN_SPEED = 3f;
+    private float runSpeed = 3f; // ★ 변경: const → 필드(기본값 동일)
+    public float BaseRunSpeed => runSpeed; 
     
     
     protected override void SetStateKey() => stateKey = EState.Chase;
@@ -33,7 +34,7 @@ public class RipperChaseState : RipperBaseState
         base.EnterState();
         // Run 상태 진입 시 속도 변경
         if (navMeshAgent != null) 
-            navMeshAgent.speed = RUN_SPEED;
+            navMeshAgent.speed = runSpeed;
             
         PlayAnimation("Ripper Run");
         // Chase 사운드 재생 요청

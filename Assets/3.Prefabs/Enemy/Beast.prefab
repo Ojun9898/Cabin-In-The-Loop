@@ -373,7 +373,8 @@ GameObject:
   - component: {fileID: 8784251052489168926}
   - component: {fileID: 387499677671764232}
   - component: {fileID: 624290811377133431}
-  m_Layer: 0
+  - component: {fileID: 2325460856063443929}
+  m_Layer: 7
   m_Name: Beast
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -440,6 +441,11 @@ MonoBehaviour:
   maxHealth: 100
   howlParticle: {fileID: 0}
   howlEffect: {fileID: -6245805661275185643}
+  howlAoeRadius: 8
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
+  use2D: 0
 --- !u!114 &-6245805661275185643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,9 +462,10 @@ MonoBehaviour:
   baseColorProperty: _BaseColor
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   howlColor: {r: 1, g: 0, b: 0, a: 1}
-  duration: 5
-  colorFadeSpeed: 6
-  damageMultiplierWhileHowling: 1.5
+  fadeInSeconds: 1
+  holdSeconds: 5
+  fadeOutSeconds: 1
+  buffMultiplier: 1.5
 --- !u!114 &652783678529597985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -565,6 +572,20 @@ MonoBehaviour:
   chaseRange: 20
   attackRange: 1.5
   player: {fileID: 0}
+--- !u!114 &2325460856063443929
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011194474354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5b81c60e23d5ef44990e845e03e46cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vfxRoot: {fileID: 0}
+  extendDurationOnRetrigger: 1
 --- !u!1 &1000011219002044
 GameObject:
   m_ObjectHideFlags: 0

@@ -267,6 +267,13 @@ public class Monster : MonoBehaviour, IDamageable
         return Vector3.Distance(transform.position, player.position) <= range;
     }
     
+    // 플레이어와 멀리 있어도  Beast가 하울링을 사용할 수 있게 수정 
+    public bool IsPlayerInHowlRange(float holeRange)
+    {
+        if (player == null) return false;
+        return Vector3.Distance(transform.position, player.position) <= holeRange;
+    }
+    
     public bool IsPlayerInAttackRange()
     {
         return IsPlayerInRange(attackRange);
@@ -277,14 +284,17 @@ public class Monster : MonoBehaviour, IDamageable
         return IsPlayerInRange(chaseRange);
     }
     
-    public void MoveToPlayer()
+    public void SetPlayerPosition()
     {
         if (isDead) return;
         if (player == null) return;
-
+        
+      // NavMeshHit : NavMesh.SamplePosition의 결과를 담을 구조체 변수  
       NavMeshHit navHit;
+      // player.position을 기준으로 반경 1.0m 안에서, NavMesh 위에 실제로 갈 수 있는 좌표를 샘플싱
       if (NavMesh.SamplePosition(player.position, out navHit, 1.0f, NavMesh.AllAreas))
       {
+          // true 일시, navHit 에 값을 담고, 유효한 NavMesh 좌표로 이동
           movement.MoveToTarget(navHit.position);
       }
     }

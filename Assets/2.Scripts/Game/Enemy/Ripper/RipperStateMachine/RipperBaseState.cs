@@ -72,7 +72,7 @@ public abstract class RipperBaseState : State<Monster>
     
     protected void MoveToPlayer()
     {
-        ripper.MoveToPlayer();
+        ripper.SetPlayerPosition();
     }
 
     protected void StopMoving()

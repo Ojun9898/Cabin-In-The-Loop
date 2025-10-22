@@ -1,10 +1,7 @@
 using UnityEngine;
 
-
 public class BeastChaseState : BeastBaseState
 {
-    private const float ATTACK_RANGE = 1.5f;
-    
     // 추격시에는 이동속도가 더 빨라짐
     private const float RUN_SPEED = 3.1f;
     
@@ -45,7 +42,7 @@ public class BeastChaseState : BeastBaseState
             EMonsterType.Beast,
             beast.transform
         );
-        MoveToPlayer();
+        SetPlayerPosition();
         
         // 상태 전환 처리
         EState nextState = CheckStateTransitions();
@@ -73,12 +70,13 @@ public class BeastChaseState : BeastBaseState
             return EState.Attack;
         }
 
-        // 하울링 사용 가능하고 플레이어가 하울링 범위 안에 있으면 Rattack 상태로 전환
-        if (BeastRattackState.CanUseHowl() && IsPlayerInHowlRange())
-        {
-            return EState.Rattack;
-        }
+        // 인스턴스 상태를 꺼내서 CanUseHowl() 호출
+        var machine = beast != null ? beast.GetComponent<BeastStateMachine>() : null;   
+        var rattackState = machine != null ? machine.GetState<BeastRattackState>() : null;
 
+        if (rattackState != null && rattackState.CanUseHowl() && IsPlayerInHowlRange())
+            return EState.Rattack;
+        
         return EState.Chase;
     }
 } 

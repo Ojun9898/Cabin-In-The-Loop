@@ -503,7 +503,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   vfx: {fileID: -5076199227880347309}
   buffDuration: 10
-  verboseLogging: 1
 --- !u!1 &1000010712654790
 GameObject:
   m_ObjectHideFlags: 0

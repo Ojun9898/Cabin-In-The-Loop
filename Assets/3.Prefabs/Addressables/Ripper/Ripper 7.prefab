@@ -1886,11 +1886,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfxRoot: {fileID: 8797037379267793535}
-  extendDurationOnRetrigger: 1
-  setPlayRateOnActivate: 1
+  extendDuration: 1
   playRateOnActivate: 3
-  restorePlayRateOnEnd: 1
-  applyStatusOnRun: 1
 --- !u!114 &-9145617950807846356
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -21,8 +21,8 @@ public class MonsterMovement
         if (navMeshAgent != null)
         {
             navMeshAgent.isStopped = false; // 이동 활성화
+            // NavMeshAgent에게 다음 목표 지점을 호출
             navMeshAgent.SetDestination(targetPosition);
-            
         }
     }
 

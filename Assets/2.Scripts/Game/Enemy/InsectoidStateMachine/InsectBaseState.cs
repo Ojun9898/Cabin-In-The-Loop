@@ -72,7 +72,7 @@ public abstract class InsectBaseState : State<Monster>
     
     protected void MoveToPlayer()
     {
-        insect.MoveToPlayer();
+        insect.SetPlayerPosition();
     }
     
     protected void StopMoving()

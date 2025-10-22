@@ -44,7 +44,6 @@ public class BeastIdleState : BeastBaseState
                 return true;
             }
         }
-        
         return false;
     }
 } 

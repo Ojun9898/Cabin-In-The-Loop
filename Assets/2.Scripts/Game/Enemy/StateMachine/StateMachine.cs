@@ -64,7 +64,7 @@ public abstract class StateMachine<T> : MonoBehaviour where T : MonoBehaviour
         Initialize();
     }
 
-protected virtual void Update()
+    protected virtual void Update()
     {
         if (currentState == null) return;
         

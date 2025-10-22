@@ -71,7 +71,7 @@ public abstract class ZombieBaseState : State<Monster>
     
     protected void MoveToPlayer()
     {
-        zombie.MoveToPlayer();
+        zombie.SetPlayerPosition();
     }
     
     protected void StopMoving()

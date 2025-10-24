@@ -15,7 +15,6 @@ public class RipperIdleState : RipperBaseState
         base.EnterState();
         StopMoving();
         PlayAnimation("Ripper Idle");
-       
     }
     
     public override void UpdateState()
@@ -46,7 +45,6 @@ public class RipperIdleState : RipperBaseState
                 return true;
             }
         }
-    
         return false;
     }
 }

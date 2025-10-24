@@ -5,7 +5,6 @@ using UnityEngine;
 public class RipperHitState : RipperBaseState
 {
     private const float HIT_DURATION = 0.5f;
-    private int damageAmount = 10; // 데미지 양 설정
     
     protected override void SetStateKey()
     {
@@ -40,7 +39,6 @@ public class RipperHitState : RipperBaseState
             }
             return true;
         }
-    
         return false;
     }
 }

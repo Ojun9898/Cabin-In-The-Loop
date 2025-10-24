@@ -44,6 +44,28 @@ public class RipperAttackState : RipperBaseState
         HandlePostAttack();
     }
     
+    private void HandlePostAttack()
+    {
+        // float.MaxValue : float이 표현할 수 있는 가장 큰 수
+        // ** 강제 종료 플래그만 세팅 ** 
+        stateTimer = float.MaxValue;
+    }
+    
+    // 공격 후 상태 전환 처리
+    private void HandlePostAttack(out EState nextState)
+    {
+        nextState = EState.Idle;
+
+        if (IsPlayerInRange(ATTACK_RANGE))
+        {
+            nextState = EState.Attack;
+        }
+        else if (IsPlayerInRange(CHASE_RANGE))
+        {
+            nextState = EState.Chase;
+        }
+    }
+    
     private void CreateDamageField()
     {
         GameObject damageField = GameManager.Instance.GetDamageField();
@@ -72,30 +94,5 @@ public class RipperAttackState : RipperBaseState
 
         HandlePostAttack(out nextState);
         return true;
-    }
-    
-    // 공격 후 상태 전환 처리
-    private void HandlePostAttack(out EState nextState)
-    {
-        nextState = EState.Idle;
-
-        if (IsPlayerInRange(ATTACK_RANGE))
-        {
-            nextState = EState.Attack;
-        }
-        else if (IsPlayerInRange(CHASE_RANGE))
-        {
-            nextState = EState.Chase;
-        }
-    }
-    
-    private void HandlePostAttack()
-    {
-        EState nextState;
-        HandlePostAttack(out nextState);
-        if (nextState != stateKey)
-        {
-            stateTimer = float.MaxValue;
-        }
     }
 }

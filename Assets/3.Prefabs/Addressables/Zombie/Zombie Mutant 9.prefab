@@ -468,7 +468,7 @@ MonoBehaviour:
   attackDamage: 10
   playerStatus: {fileID: 0}
   playerStatusProxy: {fileID: 0}
-  chaseRange: 20
+  chaseRange: 40
   attackRange: 1.5
   player: {fileID: 0}
 --- !u!114 &-5076199227880347309
@@ -484,11 +484,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfxRoot: {fileID: 4035684661231460654}
-  extendDurationOnRetrigger: 1
-  setPlayRateOnActivate: 1
+  extendDuration: 1
   playRateOnActivate: 3
-  restorePlayRateOnEnd: 1
-  applyStatusOnRun: 1
 --- !u!114 &3013606256638255089
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1553,7 +1553,7 @@ MonoBehaviour:
   attackDamage: 10
   playerStatus: {fileID: 0}
   playerStatusProxy: {fileID: 0}
-  chaseRange: 20
+  chaseRange: 40
   attackRange: 5
   player: {fileID: 0}
 --- !u!114 &-1276265854845893084
@@ -1569,11 +1569,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfxRoot: {fileID: 6447442509285883465}
-  extendDurationOnRetrigger: 1
-  setPlayRateOnActivate: 1
+  extendDuration: 1
   playRateOnActivate: 3
-  restorePlayRateOnEnd: 1
-  applyStatusOnRun: 1
 --- !u!114 &-7883518739956784047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1587,7 +1584,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: -1276265854845893084}
-  buffDuration: 10
 --- !u!1 &1000014061137296
 GameObject:
   m_ObjectHideFlags: 0

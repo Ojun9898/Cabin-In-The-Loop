@@ -28,8 +28,8 @@ public abstract class InsectBaseState : State<Monster>
         dir.y = 0f;
         if (dir.sqrMagnitude < 0.001f) return;
     
-        Quaternion want = Quaternion.LookRotation(dir);
-        insect.transform.rotation = Quaternion.Slerp(insect.transform.rotation, want, rotationSpeed * Time.deltaTime);
+        Quaternion target = Quaternion.LookRotation(dir);
+        insect.transform.rotation = Quaternion.Slerp(insect.transform.rotation, target, rotationSpeed * Time.deltaTime);
     }
     
     // 하위 클래스에서 구현하여 stateKey를 설정

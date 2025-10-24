@@ -16,7 +16,6 @@ public class BeastDeathState : BeastBaseState
         StopMoving();
         PlayAnimation("Death");
         hasStartedDeathAnimation = false;
-        
     }
     
     public override void UpdateState()

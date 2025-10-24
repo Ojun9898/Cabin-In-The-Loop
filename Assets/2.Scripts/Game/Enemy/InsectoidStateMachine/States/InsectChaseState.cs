@@ -2,8 +2,12 @@ using UnityEngine;
 
 public class InsectChaseState : InsectBaseState
 {
-    private const float CHASE_RANGE = 20f;
+    private const float CHASE_RANGE = 48f;
     private const float ATTACK_RANGE = 1.5f;
+    
+    // 추격시에는 이동속도가 더 빨라짐
+    private float runSpeed = 2.2f; // ★ 변경: const → 필드(기본값 동일)
+    public float BaseRunSpeed => runSpeed; 
     
     protected override void SetStateKey()
     {
@@ -13,6 +17,9 @@ public class InsectChaseState : InsectBaseState
     public override void EnterState()
     {
         base.EnterState();
+        // Run 상태 진입 시 속도 변경
+        if (navMeshAgent != null) 
+            navMeshAgent.speed = runSpeed;
         PlayAnimation("Walk");
     }
 

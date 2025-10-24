@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 8784251052489168926}
   - component: {fileID: 387499677671764232}
   - component: {fileID: 624290811377133431}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Beast
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -435,11 +435,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  howling: {fileID: 0}
-  howlRange: 5
+  howling: {fileID: 1090732837366667448}
+  howlRange: 8
   maxHealth: 100
   howlParticle: {fileID: 2769348811187216697}
   howlEffect: {fileID: -6245805661275185643}
+  howlEffectRadius: 8
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!114 &-6245805661275185643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -563,7 +567,7 @@ MonoBehaviour:
   attackDamage: 10
   playerStatus: {fileID: 0}
   playerStatusProxy: {fileID: 0}
-  chaseRange: 20
+  chaseRange: 40
   attackRange: 1.5
   player: {fileID: 0}
 --- !u!1 &1000011219002044
@@ -2008,6 +2012,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82066d902ed0dd6488ddfd32eb994801, type: 3}
+--- !u!114 &1090732837366667448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7686616450267773824, guid: 82066d902ed0dd6488ddfd32eb994801,
+    type: 3}
+  m_PrefabInstance: {fileID: 7318163934416626488}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a92d029fd443659da7121d4be1371d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &2769348811187216697 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 4891440538664600065, guid: 82066d902ed0dd6488ddfd32eb994801,

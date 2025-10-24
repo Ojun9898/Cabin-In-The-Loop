@@ -43,7 +43,6 @@ public class InsectStateMachine : StateMachine<Monster>
         Monster monster = GetComponent<Monster>();
         if (monster == null)
         {
-            
             monster = gameObject.AddComponent<Monster>();
         }
         

@@ -373,7 +373,7 @@ GameObject:
   - component: {fileID: 8784251052489168926}
   - component: {fileID: 387499677671764232}
   - component: {fileID: 624290811377133431}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Beast
   m_TagString: Monster
   m_Icon: {fileID: 0}
@@ -435,11 +435,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTransform: {fileID: 0}
-  howling: {fileID: 0}
+  howling: {fileID: 1090732837366667448}
   howlRange: 5
   maxHealth: 100
-  howlParticle: {fileID: 0}
+  howlParticle: {fileID: 2769348811187216697}
   howlEffect: {fileID: -6245805661275185643}
+  howlEffectRadius: 8
+  enemyMask:
+    serializedVersion: 2
+    m_Bits: 0
 --- !u!114 &-6245805661275185643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,9 +460,10 @@ MonoBehaviour:
   baseColorProperty: _BaseColor
   normalColor: {r: 1, g: 1, b: 1, a: 1}
   howlColor: {r: 1, g: 0, b: 0, a: 1}
-  duration: 5
-  colorFadeSpeed: 6
-  damageMultiplierWhileHowling: 1.5
+  fadeInSeconds: 1
+  holdSeconds: 5
+  fadeOutSeconds: 1
+  buffMultiplier: 1.5
 --- !u!114 &652783678529597985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2007,6 +2012,24 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82066d902ed0dd6488ddfd32eb994801, type: 3}
+--- !u!114 &1090732837366667448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7686616450267773824, guid: 82066d902ed0dd6488ddfd32eb994801,
+    type: 3}
+  m_PrefabInstance: {fileID: 7318163934416626488}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2a92d029fd443659da7121d4be1371d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!198 &2769348811187216697 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 4891440538664600065, guid: 82066d902ed0dd6488ddfd32eb994801,
+    type: 3}
+  m_PrefabInstance: {fileID: 7318163934416626488}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6783805133141984540 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4299738629470430756, guid: 82066d902ed0dd6488ddfd32eb994801,

@@ -3,7 +3,6 @@ using UnityEngine;
 public class BeastIdleState : BeastBaseState
 {
     private const float IDLE_DURATION = 3f;
-    private const float CHASE_RANGE = 8f;
     
     protected override void SetStateKey()
     {
@@ -45,7 +44,6 @@ public class BeastIdleState : BeastBaseState
                 return true;
             }
         }
-        
         return false;
     }
 } 

@@ -74,7 +74,7 @@ public abstract class VendigoBaseState : State<Monster>
 
     protected void MoveToPlayer()
     {
-        vendigo.MoveToPlayer();
+        vendigo.SetPlayerPosition();
     }
 
     protected void StopMoving()

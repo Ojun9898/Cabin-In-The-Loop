@@ -42,10 +42,14 @@ public class BeastAttackState : BeastBaseState
         if (beast.player != null)
         {
             Vector3 direction = (beast.player.transform.position - beast.transform.position).normalized;
-            direction.y = 0; // Y축 회전은 무시
+            // Y축 회전은 무시(수평면만 사용)
+            direction.y = 0; 
+            // 타겟과 같은 위치(0, 0, 0)가 아닐떄만 회전
             if (direction != Vector3.zero)
             {
+                // 타깃을 향한 회전값 생성
                 Quaternion targetRotation = Quaternion.LookRotation(direction);
+                // 천천히 회전하게 보간을 함
                 beast.transform.rotation = Quaternion.Slerp(beast.transform.rotation, targetRotation, Time.deltaTime * 10f);
             }
         }
@@ -85,12 +89,9 @@ public class BeastAttackState : BeastBaseState
     
     private void HandlePostAttack()
     {
-        EState nextState;
-        HandlePostAttack(out nextState);
-        if (nextState != stateKey)
-        {
-            stateTimer = float.MaxValue; // 상태 강제 종료
-        }
+        // float.MaxValue : float이 표현할 수 있는 가장 큰 수
+        // ** 강제 종료 플래그만 세팅 ** 
+        stateTimer = float.MaxValue;
     }
     
     private void HandlePostAttack(out EState nextState)

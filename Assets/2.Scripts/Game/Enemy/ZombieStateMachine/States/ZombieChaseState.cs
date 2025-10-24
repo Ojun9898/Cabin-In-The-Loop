@@ -3,23 +3,20 @@ using UnityEngine.AI;
 
 public class ZombieChaseState : ZombieBaseState
 {
-    private const float CHASE_RANGE     = 18f;
+    private const float CHASE_RANGE     = 48f;
     private const float ATTACK_RANGE    = 1.5f;
     // 추격시에는 이동속도가 더 빨라짐
-    private const float RUN_SPEED = 2.1f;
+    private float runSpeed = 2.1f; // ★ 변경: const → 필드(기본값 동일)
+    public float BaseRunSpeed => runSpeed;          // ★ 선택: 기본 추격속도 확인용
     
     protected override void SetStateKey() => stateKey = EState.Chase;
-
-    public override void Initialize(Monster owner)
-    {
-        base.Initialize(owner);
-    }
+    
     public override void EnterState()
     {
         base.EnterState();
         // Run 상태 진입 시 속도 변경
         if (navMeshAgent != null) 
-            navMeshAgent.speed = RUN_SPEED;
+            navMeshAgent.speed = runSpeed;
         PlayAnimation("Walk");
     }
     public override void UpdateState()

@@ -78,6 +78,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpikeBall
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c455996f6e6b49d418895f41b5216202,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -5716681864270162303, guid: c455996f6e6b49d418895f41b5216202, type: 3}
     m_RemovedGameObjects: []

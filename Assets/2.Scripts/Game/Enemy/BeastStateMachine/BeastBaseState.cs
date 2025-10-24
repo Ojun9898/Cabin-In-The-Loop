@@ -68,7 +68,7 @@ public abstract class BeastBaseState : State<Monster>
     
     protected bool IsPlayerInHowlRange()
     {
-        return beast.IsPlayerInRange(stateMachine.GetHowlRange());
+        return beast.IsPlayerInHowlRange(stateMachine.GetHowlRange());
     }
     
     protected void StartHowling()
@@ -81,9 +81,9 @@ public abstract class BeastBaseState : State<Monster>
         stateMachine.EndHowling();
     }
     
-    protected void MoveToPlayer()
+    protected void SetPlayerPosition()
     {
-        beast.MoveToPlayer();
+        beast.SetPlayerPosition();
     }
     
     protected void StopMoving()

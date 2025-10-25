@@ -153,7 +153,7 @@ public static class ProjectileLife
 {
     public static float GetLifetime(GameObject obj)
     {
-        if (obj.TryGetComponent<Projectile>(out var proj))
+        if (obj.TryGetComponent<V_Projectile>(out var proj))
         {
             return 4.0f;
         }

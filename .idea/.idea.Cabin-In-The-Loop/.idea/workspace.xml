@@ -8,13 +8,15 @@
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Cabin-In-The-Loop/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/1.Scene/(Bake)Cavin.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/(Bake)Cavin.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/1.Scene/Main.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/1.Scene/Main.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/R_ApplyStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/R_ApplyStatus.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/RipperStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/RipperStateMachine.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperAttackState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperChaseState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperChaseState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperDeathState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperDeathState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperHitState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperHitState.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperIdleState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Ripper/RipperStateMachine/States/RipperIdleState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/Ranged attack/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/Ranged attack/V_Projectile.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/Ranged attack/Projectile.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/Ranged attack/V_Projectile.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/Ranged attack/VendigoAttackEvents.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/Ranged attack/VendigoAttackEvents.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/States/VendigoAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/States/VendigoAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/V_ApplyStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/Vendigo/VendigoStateMachine/V_ApplyStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/ZombieStateMachine/States/ZombieAttackState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/ZombieStateMachine/States/ZombieAttackState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/ZombieStateMachine/Z_ApplyStatus.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/ZombieStateMachine/Z_ApplyStatus.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/ZombieStateMachine/ZombieStateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Enemy/ZombieStateMachine/ZombieStateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/2.Scripts/Game/Spawn Monster/ProjectilePoolManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/2.Scripts/Game/Spawn Monster/ProjectilePoolManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/8.Datas/Rounds/Round0.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/8.Datas/Rounds/Round0.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Monster Beast.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Monster Beast.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Monster Insectoid.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/AddressableAssetsData/AssetGroups/Monster Insectoid.asset" afterDir="false" />
@@ -194,7 +196,9 @@
       <workItem from="1761108501397" duration="8211000" />
       <workItem from="1761141295425" duration="5578000" />
       <workItem from="1761272241402" duration="4450000" />
-      <workItem from="1761306268581" duration="1027000" />
+      <workItem from="1761306268581" duration="1719000" />
+      <workItem from="1761356522456" duration="1790000" />
+      <workItem from="1761386506803" duration="256000" />
     </task>
     <servers />
   </component>

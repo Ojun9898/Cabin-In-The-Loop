@@ -22,7 +22,7 @@ public class VendigoAttackEvents : MonoBehaviour
         var pt = GetComponent<VendigoStateMachine>();
         Vector3 targetPos = pt.PlayerTransform.position;
         
-        Projectile.Throw
+        V_Projectile.Throw
         (
             projectilePrefab,
             muzzlePoint,

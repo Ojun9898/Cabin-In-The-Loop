@@ -27,7 +27,6 @@ public class VendigoAttackState : VendigoBaseState
         StopMoving();
         PlayAnimation("Vendigo Attack");
         hasAttacked = false;
-        
     }
     
     
@@ -60,19 +59,11 @@ public class VendigoAttackState : VendigoBaseState
         }
     }
     
-    // 공격 상태가 종료되었는지 확인
-    public override bool IsStateEnd(out EState nextState)
+    private void HandlePostAttack()
     {
-        nextState = EState.Attack;
-
-        // 공격 모션이 끝나지 않았으면 상태 종료 금지
-        if (stateTimer < ATTACK_DURATION)
-        {
-            return false;
-        }
-
-        HandlePostAttack(out nextState);
-        return true;
+        // float.MaxValue : float이 표현할 수 있는 가장 큰 수
+        // ** 강제 종료 플래그만 세팅 ** 
+        stateTimer = float.MaxValue;
     }
     
     // 공격 후 상태 전환 처리
@@ -89,14 +80,20 @@ public class VendigoAttackState : VendigoBaseState
             nextState = EState.Chase;
         }
     }
-
-    private void HandlePostAttack()
+    
+    // 공격 상태가 종료되었는지 확인
+    public override bool IsStateEnd(out EState nextState)
     {
-        EState nextState;
-        HandlePostAttack(out nextState);
-        if (nextState != stateKey)
+        nextState = EState.Attack;
+
+        // 공격 모션이 끝나지 않았으면 상태 종료 금지
+        if (stateTimer < ATTACK_DURATION)
         {
-            stateTimer = float.MaxValue;
+            return false;
         }
+
+        HandlePostAttack(out nextState);
+        return true;
     }
+
 }

@@ -71,6 +71,13 @@ public class ZombieAttackState : ZombieBaseState
         HandlePostAttack(out nextState);
         return true;
     }
+    
+    private void HandlePostAttack()
+    {
+        // float.MaxValue : float이 표현할 수 있는 가장 큰 수
+        // ** 강제 종료 플래그만 세팅 ** 
+        stateTimer = float.MaxValue;
+    }
 
     // 공격 후 상태 전환 처리
     private void HandlePostAttack(out EState nextState)
@@ -87,13 +94,5 @@ public class ZombieAttackState : ZombieBaseState
         }
     }
 
-    private void HandlePostAttack()
-    {
-        EState nextState;
-        HandlePostAttack(out nextState);
-        if (nextState != stateKey)
-        {
-            stateTimer = float.MaxValue;
-        }
-    }
+    
 } 

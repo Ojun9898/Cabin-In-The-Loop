@@ -359,7 +359,7 @@ NavMeshAgent:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000010676380376}
-  m_Enabled: 0
+  m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
   m_Speed: 3.5
@@ -468,7 +468,7 @@ MonoBehaviour:
   attackDamage: 10
   playerStatus: {fileID: 0}
   playerStatusProxy: {fileID: 0}
-  chaseRange: 40
+  chaseRange: 20
   attackRange: 1.5
   player: {fileID: 0}
 --- !u!114 &-5076199227880347309
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b81c60e23d5ef44990e845e03e46cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxRoot: {fileID: 4035684661231460654}
+  rageVFX: {fileID: 4035684661231460654}
   extendDuration: 1
   playRateOnActivate: 3
 --- !u!114 &3013606256638255089
@@ -499,7 +499,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: -5076199227880347309}
-  buffDuration: 10
 --- !u!1 &1000010712654790
 GameObject:
   m_ObjectHideFlags: 0

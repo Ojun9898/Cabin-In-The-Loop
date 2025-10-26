@@ -56,10 +56,13 @@ public class Monster : MonoBehaviour, IDamageable
     private void Awake()
     {
         defaultMaxHealth = maxHealth;
+        // 체력 초기화 설정
         InitializeHealth(maxHealth);
 
         stateMachine = GetComponent<StateMachine<Monster>>();
+        // 체력 및 navMeshAgent 값 초기화 설정
         InitializeComponents();
+        // OnHealthChanged, OnDeath에 각각의 함수들을 구독
         SubscribeToEvents();
         
         // HP UI 관련 컴포넌트 초기화
@@ -68,98 +71,12 @@ public class Monster : MonoBehaviour, IDamageable
         hpText = transform.Find("HPCanvas/HP/Text")?.GetComponent<TextMeshProUGUI>();
     }
     
-    private void OnEnable()
-    {
-        isDead   = false;
-        xpGiven  = false;
-        // 풀에서 꺼내 활성화될 때 true
-        isMonsterSpawned = true;
-        canTakeDamage = true;
-    }
-    
-    private void OnDisable()
-    {
-        // 풀로 돌아가거나 비활성화될 때 false
-        isMonsterSpawned = false;
-        canTakeDamage = true;
-    }
-    
-    private void Start()
-    {
-        hpCanvas.rotation = Quaternion.Euler(0, 180f, 0); // Monster Prefab에 맞춰 캔버스를 180도 회전
-        SetHPUI(defaultMaxHealth);
-        
-        if (playerStatus == null && playerStatusProxy == null)
-        {
-            var playerObj = GameObject.FindWithTag("Player");
-            if (playerObj != null)
-            {
-                // 1순위: 직접 PlayerStatus
-                playerStatus = playerObj.GetComponent<PlayerStatus>();
-                // 2순위: Proxy
-                if (playerStatus == null)
-                    playerStatusProxy = playerObj.GetComponent<PlayerStatusProxy>();
-            }
-        }
-    }
-    
     // health를 새로 생성하는 공통 메서드
     private void InitializeHealth(int hp)
     {
         health = new MonsterHealth(hp);
         health.OnHealthChanged += HandleHealthChanged;
         health.OnDeath         += HandleDeath;
-    }
-    
-    public void ResetHealth(int? overrideMax = null)
-    {
-        int hp = overrideMax ?? defaultMaxHealth;
-        maxHealth = hp;              // Inspector 상에도 반영
-        InitializeHealth(hp);        // MonsterHealth 재생성
-        SetHPUI(hp); // UI 리셋
-    }
-
-    public void ResetState(Vector3 spawnPos, Transform playerTransform, int? overrideMaxHealth = null)
-    {
-        // 1) 기본 플래그
-        isMonsterSpawned = true;
-        isDead  = false;
-        xpGiven = false;
-        
-        // 2) 플레이어 참조
-        player = playerTransform;
-        
-        // 3) 체력 초기화
-        ResetHealth(overrideMaxHealth ?? defaultMaxHealth);
-        
-        // 4) NavMeshAgent
-        if (navMeshAgent != null)
-        {
-            navMeshAgent.enabled   = true;
-            navMeshAgent.Warp(spawnPos);
-            if (navMeshAgent.isOnNavMesh)
-            {
-                navMeshAgent.ResetPath();
-                navMeshAgent.isStopped = false;
-            }
-        }
-        
-        // 5) Collider
-        var col = GetComponent<Collider>();
-        if (col != null) col.enabled = true;
-        
-        // 6) Animator
-        if (animator != null)
-        {
-            animator.Rebind();  
-        }
-        
-        // 7) Movement·Combat (선택적 재생성)
-        movement = new MonsterMovement(navMeshAgent, moveSpeed);
-        combat   = new MonsterCombat(attackDamage, attackRange);
-        
-        // 8) StateMachine
-        stateMachine.ResetStateMachine();
     }
     
     private void InitializeComponents()
@@ -184,17 +101,110 @@ public class Monster : MonoBehaviour, IDamageable
         animator = GetComponent<Animator>();
     }
     
+    private void SubscribeToEvents()
+    {
+        health.OnHealthChanged += HandleHealthChanged;
+        health.OnDeath += HandleDeath;
+    }
+
+    
+    private void OnEnable()
+    {
+        isDead   = false;
+        xpGiven  = false;
+        // 풀에서 꺼내 활성화될 때 true
+        isMonsterSpawned = true;
+        canTakeDamage = true;
+    }
+    
+    private void OnDisable()
+    {
+        // 풀로 돌아가거나 비활성화될 때 false
+        isMonsterSpawned = false;
+        canTakeDamage = false;
+    }
+    
+    private void Start()
+    {
+        hpCanvas.rotation = Quaternion.Euler(0, 180f, 0); // Monster Prefab에 맞춰 캔버스를 180도 회전
+        SetHPUI(defaultMaxHealth);
+        
+        if (playerStatus == null && playerStatusProxy == null)
+        {
+            var playerObj = GameObject.FindWithTag("Player");
+            if (playerObj != null)
+            {
+                // 1순위: 직접 PlayerStatus
+                playerStatus = playerObj.GetComponent<PlayerStatus>();
+                // 2순위: Proxy
+                if (playerStatus == null)
+                    playerStatusProxy = playerObj.GetComponent<PlayerStatusProxy>();
+            }
+        }
+    }
+    
+    public void ResetHealth(int? overrideMax = null)
+    {
+        int hp = overrideMax ?? defaultMaxHealth;
+        maxHealth = hp;              // Inspector 상에도 반영
+        InitializeHealth(hp);        // MonsterHealth 재생성 및 구독실시
+        SetHPUI(hp); // UI 리셋
+    }
+
+    public void ResetState(Vector3 spawnPos, Transform playerTransform, int? overrideMaxHealth = null)
+    {
+        // 1) 기본 플래그
+        isMonsterSpawned = true;
+        isDead  = false;
+        xpGiven = false;
+        
+        // 2) 플레이어 참조
+        player = playerTransform;
+        
+        // 3) 체력 초기화
+        ResetHealth(overrideMaxHealth ?? defaultMaxHealth);
+        
+        // 4) NavMeshAgent
+        if (navMeshAgent != null)
+        {
+            navMeshAgent.enabled   = true;
+            // NavMeshAgent.Warp(Vector3 position) : 에이전트를 즉시 해당 월드 좌표로 순간이동 및 내부 내비게이션 상태 갱신
+            navMeshAgent.Warp(spawnPos);
+            if (navMeshAgent.isOnNavMesh)
+            {
+                // navMeshAgent.ResetPath : 에이전트가 현재 따라가고 있던 내비게이션 경로를 즉시 폐기하고 
+                //                          경로 없음(hasPath=false) 상태로 만드는 함수
+                // 순간이동 하면 이전 경로가 무의미해지기 때문에 초기화
+                navMeshAgent.ResetPath();
+                navMeshAgent.isStopped = false;
+            }
+        }
+        
+        // 5) Collider
+        var col = GetComponent<Collider>();
+        if (col != null) col.enabled = true;
+        
+        // 6) Animator
+        if (animator != null)
+        {
+            // 애니메이션을 초기 상태로 돌리는 함수
+            animator.Rebind();  
+        }
+        
+        // 7) Movement·Combat (선택적 재생성)
+        movement = new MonsterMovement(navMeshAgent, moveSpeed);
+        combat   = new MonsterCombat(attackDamage, attackRange);
+        
+        // 8) StateMachine
+        stateMachine.ResetStateMachine();
+    }
+    
     // 플레이어 참조 설정 메서드
     public void SetPlayer(Transform playerTransform)
     {
         player = playerTransform;
     }
     
-    private void SubscribeToEvents()
-    {
-        health.OnHealthChanged += HandleHealthChanged;
-        health.OnDeath += HandleDeath;
-    }
     
     private void HandleHealthChanged(float newHealth)
     {
@@ -215,16 +225,16 @@ public class Monster : MonoBehaviour, IDamageable
         if (navMeshAgent != null)
         {
             navMeshAgent.ResetPath();
-            navMeshAgent.isStopped = true;   // 이제 정상 대입 가능
+            navMeshAgent.isStopped = true;  
         }
 
         var col = GetComponent<Collider>();
         if (col != null)
         {
-            col.enabled = false;             // 정상 대입
+            col.enabled = false;       
         }
     
-        // 🔹 SpawnManager에 "죽음 카운트" 보고
+        // SpawnManager에 사망 을 보고
         if (SpawnManagerInstance != null)
             SpawnManagerInstance.CountDeadMonster();
     
@@ -232,7 +242,7 @@ public class Monster : MonoBehaviour, IDamageable
         stateMachine?.ChangeState(EState.Death);
     }
 
-    // 🔹 SpawnManager 싱글턴 접근자
+    // SpawnManager 싱글턴 접근자
     private SpawnManager SpawnManagerInstance
     {
         get

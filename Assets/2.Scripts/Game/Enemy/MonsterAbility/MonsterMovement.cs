@@ -12,7 +12,8 @@ public class MonsterMovement
         this.moveSpeed = moveSpeed;
         navMeshAgent.speed = moveSpeed;
         
-        
+        // autoTraverseOffMeshLink : 링크(사다리/낭떠러지 등) 구간을 에이전트가 자동으로 건너가게 할지를 결정하는 스위치
+        // True 이면 평범하게 이동, false면 링크(사다리/낭떠러지 등) 에 맞는 스크립트 처리와 애니메이션을 설정해야 함
         navMeshAgent.autoTraverseOffMeshLink = true;
     }
 

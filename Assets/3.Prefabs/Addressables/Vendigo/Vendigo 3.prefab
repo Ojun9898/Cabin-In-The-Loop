@@ -308,12 +308,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b81c60e23d5ef44990e845e03e46cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxRoot: {fileID: 3022143013766454246}
-  extendDurationOnRetrigger: 1
-  setPlayRateOnActivate: 1
+  rageVFX: {fileID: 3022143013766454246}
+  extendDuration: 1
   playRateOnActivate: 3
-  restorePlayRateOnEnd: 1
-  applyStatusOnRun: 1
 --- !u!114 &335054821207221504
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -327,7 +324,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: 3072907085827821499}
-  buffDuration: 10
 --- !u!1 &1000010502916320
 GameObject:
   m_ObjectHideFlags: 0

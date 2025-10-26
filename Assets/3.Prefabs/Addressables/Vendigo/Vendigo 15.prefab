@@ -113,7 +113,7 @@ GameObject:
   - component: {fileID: 3072907085827821499}
   - component: {fileID: 335054821207221504}
   m_Layer: 7
-  m_Name: Vendigo 5
+  m_Name: Vendigo 15
   m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

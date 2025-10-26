@@ -1553,7 +1553,7 @@ MonoBehaviour:
   attackDamage: 10
   playerStatus: {fileID: 0}
   playerStatusProxy: {fileID: 0}
-  chaseRange: 40
+  chaseRange: 20
   attackRange: 5
   player: {fileID: 0}
 --- !u!114 &-1276265854845893084
@@ -1568,7 +1568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b81c60e23d5ef44990e845e03e46cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vfxRoot: {fileID: 6447442509285883465}
+  rageVFX: {fileID: 6447442509285883465}
   extendDuration: 1
   playRateOnActivate: 3
 --- !u!114 &-7883518739956784047

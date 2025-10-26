@@ -24,7 +24,7 @@ public class RipperChaseState : RipperBaseState
     {
         base.ExitState();
         // Chase 상태 벗어나면 즉시 해당 몬스터 모든 SFX 중단
-        MonsterSFXManager.Instance.StopAllAudio( ripper.transform.GetInstanceID());
+        MonsterSFXManager.Instance.StopAudio( ripper.transform.GetInstanceID());
     }
            
 

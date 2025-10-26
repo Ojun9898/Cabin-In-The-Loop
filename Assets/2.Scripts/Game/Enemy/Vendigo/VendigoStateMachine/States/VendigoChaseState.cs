@@ -24,7 +24,7 @@ public class VendigoChaseState : VendigoBaseState
     {
         base.ExitState();
         // Chase 상태 벗어나면 즉시 해당 몬스터 모든 SFX 중단
-        MonsterSFXManager.Instance.StopAllAudio(
+        MonsterSFXManager.Instance.StopAudio(
             vendigo.transform.GetInstanceID()
         );
         if (navMeshAgent != null)

@@ -12,8 +12,6 @@ public class RipperDeathState : RipperBaseState
         stateKey = EState.Death;
     }
     
-    
-
     public override void EnterState()
     {
         base.EnterState();

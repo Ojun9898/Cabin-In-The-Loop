@@ -29,7 +29,6 @@ public class RipperSpawnState : RipperBaseState
             nextState = EState.Idle;
             return true;
         }
-    
         return false;
     }
 

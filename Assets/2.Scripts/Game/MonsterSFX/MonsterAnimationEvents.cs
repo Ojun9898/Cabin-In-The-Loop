@@ -7,7 +7,7 @@ public class MonsterAnimationEvents : MonoBehaviour
     // 몬스터 타입 지정
     [SerializeField] private EMonsterType monsterType;
 
-    // 애니메이션 시작(루프의 맨 앞) 시 호출
+    // 애니메이션 시작시 호출
     public void OnAttackStart()
     {
         MonsterSFXManager.Instance.RequestPlay(
@@ -16,10 +16,12 @@ public class MonsterAnimationEvents : MonoBehaviour
             transform
         );
     }
+    
+    // 애니메이션 종료시점시에 호출
     public void OnAttackEnd()
     {
         // 해당 몬스터의 모든 재생 중인 SFX를 중단
-        MonsterSFXManager.Instance.StopAllAudio(transform.GetInstanceID());
+        MonsterSFXManager.Instance.StopAudio(transform.GetInstanceID());
     }
     
     public void OnHitStart()
@@ -33,7 +35,7 @@ public class MonsterAnimationEvents : MonoBehaviour
 
     public void OnHitEnd()
     {
-        MonsterSFXManager.Instance.StopAllAudio(transform.GetInstanceID());
+        MonsterSFXManager.Instance.StopAudio(transform.GetInstanceID());
     }
 
     public void OnDeathStart()
@@ -47,7 +49,8 @@ public class MonsterAnimationEvents : MonoBehaviour
     
     public void OnDeathEnd()
     {
-        MonsterSFXManager.Instance.StopAllAudio(transform.GetInstanceID());
+        // 해당 몬스터의 모든 재생 중인 SFX를 중단
+        MonsterSFXManager.Instance.StopAudio(transform.GetInstanceID());
     }
 
     public void OnRAttackStart()
@@ -62,6 +65,6 @@ public class MonsterAnimationEvents : MonoBehaviour
     public void OnRAttackEnd()
     {
         // 해당 몬스터의 모든 재생 중인 SFX를 중단
-        MonsterSFXManager.Instance.StopAllAudio(transform.GetInstanceID());
+        MonsterSFXManager.Instance.StopAudio(transform.GetInstanceID());
     }
 }

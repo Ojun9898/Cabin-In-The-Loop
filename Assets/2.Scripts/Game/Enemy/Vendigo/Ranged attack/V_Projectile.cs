@@ -3,9 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-
-
-public class Projectile : MonoBehaviour
+public class V_Projectile : MonoBehaviour
 {
     private Rigidbody rb;
     private float damage;
@@ -22,6 +20,7 @@ public class Projectile : MonoBehaviour
         float damage,
         float upwardSpeed
     )
+    // Throw 함수의 매서드 본문
     {
         // 1) 방향 계산
         Vector3 start = muzzlePoint.position;
@@ -34,16 +33,14 @@ public class Projectile : MonoBehaviour
             ? ProjectilePoolManager.Instance.SpawnFromPool(prefab, start, Quaternion.LookRotation(dir))
             : Object.Instantiate(prefab, start, Quaternion.LookRotation(dir));
         
-        var proj = go.GetComponent<Projectile>();
-        proj.Initialize(dir, speed, damage, upwardSpeed);
+        var muzzle = go.GetComponent<V_Projectile>();
+        muzzle.Initialize(dir, speed, damage, upwardSpeed);
     }
-    
     
     void Awake()
     {
         rb = GetComponent<Rigidbody>();
     }
-    
     
     public void Initialize(Vector3 direction, float speed, float damage, float upwardSpeed)
     {

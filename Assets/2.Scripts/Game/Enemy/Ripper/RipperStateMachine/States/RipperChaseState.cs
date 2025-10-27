@@ -9,7 +9,7 @@ public class RipperChaseState : RipperBaseState
     private const float ATTACK_RANGE = 1.5f;
     
     // 추격시에는 이동속도가 더 빨라짐
-    private float runSpeed = 3f; // ★ 변경: const → 필드(기본값 동일)
+    private float runSpeed = 3f;
     public float BaseRunSpeed => runSpeed; 
     
     
@@ -24,10 +24,9 @@ public class RipperChaseState : RipperBaseState
     {
         base.ExitState();
         // Chase 상태 벗어나면 즉시 해당 몬스터 모든 SFX 중단
-        MonsterSFXManager.Instance.StopAllAudio(
-            ripper.transform.GetInstanceID()
-        );
+        MonsterSFXManager.Instance.StopAudio( ripper.transform.GetInstanceID());
     }
+           
 
     public override void EnterState()
     {

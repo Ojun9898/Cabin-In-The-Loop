@@ -112,7 +112,5 @@ public class RipperStateMachine : StateMachine<Monster>
     {
         EState previousState = currentState?.StateKey ?? EState.Idle;
         base.ChangeState(nextState);
-        
     }
-    
 }

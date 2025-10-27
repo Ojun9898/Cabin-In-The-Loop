@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RoundData", menuName = "Game/Round Data")]
+// ScriptableObject : 씬에 종속되지 않는 데이터 컨테이너
 public class RoundData : ScriptableObject
 {
     [System.Serializable]

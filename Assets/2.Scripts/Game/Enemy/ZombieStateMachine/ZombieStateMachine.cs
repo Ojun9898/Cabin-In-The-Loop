@@ -107,6 +107,5 @@ public class ZombieStateMachine : StateMachine<Monster>
     {
         EState previousState = currentState?.StateKey ?? EState.Idle;
         base.ChangeState(nextState);
-        
     }
 } 

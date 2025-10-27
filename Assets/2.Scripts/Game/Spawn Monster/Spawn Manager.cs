@@ -40,23 +40,23 @@ public class SpawnManager : MonoBehaviour
     [Header("몬스터 세팅")]
     [Tooltip("Monsters 에서 설정한 Zombie Label")]
     [SerializeField] private string zombieLabel;
-    [SerializeField] private int zombiePoolSize = 11;
+    [SerializeField] private int zombiePoolSize = 22;
     
     [Tooltip("Monsters 에서 설정한 Ripper Label")]
     [SerializeField] private string insectoidLabel;
-    [SerializeField] private int insectoidPoolSize = 3;
+    [SerializeField] private int insectoidPoolSize = 14;
     
     [Tooltip("Monsters 에서 설정한 Ripper Label")]
     [SerializeField] private string ripperLabel;
-    [SerializeField] private int ripperPoolSize = 6;
+    [SerializeField] private int ripperPoolSize = 12;
     
     [Tooltip("Monsters 에서 설정한 Vendigo Label")]
     [SerializeField] private string vendigoLabel;
-    [SerializeField] private int vendigoPoolSize = 5;
+    [SerializeField] private int vendigoPoolSize = 8;
     
     [Tooltip("Monsters 에서 설정한 Vendigo Label")]
     [SerializeField] private string beastLabel;
-    [SerializeField] private int beastPoolSize = 3;
+    [SerializeField] private int beastPoolSize = 2;
     
     
     [Tooltip("생성 가능한 몬스터의 총합")]
@@ -72,14 +72,16 @@ public class SpawnManager : MonoBehaviour
     
     private static SpawnManager _instance;
     
-    // 1. 라벨로 불러온 프리팹 목록
+    // 1) Addressables 라벨로 “프리팹 레퍼런스(원본)”를 모아두는 목록
+    // 원본 보관소
     private List<GameObject> zombieLabels = new List<GameObject>();
     private List<GameObject> insectoidLabels = new List<GameObject>();
     private List<GameObject> ripperLabels = new List<GameObject>();
     private List<GameObject> vendigoLabels = new List<GameObject>();
     private List<GameObject> beastLabels = new List<GameObject>();
     
-    // 2. 1.에서 불러운 프리팹들을 Pool로 넣기
+    // 2) 1)에서 얻은 프리팹으로 “실제 인스턴스(비활성)”를 미리 만들어 보관하는 풀
+    // 인스턴스 보관소
     private List<GameObject> zombiePool = new List<GameObject>();
     private List<GameObject> insectoidPool = new List<GameObject>();
     private List<GameObject> ripperPool = new List<GameObject>();
@@ -271,18 +273,10 @@ public class SpawnManager : MonoBehaviour
         if (TotalPoolCount() >= totalPoolSize)
             return;
         
+        // NavMeshAgent가 활성 상태라면 비활성화
         var prefabAgent = prefab.GetComponent<NavMeshAgent>();
         if (prefabAgent != null && prefabAgent.enabled)
             prefabAgent.enabled = false;
-        
-        // NavMesh.SamplePosition으로 유효 위치 얻기
-        Vector3 basePos = PrefabsContainer.position;
-        NavMeshHit hit;
-        Vector3 spawnPos = basePos;
-        const float sampleDistance = 5f;
-        if (NavMesh.SamplePosition(basePos, out hit, sampleDistance, NavMesh.AllAreas))
-            spawnPos = hit.position;
-        
 
         // 2) 인스턴스 생성 및 세팅
         // Monster 와 각각의 StateMachine 스크립트에서 player응 참조할수 있도록 설정
@@ -291,6 +285,7 @@ public class SpawnManager : MonoBehaviour
         if (agent != null)
             agent.enabled = false;
         
+        // 스폰된 몬스터에게 Player의 Transform을 일괄로 꽂아둠
         monster.AssignTransform(playerTransform);
 
         // 3) 비활성화 후 풀에 보관
@@ -320,11 +315,11 @@ public class SpawnManager : MonoBehaviour
         }
         
         // Vector3 spawnPos = points[Random.Range(0, points.Length)].position;
-        Vector3 rawPos = points[Random.Range(0, points.Length)].position;
+        Vector3 randomPos = points[Random.Range(0, points.Length)].position;
         NavMeshHit hit;
-        Vector3 spawnPos = NavMesh.SamplePosition(rawPos, out hit, 1f, NavMesh.AllAreas)
+        Vector3 spawnPos = NavMesh.SamplePosition(randomPos, out hit, 1f, NavMesh.AllAreas)
             ? hit.position
-            : rawPos;
+            : randomPos;
             
         GameObject m = null;
         switch (type)
@@ -361,10 +356,9 @@ public class SpawnManager : MonoBehaviour
         
         // 3) 활성화
         m.SetActive(true);
-        m.tag = "Monster";
     }
     
-    private GameObject ActivateFromList(List<GameObject> pool, List<GameObject> variantList,int maxCount)
+    private GameObject ActivateFromList(List<GameObject> pool, List<GameObject> label,int maxCount)
     {
         // 비활성화된 오브젝트가 있으면 즉시 반환
         foreach (var go in pool)
@@ -374,7 +368,7 @@ public class SpawnManager : MonoBehaviour
         // 2) 여유가 있으면 새 인스턴스 생성
         if (pool.Count < maxCount && TotalPoolCount() < totalPoolSize)
         {
-            var prefab = variantList[Random.Range(0, variantList.Count)];
+            var prefab = label[Random.Range(0, label.Count)];
             var go = Instantiate(prefab, PrefabsContainer);
             go.SetActive(false);
             pool.Add(go);

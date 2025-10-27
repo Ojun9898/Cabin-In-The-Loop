@@ -7,7 +7,7 @@ public class RoundStartTrigger : MonoBehaviour
     [SerializeField] private int roundIndex = 0;
     public RoundManager roundManager;
 
-    [SerializeField] private float delayBeforeStart = 0.5f;
+    [SerializeField] private float delayBeforeStart = 2f;
 
     private bool triggered;
     private Collider _col;
@@ -23,14 +23,16 @@ public class RoundStartTrigger : MonoBehaviour
 
         if (other.CompareTag("Player"))
         {
+            // 플레이어가 콜라이더를 지나쳤다면 riggered 를 true로 변경하고 콜라이더를 비활성화한다음
             triggered = true;
             _col.enabled = false;
-
-            StartCoroutine(DelayedStart());
+            
+            // 약간의 딜레이후 스폰시작
+            StartCoroutine(SpawnStart());
         }
     }
 
-    private IEnumerator DelayedStart()
+    private IEnumerator SpawnStart()
     {
         yield return new WaitForSeconds(delayBeforeStart);
         

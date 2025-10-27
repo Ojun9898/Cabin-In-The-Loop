@@ -89,11 +89,12 @@ public class ProjectilePoolManager : MonoBehaviour
         if (obj.TryGetComponent<Rigidbody>(out var rb))
         {
             rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero; // ★ 추가: 회전 잔여값 제거
+            rb.angularVelocity = Vector3.zero; 
         }
 
         // 자동으로 일정 시간 뒤 되돌려놓기
-        if (obj.TryGetComponent<PoolableProjectile>(out var p)) p.inPool = false;
+        if (obj.TryGetComponent<PoolableProjectile>(out var p)) 
+            p.inPool = false;
 
         float lifetime = ProjectileLife.GetLifetime(obj);
         StartCoroutine(ReturnToPoolAfterTime(obj, lifetime));
@@ -127,9 +128,12 @@ public class ProjectilePoolManager : MonoBehaviour
 
         obj.SetActive(false);
 
+        // PoolableProjectile 컴포넌트가 붙어 있고, poolDictionary에 poolable.originPrefab 키가 등록되어 있고
+        // originPrefab이 초기에 풀에 등록했던 그 프리팹 참조와 동일하다면 ture 를 반환하고 곧바로 out var q에 해당 큐가 들어옴
         if (poolable != null && poolDictionary.TryGetValue(poolable.originPrefab, out var q))
         {
-            poolable.inPool = true;  // ★ 이제 풀 상태
+            poolable.inPool = true;  
+            // ★ 이제 풀 상태
             q.Enqueue(obj);
         }
         else
@@ -141,7 +145,6 @@ public class ProjectilePoolManager : MonoBehaviour
 
 
 // Spawn/ReturnToPool 시 원본 prefab을 식별하기 위한 컴포넌트
-
 public class PoolableProjectile : MonoBehaviour
 {
     [HideInInspector] public GameObject originPrefab;

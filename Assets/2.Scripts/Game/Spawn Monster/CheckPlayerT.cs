@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace SpawnManager_PlayerTransformCheck
 {
+    // 스폰된 몬스터에게 ‘플레이어 Transform’을 일괄로 꽂아주는 확장 메서드
     public static class CheckPlayerT 
     {
         public static void AssignTransform(this GameObject go, Transform player)

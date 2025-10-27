@@ -3,18 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-
-
 public class RoundManager : MonoBehaviour
 {
     private static RoundManager _instance;
     
-    [Header("라운드별 데이터 (ScriptableObjects)")]
+    [Header("라운드별 데이터")]
     public List<RoundData> roundDatas;
 
-    [Header("스폰 관리자 참조")] public SpawnManager spawnManager;
+    [Header("스폰 관리자 참조")] 
+    public SpawnManager spawnManager;
 
-    [Header("몬스터 스폰 간격 (초)")] public float spawnInterval = 3.5f;
+    [Header("몬스터 스폰 간격 (초)")] 
+    public float spawnInterval = 2f;
 
     private Coroutine spawnRoutine;
     public int currentRound = 0;
@@ -51,8 +51,11 @@ public class RoundManager : MonoBehaviour
         deadMonsterCount = 0;
 
         // 라운드 데이터에서 총합 계산
+        // 해당 currentRound 에 대한 RoundData 에셋에 있는 몬스터들의 count 수만 모두 더해서 
+        // totalMonsterCount 에 할당
         totalMonsterCount = roundDatas[currentRound].monsters.Sum(info => info.count);
 
+        // 라운드에 맞는 몬스터들을 스폰
         spawnRoutine = StartCoroutine(RunRounds());
     }
 
@@ -94,22 +97,28 @@ public class RoundManager : MonoBehaviour
         HUDManager.Instance.SetStageUI(currentRound);
 
         // 2) 타입별 수량만큼 MonsterType 리스트에 추가
-        List<MonsterType> spawnQueue = data.monsters
+        // Enumerable.Repeat(info.type, info.count) : info.type 값을 info.count번 반복한 시퀀스를 생성
+        // 예: {Zombie, 3} → {Zombie, Zombie, Zombie}
+        // SelectMany() : 각 원소를 여러 개(시퀀스)로 바꾸고, 그것들을 전부 평탄화 해서 하나의 시퀀스로 이어붙이는 연산
+        // 예 : [{Zombie,2}, {Ripper,1}, {Beast,3}]
+        // Repeat 결과: [Zombie,Zombie], [Ripper], [Beast,Beast,Beast]
+        // SelectMany로 평탄화: [Zombie,Zombie,Ripper,Beast,Beast,Beast]
+        // 그 다음 리스트 조작 등을 하기 위해 ToList()로 확정
+        List<MonsterType> monsterQueue = data.monsters
             .SelectMany(info => Enumerable.Repeat(info.type, info.count))
             .ToList();
 
-        // 3) Fisher–Yates 알고리즘으로 리스트 섞기 (혹은 LINQ .OrderBy(x => Random.value))
-        for (int i = spawnQueue.Count - 1; i > 0; i--)
+        // 3) 튜플 분해로 monsterQueue 리스트 안에 있는 요소들 스왑하기
+        for (int i = monsterQueue.Count - 1; i > 0; i--)
         {
             int j = Random.Range(0, i + 1);
-            var tmp = spawnQueue[i];
-            spawnQueue[i] = spawnQueue[j];
-            spawnQueue[j] = tmp;
+            
+            (monsterQueue[i], monsterQueue[j]) = (monsterQueue[j], monsterQueue[i]);
         }
 
-        // 4) 딜레이 후, 섞인 순서대로 스폰
+        // 4) 딜레이 후, 섞인 순서대로 0 자리부터 마지막 자리까지 스폰
         yield return new WaitForSeconds(spawnInterval);
-        foreach (var type in spawnQueue)
+        foreach (var type in monsterQueue)
         {
             spawnManager.Spawn(type, currentRound);
             yield return new WaitForSeconds(spawnInterval);

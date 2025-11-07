@@ -29,6 +29,9 @@ public class PlayerData
     public float xp;
     public Dictionary<StatusType, float> baseStats = new Dictionary<StatusType, float>();
     public WeaponType currentWeaponType;
+
+    // 추가: 골드
+    public int gold;
 }
 
 public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
@@ -51,7 +54,7 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
     public int Level => _data.level;
     public float CurrentXp => _data.xp;
 
-    // ★ 현재 파일은 항상 Female로 고정 사용 (요청 반영)
+    // 현재 파일은 항상 Female로 고정 사용
     private string SavePath =>
         Path.Combine(Application.persistentDataPath, $"Female_data.json");
 
@@ -64,6 +67,10 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
     public WeaponType CurrentWeaponType => _data.currentWeaponType;
 
     bool isDead = false;
+
+    // 추가: 골드 프로퍼티/이벤트
+    public int Gold => _data?.gold ?? 0;
+    public event Action<int> onGoldChanged;
 
     // 메인 씬에 없을 때 런타임 생성 보장
     public static PlayerStatus Ensure()
@@ -84,7 +91,7 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
 
         LoadData();
         InitializeBuffs();
-        EnsureAllStatKeys(); // ★ 누락 키/버프 키 보정
+        EnsureAllStatKeys(); // 누락 키/버프 키 보정
 
         _maxHealth = GetTotalStat(StatusType.Health);
         _currentHealth = _maxHealth;
@@ -92,6 +99,9 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
 
         // UI/리스너에 현재 체력 알림
         onHealthChanged?.Invoke(_currentHealth);
+
+        // 골드 초기 브로드캐스트 (UI가 듣고 있으면 갱신)
+        onGoldChanged?.Invoke(Gold);
     }
 
     private void InitializeBuffs()
@@ -121,10 +131,16 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
                 level = startingLevel,
                 xp = 0,
                 baseStats = GetDefaultStats(characterType),
-                currentWeaponType = default   // 필요 시 기본 무기 지정
+                currentWeaponType = default,   // 필요 시 기본 무기 지정
+
+                // 새 파일 기본 골드
+                gold = 0
             };
             SaveData();
         }
+        
+        // (Json에 없으면 기본값 0으로 들어오지만 null 방어)
+        if (_data == null) _data = new PlayerData();
     }
 
     public void SaveData()
@@ -167,7 +183,7 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
         return startingXpToLevel * Mathf.Pow(xpGrowthFactor, level - startingLevel);
     }
 
-    // ★ 스탯/버프 키 보정 (파일/버전 호환)
+    // 스탯/버프 키 보정 (파일/버전 호환)
     private void EnsureAllStatKeys()
     {
         var defaults = GetDefaultStats(_data.characterType);
@@ -198,7 +214,7 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
         SaveData();
     }
 
-    // ★ 안전한 합계 스탯(키 없으면 0)
+    // 안전한 합계 스탯(키 없으면 0)
     public float GetTotalStat(StatusType type)
     {
         float baseV = 0f;
@@ -223,7 +239,7 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
         SaveData();
     }
 
-    // ★ 새 게임 리셋: LV1 / XP0, HP 풀, HUD 갱신
+    // 새 게임 리셋: LV1 / XP0, HP 풀, HUD 갱신
     public void ResetProgressForNewGame()
     {
         _data.level = startingLevel;
@@ -293,6 +309,39 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
             EndingManager.Instance.ShowDeadEnding();
         }
     }
+
+    // ─────────────────────────────────────────────────────────
+    // 추가: 골드 제어 메서드 (ItemPickup 등에서 사용)
+    // ─────────────────────────────────────────────────────────
+
+    /// <summary>골드를 증가시키는 메서드. (UI 이벤트/세이브 포함)</summary>
+    public void AddGold(int amount)
+    {
+        if (amount <= 0) return;
+        _data.gold += amount;
+        SaveData();
+        onGoldChanged?.Invoke(_data.gold);
+    }
+
+    /// <summary>골드 소모를 시도 하는 메서드. 성공 시 true를 반환.</summary>
+    public bool TrySpendGold(int amount)
+    {
+        if (amount < 0) return false;
+        if (_data.gold < amount) return false;
+
+        _data.gold -= amount;
+        SaveData();
+        onGoldChanged?.Invoke(_data.gold);
+        return true;
+    }
+
+    /// <summary>골드를 설정하는 메서드. (디버그/상점 보상 등 특수 상황)</summary>
+    public void SetGold(int value)
+    {
+        _data.gold = Mathf.Max(0, value);
+        SaveData();
+        onGoldChanged?.Invoke(_data.gold);
+    }
 }
 
 // JsonUtility가 Dictionary를 지원하지 않으므로 변환용 Wrapper
@@ -304,6 +353,9 @@ public class PlayerDataWrapper
     public float xp;
     public List<StatusEntry> baseStats = new List<StatusEntry>();
     public WeaponType currentWeaponType;
+
+    // 추가: 골드
+    public int gold;
 
     [Serializable]
     public struct StatusEntry
@@ -319,6 +371,9 @@ public class PlayerDataWrapper
         xp = data.xp;
         currentWeaponType = data.currentWeaponType;
 
+        // 골드 직렬화
+        gold = data.gold;
+
         foreach (var kv in data.baseStats)
         {
             baseStats.Add(new StatusEntry { key = kv.Key, value = kv.Value });
@@ -333,7 +388,10 @@ public class PlayerDataWrapper
             level = level,
             xp = xp,
             baseStats = new Dictionary<StatusType, float>(),
-            currentWeaponType = currentWeaponType
+            currentWeaponType = currentWeaponType,
+
+            // 골드 역직렬화
+            gold = gold
         };
         foreach (var entry in baseStats)
         {

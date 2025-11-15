@@ -303,6 +303,7 @@ GameObject:
   - component: {fileID: 6910047476460685368}
   - component: {fileID: -5076199227880347309}
   - component: {fileID: 3013606256638255089}
+  - component: {fileID: -86028366947999890}
   m_Layer: 7
   m_Name: Zombie Mutant 3
   m_TagString: Monster
@@ -499,6 +500,29 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vfx: {fileID: -5076199227880347309}
+--- !u!114 &-86028366947999890
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010676380376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a09ade775f55e74498dad304b41cdd67, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterDropEvent: {fileID: 11400000, guid: d7dbf07a72ec9e7418541af6ee3d7f84, type: 2}
+  maxDifferentDrops: 2
+  scatterRadius: 1.5
+  upForce: 2
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  groundRayHeight: 3
+  spawnVfx: {fileID: 0}
+  spawnSfx: {fileID: 0}
+  sfxVolume: 0.7
 --- !u!1 &1000010712654790
 GameObject:
   m_ObjectHideFlags: 0

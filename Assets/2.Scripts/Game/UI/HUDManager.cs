@@ -99,9 +99,9 @@ public class HUDManager : Singleton<HUDManager>
 
     void Update()
     {
-        SetHPUI();
-        SetXPUI();
-        SetLevelUI();
+        // SetHPUI();
+        // SetXPUI();
+        // SetLevelUI();
     }
 
     IEnumerator InitHUD()
@@ -135,6 +135,12 @@ public class HUDManager : Singleton<HUDManager>
             
             // XP/레벨도 가능하면 PlayerStatus에서 직접 읽도록 권장
             xpMax =  ps is not null ? ps.XpToNextLevel : 100f;  // XpToNextLevel getter 필요
+            
+            // XP/레벨 이벤트 구독
+            ps.onXpChanged += HandleXpChanged;
+
+            // 초기값 세팅
+            HandleXpChanged(ps.CurrentXp, ps.XpToNextLevel, ps.Level);
         }
     }
 
@@ -168,7 +174,11 @@ public class HUDManager : Singleton<HUDManager>
     
     private void OnDisable()
     {
-        if (ps != null) ps.onHealthChanged -= SetHPUI;
+        if (ps != null)
+        {
+            ps.onHealthChanged -= SetHPUI;
+            ps.onXpChanged     -= HandleXpChanged;
+        }
     }
 
     #region 스탯 UI 업데이트
@@ -189,25 +199,20 @@ public class HUDManager : Singleton<HUDManager>
         PlayerDataWrapper wrapper = JsonUtility.FromJson<PlayerDataWrapper>(json);
         return wrapper.ToPlayerData();
     }
+    
+    private void HandleXpChanged(float currentXp, float xpToNext, int level)
+    {
+        SetXPUI(currentXp);
+        SetLevelUI(level);
+    }
 
     private void SetHPUI(float hp = -1f)
     {
         if (hpFillRect == null || hpText == null) return;
+        var ps = PlayerStatus.Ensure();
 
-        float maxHp, currentHp;
-        if (ps != null)
-        {
-            maxHp = ps.GetTotalStat(StatusType.Health);   // 또는 ps._maxHealth
-            currentHp = (hp >= 0f) ? hp : ps.CurrentHealth;
-        }
-        else
-        {
-            // fallback: 디스크(비권장)
-            var data = LoadPlayerData();
-            if (data == null) return;
-            maxHp = data.baseStats.ContainsKey(StatusType.Health) ? data.baseStats[StatusType.Health] : 100f;
-            currentHp = (hp >= 0f) ? hp : maxHp;
-        }
+        float maxHp    = ps.GetTotalStat(StatusType.Health);
+        float currentHp  = ps.CurrentHealth;
 
         currentHp = Mathf.Max(0, currentHp);
         float percent = Mathf.Clamp01(currentHp / maxHp);
@@ -224,12 +229,15 @@ public class HUDManager : Singleton<HUDManager>
         float xpToNext, currentXp;
         if (ps != null)
         {
-            xpToNext = ps.XpToNextLevel;  // getter 필요
-            currentXp = (xp >= 0f) ? xp : /* ps에서 현재 XP 읽기용 getter 추가 권장 */ 0f;
+            xpToNext = ps.XpToNextLevel;
+            // ps에서 현재 XP 읽어오기
+            currentXp = (xp >= 0f) ? xp : ps.CurrentXp;
         }
         else
         {
-            var data = LoadPlayerData(); if (data == null) return;
+            var data = LoadPlayerData(); 
+            if (data == null) return;
+
             xpToNext = 100f; // 파일에 없다면 보수적으로
             currentXp = (xp >= 0f) ? xp : data.xp;
         }
@@ -245,10 +253,24 @@ public class HUDManager : Singleton<HUDManager>
 
     private void SetLevelUI(int level = -1)
     {
-        var data = LoadPlayerData();
-        if (data == null || levelText == null) return;
+        if (levelText == null) return;
 
-        int currentLevel = (level >= 0) ? level : data.level;
+        int currentLevel;
+        if (level >= 0)
+        {
+            currentLevel = level;
+        }
+        else if (ps != null)
+        {
+            currentLevel = ps.Level;
+        }
+        else
+        {
+            var data = LoadPlayerData();
+            if (data == null) return;
+            currentLevel = data.level;
+        }
+
         levelText.text = $"LV.{currentLevel}";
     }
 

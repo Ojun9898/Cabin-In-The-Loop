@@ -61,6 +61,8 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
     // 이벤트
     public event Action<float> onCriticalHit;
     public event Action<float> onHealthChanged;
+    public event Action<float, float, int> onXpChanged;
+    // 파라미터: (현재XP, 다음레벨까지XP, 현재레벨)
 
     public CharacterType CharacterType => _data.characterType;
     public float _maxHealth;
@@ -102,6 +104,8 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
 
         // 골드 초기 브로드캐스트 (UI가 듣고 있으면 갱신)
         onGoldChanged?.Invoke(Gold);
+        
+        onXpChanged?.Invoke(_data.xp, _xpToNextLevel, _data.level);
     }
 
     private void InitializeBuffs()
@@ -230,14 +234,20 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
     public void GainXp(float amount)
     {
         _data.xp += amount;
+
         while (_data.xp >= _xpToNextLevel)
         {
             _data.xp -= _xpToNextLevel;
             _data.level++;
             _xpToNextLevel = CalculateXpForLevel(_data.level);
         }
+
         SaveData();
+
+        // HUD/HUDManager 쪽에 알림 보내기
+        onXpChanged?.Invoke(_data.xp, _xpToNextLevel, _data.level);
     }
+
 
     // 새 게임 리셋: LV1 / XP0, HP 풀, HUD 갱신
     public void ResetProgressForNewGame()
@@ -251,6 +261,9 @@ public class PlayerStatus : Singleton<PlayerStatus>, IDamageable
         onHealthChanged?.Invoke(_currentHealth);
 
         SaveData();
+
+        // XP도 초기값으로 갱신됐다고 알림
+        onXpChanged?.Invoke(_data.xp, _xpToNextLevel, _data.level);
     }
 
     public void SetCharacter(CharacterType type)

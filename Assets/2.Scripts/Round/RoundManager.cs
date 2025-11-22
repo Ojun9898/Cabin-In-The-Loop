@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 public class RoundManager : MonoBehaviour
 {
@@ -13,14 +14,46 @@ public class RoundManager : MonoBehaviour
     [Header("스폰 관리자 참조")] 
     public SpawnManager spawnManager;
 
-    [Header("몬스터 스폰 간격 (초)")] 
-    public float spawnInterval = 2f;
+    // 몬스터 스폰 간격 (초) 
+    private float _spawnInterval = 1f;
 
     private Coroutine spawnRoutine;
     public int currentRound = 0;
     
     private int totalMonsterCount = 0;
     private int deadMonsterCount = 0;
+    
+    private bool _CanSpawnThisScene = true;  
+    
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        bool isMain = scene.name == "Main";
+        _CanSpawnThisScene = !isMain;
+
+        // 혹시 이전 라운드 코루틴이 돌고 있으면 중지
+        if (spawnRoutine != null)
+        {
+            StopCoroutine(spawnRoutine);
+            spawnRoutine = null;
+        }
+
+        // 새 씬으로 넘어갈 때는 항상 몬스터를 풀로 되돌림
+        if (spawnManager != null)
+        {
+            spawnManager.ReturnAllToPool();
+            spawnManager.ResetDeadMonsterCount();
+        }
+    }
     
     private void Awake()
     {
@@ -41,6 +74,13 @@ public class RoundManager : MonoBehaviour
     /// </summary>
     public void StartRounds(int startIndex)
     {
+        // 메인 씬에서는 무시
+        if (!_CanSpawnThisScene)
+        {
+            Debug.Log("[RoundManager] 이 씬에서는 라운드를 시작하지 않습니다.");
+            return;
+        }
+        
         spawnManager.ReturnAllToPool();
         MonsterSFXManager.Instance.StopAllSounds();
 
@@ -117,11 +157,11 @@ public class RoundManager : MonoBehaviour
         }
 
         // 4) 딜레이 후, 섞인 순서대로 0 자리부터 마지막 자리까지 스폰
-        yield return new WaitForSeconds(spawnInterval);
+        yield return new WaitForSeconds(_spawnInterval);
         foreach (var type in monsterQueue)
         {
             spawnManager.Spawn(type, currentRound);
-            yield return new WaitForSeconds(spawnInterval);
+            yield return new WaitForSeconds(_spawnInterval);
         }
     }
 }

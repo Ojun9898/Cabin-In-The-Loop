@@ -63,7 +63,8 @@ public class ZombiePatorlState : ZombieBaseState
     public override void UpdateState()
     {
         base.UpdateState();
-
+        
+        
         bool inRange = IsPlayerInRange(CHASE_RANGE);
         // 범위 안일 때만 직접 회전, 아닐 때는 NavMesh 회전
         if (navMeshAgent != null)

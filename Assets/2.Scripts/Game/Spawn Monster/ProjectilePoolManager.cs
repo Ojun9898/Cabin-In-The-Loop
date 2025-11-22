@@ -18,11 +18,10 @@ public class ProjectilePoolManager : MonoBehaviour
     public List<Pool> pools;
     
     // prefab → 실제 풀(Queue) 매핑
-    private Dictionary<GameObject, Queue<GameObject>> poolDictionary;
+    private Dictionary<string, Queue<GameObject>> poolDictionary;
     
     void Awake()
     {
-        // 1. 싱글턴 중복방지
         if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
@@ -31,73 +30,88 @@ public class ProjectilePoolManager : MonoBehaviour
         Instance = this;
         DontDestroyOnLoad(gameObject);
 
-        // 2. Dictionary 초기화
-        poolDictionary = new Dictionary<GameObject, Queue<GameObject>>();
+        poolDictionary = new Dictionary<string, Queue<GameObject>>();
 
-        // 3. 각 풀 초기화 (모두 this.transform의 자식으로 생성)
         foreach (var pool in pools)
         {
-            // 빈큐 생성
+            if (pool.prefab == null)
+            {
+                Debug.LogError("[ProjectilePoolManager] Pool에 prefab 이 비어 있습니다.");
+                continue;
+            }
+
+            string key = pool.prefab.name; // ★ 이름을 키로 사용
+
             var q = new Queue<GameObject>();
-            // 초기 인스턴스 생성
             for (int i = 0; i < pool.initialSize; i++)
             {
-                var obj = Instantiate(pool.prefab, Vector3.zero, Quaternion.identity, transform);
+                var obj = Instantiate(pool.prefab, transform);
                 obj.SetActive(false);
 
-                var poolable = obj.AddComponent<PoolableProjectile>();
+                var poolable = obj.GetComponent<PoolableProjectile>();
+                if (poolable == null) poolable = obj.AddComponent<PoolableProjectile>();
+
                 poolable.originPrefab = pool.prefab;
-                // 큐에 등록
+                poolable.poolKey      = key;   // ★ 어떤 풀에서 나왔는지 기록
+                poolable.inPool       = true;
+
                 q.Enqueue(obj);
             }
-            // 만든 Queue 를 Pool 구조체 내부의 projectiles에 저장
+
             pool.projectiles = q;
-            // “pool.prefab = Key, q = Value"
-            poolDictionary[pool.prefab] = q;
+            poolDictionary[key] = q; // ★ 이름 -> 큐
+            Debug.Log($"[ProjectilePoolManager] 등록된 풀 키: {key}");
         }
     }
     
     public GameObject SpawnFromPool(GameObject prefab, Vector3 position, Quaternion rotation)
     {
-        // 1) 풀에 해당 prefab이 등록되어 있는지 확인
-        if (!poolDictionary.TryGetValue(prefab, out var q))
+        if (prefab == null)
         {
-            Debug.LogWarning($"[{nameof(ProjectilePoolManager)}] 풀에 등록되지 않은 prefab: {prefab.name}");
+            Debug.LogError("[ProjectilePoolManager] SpawnFromPool 에 null prefab 이 들어왔습니다.");
+            return null;
+        }
+
+        string key = prefab.name;  // ★ 이름을 키로
+
+        if (!poolDictionary.TryGetValue(key, out var q))
+        {
+            // 여기서도 여전히 "정말 등록이 안 돼 있는 경우"에만 경고
+            Debug.LogWarning($"[ProjectilePoolManager] 풀에 등록되지 않은 prefab: {key}");
             return Instantiate(prefab, position, rotation, transform);
         }
 
         GameObject obj;
-        // 2) 큐에 사용 가능한 객체가 남아 있으면
         if (q.Count > 0)
         {
-            // 큐에서 꺼내기
             obj = q.Dequeue();
         }
         else
         {
-            // 풀 사이즈 초과 시 새로 생성하면서 부모 지정
+            // 풀에 부족하면 새로 생성해서 같은 풀에 넣을 준비
             obj = Instantiate(prefab, position, rotation, transform);
-            var poolable = obj.AddComponent<PoolableProjectile>();
+            var poolable = obj.GetComponent<PoolableProjectile>();
+            if (poolable == null) poolable = obj.AddComponent<PoolableProjectile>();
+
             poolable.originPrefab = prefab;
+            poolable.poolKey      = key;   // ★ 이 투사체도 같은 키를 사용
         }
 
-        // 위치/회전을 초기화 및 활성화
         obj.transform.SetPositionAndRotation(position, rotation);
         obj.SetActive(true);
 
-        // Rigidbody 초기화 (velocity 0)
         if (obj.TryGetComponent<Rigidbody>(out var rb))
         {
-            rb.velocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero; 
+            rb.velocity        = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
 
-        // 자동으로 일정 시간 뒤 되돌려놓기
-        if (obj.TryGetComponent<PoolableProjectile>(out var p)) 
+        if (obj.TryGetComponent<PoolableProjectile>(out var p))
             p.inPool = false;
 
         float lifetime = ProjectileLife.GetLifetime(obj);
         StartCoroutine(ReturnToPoolAfterTime(obj, lifetime));
+
         return obj;
     }
     
@@ -117,27 +131,25 @@ public class ProjectilePoolManager : MonoBehaviour
         if (obj == null) return;
 
         var poolable = obj.GetComponent<PoolableProjectile>();
-        // ★ 이미 풀에 들어간 상태라면 무시
         if (poolable != null && poolable.inPool) return;
 
         if (obj.TryGetComponent<Rigidbody>(out var rb))
         {
-            rb.velocity = Vector3.zero;
+            rb.velocity        = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
         }
 
         obj.SetActive(false);
 
-        // PoolableProjectile 컴포넌트가 붙어 있고, poolDictionary에 poolable.originPrefab 키가 등록되어 있고
-        // originPrefab이 초기에 풀에 등록했던 그 프리팹 참조와 동일하다면 ture 를 반환하고 곧바로 out var q에 해당 큐가 들어옴
-        if (poolable != null && poolDictionary.TryGetValue(poolable.originPrefab, out var q))
+        if (poolable != null && !string.IsNullOrEmpty(poolable.poolKey)
+                             && poolDictionary.TryGetValue(poolable.poolKey, out var q))
         {
-            poolable.inPool = true;  
-            // ★ 이제 풀 상태
+            poolable.inPool = true;
             q.Enqueue(obj);
         }
         else
         {
+            // 어떤 풀에도 속하지 않는다면 그냥 파괴
             Destroy(obj);
         }
     }
@@ -149,6 +161,8 @@ public class PoolableProjectile : MonoBehaviour
 {
     [HideInInspector] public GameObject originPrefab;
     [HideInInspector] public bool inPool;
+    
+    [HideInInspector] public string poolKey;
 }
 
 // 투사체들의 수명

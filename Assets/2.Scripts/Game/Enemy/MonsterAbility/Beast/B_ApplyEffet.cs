@@ -29,6 +29,12 @@ public class B_ApplyEffet : MonoBehaviour
         if (rageVFX) rageVFX.SetActive(false);
         _vfxs = (rageVFX ? rageVFX : gameObject).GetComponentsInChildren<VisualEffect>(true);
     }
+    
+    void OnDisable()
+    {
+        // 몬스터가 풀로 돌아가거나, 오브젝트가 비활성화될 때
+        ResetEffect();
+    }
 
     public void ActivateFor(float durationSeconds)
     {
@@ -83,6 +89,32 @@ public class B_ApplyEffet : MonoBehaviour
         if (rageVFX) rageVFX.SetActive(false);
         _co = null;
     }
+    
+    // 하울링 이펙트 종료
+    public void ResetEffect()
+    {
+        // 1) 코루틴 중지
+        if (_co != null)
+        {
+            StopCoroutine(_co);
+            _co = null;
+        }
+
+        // 2) 남은 시간 리셋
+        _remainTime = 0f;
+
+        // 3) playRate 원래대로 복구
+        if (_playRateBackups.Count > 0)
+        {
+            foreach (var b in _playRateBackups)
+                if (b.vfx) b.vfx.playRate = b.original;
+        }
+        _playRateBackups.Clear();
+
+        // 4) VFX 오브젝트 끄기
+        if (rageVFX) rageVFX.SetActive(false);
+    }
+
     
     void ApplyStatusOnRoot(float seconds)
     {

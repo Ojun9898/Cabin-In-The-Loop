@@ -78,7 +78,9 @@ public class InsectAttackState : InsectBaseState
 
         // firePoint가 아니라 "본체"의 전방을 사용 (XZ 평면으로 납작)
         Vector3 flatForward = Vector3.ProjectOnPlane(insect.transform.forward, Vector3.up).normalized;
-        if (flatForward.sqrMagnitude < 1e-6f) flatForward = Vector3.forward; // 안전장치
+        // 몬스터가 완전히 위쪽을 보고 있거나, 거의 위쪽을 보고있을때는 백터값이 아예 없거나 작은 값이 나오기때문에
+        // 이럴경우에는 그냥 정면 (0, 0, 1)을 적용
+        if (flatForward.sqrMagnitude < 1e-6f) flatForward = Vector3.forward; 
 
         Quaternion rot = Quaternion.LookRotation(flatForward, Vector3.up);
 
@@ -96,13 +98,10 @@ public class InsectAttackState : InsectBaseState
             rb.collisionDetectionMode = CollisionDetectionMode.ContinuousDynamic;
             rb.interpolation = RigidbodyInterpolation.Interpolate;
 
-            // 재사용 잔값 초기화
+            // 발사전, 이동속도, 회전속도 초기화
             rb.velocity = Vector3.zero;
             rb.angularVelocity = Vector3.zero;
-
-            // 누적 OR 대신 명시적으로 고정 (풀링 시 남는 플래그 방지)
-            rb.constraints = RigidbodyConstraints.FreezeRotation;
-
+            
             rb.velocity = flatForward * thronSpeed;
         }
 

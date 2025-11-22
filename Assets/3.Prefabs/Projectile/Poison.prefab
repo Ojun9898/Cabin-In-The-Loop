@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4909967424912514884}
   - component: {fileID: 5768528509625135976}
   m_Layer: 0
-  m_Name: Poison thron
+  m_Name: Poison
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

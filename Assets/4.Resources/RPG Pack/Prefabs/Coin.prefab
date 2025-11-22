@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000013555364002}
-  - component: {fileID: 5016189516301924925}
   - component: {fileID: 6715001244344164705}
-  m_Layer: 0
+  - component: {fileID: 3699614149036434348}
+  m_Layer: 8
   m_Name: Coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,21 +34,6 @@ Transform:
   - {fileID: 4000010444600384}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 59.492004, z: 0}
---- !u!114 &5016189516301924925
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000011365394840}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9c8d58676b2ef64da6958715a881eb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 0
-  amount: 1
-  autoDestroyAfter: 120
 --- !u!65 &6715001244344164705
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -70,6 +55,26 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3699614149036434348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011365394840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9c8d58676b2ef64da6958715a881eb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 0
+  amount: 1
+  autoDestroyAfter: 120
+  pickupSfx: {fileID: 8300000, guid: da788a5cc3c5e0e4d97134659bafe90f, type: 3}
+  baseVolume: 0.7
+  minIntervalBetweenSfx: 0.06
+  minPitch: 0.95
+  maxPitch: 1.05
 --- !u!1 &1000013760068644
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010444600384}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +119,7 @@ GameObject:
   - component: {fileID: 33000012841361078}
   - component: {fileID: 23000013388907530}
   - component: {fileID: 95000012458517520}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: coin
   m_TagString: Untagged
   m_Icon: {fileID: 0}

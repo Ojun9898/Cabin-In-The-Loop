@@ -9,6 +9,8 @@ public class V_Projectile : MonoBehaviour
     private float damage;
     // 일정시간뒤에 파괴
     private const float LIFETIME = 2.5f;
+    
+    private bool _returned;  // 중복 반환 방지
 
     // 방향 계산부터 인스턴스 생성, 초기화까지 전부 처리
     public static void Throw
@@ -27,7 +29,7 @@ public class V_Projectile : MonoBehaviour
         Vector3 dir = targetPosition - start;
         dir.y = 0f;
         dir.Normalize();
-
+        
         // 2) 생성 & 초기화
         var go = ProjectilePoolManager.Instance != null
             ? ProjectilePoolManager.Instance.SpawnFromPool(prefab, start, Quaternion.LookRotation(dir))
@@ -68,4 +70,5 @@ public class V_Projectile : MonoBehaviour
             if (hp != null) hp.TakeDamage(damage);
         }
     }
+    
 }

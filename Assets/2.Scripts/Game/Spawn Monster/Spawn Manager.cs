@@ -72,6 +72,8 @@ public class SpawnManager : MonoBehaviour
     
     private static SpawnManager _instance;
     
+    private bool _isMainScene = false;   // 추가
+    
     // 1) Addressables 라벨로 “프리팹 레퍼런스(원본)”를 모아두는 목록
     // 원본 보관소
     private List<GameObject> zombieLabels = new List<GameObject>();
@@ -232,6 +234,9 @@ public class SpawnManager : MonoBehaviour
     
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
+        // 지금 씬이 메인 메뉴인지 기록
+        _isMainScene = scene.name == "Main";
+        
         ReturnAllToPool();
         
         // 모든 몬스터 체력 리셋
@@ -298,6 +303,11 @@ public class SpawnManager : MonoBehaviour
     /// </summary>
     public void Spawn(MonsterType type, int roundIndex)
     {
+        // 메인 씬에서는 스폰 금지
+        if (_isMainScene)
+        {
+            return;
+        }
         // 1) 해당 roundIndex 에 맞는 지점 배열을 찾기
         Transform[] points = null;
         foreach (var set in spawnPointsByRound)

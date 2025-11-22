@@ -209,7 +209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a50b4b63ea5ed24797fd09886deab7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectilePrefab: {fileID: 5518104951989879666, guid: 3fa716ce04e66d94f98bdac3575adced,
+  projectilePrefab: {fileID: 4753609125970572541, guid: b36a30521663c994fa117533ef2ab927,
     type: 3}
   muzzlePoint: {fileID: 2073441454683902051}
 --- !u!114 &-2971342781309382969

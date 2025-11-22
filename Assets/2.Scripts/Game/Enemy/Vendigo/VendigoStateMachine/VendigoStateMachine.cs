@@ -51,10 +51,6 @@ public class VendigoStateMachine : StateMachine<Monster>
             monster.SetPlayer(playerTransform);
         }
         
-        else
-        {
-            Debug.LogWarning("Player Transform not set in ZombieStateMachine. Please assign it in the inspector.");
-        }
         
         // 상태 목록이 비어있으면 기본 상태들을 생성
         if (vendigoStates == null || vendigoStates.Count == 0)

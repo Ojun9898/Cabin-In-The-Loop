@@ -24,6 +24,12 @@ public class R_ApplyStatus : MonoBehaviour, IApplyStatus
     {
         _agent  = GetComponentInParent<NavMeshAgent>(true);
     }
+    
+    void OnDisable()
+    {
+        // 몬스터가 풀로 돌아가거나, 오브젝트가 비활성화될 때
+        ResetStatus();
+    }
 
     
     public void ApplyBoostFor(float seconds)
@@ -62,5 +68,28 @@ public class R_ApplyStatus : MonoBehaviour, IApplyStatus
             _agent.speed = _orignalSpeed;
 
         _co = null;
+    }
+    
+    private void ResetStatus()
+    {
+        // 1) 코루틴 중지
+        if (_co != null)
+        {
+            StopCoroutine(_co);
+            _co = null;
+        }
+
+        // 2) 속도 원래값/기본값으로 복구
+        if (_agent != null && _agent.enabled)
+        {
+            // 버프 시작 전에 백업해둔 값이 있으면 그걸 쓰고,
+            // 없으면 fallbackBaseSpeed 사용
+            float baseSpeed = (_orignalSpeed > 0f) ? _orignalSpeed : fallbackBaseSpeed;
+            _agent.speed = baseSpeed;
+        }
+
+        // 3) 혹시 VFX가 따로 붙어 있다면 같이 정리
+        if (vfx != null)
+            vfx.ResetEffect();
     }
 }
